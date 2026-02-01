@@ -521,7 +521,7 @@ const SocialIcon = ({ name }: { name: string }) => {
 
 const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string }) => {
   return (
-    <div className="w-full max-w-7xl mx-auto relative z-20 space-y-32">
+    <div className="w-full relative z-20 space-y-32">
 
       {/* 1. Main Statistics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
@@ -550,7 +550,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
       {/* 2. Platform Demography */}
 
       {/* Title Block */}
-      <div className="mb-20 px-4">
+      <div className="mb-20">
         <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
         <div>
           <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">
