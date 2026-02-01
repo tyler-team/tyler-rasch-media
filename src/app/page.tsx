@@ -147,8 +147,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views_label: "누적 유튜브 조회수",
       reach: "150만+",
       reach_label: "월간 평균 도달수",
-      engagement: "67만+",
-      engagement_label: "총 팔로워 (YouTube+SNS)",
+      engagement: "16.5만+",
+      engagement_label: "채널 구독자 수",
       trust: "TOP 1%",
       trust_label: "브랜드 신뢰도 지수",
       platform_demography: {
@@ -284,8 +284,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views_label: "Total YouTube Views",
       reach: "1.5M+",
       reach_label: "Avg. Monthly Reach",
-      engagement: "670K+",
-      engagement_label: "Total Followers",
+      engagement: "165K+",
+      engagement_label: "YouTube Subscribers",
       trust: "TOP 1%",
       trust_label: "Brand Trust Index",
       platform_demography: {
@@ -315,13 +315,13 @@ const contentData: Record<'KR' | 'EN', Content> = {
         channel_title: "Tylerbolkkayo (Official)",
         personal_title: "Tyler Rasch (Personal)",
         platforms: [
-          { name: "YouTube", handle: "@tylerbolkkayo", count: "165K", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tylerbolkkayo", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
-          { name: "TikTok", handle: "@tylerbolkkayo", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X (Twitter)", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
+          { name: "YouTube", handle: "@tylerbolkkayo", count: "", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tylerbolkkayo", count: "", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "TikTok", handle: "@tylerbolkkayo", count: "", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X (Twitter)", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
         ]
       }
     },
@@ -634,7 +634,6 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
                     <div className="text-white group-hover:text-accent transition-colors scale-125">
                       <SocialIcon name={p.icon} />
                     </div>
-                    <span className="text-sm font-black text-accent">{p.count}</span>
                   </div>
                   <div>
                     <div className="font-bold text-base text-white mb-1">{p.name}</div>
@@ -663,7 +662,7 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
                   </div>
                   <div className="w-full">
                     <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
-                    <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.count}</div>
+                    <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.handle}</div>
                   </div>
                 </motion.a>
               ))}
