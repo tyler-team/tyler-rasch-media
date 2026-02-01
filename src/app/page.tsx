@@ -44,23 +44,25 @@ type Content = {
     engagement_label: string;
     trust: string;
     trust_label: string;
-    platform_intelligence: {
+    platform_demography: {
       title: string;
       tabs: {
         youtube: {
           label: string;
           tagline: string;
+          gender_label: string;
           gender: { male: number; female: number };
-          age_peaks: { range: string; value: string }[];
+          age_label: string;
+          age_value: string;
           insight: string;
         };
         instagram: {
           label: string;
           tagline: string;
+          gender_label: string;
           gender: { male: number; female: number };
-          age_peaks: { range: string; value: string }[];
-          location_label: string;
-          location_value: string;
+          age_label: string;
+          age_value: string;
           insight: string;
         };
       };
@@ -146,32 +148,34 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     dashboard: {
       label: "REAL-TIME IMPACT",
-      views: "6,300만+",
+      views: "3,800만+",
       views_label: "누적 유튜브 조회수",
       reach: "150만+",
       reach_label: "월간 평균 도달수",
-      engagement: "67만+",
+      engagement: "16.5만+",
       engagement_label: "채널 구독자 수",
       trust: "TOP 1%",
       trust_label: "브랜드 신뢰도 지수",
-      platform_intelligence: {
-        title: "AUDIENCE INTELLIGENCE",
+      platform_demography: {
+        title: "PLATFORM DEMOGRAPHY",
         tabs: {
           youtube: {
             label: "YOUTUBE",
             tagline: "지적 의사결정권자",
-            gender: { male: 56.5, female: 43.5 },
-            age_peaks: [{ range: "45-54세", value: "27%" }, { range: "25-34세", value: "21%" }],
-            insight: "높은 구매력과 사회적 영향력을 가진 4050 리더 계층의 압도적 지지"
+            gender_label: "Gender: 남성 53% / 여성 47%",
+            gender: { male: 53, female: 47 },
+            age_label: "Core Age: 25 - 44세 (70%)",
+            age_value: "70%",
+            insight: "경제 활동이 가장 활발한 '구매 핵심층'으로, 테크, 금융, 자동차 등 고관여 제품군에 즉각 반응합니다."
           },
           instagram: {
             label: "INSTAGRAM",
             tagline: "트렌드 리더",
-            gender: { male: 23.2, female: 76.8 },
-            age_peaks: [{ range: "35-44세", value: "Dominant" }, { range: "25-34세", value: "Strong" }],
-            location_label: "지역",
-            location_value: "서울 56.9%",
-            insight: "트렌드에 민감하고 소비 주도권이 강한 2040 여성층 집중"
+            gender_label: "Gender: 여성 77% / 남성 23%",
+            gender: { male: 23, female: 77 },
+            age_label: "Core Age: 35 - 44세 (Dominant)",
+            age_value: "Dominant",
+            insight: "트렌드와 라이프스타일 소비를 주도하는 핵심 연령층으로, 뷰티, 패션, 리빙 등 비주얼 중심 소비재에 높은 반응률을 보입니다."
           }
         },
         potential_reach: {
@@ -184,14 +188,13 @@ const contentData: Record<'KR' | 'EN', Content> = {
         channel_title: "타일러볼까요 (Channel)",
         personal_title: "Tyler Rasch (Personal)",
         platforms: [
-          { name: "YouTube", handle: "타일러볼까요", count: "677K", icon: "youtube", url: "https://www.youtube.com/@tyleroninsta", isChannel: true },
-          { name: "Instagram", handle: "타일러볼까요", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tyler_explore/", isChannel: true },
-          { name: "TikTok", handle: "타일러볼까요", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tyleroninsta", isChannel: true },
-          { name: "Instagram", handle: "@tyloroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyloroninsta/" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "Professional", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X (Twitter)", handle: "@tyloroninsta", count: "Connect", icon: "twitter", url: "https://x.com/tyloroninsta" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/tyloroninsta" },
-          { name: "Kakao Channel", handle: "타일러", count: "1:1 Network", icon: "kakao", url: "https://pf.kakao.com/_txkBxbxl" }
+          { name: "YouTube", handle: "@tylerbolkkayo", count: "165K", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tylerbolkkayo", count: "Follow", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "TikTok", handle: "@tylerbolkkayo", count: "Follow", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "Connect", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X (Twitter)", handle: "@tylerrasch", count: "Follow", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
         ]
       }
     },
@@ -287,32 +290,34 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     dashboard: {
       label: "REAL-TIME IMPACT",
-      views: "63M+",
+      views: "38M+",
       views_label: "Total YouTube Views",
       reach: "1.5M+",
       reach_label: "Avg. Monthly Reach",
-      engagement: "677K+",
+      engagement: "165K+",
       engagement_label: "YouTube Subscribers",
       trust: "TOP 1%",
       trust_label: "Brand Trust Index",
-      platform_intelligence: {
-        title: "AUDIENCE INTELLIGENCE",
+      platform_demography: {
+        title: "PLATFORM DEMOGRAPHY",
         tabs: {
           youtube: {
             label: "YOUTUBE",
             tagline: "Intellectual Core",
-            gender: { male: 56.5, female: 43.5 },
-            age_peaks: [{ range: "45-54", value: "27%" }, { range: "25-34", value: "21%" }],
-            insight: "Strong support from decision-makers with high purchasing power."
+            gender_label: "Gender: Male 53% / Female 47%",
+            gender: { male: 53, female: 47 },
+            age_label: "Core Age: 25 - 44 (70%)",
+            age_value: "70%",
+            insight: "Core purchasing power. Creates immediate reaction to high-involvement products (Tech, Finance, Automotive)."
           },
           instagram: {
             label: "INSTAGRAM",
             tagline: "Cultural Drivers",
-            gender: { male: 23.2, female: 76.8 },
-            age_peaks: [{ range: "35-44", value: "Peak" }, { range: "25-34", value: "Strong" }],
-            location_label: "Top Region",
-            location_value: "Seoul 56.9%",
-            insight: "Trend-sensitive female demographic driving consumption trends."
+            gender_label: "Gender: Female 77% / Male 23%",
+            gender: { male: 23, female: 77 },
+            age_label: "Core Age: 35 - 44 (Dominant)",
+            age_value: "Dominant",
+            insight: "Leading trends and lifestyle consumption. High responsiveness to visual-centric goods (Beauty, Fashion, Living)."
           }
         },
         potential_reach: {
@@ -322,17 +327,16 @@ const contentData: Record<'KR' | 'EN', Content> = {
         }
       },
       ecosystem: {
-        channel_title: "타일러볼까요 (Official)",
+        channel_title: "Tylerbolkkayo (Official)",
         personal_title: "Tyler Rasch (Personal)",
         platforms: [
-          { name: "YouTube", handle: "타일러볼까요", count: "677K", icon: "youtube", url: "https://www.youtube.com/@tyleroninsta", isChannel: true },
-          { name: "Instagram", handle: "타일러볼까요", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tyler_explore/", isChannel: true },
-          { name: "TikTok", handle: "타일러볼까요", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tyleroninsta", isChannel: true },
-          { name: "Instagram", handle: "@tyloroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyloroninsta/" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "Professional", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X (Twitter)", handle: "@tyloroninsta", count: "Connect", icon: "twitter", url: "https://x.com/tyloroninsta" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/tyloroninsta" },
-          { name: "Kakao Channel", handle: "Tyler", count: "1:1 Network", icon: "kakao", url: "https://pf.kakao.com/_txkBxbxl" }
+          { name: "YouTube", handle: "@tylerbolkkayo", count: "165K", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tylerbolkkayo", count: "Follow", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "TikTok", handle: "@tylerbolkkayo", count: "Follow", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "Connect", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X (Twitter)", handle: "@tylerrasch", count: "Follow", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
         ]
       }
     },
@@ -549,101 +553,77 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
         ))}
       </div>
 
-      {/* 2. Platform Intelligence & Demographics */}
+      {/* 2. Platform Demography */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4">
         {/* Title Block */}
         <div className="lg:col-span-12 mb-8">
-          <span className="text-accent text-xs font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_intelligence.title}</span>
+          <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-white/10 pb-8">
             <h3 className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter italic">
-              Platform<br />Intelligence
+              Platform<br />Demography
             </h3>
             <div className="text-right">
-              <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-1">{t.platform_intelligence.potential_reach.label}</p>
-              <p className="text-4xl font-black text-white tracking-tighter">{t.platform_intelligence.potential_reach.value}</p>
-              <p className="text-zinc-600 text-[10px] uppercase tracking-wider">{t.platform_intelligence.potential_reach.desc}</p>
+              <p className="text-zinc-500 text-sm font-bold uppercase tracking-widest mb-1">{t.platform_demography.potential_reach.label}</p>
+              <p className="text-5xl font-black text-white tracking-tighter">{t.platform_demography.potential_reach.value}</p>
+              <p className="text-zinc-600 text-xs uppercase tracking-wider">{t.platform_demography.potential_reach.desc}</p>
             </div>
           </div>
         </div>
 
         {/* YouTube Intelligence */}
-        <div className="lg:col-span-6 glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
+        <div className="lg:col-span-6 glass p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
           <div className="absolute top-0 left-0 w-full h-1 bg-[#FF0000]" />
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-10">
             <div>
-              <h4 className="text-2xl font-black text-white italic tracking-tighter">{t.platform_intelligence.tabs.youtube.label}</h4>
-              <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{t.platform_intelligence.tabs.youtube.tagline}</p>
+              <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.youtube.label}</h4>
+              <p className="text-zinc-500 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.youtube.tagline}</p>
             </div>
-            <SocialIcon name="youtube" />
+            <div className="scale-125"><SocialIcon name="youtube" /></div>
+          </div>
+
+          {/* Age & Insight */}
+          <div className="mb-10">
+            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.age_label}</div>
+            <p className="text-white text-base font-medium leading-relaxed border-l-2 border-red-600 pl-4">
+              "{t.platform_demography.tabs.youtube.insight}"
+            </p>
           </div>
 
           {/* Gender Bar */}
-          <div className="mb-8">
-            <div className="flex justify-between text-[10px] uppercase font-bold text-zinc-500 mb-2">
-              <span>Male {t.platform_intelligence.tabs.youtube.gender.male}%</span>
-              <span>Female {t.platform_intelligence.tabs.youtube.gender.female}%</span>
-            </div>
-            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden flex">
-              <div className="h-full bg-zinc-700" style={{ width: `${t.platform_intelligence.tabs.youtube.gender.male}%` }} />
-              <div className="h-full bg-red-600" style={{ width: `${t.platform_intelligence.tabs.youtube.gender.female}%` }} />
+          <div>
+            <div className="text-sm font-bold text-zinc-500 mb-3 uppercase tracking-wider">{t.platform_demography.tabs.youtube.gender_label}</div>
+            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex">
+              <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}>M</div>
+              <div className="h-full bg-red-600 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}>F</div>
             </div>
           </div>
-
-          {/* Age Peaks */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            {t.platform_intelligence.tabs.youtube.age_peaks.map((peak, i) => (
-              <div key={i} className="bg-white/[0.02] rounded-xl p-4">
-                <div className="text-2xl font-black text-white">{peak.value}</div>
-                <div className="text-[10px] font-bold text-zinc-500 uppercase">Age {peak.range}</div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-white text-sm font-medium border-l-2 border-red-600 pl-4">
-            "{t.platform_intelligence.tabs.youtube.insight}"
-          </p>
         </div>
 
         {/* Instagram Intelligence */}
-        <div className="lg:col-span-6 glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
+        <div className="lg:col-span-6 glass p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500" />
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-10">
             <div>
-              <h4 className="text-2xl font-black text-white italic tracking-tighter">{t.platform_intelligence.tabs.instagram.label}</h4>
-              <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{t.platform_intelligence.tabs.instagram.tagline}</p>
+              <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.instagram.label}</h4>
+              <p className="text-zinc-500 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.instagram.tagline}</p>
             </div>
-            <SocialIcon name="instagram" />
+            <div className="scale-125"><SocialIcon name="instagram" /></div>
+          </div>
+
+          {/* Age & Insight */}
+          <div className="mb-10">
+            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.instagram.age_label}</div>
+            <p className="text-white text-base font-medium leading-relaxed border-l-2 border-pink-500 pl-4">
+              "{t.platform_demography.tabs.instagram.insight}"
+            </p>
           </div>
 
           {/* Gender Bar */}
-          <div className="mb-8">
-            <div className="flex justify-between text-[10px] uppercase font-bold text-zinc-500 mb-2">
-              <span>Male {t.platform_intelligence.tabs.instagram.gender.male}%</span>
-              <span>Female {t.platform_intelligence.tabs.instagram.gender.female}%</span>
-            </div>
-            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden flex">
-              <div className="h-full bg-zinc-700" style={{ width: `${t.platform_intelligence.tabs.instagram.gender.male}%` }} />
-              <div className="h-full bg-pink-500" style={{ width: `${t.platform_intelligence.tabs.instagram.gender.female}%` }} />
-            </div>
-          </div>
-
-          {/* Age Peaks & Location */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            {t.platform_intelligence.tabs.instagram.age_peaks.map((peak, i) => (
-              <div key={i} className="bg-white/[0.02] rounded-xl p-4">
-                <div className="text-2xl font-black text-white">{peak.value}</div>
-                <div className="text-[10px] font-bold text-zinc-500 uppercase">Age {peak.range}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex justify-between items-end">
-            <p className="text-white text-sm font-medium border-l-2 border-pink-500 pl-4 max-w-[70%]">
-              "{t.platform_intelligence.tabs.instagram.insight}"
-            </p>
-            <div className="text-right">
-              <div className="text-xl font-black text-white">{t.platform_intelligence.tabs.instagram.location_value}</div>
-              <div className="text-[10px] font-bold text-zinc-500 uppercase">{t.platform_intelligence.tabs.instagram.location_label}</div>
+          <div>
+            <div className="text-sm font-bold text-zinc-500 mb-3 uppercase tracking-wider">{t.platform_demography.tabs.instagram.gender_label}</div>
+            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex">
+              <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}>M</div>
+              <div className="h-full bg-pink-500 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}>F</div>
             </div>
           </div>
         </div>
@@ -652,14 +632,14 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
       {/* 3. Social Media Ecosystem Grid */}
       <div className="px-4 space-y-12">
         <div className="text-center">
-          <h3 className="text-xs font-black text-zinc-500 uppercase tracking-[0.5em] mb-4">SOCIAL MEDIA ECOSYSTEM</h3>
+          <h3 className="text-sm font-black text-zinc-500 uppercase tracking-[0.5em] mb-4">SOCIAL MEDIA ECOSYSTEM</h3>
           <div className="h-[1px] w-20 bg-accent mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
           {/* Channel Brand Group */}
           <div className="space-y-8">
-            <h4 className="text-lg font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.channel_title}</h4>
+            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.channel_title}</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
                 <motion.a
@@ -668,16 +648,18 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-5 glass rounded-2xl border border-white/5 hover:border-accent/40 hover:bg-accent/5 transition-all group"
+                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-accent/40 hover:bg-accent/5 transition-all group flex flex-col justify-between"
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="text-white group-hover:text-accent transition-colors">
+                  <div className="flex items-center justify-between">
+                    <div className="text-white group-hover:text-accent transition-colors scale-125">
                       <SocialIcon name={p.icon} />
                     </div>
-                    <span className="text-[10px] font-black text-accent">{p.count}</span>
+                    <span className="text-sm font-black text-accent">{p.count}</span>
                   </div>
-                  <div className="font-bold text-sm text-white">{p.name}</div>
-                  <div className="text-[10px] text-zinc-500 font-medium">{p.handle}</div>
+                  <div>
+                    <div className="font-bold text-base text-white mb-1">{p.name}</div>
+                    <div className="text-xs text-zinc-500 font-medium truncate">{p.handle}</div>
+                  </div>
                 </motion.a>
               ))}
             </div>
@@ -685,8 +667,8 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
 
           {/* Personal Group */}
           <div className="space-y-8">
-            <h4 className="text-lg font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.personal_title}</h4>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.personal_title}</h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {t.ecosystem.platforms.filter(p => !p.isChannel).map((p, i) => (
                 <motion.a
                   key={i}
@@ -694,13 +676,15 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-5 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center text-center group"
+                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
                 >
-                  <div className="mb-4 text-zinc-400 group-hover:text-white transition-colors">
+                  <div className="text-zinc-400 group-hover:text-white transition-colors scale-125">
                     <SocialIcon name={p.icon} />
                   </div>
-                  <div className="text-[10px] font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
-                  <div className="text-[9px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.count}</div>
+                  <div className="w-full">
+                    <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
+                    <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.count}</div>
+                  </div>
                 </motion.a>
               ))}
             </div>
