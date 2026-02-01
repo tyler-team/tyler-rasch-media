@@ -555,11 +555,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           <div className="mb-20">
             <div>
               <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">
-                {title.split(' ').map((word, i) => (
-                  <React.Fragment key={i}>
-                    {word}{i === 0 && title.includes(' ') ? <br /> : ' '}
-                  </React.Fragment>
-                ))}
+                {title}
               </h2>
               <div className="w-20 h-1 bg-accent/30 mt-8" />
             </div>
