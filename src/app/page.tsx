@@ -262,7 +262,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       impact: "Media Influence",
       originals: "Original Series",
       brands: "Brand Partnership",
-      packages: "Packages",
+      packages: "Partnership",
       contact: "Inquire"
     },
     hero: {
@@ -543,14 +543,17 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
         {/* Title Block */}
         <div className="lg:col-span-12 mb-8">
           <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-white/10 pb-8">
-            <h3 className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter italic">
-              {title.split(' ').map((word, i) => (
-                <React.Fragment key={i}>
-                  {word}{i === 0 && title.includes(' ') ? <br /> : ' '}
-                </React.Fragment>
-              ))}
-            </h3>
+          <div className="mb-20">
+            <div>
+              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">
+                {title.split(' ').map((word, i) => (
+                  <React.Fragment key={i}>
+                    {word}{i === 0 && title.includes(' ') ? <br /> : ' '}
+                  </React.Fragment>
+                ))}
+              </h2>
+              <div className="w-20 h-1 bg-accent/30 mt-8" />
+            </div>
           </div>
         </div>
 
@@ -752,7 +755,10 @@ export default function Home() {
           {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
           <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} />
           <div className="max-w-5xl relative z-10">
-            <h2 className="text-sm font-bold text-zinc-500 tracking-[0.2em] mb-12 uppercase">{t.philosophy.heading}</h2>
+            <div className="mb-20">
+              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.sidebar.vision}</h2>
+              <div className="w-20 h-1 bg-accent/30 mt-8" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-lg md:text-xl leading-relaxed text-zinc-400 border-l border-accent/20 pl-8">
               <p className="word-keep-all">{t.philosophy.p1}</p>
               <p className="word-keep-all">{t.philosophy.p2}</p>
@@ -776,9 +782,9 @@ export default function Home() {
         <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
           {/* SWITCH: Using tyler_prayer_hands.jpg here */}
           <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} />
-          <div className="mb-32 relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 italic tracking-tighter uppercase">{t.portfolio.originals.heading}</h2>
-            <div className="w-20 h-1 bg-accent/30" />
+          <div className="mb-20 relative z-10">
+            <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.portfolio.originals.heading}</h2>
+            <div className="w-20 h-1 bg-accent/30 mt-8" />
           </div>
 
           <div className="grid grid-cols-1 gap-24 relative z-10">
@@ -832,11 +838,10 @@ export default function Home() {
           {/* SWITCH: Using tyler_crossed_arms_side.jpg here */}
           <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} />
           <div className="relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-              <div>
-                <h2 className="text-3xl md:text-5xl font-black text-white mb-4 italic tracking-tighter uppercase">{t.portfolio.brands.heading}</h2>
-                <p className="text-accent text-sm font-bold uppercase tracking-widest">{t.portfolio.brands.subheading}</p>
-              </div>
+            <div className="mb-20">
+              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.portfolio.brands.heading}</h2>
+              <p className="text-accent text-sm font-bold uppercase tracking-widest mt-4">{t.portfolio.brands.subheading}</p>
+              <div className="w-20 h-1 bg-accent/30 mt-8" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -875,8 +880,9 @@ export default function Home() {
           <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} />
           <div className="relative z-10">
             <div className="mb-20">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-4 uppercase">{t.packages.heading}</h2>
-              <p className="text-accent text-sm font-mono tracking-widest uppercase">{t.packages.subheading}</p>
+              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.packages.heading}</h2>
+              <p className="text-accent text-sm font-mono tracking-widest uppercase mt-4">{t.packages.subheading}</p>
+              <div className="w-20 h-1 bg-accent/30 mt-8" />
             </div>
 
             <div className="space-y-24">
@@ -907,9 +913,12 @@ export default function Home() {
           {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
           <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} />
           <div className="max-w-6xl mx-auto relative z-10">
-            <div className="mb-12 flex items-baseline gap-6">
-              <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter uppercase leading-none">PARTNERSHIP</h2>
-              <div className="mb-2 animate-bounce text-accent text-2xl">↓</div>
+            <div className="mb-20">
+              <div className="flex items-baseline gap-6 mb-8">
+                <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.sidebar.contact}</h2>
+                <div className="animate-bounce text-accent text-2xl">↓</div>
+              </div>
+              <div className="w-20 h-1 bg-accent/30" />
             </div>
 
             <TypeformEmbed />
