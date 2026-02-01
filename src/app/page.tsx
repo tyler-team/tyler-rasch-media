@@ -308,7 +308,6 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
       </div>
 
       <div className="space-y-8">
-        {/* Prominent Redesigned Language Toggle */}
         <div className="flex flex-col gap-3">
           <span className="text-[10px] font-black tracking-widest text-zinc-500 uppercase px-1">Language</span>
           <div className="flex bg-white/5 border border-white/10 p-1 rounded-full relative">
@@ -319,13 +318,13 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
             />
             <button
               onClick={() => setLang('KR')}
-              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500'}`}
             >
               KR
             </button>
             <button
               onClick={() => setLang('EN')}
-              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500'}`}
             >
               EN
             </button>
@@ -467,9 +466,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 3. IMPACT DASHBOARD */}
-        <section id="impact" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          {/* AUDIT: Using unique Prayer Hands portrait for Impact */}
+        {/* 3. IMPACT DASHBOARD - INCREASED HEIGHT */}
+        <section id="impact" className="relative py-72 px-8 md:px-20 border-b border-white/5 overflow-hidden">
           <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yImpact} />
           <div className="relative z-10">
             <ImpactDashboard t={t.dashboard} />
@@ -532,7 +530,8 @@ export default function Home() {
 
         {/* 5. BRAND COLLABORATIONS */}
         <section id="brands" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          <SectionBackground src="/headshots/20251206_TylerRasch0100_BW.jpg" y={yBrands} />
+          {/* AUDIT: Using unique shot (0130) to differentiate from the Originals section */}
+          <SectionBackground src="/headshots/20251206_TylerRasch0130_BW.jpg" y={yBrands} />
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
               <div>
