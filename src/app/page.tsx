@@ -745,8 +745,8 @@ export default function Home() {
 
         {/* 2. PHILOSOPHY */}
         <section className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          {/* SWITCH: Using tyler_prayer_hands.jpg here */}
-          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yPhil} />
+          {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
+          <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} />
           <div className="max-w-5xl relative z-10">
             <h2 className="text-sm font-bold text-zinc-500 tracking-[0.2em] mb-12 uppercase">{t.philosophy.heading}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-lg md:text-xl leading-relaxed text-zinc-400 border-l border-accent/20 pl-8">
@@ -760,9 +760,9 @@ export default function Home() {
         </section>
 
         {/* 3. IMPACT DASHBOARD - SIGNIFICANT EXPANSION */}
-        <section id="impact" className="relative py-96 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
-          <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yImpact} />
+        <section id="impact" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+          {/* SWITCH: Using tyler_laughing.jpg here */}
+          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} />
           <div className="relative z-10">
             <ImpactDashboard t={t.dashboard} />
           </div>
@@ -770,8 +770,8 @@ export default function Home() {
 
         {/* 4. ORIGINAL CONTENTS */}
         <section id="originals" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          {/* SWITCH: Using tyler_laughing.jpg here */}
-          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yOriginals} />
+          {/* SWITCH: Using tyler_prayer_hands.jpg here */}
+          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} />
           <div className="mb-20 relative z-10">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4 italic tracking-tighter uppercase">{t.portfolio.originals.heading}</h2>
             <div className="w-20 h-1 bg-accent/30" />
