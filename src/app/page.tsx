@@ -143,9 +143,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
     philosophy: {
       heading: "비전",
       p1: <>타일러 라쉬는 <span className="text-accent font-bold">국민적 인지도</span>와 <span className="text-white font-bold">높은 신뢰도</span>를 동시에 보유한 유일한 인물입니다. 단순한 인플루언서를 넘어, 기후 변화, 인문학, 세계 경제를 논하는 '시대의 지성'으로서 브랜드에 깊이 있는 가치를 더합니다.</>,
-      p2: <>우리는 단순한 노출을 제안하지 않습니다. 귀사의 브랜드 철학이 타일러의 언어를 통해 대중에게 <span className="text-accent font-bold">논리적이고 설득력 있게</span> 전달되는 '전략적 커뮤니케이션'을 약속합니다.</>,
+      p2: <>단순한 노출을 제안하지 않습니다. 귀사의 브랜드 철학이 타일러의 언어를 통해 대중에게 <span className="text-accent font-bold">논리적이고 설득력 있게</span> 전달되는 '전략적 커뮤니케이션'을 약속합니다.</>,
       quote: "진정성 있는 메시지만이 세상을 움직입니다.",
-      manifesto: <><span className="block mb-2">단순한 노출을 넘어, 브랜드에 '깊이'를 더하세요.</span>타일러의 목소리는 곧 <span className="text-white">신뢰</span>가 됩니다.</>
+      manifesto: <><span className="block mb-2">단순한 노출을 넘어, 브랜드에 <span className="text-accent">깊이</span>를 더하세요</span>타일러의 목소리는 곧 <span className="text-white">신뢰</span>가 됩니다</>
     },
     dashboard: {
       label: "REAL-TIME IMPACT",
@@ -285,7 +285,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       p1: <>Tyler holds a unique position in the Korean market, combining <span className="text-accent font-bold">National Recognition</span> with <span className="text-white font-bold">Unwavering Trust</span>. As a thought leader on Climate, Humanities, and Economics, he elevates brands beyond simple promotion.</>,
       p2: <>We don't just offer exposure. We promise <span className="text-accent font-bold">Strategic Communication</span> where your brand philosophy is translated into Tyler's logical, persuasive language, resonating deeply with the "Active Economic Class".</>,
       quote: "Authenticity is the only currency that matters.",
-      manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives.</span>Lend <span className="text-white">Intellectual Authority</span> to Your Brand.</>
+      manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives</span>Lend <span className="text-white">Intellectual Authority</span> to Your Brand</>
     },
     dashboard: {
       label: "REAL-TIME IMPACT",
