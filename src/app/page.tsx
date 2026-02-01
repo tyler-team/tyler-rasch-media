@@ -479,8 +479,8 @@ export default function Home() {
 
         {/* 4. ORIGINAL CONTENTS */}
         <section id="originals" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          {/* AUDIT: Using unique '20251206_TylerRasch0253_BW.jpg' */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yOriginals} />
+          {/* SWITCH: Using tyler_laughing.jpg here */}
+          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yOriginals} />
           <div className="mb-20 relative z-10">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4 italic tracking-tighter uppercase">{t.portfolio.originals.heading}</h2>
             <div className="w-20 h-1 bg-accent/30" />
@@ -534,8 +534,8 @@ export default function Home() {
 
         {/* 5. BRAND COLLABORATIONS */}
         <section id="brands" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          {/* AUDIT: Using unique 'tyler_laughing.jpg' */}
-          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yBrands} />
+          {/* SWITCH: Using tyler_crossed_arms_side.jpg here */}
+          <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} />
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
               <div>
