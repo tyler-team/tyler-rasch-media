@@ -66,11 +66,6 @@ type Content = {
           insight: string;
         };
       };
-      potential_reach: {
-        label: string;
-        value: string;
-        desc: string;
-      };
     };
     ecosystem: {
       channel_title: string;
@@ -152,8 +147,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views_label: "누적 유튜브 조회수",
       reach: "150만+",
       reach_label: "월간 평균 도달수",
-      engagement: "16.5만+",
-      engagement_label: "채널 구독자 수",
+      engagement: "67만+",
+      engagement_label: "총 팔로워 (YouTube+SNS)",
       trust: "TOP 1%",
       trust_label: "브랜드 신뢰도 지수",
       platform_demography: {
@@ -177,11 +172,6 @@ const contentData: Record<'KR' | 'EN', Content> = {
             age_value: "Dominant",
             insight: "트렌드와 라이프스타일 소비를 주도하는 핵심 연령층으로, 뷰티, 패션, 리빙 등 비주얼 중심 소비재에 높은 반응률을 보입니다."
           }
-        },
-        potential_reach: {
-          label: "잠재 도달 가능 오디언스 (Meta)",
-          value: "2,700만+",
-          desc: "금융, 리테일, 미디어 관심사 보유 경제인구"
         }
       },
       ecosystem: {
@@ -189,12 +179,12 @@ const contentData: Record<'KR' | 'EN', Content> = {
         personal_title: "Tyler Rasch (Personal)",
         platforms: [
           { name: "YouTube", handle: "@tylerbolkkayo", count: "165K", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tylerbolkkayo", count: "Follow", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
-          { name: "TikTok", handle: "@tylerbolkkayo", count: "Follow", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tylerbolkkayo", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "TikTok", handle: "@tylerbolkkayo", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "Connect", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X (Twitter)", handle: "@tylerrasch", count: "Follow", icon: "twitter", url: "https://x.com/tylerrasch" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X (Twitter)", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
         ]
       }
     },
@@ -294,8 +284,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views_label: "Total YouTube Views",
       reach: "1.5M+",
       reach_label: "Avg. Monthly Reach",
-      engagement: "165K+",
-      engagement_label: "YouTube Subscribers",
+      engagement: "670K+",
+      engagement_label: "Total Followers",
       trust: "TOP 1%",
       trust_label: "Brand Trust Index",
       platform_demography: {
@@ -319,11 +309,6 @@ const contentData: Record<'KR' | 'EN', Content> = {
             age_value: "Dominant",
             insight: "Leading trends and lifestyle consumption. High responsiveness to visual-centric goods (Beauty, Fashion, Living)."
           }
-        },
-        potential_reach: {
-          label: "Est. Potential Audience (Meta)",
-          value: "27M+",
-          desc: "Targeting interests in Finance, Retail, and Media."
         }
       },
       ecosystem: {
@@ -331,12 +316,12 @@ const contentData: Record<'KR' | 'EN', Content> = {
         personal_title: "Tyler Rasch (Personal)",
         platforms: [
           { name: "YouTube", handle: "@tylerbolkkayo", count: "165K", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tylerbolkkayo", count: "Follow", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
-          { name: "TikTok", handle: "@tylerbolkkayo", count: "Follow", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tylerbolkkayo", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "TikTok", handle: "@tylerbolkkayo", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "Connect", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X (Twitter)", handle: "@tylerrasch", count: "Follow", icon: "twitter", url: "https://x.com/tylerrasch" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X (Twitter)", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
         ]
       }
     },
@@ -419,10 +404,10 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
     <nav className="fixed left-0 top-0 bottom-0 w-20 md:w-64 z-50 glass border-r border-white/10 flex flex-col justify-between py-12 px-4 md:px-8">
 
       <div>
-        <div className="font-black text-2xl tracking-tighter leading-none mb-1 text-center md:text-left">
+        <a href="/" className="font-black text-2xl tracking-tighter leading-none mb-1 text-center md:text-left block hover:opacity-80 transition-opacity">
           <span className="md:hidden">TR</span>
           <span className="hidden md:block">TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span></span>
-        </div>
+        </a>
       </div>
 
       <div className="flex flex-col gap-8 text-xs md:text-sm font-bold tracking-widest uppercase">
@@ -497,7 +482,7 @@ const SocialIcon = ({ name }: { name: string }) => {
     ),
     tiktok: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12.525.02c1.31 0 2.57.346 3.67 1.01.07-.03.14-.07.21-.11.08-.04.16.04.13.13-.1.35-.16.71-.16 1.09 0 2.63 1.93 4.8 4.46 5.17l.03.01c.08.01.12.1.06.16-.62.59-1.42.94-2.31.94-.37 0-.71-.06-1.04-.17v5.6c0 3.86-3.13 7-7 7s-7-3.14-7-7 3.13-7 7-7c.28 0 .54.02.8.06V8.16C10.4 8.05 9.49 8 8.51 8c-3.86 0-7 3.14-7 7s3.14 7 7 7 7-3.14 7-7V4.02c2.42.41 4.27 2.41 4.27 4.85 0 .38-.04.75-.12 1.1-.01.08.07.13.13.08.77-.61 1.03-1.63 1.03-2.58 0-.3-.02-.6-.07-.89-.01-.08.07-.13.13-.08.57.45 1.25.74 2 .84.08.01.12-.08.07-.14-.42-.51-.67-1.16-.67-1.87 0-1.66 1.34-3 3-3 .24 0 .47.03.69.08.08.02.13-.07.09-.14-.52-.89-1.44-1.49-2.5-1.49-.07 0-.14 0-.21.01-.08.01-.12-.08-.07-.14.28-.34.44-.76.44-1.22 0-1.66-1.34-3-3-3-.38 0-.74.07-1.07.2-.08.03-.13-.05-.09-.12.33-.65.51-1.39.51-2.17C21.43 1.54 18.04 0 14 0c-1.42 0-2.73.41-3.84 1.11-.08.05-.07.16.02.19 1.17.43 2.01 1.54 2.01 2.85 0 .28-.04.56-.12.82-.02.08.05.15.13.13.91-.21 1.86-.33 2.83-.33 3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6V.02h-.47z" />
+        <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" />
       </svg>
     ),
     linkedin: (
@@ -560,13 +545,8 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
           <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-white/10 pb-8">
             <h3 className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter italic">
-              Platform<br />Demography
+              Demography<br />Data
             </h3>
-            <div className="text-right">
-              <p className="text-zinc-500 text-sm font-bold uppercase tracking-widest mb-1">{t.platform_demography.potential_reach.label}</p>
-              <p className="text-5xl font-black text-white tracking-tighter">{t.platform_demography.potential_reach.value}</p>
-              <p className="text-zinc-600 text-xs uppercase tracking-wider">{t.platform_demography.potential_reach.desc}</p>
-            </div>
           </div>
         </div>
 
