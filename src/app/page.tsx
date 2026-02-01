@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 // --- TYPES & CONTENT DICTIONARY ---
@@ -122,9 +122,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
   KR: {
     sidebar: {
       vision: "비전",
-      impact: "영향력",
-      originals: "오리지널",
-      brands: "브랜드 프로젝트",
+      impact: "미디어 영향력",
+      originals: "오리지널 시리즈",
+      brands: "브랜드 파트너십",
       packages: "파트너십",
       contact: "문의하기"
     },
@@ -136,7 +136,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       cta: "협업 문의하기"
     },
     philosophy: {
-      heading: "THE INTELLECTUAL AUTHORITY",
+      heading: "비전",
       p1: <>타일러 라쉬는 <span className="text-accent font-bold">국민적 인지도</span>와 <span className="text-white font-bold">높은 신뢰도</span>를 동시에 보유한 유일한 인물입니다. 단순한 인플루언서를 넘어, 기후 변화, 인문학, 세계 경제를 논하는 '시대의 지성'으로서 브랜드에 깊이 있는 가치를 더합니다.</>,
       p2: <>우리는 단순한 노출을 제안하지 않습니다. 귀사의 브랜드 철학이 타일러의 언어를 통해 대중에게 <span className="text-accent font-bold">논리적이고 설득력 있게</span> 전달되는 '전략적 커뮤니케이션'을 약속합니다.</>,
       quote: "진정성 있는 메시지만이 세상을 움직입니다."
@@ -190,7 +190,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     portfolio: {
       originals: {
-        heading: "ORIGINAL CONTENTS",
+        heading: "오리지널 시리즈",
         items: [
           {
             title: "Candid Couch",
@@ -216,7 +216,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         ]
       },
       brands: {
-        heading: "BRAND COLLABORATIONS",
+        heading: "브랜드 파트너십",
         subheading: "브랜드 철학을 타일러만의 논리적인 서사로 재해석한 성공 사례",
         items: [
           { client: "SK Telecom", title: "당신의 시간을 아끼는 법 (Neuroscience of Design)", category: "Branded Content" },
@@ -229,7 +229,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "PARTNERSHIP PACKAGES",
+      heading: "파트너십",
       subheading: "브랜드의 격을 높이는 전략적 솔루션",
       items: [
         {
@@ -259,9 +259,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
   EN: {
     sidebar: {
       vision: "Vision",
-      impact: "Impact",
-      originals: "Originals",
-      brands: "Brand Projects",
+      impact: "Media Influence",
+      originals: "Original Series",
+      brands: "Brand Partnership",
       packages: "Packages",
       contact: "Inquire"
     },
@@ -273,7 +273,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       cta: "Inquire Now"
     },
     philosophy: {
-      heading: "THE INTELLECTUAL AUTHORITY",
+      heading: "VISION",
       p1: <>Tyler holds a unique position in the Korean market, combining <span className="text-accent font-bold">National Recognition</span> with <span className="text-white font-bold">Unwavering Trust</span>. As a thought leader on Climate, Humanities, and Economics, he elevates brands beyond simple promotion.</>,
       p2: <>We don't just offer exposure. We promise <span className="text-accent font-bold">Strategic Communication</span> where your brand philosophy is translated into Tyler's logical, persuasive language, resonating deeply with the "Active Economic Class".</>,
       quote: "Authenticity is the only currency that matters."
@@ -327,7 +327,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     portfolio: {
       originals: {
-        heading: "ORIGINAL CONTENTS",
+        heading: "ORIGINAL SERIES",
         items: [
           {
             title: "Candid Couch",
@@ -353,7 +353,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         ]
       },
       brands: {
-        heading: "BRAND COLLABORATIONS",
+        heading: "BRAND PARTNERSHIP",
         subheading: "Brand philosophies translated into Tyler's logical narratives.",
         items: [
           { client: "SK Telecom", title: "Neuroscience Behind Design", category: "Branded Content" },
@@ -366,7 +366,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "PARTNERSHIP PACKAGES",
+      heading: "PARTNERSHIP",
       subheading: "Strategic Integration for Industry Leaders",
       items: [
         {
@@ -510,7 +510,7 @@ const SocialIcon = ({ name }: { name: string }) => {
   return icons[name.toLowerCase()] || <span className="w-5 h-5 bg-white/10 rounded-full" />;
 };
 
-const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
+const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string }) => {
   return (
     <div className="w-full max-w-7xl mx-auto relative z-20 space-y-32">
 
@@ -545,7 +545,11 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
           <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-white/10 pb-8">
             <h3 className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter italic">
-              Demography<br />Data
+              {title.split(' ').map((word, i) => (
+                <React.Fragment key={i}>
+                  {word}{i === 0 && title.includes(' ') ? <br /> : ' '}
+                </React.Fragment>
+              ))}
             </h3>
           </div>
         </div>
@@ -764,7 +768,7 @@ export default function Home() {
           {/* SWITCH: Using tyler_laughing.jpg here */}
           <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} />
           <div className="relative z-10">
-            <ImpactDashboard t={t.dashboard} />
+            <ImpactDashboard t={t.dashboard} title={t.sidebar.impact} />
           </div>
         </section>
 
