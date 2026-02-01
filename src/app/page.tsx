@@ -448,11 +448,13 @@ export default function Home() {
             </a>
           </motion.div>
 
+          {/* AUDIT: Keep 'tyler_suit_thinking.jpg' as the first one as requested */}
           <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} />
         </section>
 
         {/* 2. PHILOSOPHY */}
         <section className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+          {/* AUDIT: Using unique 'tyler_crossed_arms_front.jpg' */}
           <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} />
           <div className="max-w-5xl relative z-10">
             <h2 className="text-sm font-bold text-zinc-500 tracking-[0.2em] mb-12 uppercase">{t.philosophy.heading}</h2>
@@ -466,8 +468,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 3. IMPACT DASHBOARD - INCREASED HEIGHT */}
+        {/* 3. IMPACT DASHBOARD */}
         <section id="impact" className="relative py-72 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+          {/* AUDIT: Using unique 'tyler_prayer_hands.jpg' */}
           <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yImpact} />
           <div className="relative z-10">
             <ImpactDashboard t={t.dashboard} />
@@ -476,7 +479,8 @@ export default function Home() {
 
         {/* 4. ORIGINAL CONTENTS */}
         <section id="originals" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yOriginals} />
+          {/* AUDIT: Using unique '20251206_TylerRasch0253_BW.jpg' */}
+          <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yOriginals} />
           <div className="mb-20 relative z-10">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4 italic tracking-tighter uppercase">{t.portfolio.originals.heading}</h2>
             <div className="w-20 h-1 bg-accent/30" />
@@ -530,8 +534,8 @@ export default function Home() {
 
         {/* 5. BRAND COLLABORATIONS */}
         <section id="brands" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          {/* AUDIT: Using unique shot (0130) to differentiate from the Originals section */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0130_BW.jpg" y={yBrands} />
+          {/* AUDIT: Using unique 'tyler_laughing.jpg' */}
+          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yBrands} />
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
               <div>
@@ -572,7 +576,8 @@ export default function Home() {
 
         {/* 6. PARTNERSHIP PACKAGES */}
         <section id="packages" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.01]">
-          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yPackages} />
+          {/* AUDIT: Using unique '20251206_TylerRasch0425_BW.jpg' */}
+          <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} />
           <div className="relative z-10">
             <div className="mb-20">
               <h2 className="text-4xl md:text-6xl font-black text-white mb-4 uppercase">{t.packages.heading}</h2>
@@ -604,7 +609,8 @@ export default function Home() {
 
         {/* 7. CONTACT */}
         <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
-          <SectionBackground src="/headshots/20251206_TylerRasch0420_BW.jpg" y={yContact} />
+          {/* AUDIT: Make '20251206_TylerRasch0129_BW.jpg' the last one as requested */}
+          <SectionBackground src="/headshots/20251206_TylerRasch0129_BW.jpg" y={yContact} />
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="mb-12 flex items-baseline gap-6">
               <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter uppercase leading-none">PARTNERSHIP</h2>
