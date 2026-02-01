@@ -637,7 +637,7 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
                   </div>
                   <div>
                     <div className="font-bold text-base text-white mb-1">{p.name}</div>
-                    <div className="text-xs text-zinc-500 font-medium truncate">{p.handle}</div>
+                    <div className="text-xs text-zinc-500 group-hover:text-accent transition-colors font-medium truncate">{p.handle}</div>
                   </div>
                 </motion.a>
               ))}
@@ -657,7 +657,7 @@ const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
                   whileHover={{ y: -5 }}
                   className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
                 >
-                  <div className="text-zinc-400 group-hover:text-white transition-colors scale-125">
+                  <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
                     <SocialIcon name={p.icon} />
                   </div>
                   <div className="w-full">
