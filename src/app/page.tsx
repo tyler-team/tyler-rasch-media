@@ -548,19 +548,19 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
       </div>
 
       {/* 2. Platform Demography */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4">
-        {/* Title Block */}
-        <div className="lg:col-span-12 mb-8">
-          <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
-          <div className="mb-20">
-            <div>
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">
-                {title}
-              </h2>
-              <div className="w-20 h-1 bg-accent/30 mt-8" />
-            </div>
-          </div>
+
+      {/* Title Block */}
+      <div className="mb-20 px-4">
+        <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
+        <div>
+          <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">
+            {title}
+          </h2>
+          <div className="w-20 h-1 bg-accent/30 mt-8" />
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4">
 
         {/* YouTube Intelligence */}
         <div className="lg:col-span-6 glass p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
