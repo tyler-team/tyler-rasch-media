@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 // --- TYPES & CONTENT DICTIONARY ---
@@ -20,6 +20,7 @@ type Content = {
     brands: string;
     packages: string;
     contact: string;
+    sticky_cta: string;
   };
   hero: {
     label: string;
@@ -27,12 +28,14 @@ type Content = {
     subtitle: string;
     description: string;
     cta: string;
+    media_kit_cta: string;
   };
   philosophy: {
     heading: string;
     p1: React.ReactNode;
     p2: React.ReactNode;
     quote: string;
+    manifesto: React.ReactNode;
   };
   dashboard: {
     label: string;
@@ -126,20 +129,23 @@ const contentData: Record<'KR' | 'EN', Content> = {
       originals: "오리지널 시리즈",
       brands: "브랜드 파트너십",
       packages: "파트너십",
-      contact: "문의하기"
+      contact: "문의하기",
+      sticky_cta: "협업 문의하기"
     },
     hero: {
       label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
       subtitle: "지적인 아이콘 • 현대 미디어의 권위자",
       description: "타일러 라쉬는 단순한 방송인이 아닙니다. 대한민국에서 가장 신뢰받는 외국인 지식인이자, 브랜드의 메시지에 '지적 권위'를 부여하는 독보적인 미디어 솔루션입니다.",
-      cta: "협업 문의하기"
+      cta: "협업 문의하기",
+      media_kit_cta: "미디어 키트 다운로드"
     },
     philosophy: {
       heading: "비전",
       p1: <>타일러 라쉬는 <span className="text-accent font-bold">국민적 인지도</span>와 <span className="text-white font-bold">높은 신뢰도</span>를 동시에 보유한 유일한 인물입니다. 단순한 인플루언서를 넘어, 기후 변화, 인문학, 세계 경제를 논하는 '시대의 지성'으로서 브랜드에 깊이 있는 가치를 더합니다.</>,
       p2: <>우리는 단순한 노출을 제안하지 않습니다. 귀사의 브랜드 철학이 타일러의 언어를 통해 대중에게 <span className="text-accent font-bold">논리적이고 설득력 있게</span> 전달되는 '전략적 커뮤니케이션'을 약속합니다.</>,
-      quote: "진정성 있는 메시지만이 세상을 움직입니다."
+      quote: "진정성 있는 메시지만이 세상을 움직입니다.",
+      manifesto: <><span className="block mb-2">단순한 노출을 넘어, 브랜드에 '깊이'를 더하세요.</span>타일러의 목소리는 곧 <span className="text-white">신뢰</span>가 됩니다.</>
     },
     dashboard: {
       label: "REAL-TIME IMPACT",
@@ -263,20 +269,23 @@ const contentData: Record<'KR' | 'EN', Content> = {
       originals: "Original Series",
       brands: "Brand Partnership",
       packages: "Partnership",
-      contact: "Inquire"
+      contact: "Inquire",
+      sticky_cta: "Work with Tyler"
     },
     hero: {
       label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
       subtitle: "The Intellectual Icon • Modern Media Authority",
       description: "Tyler Rasch is more than a broadcaster. He is Korea's most trusted foreign intellectual—a unique media solution that imbues your brand message with undeniable authority and depth.",
-      cta: "Inquire Now"
+      cta: "Inquire Now",
+      media_kit_cta: "Download Media Kit"
     },
     philosophy: {
       heading: "VISION",
       p1: <>Tyler holds a unique position in the Korean market, combining <span className="text-accent font-bold">National Recognition</span> with <span className="text-white font-bold">Unwavering Trust</span>. As a thought leader on Climate, Humanities, and Economics, he elevates brands beyond simple promotion.</>,
       p2: <>We don't just offer exposure. We promise <span className="text-accent font-bold">Strategic Communication</span> where your brand philosophy is translated into Tyler's logical, persuasive language, resonating deeply with the "Active Economic Class".</>,
-      quote: "Authenticity is the only currency that matters."
+      quote: "Authenticity is the only currency that matters.",
+      manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives.</span>Lend <span className="text-white">Intellectual Authority</span> to Your Brand.</>
     },
     dashboard: {
       label: "REAL-TIME IMPACT",
@@ -700,8 +709,69 @@ const SectionBackground = ({ src, y, priority = false }: { src: string, y: any, 
   </motion.div>
 );
 
+const StickyCTA = ({ text }: { text: string }) => {
+  const [visible, setVisible] = useState(false);
+  const { scrollY } = useScroll();
+
+  useEffect(() => { // No 'React.' prefix needed if configured correctly, but we'll use standard hook usage
+    return scrollY.onChange((latest) => {
+      const heroHeight = window.innerHeight * 0.8;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const isPastHero = latest > heroHeight;
+      const isBeforeFooter = latest < docHeight - 300; // Hide before hitting very bottom
+      setVisible(isPastHero && isBeforeFooter);
+    });
+  }, [scrollY]);
+
+  return (
+    <div className={`fixed bottom-8 right-8 z-50 transition-all duration-500 transform ${visible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+      <a
+        href="#contact"
+        className="flex items-center gap-3 pl-6 pr-2 py-2 bg-accent text-black rounded-full shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:scale-105 hover:shadow-[0_0_30px_rgba(0,229,255,0.6)] transition-all group"
+      >
+        <span className="font-bold text-sm tracking-widest uppercase my-2 mr-2">{text}</span>
+        <div className="w-10 h-10 bg-black text-accent rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+      </a>
+    </div>
+  );
+};
+
+const MediaKitModal = ({ isOpen, onClose, title, btnText }: { isOpen: boolean, onClose: () => void, title: string, btnText: string }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="relative bg-[#0a0f18] border border-white/10 p-8 rounded-2xl w-full max-w-md shadow-2xl"
+      >
+        <button onClick={onClose} className="absolute top-4 right-4 text-zinc-500 hover:text-white transition-colors">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div className="mb-6">
+          <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 text-accent">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
+          <h3 className="text-2xl font-black text-white uppercase tracking-tight">{title}</h3>
+          <p className="text-zinc-400 text-sm mt-2">Enter your email to receive the full partnership deck instantly.</p>
+        </div>
+        <form onSubmit={(e) => { e.preventDefault(); alert("Media Kit sent to your email!"); onClose(); }}>
+          <input type="email" placeholder="name@company.com" required className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-accent mb-4" />
+          <button type="submit" className="w-full bg-accent text-black font-bold py-3 rounded-lg hover:bg-white transition-colors uppercase tracking-widest text-sm">
+            {btnText} &rarr;
+          </button>
+        </form>
+      </motion.div>
+    </div>
+  );
+};
+
 export default function Home() {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const t = contentData[lang];
 
   const { scrollYProgress } = useScroll();
@@ -716,6 +786,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#02060C] text-foreground selection:bg-accent selection:text-black font-sans scroll-smooth uppercase-headings">
       <Sidebar lang={lang} setLang={setLang} />
+      <StickyCTA text={t.sidebar.sticky_cta} />
+      <MediaKitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t.hero.media_kit_cta} btnText={lang === 'KR' ? '받기' : 'Receive Deck'} />
 
       <main className="pl-20 md:pl-64">
 
@@ -741,9 +813,14 @@ export default function Home() {
             <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl word-keep-all mb-12">
               {t.hero.description}
             </p>
-            <a href="#contact" className="px-8 py-4 bg-accent text-black font-bold text-sm tracking-widest hover:bg-white transition-colors">
-              {t.hero.cta} &rarr;
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="#contact" className="px-8 py-4 bg-accent text-black font-bold text-sm tracking-widest hover:bg-white transition-colors text-center">
+                {t.hero.cta} &rarr;
+              </a>
+              <button onClick={() => setIsModalOpen(true)} className="px-8 py-4 border border-white/20 text-white font-bold text-sm tracking-widest hover:bg-white/10 transition-colors text-center">
+                {t.hero.media_kit_cta} ↓
+              </button>
+            </div>
           </motion.div>
 
           {/* AUDIT: Keep 'tyler_suit_thinking.jpg' as the first one as requested */}
@@ -764,7 +841,10 @@ export default function Home() {
               <p className="word-keep-all">{t.philosophy.p2}</p>
             </div>
             <div className="mt-16 pt-8 border-t border-white/5">
-              <p className="text-2xl md:text-4xl font-serif italic text-white/80">"{t.philosophy.quote}"</p>
+              <p className="text-2xl md:text-3xl font-serif italic text-white/80 mb-20 opacity-80">"{t.philosophy.quote}"</p>
+              <div className="text-3xl md:text-5xl font-black text-zinc-200 leading-tight uppercase tracking-tighter">
+                {t.philosophy.manifesto}
+              </div>
             </div>
           </div>
         </section>
