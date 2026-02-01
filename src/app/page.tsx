@@ -769,10 +769,10 @@ export default function Home() {
         </section>
 
         {/* 4. ORIGINAL CONTENTS */}
-        <section id="originals" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+        <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
           {/* SWITCH: Using tyler_prayer_hands.jpg here */}
           <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} />
-          <div className="mb-20 relative z-10">
+          <div className="mb-32 relative z-10">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4 italic tracking-tighter uppercase">{t.portfolio.originals.heading}</h2>
             <div className="w-20 h-1 bg-accent/30" />
           </div>
@@ -780,7 +780,21 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-24 relative z-10">
             {t.portfolio.originals.items.map((item, i) => (
               <div key={i} className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
-                <div className="space-y-8 xl:order-1">
+                <motion.a
+                  href={item.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl block"
+                >
+                  <Image src={item.thumbnail} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" unoptimized={item.thumbnail.startsWith('http')} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                    <span className="text-white font-bold text-sm">&rarr; WATCH PREVIEW</span>
+                  </div>
+                </motion.a>
+
+                <div className="space-y-8">
                   <div>
                     <span className="text-accent text-xs font-bold tracking-[0.3em] uppercase block mb-4">{item.subtitle}</span>
                     <h3 className="text-5xl md:text-7xl font-black text-white leading-none mb-6 italic">{item.title}</h3>
@@ -803,29 +817,7 @@ export default function Home() {
                       </div>
                     </div>
                   )}
-
-                  {item.locations && (
-                    <div className="flex flex-wrap gap-2">
-                      {item.locations.map((loc, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-zinc-400 font-bold uppercase tracking-widest">{loc}</span>
-                      ))}
-                    </div>
-                  )}
                 </div>
-
-                <motion.a
-                  href={item.videoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl block xl:order-2"
-                >
-                  <Image src={item.thumbnail} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" unoptimized={item.thumbnail.startsWith('http')} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                    <span className="text-white font-bold text-sm">&rarr; WATCH PREVIEW</span>
-                  </div>
-                </motion.a>
               </div>
             ))}
           </div>
