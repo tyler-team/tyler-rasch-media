@@ -454,8 +454,8 @@ export default function Home() {
 
         {/* 2. PHILOSOPHY */}
         <section className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          {/* AUDIT: Using unique 'tyler_crossed_arms_front.jpg' */}
-          <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} />
+          {/* SWITCH: Using tyler_prayer_hands.jpg here */}
+          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yPhil} />
           <div className="max-w-5xl relative z-10">
             <h2 className="text-sm font-bold text-zinc-500 tracking-[0.2em] mb-12 uppercase">{t.philosophy.heading}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-lg md:text-xl leading-relaxed text-zinc-400 border-l border-accent/20 pl-8">
@@ -468,10 +468,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 3. IMPACT DASHBOARD */}
-        <section id="impact" className="relative py-72 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          {/* AUDIT: Using unique 'tyler_prayer_hands.jpg' */}
-          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yImpact} />
+        {/* 3. IMPACT DASHBOARD - SIGNIFICANT EXPANSION */}
+        <section id="impact" className="relative py-96 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+          {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
+          <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yImpact} />
           <div className="relative z-10">
             <ImpactDashboard t={t.dashboard} />
           </div>
@@ -609,8 +609,8 @@ export default function Home() {
 
         {/* 7. CONTACT */}
         <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
-          {/* AUDIT: Make '20251206_TylerRasch0129_BW.jpg' the last one as requested */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0129_BW.jpg" y={yContact} />
+          {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
+          <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} />
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="mb-12 flex items-baseline gap-6">
               <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter uppercase leading-none">PARTNERSHIP</h2>
