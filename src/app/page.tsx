@@ -284,47 +284,60 @@ const contentData: Record<'KR' | 'EN', Content> = {
 
 // --- COMPONENTS ---
 
-const Sidebar = ({ lang, setLang, t }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, t: Content['sidebar'] }) => (
-  <nav className="fixed left-0 top-0 bottom-0 w-20 md:w-64 z-50 glass border-r border-white/10 flex flex-col justify-between py-12 px-4 md:px-8">
+const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void }) => {
+  const t = contentData[lang].sidebar;
 
-    <div>
-      <div className="font-black text-2xl tracking-tighter leading-none mb-1 text-center md:text-left">
-        <span className="md:hidden">TR</span>
-        <span className="hidden md:block">TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span></span>
-      </div>
-    </div>
+  return (
+    <nav className="fixed left-0 top-0 bottom-0 w-20 md:w-64 z-50 glass border-r border-white/10 flex flex-col justify-between py-12 px-4 md:px-8">
 
-    <div className="flex flex-col gap-8 text-xs md:text-sm font-bold tracking-widest uppercase">
-      {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
-        <a key={item} href={`#${item}`} className="flex items-center gap-4 hover:text-accent transition-colors group">
-          <span className="w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-          <span className="hidden md:inline">{t[item as keyof typeof t]}</span>
-          <span className="md:hidden text-[10px]">{t[item as keyof typeof t].substring(0, 2)}</span>
-        </a>
-      ))}
-    </div>
+      <div>
+        <div className="font-black text-2xl tracking-tighter leading-none mb-1 text-center md:text-left">
+          <span className="md:hidden">TR</span>
+          <span className="hidden md:block">TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span></span>
+        </div>
+      </div>
 
-    <div className="space-y-8">
-      <div className="flex flex-col gap-2">
-        <button
-          onClick={() => setLang('KR')}
-          className={`text-xs font-bold transition-all text-left ${lang === 'KR' ? 'text-accent' : 'text-zinc-600 hover:text-white'}`}
-        >
-          KR
-        </button>
-        <button
-          onClick={() => setLang('EN')}
-          className={`text-xs font-bold transition-all text-left ${lang === 'EN' ? 'text-accent' : 'text-zinc-600 hover:text-white'}`}
-        >
-          EN
-        </button>
+      <div className="flex flex-col gap-8 text-xs md:text-sm font-bold tracking-widest uppercase">
+        {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
+          <a key={item} href={`#${item}`} className="flex items-center gap-4 hover:text-accent transition-colors group">
+            <span className="w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="hidden md:inline">{t[item as keyof typeof t]}</span>
+            <span className="md:hidden text-[10px]">{t[item as keyof typeof t].substring(0, 2)}</span>
+          </a>
+        ))}
       </div>
-      <div className="text-[10px] text-zinc-700 hidden md:block">
-        © 2026 TRM
+
+      <div className="space-y-8">
+        {/* Prominent Redesigned Language Toggle */}
+        <div className="flex flex-col gap-3">
+          <span className="text-[10px] font-black tracking-widest text-zinc-500 uppercase px-1">Language</span>
+          <div className="flex bg-white/5 border border-white/10 p-1 rounded-full relative">
+            <motion.div
+              animate={{ x: lang === 'EN' ? '100%' : '0%' }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-accent rounded-full shadow-[0_0_15px_rgba(0,209,160,0.3)]"
+            />
+            <button
+              onClick={() => setLang('KR')}
+              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500 hover:text-white'}`}
+            >
+              KR
+            </button>
+            <button
+              onClick={() => setLang('EN')}
+              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500 hover:text-white'}`}
+            >
+              EN
+            </button>
+          </div>
+        </div>
+        <div className="text-[10px] text-zinc-700 hidden md:block px-1">
+          © 2026 TRM
+        </div>
       </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
 
 const TypeformEmbed = () => {
   return (
@@ -405,7 +418,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#02060C] text-foreground selection:bg-accent selection:text-black font-sans scroll-smooth uppercase-headings">
-      <Sidebar lang={lang} setLang={setLang} t={t.sidebar} />
+      <Sidebar lang={lang} setLang={setLang} />
 
       <main className="pl-20 md:pl-64">
 
@@ -456,7 +469,8 @@ export default function Home() {
 
         {/* 3. IMPACT DASHBOARD */}
         <section id="impact" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yImpact} />
+          {/* AUDIT: Using unique Prayer Hands portrait for Impact */}
+          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yImpact} />
           <div className="relative z-10">
             <ImpactDashboard t={t.dashboard} />
           </div>

@@ -63,3 +63,18 @@ If GitHub asked for your password and failed, it's because they require a **Toke
 
 ### 🎉 Confetti!
 Vercel will give you a link like: `tyler-rasch-media.vercel.app`. Send that to Tyler!
+
+---
+
+## 🔓 How to make the site Public (No Login Required)
+
+If you see a "Vercel Authentication" or login screen when opening the link, follow these steps:
+
+1.  Go to your [Vercel Dashboard](https://vercel.com/dashboard).
+2.  Click on your project: **`tyler-rasch-media`**.
+3.  Click the **Settings** tab at the top.
+4.  On the left sidebar, click **Deployment Protection**.
+5.  Find **Vercel Authentication** and toggle it to **Off**.
+6.  Click **Save**.
+
+The link should now be accessible to anyone!
