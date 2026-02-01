@@ -40,8 +40,48 @@ type Content = {
     views_label: string;
     reach: string;
     reach_label: string;
+    engagement: string;
+    engagement_label: string;
     trust: string;
     trust_label: string;
+    platform_intelligence: {
+      title: string;
+      tabs: {
+        youtube: {
+          label: string;
+          tagline: string;
+          gender: { male: number; female: number };
+          age_peaks: { range: string; value: string }[];
+          insight: string;
+        };
+        instagram: {
+          label: string;
+          tagline: string;
+          gender: { male: number; female: number };
+          age_peaks: { range: string; value: string }[];
+          location_label: string;
+          location_value: string;
+          insight: string;
+        };
+      };
+      potential_reach: {
+        label: string;
+        value: string;
+        desc: string;
+      };
+    };
+    ecosystem: {
+      channel_title: string;
+      personal_title: string;
+      platforms: {
+        name: string;
+        handle: string;
+        count: string;
+        icon: string;
+        url: string;
+        isChannel?: boolean;
+      }[];
+    };
   };
   portfolio: {
     originals: {
@@ -108,10 +148,52 @@ const contentData: Record<'KR' | 'EN', Content> = {
       label: "REAL-TIME IMPACT",
       views: "6,300만+",
       views_label: "누적 유튜브 조회수",
-      reach: "67만+",
-      reach_label: "채널 구독자 수",
+      reach: "150만+",
+      reach_label: "월간 평균 도달수",
+      engagement: "67만+",
+      engagement_label: "채널 구독자 수",
       trust: "TOP 1%",
-      trust_label: "브랜드 신뢰도 지수"
+      trust_label: "브랜드 신뢰도 지수",
+      platform_intelligence: {
+        title: "AUDIENCE INTELLIGENCE",
+        tabs: {
+          youtube: {
+            label: "YOUTUBE",
+            tagline: "지적 의사결정권자",
+            gender: { male: 56.5, female: 43.5 },
+            age_peaks: [{ range: "45-54세", value: "27%" }, { range: "25-34세", value: "21%" }],
+            insight: "높은 구매력과 사회적 영향력을 가진 4050 리더 계층의 압도적 지지"
+          },
+          instagram: {
+            label: "INSTAGRAM",
+            tagline: "트렌드 리더",
+            gender: { male: 23.2, female: 76.8 },
+            age_peaks: [{ range: "35-44세", value: "Dominant" }, { range: "25-34세", value: "Strong" }],
+            location_label: "지역",
+            location_value: "서울 56.9%",
+            insight: "트렌드에 민감하고 소비 주도권이 강한 2040 여성층 집중"
+          }
+        },
+        potential_reach: {
+          label: "잠재 도달 가능 오디언스 (Meta)",
+          value: "2,700만+",
+          desc: "금융, 리테일, 미디어 관심사 보유 경제인구"
+        }
+      },
+      ecosystem: {
+        channel_title: "타일러볼까요 (Channel)",
+        personal_title: "Tyler Rasch (Personal)",
+        platforms: [
+          { name: "YouTube", handle: "타일러볼까요", count: "677K", icon: "youtube", url: "https://www.youtube.com/@tyleroninsta", isChannel: true },
+          { name: "Instagram", handle: "타일러볼까요", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tyler_explore/", isChannel: true },
+          { name: "TikTok", handle: "타일러볼까요", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tyleroninsta", isChannel: true },
+          { name: "Instagram", handle: "@tyloroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyloroninsta/" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "Professional", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X (Twitter)", handle: "@tyloroninsta", count: "Connect", icon: "twitter", url: "https://x.com/tyloroninsta" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/tyloroninsta" },
+          { name: "Kakao Channel", handle: "타일러", count: "1:1 Network", icon: "kakao", url: "https://pf.kakao.com/_txkBxbxl" }
+        ]
+      }
     },
     portfolio: {
       originals: {
@@ -207,10 +289,52 @@ const contentData: Record<'KR' | 'EN', Content> = {
       label: "REAL-TIME IMPACT",
       views: "63M+",
       views_label: "Total YouTube Views",
-      reach: "677K+",
-      reach_label: "YouTube Subscribers",
+      reach: "1.5M+",
+      reach_label: "Avg. Monthly Reach",
+      engagement: "677K+",
+      engagement_label: "YouTube Subscribers",
       trust: "TOP 1%",
-      trust_label: "Brand Trust Index"
+      trust_label: "Brand Trust Index",
+      platform_intelligence: {
+        title: "AUDIENCE INTELLIGENCE",
+        tabs: {
+          youtube: {
+            label: "YOUTUBE",
+            tagline: "Intellectual Core",
+            gender: { male: 56.5, female: 43.5 },
+            age_peaks: [{ range: "45-54", value: "27%" }, { range: "25-34", value: "21%" }],
+            insight: "Strong support from decision-makers with high purchasing power."
+          },
+          instagram: {
+            label: "INSTAGRAM",
+            tagline: "Cultural Drivers",
+            gender: { male: 23.2, female: 76.8 },
+            age_peaks: [{ range: "35-44", value: "Peak" }, { range: "25-34", value: "Strong" }],
+            location_label: "Top Region",
+            location_value: "Seoul 56.9%",
+            insight: "Trend-sensitive female demographic driving consumption trends."
+          }
+        },
+        potential_reach: {
+          label: "Est. Potential Audience (Meta)",
+          value: "27M+",
+          desc: "Targeting interests in Finance, Retail, and Media."
+        }
+      },
+      ecosystem: {
+        channel_title: "타일러볼까요 (Official)",
+        personal_title: "Tyler Rasch (Personal)",
+        platforms: [
+          { name: "YouTube", handle: "타일러볼까요", count: "677K", icon: "youtube", url: "https://www.youtube.com/@tyleroninsta", isChannel: true },
+          { name: "Instagram", handle: "타일러볼까요", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tyler_explore/", isChannel: true },
+          { name: "TikTok", handle: "타일러볼까요", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tyleroninsta", isChannel: true },
+          { name: "Instagram", handle: "@tyloroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyloroninsta/" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "Professional", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X (Twitter)", handle: "@tyloroninsta", count: "Connect", icon: "twitter", url: "https://x.com/tyloroninsta" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "Community", icon: "facebook", url: "https://www.facebook.com/tyloroninsta" },
+          { name: "Kakao Channel", handle: "Tyler", count: "1:1 Network", icon: "kakao", url: "https://pf.kakao.com/_txkBxbxl" }
+        ]
+      }
     },
     portfolio: {
       originals: {
@@ -354,31 +478,235 @@ const TypeformEmbed = () => {
   );
 };
 
+const SocialIcon = ({ name }: { name: string }) => {
+  const icons: Record<string, React.ReactNode> = {
+    youtube: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+      </svg>
+    ),
+    instagram: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" />
+      </svg>
+    ),
+    tiktok: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.525.02c1.31 0 2.57.346 3.67 1.01.07-.03.14-.07.21-.11.08-.04.16.04.13.13-.1.35-.16.71-.16 1.09 0 2.63 1.93 4.8 4.46 5.17l.03.01c.08.01.12.1.06.16-.62.59-1.42.94-2.31.94-.37 0-.71-.06-1.04-.17v5.6c0 3.86-3.13 7-7 7s-7-3.14-7-7 3.13-7 7-7c.28 0 .54.02.8.06V8.16C10.4 8.05 9.49 8 8.51 8c-3.86 0-7 3.14-7 7s3.14 7 7 7 7-3.14 7-7V4.02c2.42.41 4.27 2.41 4.27 4.85 0 .38-.04.75-.12 1.1-.01.08.07.13.13.08.77-.61 1.03-1.63 1.03-2.58 0-.3-.02-.6-.07-.89-.01-.08.07-.13.13-.08.57.45 1.25.74 2 .84.08.01.12-.08.07-.14-.42-.51-.67-1.16-.67-1.87 0-1.66 1.34-3 3-3 .24 0 .47.03.69.08.08.02.13-.07.09-.14-.52-.89-1.44-1.49-2.5-1.49-.07 0-.14 0-.21.01-.08.01-.12-.08-.07-.14.28-.34.44-.76.44-1.22 0-1.66-1.34-3-3-3-.38 0-.74.07-1.07.2-.08.03-.13-.05-.09-.12.33-.65.51-1.39.51-2.17C21.43 1.54 18.04 0 14 0c-1.42 0-2.73.41-3.84 1.11-.08.05-.07.16.02.19 1.17.43 2.01 1.54 2.01 2.85 0 .28-.04.56-.12.82-.02.08.05.15.13.13.91-.21 1.86-.33 2.83-.33 3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6V.02h-.47z" />
+      </svg>
+    ),
+    linkedin: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+      </svg>
+    ),
+    twitter: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+      </svg>
+    ),
+    facebook: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg>
+    ),
+    kakao: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.506 1.64 4.708 4.12 6.046l-.82 2.99z" />
+        <circle cx="12" cy="11" r="1.5" />
+      </svg>
+    )
+  };
+  return icons[name.toLowerCase()] || <span className="w-5 h-5 bg-white/10 rounded-full" />;
+};
+
 const ImpactDashboard = ({ t }: { t: Content['dashboard'] }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mx-auto relative z-20 px-0">
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.1 }}
-          className="glass p-8 rounded-2xl border-t border-accent/20 flex flex-col items-center text-center shadow-[0_10px_40px_rgba(0,0,0,0.5)] bg-[#0A192F]/80 backdrop-blur-xl hover:border-accent/50 transition-colors"
-        >
-          <p className="text-accent text-xs font-bold tracking-[0.2em] mb-2 uppercase">{i === 0 ? t.label : '\u00A0'}</p>
-          <div className="text-5xl lg:text-5xl font-black text-white mb-2 tracking-tighter">
-            {i === 0 && t.views}
-            {i === 1 && t.reach}
-            {i === 2 && t.trust}
+    <div className="w-full max-w-7xl mx-auto relative z-20 space-y-32">
+
+      {/* 1. Main Statistics Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+        {[
+          { label: t.views_label, val: t.views, tag: t.label },
+          { label: t.reach_label, val: t.reach, tag: "MONTHLY REACH" },
+          { label: t.engagement_label, val: t.engagement, tag: "ENGAGEMENT" },
+          { label: t.trust_label, val: t.trust, tag: "RELIABILITY" }
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.1 }}
+            className=" glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center hover:border-accent/30 transition-all group"
+          >
+            <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-50">{item.tag}</span>
+            <div className="text-5xl font-black text-white mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
+              {item.val}
+            </div>
+            <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{item.label}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* 2. Platform Intelligence & Demographics */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4">
+        {/* Title Block */}
+        <div className="lg:col-span-12 mb-8">
+          <span className="text-accent text-xs font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_intelligence.title}</span>
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-white/10 pb-8">
+            <h3 className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter italic">
+              Platform<br />Intelligence
+            </h3>
+            <div className="text-right">
+              <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-1">{t.platform_intelligence.potential_reach.label}</p>
+              <p className="text-4xl font-black text-white tracking-tighter">{t.platform_intelligence.potential_reach.value}</p>
+              <p className="text-zinc-600 text-[10px] uppercase tracking-wider">{t.platform_intelligence.potential_reach.desc}</p>
+            </div>
           </div>
-          <div className="h-1 w-12 bg-accent/50 rounded-full mb-4" />
-          <p className="text-zinc-400 text-sm font-medium uppercase tracking-wider">
-            {i === 0 && t.views_label}
-            {i === 1 && t.reach_label}
-            {i === 2 && t.trust_label}
+        </div>
+
+        {/* YouTube Intelligence */}
+        <div className="lg:col-span-6 glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
+          <div className="absolute top-0 left-0 w-full h-1 bg-[#FF0000]" />
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h4 className="text-2xl font-black text-white italic tracking-tighter">{t.platform_intelligence.tabs.youtube.label}</h4>
+              <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{t.platform_intelligence.tabs.youtube.tagline}</p>
+            </div>
+            <SocialIcon name="youtube" />
+          </div>
+
+          {/* Gender Bar */}
+          <div className="mb-8">
+            <div className="flex justify-between text-[10px] uppercase font-bold text-zinc-500 mb-2">
+              <span>Male {t.platform_intelligence.tabs.youtube.gender.male}%</span>
+              <span>Female {t.platform_intelligence.tabs.youtube.gender.female}%</span>
+            </div>
+            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden flex">
+              <div className="h-full bg-zinc-700" style={{ width: `${t.platform_intelligence.tabs.youtube.gender.male}%` }} />
+              <div className="h-full bg-red-600" style={{ width: `${t.platform_intelligence.tabs.youtube.gender.female}%` }} />
+            </div>
+          </div>
+
+          {/* Age Peaks */}
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            {t.platform_intelligence.tabs.youtube.age_peaks.map((peak, i) => (
+              <div key={i} className="bg-white/[0.02] rounded-xl p-4">
+                <div className="text-2xl font-black text-white">{peak.value}</div>
+                <div className="text-[10px] font-bold text-zinc-500 uppercase">Age {peak.range}</div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-white text-sm font-medium border-l-2 border-red-600 pl-4">
+            "{t.platform_intelligence.tabs.youtube.insight}"
           </p>
-        </motion.div>
-      ))}
+        </div>
+
+        {/* Instagram Intelligence */}
+        <div className="lg:col-span-6 glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500" />
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h4 className="text-2xl font-black text-white italic tracking-tighter">{t.platform_intelligence.tabs.instagram.label}</h4>
+              <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{t.platform_intelligence.tabs.instagram.tagline}</p>
+            </div>
+            <SocialIcon name="instagram" />
+          </div>
+
+          {/* Gender Bar */}
+          <div className="mb-8">
+            <div className="flex justify-between text-[10px] uppercase font-bold text-zinc-500 mb-2">
+              <span>Male {t.platform_intelligence.tabs.instagram.gender.male}%</span>
+              <span>Female {t.platform_intelligence.tabs.instagram.gender.female}%</span>
+            </div>
+            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden flex">
+              <div className="h-full bg-zinc-700" style={{ width: `${t.platform_intelligence.tabs.instagram.gender.male}%` }} />
+              <div className="h-full bg-pink-500" style={{ width: `${t.platform_intelligence.tabs.instagram.gender.female}%` }} />
+            </div>
+          </div>
+
+          {/* Age Peaks & Location */}
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            {t.platform_intelligence.tabs.instagram.age_peaks.map((peak, i) => (
+              <div key={i} className="bg-white/[0.02] rounded-xl p-4">
+                <div className="text-2xl font-black text-white">{peak.value}</div>
+                <div className="text-[10px] font-bold text-zinc-500 uppercase">Age {peak.range}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-between items-end">
+            <p className="text-white text-sm font-medium border-l-2 border-pink-500 pl-4 max-w-[70%]">
+              "{t.platform_intelligence.tabs.instagram.insight}"
+            </p>
+            <div className="text-right">
+              <div className="text-xl font-black text-white">{t.platform_intelligence.tabs.instagram.location_value}</div>
+              <div className="text-[10px] font-bold text-zinc-500 uppercase">{t.platform_intelligence.tabs.instagram.location_label}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Social Media Ecosystem Grid */}
+      <div className="px-4 space-y-12">
+        <div className="text-center">
+          <h3 className="text-xs font-black text-zinc-500 uppercase tracking-[0.5em] mb-4">SOCIAL MEDIA ECOSYSTEM</h3>
+          <div className="h-[1px] w-20 bg-accent mx-auto" />
+        </div>
+
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
+          {/* Channel Brand Group */}
+          <div className="space-y-8">
+            <h4 className="text-lg font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.channel_title}</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
+                <motion.a
+                  key={i}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5 }}
+                  className="p-5 glass rounded-2xl border border-white/5 hover:border-accent/40 hover:bg-accent/5 transition-all group"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-white group-hover:text-accent transition-colors">
+                      <SocialIcon name={p.icon} />
+                    </div>
+                    <span className="text-[10px] font-black text-accent">{p.count}</span>
+                  </div>
+                  <div className="font-bold text-sm text-white">{p.name}</div>
+                  <div className="text-[10px] text-zinc-500 font-medium">{p.handle}</div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Personal Group */}
+          <div className="space-y-8">
+            <h4 className="text-lg font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.personal_title}</h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {t.ecosystem.platforms.filter(p => !p.isChannel).map((p, i) => (
+                <motion.a
+                  key={i}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5 }}
+                  className="p-5 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center text-center group"
+                >
+                  <div className="mb-4 text-zinc-400 group-hover:text-white transition-colors">
+                    <SocialIcon name={p.icon} />
+                  </div>
+                  <div className="text-[10px] font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
+                  <div className="text-[9px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.count}</div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
