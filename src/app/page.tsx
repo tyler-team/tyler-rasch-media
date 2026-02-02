@@ -228,9 +228,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
         subheading: "브랜드 철학을 타일러만의 논리적인 서사로 재해석한 성공 사례",
         items: [
           { client: "SK Telecom", title: "당신의 시간을 아끼는 법 (Neuroscience of Design)", category: "Branded Content", thumbnail: "/portfolio/skt_thumbnail.jpg", url: "https://youtu.be/2WJvdU11OfM?si=Qe9XOS-FQl1Qg2-q" },
-          { client: "LG Electronics", title: "한국인이 얼음에 집착하는 이유 (Ice Culture)", category: "Branded Content" },
-          { client: "Cooper Vision", title: "플라스틱 중립: 새로운 경제 모델", category: "ESG Campaign" },
-          { client: "고용노동부", title: "노동시간과 경제 성장의 관계", category: "Public Sector" },
+          { client: "LG Electronics", title: "한국인이 얼음에 집착하는 이유 (Ice Culture)", category: "Branded Content", thumbnail: "/portfolio/lg_thumbnail.jpg", url: "https://www.youtube.com/watch?v=Qzwno5WrXl8" },
+          { client: "Cooper Vision", title: "플라스틱 중립: 새로운 경제 모델", category: "ESG Campaign", thumbnail: "/portfolio/cooper_thumbnail.png", url: "https://www.youtube.com/watch?v=vVnqUP0-h8o" },
+          { client: "고용노동부", title: "노동시간과 경제 성장의 관계", category: "Public Sector", thumbnail: "/portfolio/moel_thumbnail.png", url: "https://youtu.be/_zrFXYSseMI?si=01QGXlcK_-JqLAaB" },
           { client: "NOOGI", title: "자세를 바로잡는 쿠션 통합 마케팅", category: "Product Placement" },
           { client: "8APM", title: "몰입을 돕는 포커스 젤 활용 제안", category: "Product Placement" }
         ]
@@ -368,9 +368,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
         subheading: "Brand philosophies translated into Tyler's logical narratives.",
         items: [
           { client: "SK Telecom", title: "Neuroscience Behind Design", category: "Branded Content", thumbnail: "/portfolio/skt_thumbnail.jpg", url: "https://youtu.be/2WJvdU11OfM?si=Qe9XOS-FQl1Qg2-q" },
-          { client: "LG Electronics", title: "Why Koreans Can't Live Without Ice", category: "Branded Content" },
-          { client: "Cooper Vision", title: "The Plastic Neutral Economic Model", category: "ESG Campaign" },
-          { client: "MOEL", title: "Economy of Shorter Labor Hours", category: "Public Sector" },
+          { client: "LG Electronics", title: "Why Koreans Can't Live Without Ice", category: "Branded Content", thumbnail: "/portfolio/lg_thumbnail.jpg", url: "https://www.youtube.com/watch?v=Qzwno5WrXl8" },
+          { client: "Cooper Vision", title: "The Plastic Neutral Economic Model", category: "ESG Campaign", thumbnail: "/portfolio/cooper_thumbnail.png", url: "https://www.youtube.com/watch?v=vVnqUP0-h8o" },
+          { client: "Ministry of Employment and Labor", title: "Economy of Shorter Labor Hours", category: "Public Sector", thumbnail: "/portfolio/moel_thumbnail.png", url: "https://youtu.be/_zrFXYSseMI?si=01QGXlcK_-JqLAaB" },
           { client: "NOOGI", title: "Ergonomic Cushion Integration", category: "Product Placement" },
           { client: "8APM", title: "Focus Gel for Productive Sessions", category: "Product Placement" }
         ]
