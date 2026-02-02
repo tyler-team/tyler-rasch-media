@@ -943,7 +943,7 @@ export default function Home() {
                       <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors leading-snug mb-2">{item.title}</h3>
                       <p className="text-zinc-500 text-sm font-medium">{item.client}</p>
                     </div>
-                    <div className="h-48 w-full bg-black/40 rounded-lg flex items-center justify-center border border-white/5 overflow-hidden relative">
+                    <div className="aspect-video w-full bg-black/40 rounded-lg flex items-center justify-center border border-white/5 overflow-hidden relative">
                       {item.thumbnail ? (
                         <Image
                           src={item.thumbnail}
