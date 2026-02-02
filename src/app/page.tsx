@@ -241,8 +241,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       subheading: "브랜드의 격을 높이는 전략적 솔루션",
       items: [
         {
-          title: "Branded Storytelling",
-          subtitle: "브랜디드 콘텐츠 (Main)",
+          title: "브랜디드 콘텐츠 (프리미엄)",
+          subtitle: "Signature Storytelling Content",
           desc: "단순 광고가 아닌, 하나의 완성된 지적 콘텐츠",
           detail: "10분 내외의 본편 영상을 통해 브랜드의 핵심 메시지를 타일러의 시각으로 깊이 있게 분석하고 전달합니다. 시청자가 자발적으로 찾아보고 공유하는 고품격 스토리텔링을 제공합니다."
         },
@@ -253,8 +253,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
           detail: "콘텐츠의 흐름을 방해하지 않는 최적화된 위치에 광고를 배치합니다. 시청자의 몰입을 유지하면서도, 필요한 순간에 브랜드가 자연스럽게 노출되어 광고 피로도를 최소화합니다. (약 90초 내외 노출)"
         },
         {
-          title: "Viral Impact",
-          subtitle: "Short-form & SNS",
+          title: "SNS 및 숏폼",
+          subtitle: "Viral Impact",
           desc: "즉각적인 확산과 도달을 위한 숏폼 전략",
           detail: "인스타그램 릴스와 유튜브 쇼츠를 통해 핵심 메시지를 강렬하게 전달합니다. 2544 핵심 타겟층에게 빠르고 감각적으로 소구하는 고효율 바이럴 솔루션입니다."
         }
@@ -381,8 +381,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       subheading: "Strategic Integration for Industry Leaders",
       items: [
         {
-          title: "Branded Storytelling",
-          subtitle: "Signature Content (Main)",
+          title: "Branded Contents (Premium)",
+          subtitle: "Signature Storytelling Content",
           desc: "Not an Ad, but Intellectual Property.",
           detail: "A dedicated ~10m episode where Tyler deconstructs your brand message through his analytical lens. We create content that viewers actively seek out, ensuring deep engagement and high retention."
         },
@@ -393,8 +393,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
           detail: "Seamless Integration that respects the viewer’s focus. By placing your brand within high-engagement segments, we minimize ad fatigue while maintaining maximum impact. (~90s exposure)"
         },
         {
-          title: "Viral Impact",
-          subtitle: "Short-form & Socials",
+          title: "Social Network & Short-Form",
+          subtitle: "Viral Impact",
           desc: "High-Frequency Visual Communication",
           detail: "Leveraging Instagram Reels and YouTube Shorts for immediate viral reach. Targeting the 25-44 demographic with punchy, visually sophisticated narratives."
         }
