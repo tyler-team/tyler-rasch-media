@@ -421,13 +421,36 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
         <a href="/" className="font-black text-xl tracking-tighter leading-none text-white">
           TYLER <span className="text-accent">MEDIA</span>
         </a>
-        <button onClick={toggleMenu} className="text-white p-2">
-          {mobileMenuOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-          )}
-        </button>
+        <div className="flex items-center gap-4">
+          {/* Mobile Language Toggle */}
+          <div className="flex bg-white/5 border border-white/10 p-0.5 rounded-full relative w-20">
+            <motion.div
+              animate={{ x: lang === 'EN' ? '100%' : '0%' }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-accent rounded-full"
+            />
+            <button
+              onClick={() => setLang('KR')}
+              className={`relative z-10 flex-1 py-1 text-[10px] font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500'}`}
+            >
+              KR
+            </button>
+            <button
+              onClick={() => setLang('EN')}
+              className={`relative z-10 flex-1 py-1 text-[10px] font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500'}`}
+            >
+              EN
+            </button>
+          </div>
+
+          <button onClick={toggleMenu} className="text-white p-2 -mr-2">
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* MOBILE DRAWER */}
@@ -454,15 +477,6 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
                 ))}
               </div>
 
-              <div className="w-full h-[1px] bg-white/10 my-4" />
-
-              <div className="flex flex-col gap-4">
-                <span className="text-xs font-black tracking-widest text-zinc-500 uppercase">Language</span>
-                <div className="flex gap-4">
-                  <button onClick={() => setLang('KR')} className={`text-lg font-bold ${lang === 'KR' ? 'text-accent' : 'text-zinc-600'}`}>KR</button>
-                  <button onClick={() => setLang('EN')} className={`text-lg font-bold ${lang === 'EN' ? 'text-accent' : 'text-zinc-600'}`}>EN</button>
-                </div>
-              </div>
             </div>
           </motion.div>
         )}
