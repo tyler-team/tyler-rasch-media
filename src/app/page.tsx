@@ -650,25 +650,22 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
             <div className="scale-125"><SocialIcon name="youtube" /></div>
           </div>
 
-          {/* 1. Age Label Only */}
+          {/* Age Group only */}
           <div className="mb-10">
             <div className="text-xl font-black text-white">{t.platform_demography.tabs.youtube.age_label}</div>
           </div>
 
-          {/* 2. Integrated Summary & Gender Stats */}
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div className="flex-1">
-              <div className="text-white text-lg font-black tracking-tight mb-1 leading-tight">
+          {/* Gender Bar */}
+          <div>
+            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.gender_label}</div>
+            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex mb-6">
+              <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}>M</div>
+              <div className="h-full bg-red-600 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}>F</div>
+            </div>
+            <div className="border-t border-white/5 pt-4">
+              <div className="text-white text-sm font-bold tracking-wide border-l-2 border-red-600 pl-4">
                 {t.platform_demography.tabs.youtube.summary}
               </div>
-              <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
-                {t.platform_demography.tabs.youtube.gender_label}
-              </div>
-            </div>
-
-            <div className="w-full md:w-32 lg:w-40 h-3 bg-white/5 rounded-full overflow-hidden flex shrink-0 border border-white/5 shadow-inner">
-              <div className="h-full bg-zinc-600 flex items-center justify-center text-[7px] font-black text-white/50" style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}>M</div>
-              <div className="h-full bg-red-600 flex items-center justify-center text-[7px] font-black text-white" style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}>F</div>
             </div>
           </div>
         </div>
@@ -684,25 +681,22 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
             <div className="scale-125"><SocialIcon name="instagram" /></div>
           </div>
 
-          {/* 1. Age Label Only */}
+          {/* Age Group only */}
           <div className="mb-10">
             <div className="text-xl font-black text-white">{t.platform_demography.tabs.instagram.age_label}</div>
           </div>
 
-          {/* 2. Integrated Summary & Gender Stats */}
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div className="flex-1">
-              <div className="text-white text-lg font-black tracking-tight mb-1 leading-tight">
+          {/* Gender Bar */}
+          <div>
+            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.instagram.gender_label}</div>
+            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex mb-6">
+              <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}>M</div>
+              <div className="h-full bg-pink-500 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}>F</div>
+            </div>
+            <div className="border-t border-white/5 pt-4">
+              <div className="text-white text-sm font-bold tracking-wide border-l-2 border-pink-500 pl-4">
                 {t.platform_demography.tabs.instagram.summary}
               </div>
-              <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
-                {t.platform_demography.tabs.instagram.gender_label}
-              </div>
-            </div>
-
-            <div className="w-full md:w-32 lg:w-40 h-3 bg-white/5 rounded-full overflow-hidden flex shrink-0 border border-white/5 shadow-inner">
-              <div className="h-full bg-zinc-600 flex items-center justify-center text-[7px] font-black text-white/50" style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}>M</div>
-              <div className="h-full bg-pink-500 flex items-center justify-center text-[7px] font-black text-white" style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}>F</div>
             </div>
           </div>
         </div>
