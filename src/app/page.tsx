@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 // --- TYPES & CONTENT DICTIONARY ---
 
@@ -409,56 +409,111 @@ const contentData: Record<'KR' | 'EN', Content> = {
 // --- COMPONENTS ---
 
 const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = contentData[lang].sidebar;
 
+  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
   return (
-    <nav className="fixed left-0 top-0 bottom-0 w-20 md:w-64 z-50 glass border-r border-white/10 flex flex-col justify-between py-12 px-4 md:px-8">
-
-      <div>
-        <a href="/" className="font-black text-2xl tracking-tighter leading-none mb-1 text-center md:text-left block hover:opacity-80 transition-opacity">
-          <span className="md:hidden">TR</span>
-          <span className="hidden md:block">TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span></span>
+    <>
+      {/* MOBILE TOP BAR */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-[#02060C]/90 backdrop-blur-md border-b border-white/10 z-50 flex items-center justify-between px-6">
+        <a href="/" className="font-black text-xl tracking-tighter leading-none text-white">
+          TYLER <span className="text-accent">MEDIA</span>
         </a>
+        <button onClick={toggleMenu} className="text-white p-2">
+          {mobileMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          )}
+        </button>
       </div>
 
-      <div className="flex flex-col gap-8 text-xs md:text-sm font-bold tracking-widest uppercase">
-        {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
-          <a key={item} href={`#${item}`} className="flex items-center gap-4 hover:text-accent transition-colors group">
-            <span className="w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="hidden md:inline">{t[item as keyof typeof t]}</span>
-            <span className="md:hidden text-[10px]">{t[item as keyof typeof t].substring(0, 2)}</span>
+      {/* MOBILE DRAWER */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed inset-0 z-40 bg-[#02060C] md:hidden pt-24 px-8"
+          >
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-6 text-xl font-bold tracking-widest uppercase">
+                {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors"
+                  >
+                    {t[item as keyof typeof t]}
+                  </a>
+                ))}
+              </div>
+
+              <div className="w-full h-[1px] bg-white/10 my-4" />
+
+              <div className="flex flex-col gap-4">
+                <span className="text-xs font-black tracking-widest text-zinc-500 uppercase">Language</span>
+                <div className="flex gap-4">
+                  <button onClick={() => setLang('KR')} className={`text-lg font-bold ${lang === 'KR' ? 'text-accent' : 'text-zinc-600'}`}>KR</button>
+                  <button onClick={() => setLang('EN')} className={`text-lg font-bold ${lang === 'EN' ? 'text-accent' : 'text-zinc-600'}`}>EN</button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* DESKTOP SIDEBAR (Persistent) */}
+      <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-12 px-8">
+        <div>
+          <a href="/" className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity">
+            TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span>
           </a>
-        ))}
-      </div>
+        </div>
 
-      <div className="space-y-8">
-        <div className="flex flex-col gap-3">
-          <span className="text-[10px] font-black tracking-widest text-zinc-500 uppercase px-1">Language</span>
-          <div className="flex bg-white/5 border border-white/10 p-1 rounded-full relative">
-            <motion.div
-              animate={{ x: lang === 'EN' ? '100%' : '0%' }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-accent rounded-full shadow-[0_0_15px_rgba(0,209,160,0.3)]"
-            />
-            <button
-              onClick={() => setLang('KR')}
-              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500'}`}
-            >
-              KR
-            </button>
-            <button
-              onClick={() => setLang('EN')}
-              className={`relative z-10 flex-1 py-1.5 text-[10px] md:text-xs font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500'}`}
-            >
-              EN
-            </button>
+        <div className="flex flex-col gap-8 text-sm font-bold tracking-widest uppercase">
+          {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
+            <a key={item} href={`#${item}`} className="flex items-center gap-4 hover:text-accent transition-colors group">
+              <span className="w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span>{t[item as keyof typeof t]}</span>
+            </a>
+          ))}
+        </div>
+
+        <div className="space-y-8">
+          <div className="flex flex-col gap-3">
+            <span className="text-[10px] font-black tracking-widest text-zinc-500 uppercase px-1">Language</span>
+            <div className="flex bg-white/5 border border-white/10 p-1 rounded-full relative">
+              <motion.div
+                animate={{ x: lang === 'EN' ? '100%' : '0%' }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-accent rounded-full shadow-[0_0_15px_rgba(0,209,160,0.3)]"
+              />
+              <button
+                onClick={() => setLang('KR')}
+                className={`relative z-10 flex-1 py-1.5 text-xs font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500'}`}
+              >
+                KR
+              </button>
+              <button
+                onClick={() => setLang('EN')}
+                className={`relative z-10 flex-1 py-1.5 text-xs font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500'}`}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+          <div className="text-[10px] text-zinc-700 px-1">
+            © 2026 TRM
           </div>
         </div>
-        <div className="text-[10px] text-zinc-700 hidden md:block px-1">
-          © 2026 TRM
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 
@@ -900,7 +955,7 @@ export default function Home() {
       <MediaKitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t.hero.media_kit_cta} btnText={lang === 'KR' ? '받기' : 'Receive Deck'} lang={lang} />
       <VideoModal isOpen={!!selectedVideo} onClose={() => setSelectedVideo(null)} videoUrl={selectedVideo} />
 
-      <main className="pl-20 md:pl-64">
+      <main className="pt-16 md:pt-0 pl-0 md:pl-64">
 
         {/* 1. HERO section */}
         <section id="vision" className="relative min-h-screen flex flex-col justify-center px-8 md:px-20 overflow-hidden border-b border-white/5">
@@ -944,7 +999,7 @@ export default function Home() {
           <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} />
           <div className="max-w-5xl relative z-10">
             <div className="mb-20">
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.sidebar.vision}</h2>
+              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.sidebar.vision}</h2>
               <div className="w-20 h-1 bg-accent/30 mt-8" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-lg md:text-xl leading-relaxed text-zinc-400 border-l border-accent/20 pl-8">
@@ -974,7 +1029,7 @@ export default function Home() {
           {/* SWITCH: Using tyler_prayer_hands.jpg here */}
           <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} />
           <div className="mb-20 relative z-10">
-            <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.portfolio.originals.heading}</h2>
+            <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.originals.heading}</h2>
             <div className="w-20 h-1 bg-accent/30 mt-8" />
           </div>
 
@@ -1028,7 +1083,7 @@ export default function Home() {
           <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} />
           <div className="relative z-10">
             <div className="mb-20">
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.portfolio.brands.heading}</h2>
+              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.brands.heading}</h2>
               <p className="text-accent text-sm font-bold uppercase tracking-widest mt-4">{t.portfolio.brands.subheading}</p>
               <div className="w-20 h-1 bg-accent/30 mt-8" />
             </div>
@@ -1079,7 +1134,7 @@ export default function Home() {
           <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} />
           <div className="relative z-10">
             <div className="mb-20">
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.packages.heading}</h2>
+              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.packages.heading}</h2>
               <p className="text-accent text-sm font-mono tracking-widest uppercase mt-4">{t.packages.subheading}</p>
               <div className="w-20 h-1 bg-accent/30 mt-8" />
             </div>
