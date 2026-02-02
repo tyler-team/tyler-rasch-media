@@ -981,10 +981,6 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative z-10 max-w-4xl"
           >
-            <div className="inline-flex items-center gap-3 mb-8">
-              <div className="w-12 h-[1px] bg-accent/50" />
-              <span className="text-accent text-xs font-bold tracking-[0.3em] uppercase">{t.hero.label}</span>
-            </div>
             <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-8 text-white uppercase">
               TYLER <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800">RASCH</span>
