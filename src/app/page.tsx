@@ -703,7 +703,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           {/* Channel Brand Group */}
           <div className="space-y-8">
             <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.channel_title}</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
                 <motion.a
                   key={i}
@@ -730,7 +730,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           {/* Personal Group */}
           <div className="space-y-8">
             <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.personal_title}</h4>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {t.ecosystem.platforms.filter(p => !p.isChannel).map((p, i) => (
                 <motion.a
                   key={i}
