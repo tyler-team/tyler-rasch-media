@@ -758,20 +758,20 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
 };
 
 // --- FINAL CALIBRATED SECTION BACKGROUND ---
-const SectionBackground = ({ src, y, priority = false }: { src: string, y: any, priority?: boolean }) => (
+const SectionBackground = ({ src, y, pos = "object-[center_10%]", mobilePos = "object-[center_15%]", priority = false }: { src: string, y: any, pos?: string, mobilePos?: string, priority?: boolean }) => (
   <motion.div
     style={{ y }}
-    className="absolute right-0 top-0 bottom-0 w-full md:w-[65%] lg:w-[55%] opacity-[0.6] grayscale pointer-events-none z-0"
+    className="absolute right-0 top-0 bottom-0 w-full md:w-[65%] lg:w-[55%] opacity-[0.75] md:opacity-[0.6] grayscale pointer-events-none z-0 transition-opacity duration-700"
   >
     <Image
       src={src}
       alt="Background Tyler"
       fill
-      className="object-cover object-[center_15%] md:object-[center_10%]" // Pin focus on the face/upper body
+      className={`object-cover ${mobilePos} md:${pos}`}
       priority={priority}
     />
-    {/* Even lighter gradients to prioritize the portrait visibility */}
-    <div className="absolute inset-0 bg-gradient-to-r from-[#02060C] via-[#02060C]/20 to-transparent" />
+    {/* Responsive gradients to protect face visibility on mobile */}
+    <div className="absolute inset-0 bg-gradient-to-r from-[#02060C] via-[#02060C]/30 md:via-[#02060C]/20 to-transparent" />
     <div className="absolute inset-0 bg-gradient-to-b from-[#02060C] via-transparent to-[#02060C]" />
   </motion.div>
 );
@@ -1004,13 +1004,13 @@ export default function Home() {
           </motion.div>
 
           {/* AUDIT: Keep 'tyler_suit_thinking.jpg' as the first one as requested */}
-          <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} />
+          <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} mobilePos="object-[center_10%]" />
         </section>
 
         {/* 2. PHILOSOPHY */}
         <section className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
           {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
-          <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} />
+          <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} mobilePos="object-[center_5%]" />
           <div className="max-w-5xl relative z-10">
             <div className="mb-20">
               <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.sidebar.vision}</h2>
@@ -1032,7 +1032,7 @@ export default function Home() {
         {/* 3. IMPACT DASHBOARD - SIGNIFICANT EXPANSION */}
         <section id="impact" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
           {/* SWITCH: Using tyler_laughing.jpg here */}
-          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} />
+          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} mobilePos="object-[center_10%]" />
           <div className="relative z-10">
             <ImpactDashboard t={t.dashboard} title={t.sidebar.impact} />
           </div>
@@ -1041,7 +1041,7 @@ export default function Home() {
         {/* 4. ORIGINAL CONTENTS */}
         <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
           {/* SWITCH: Using tyler_prayer_hands.jpg here */}
-          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} />
+          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_15%]" />
           <div className="mb-20 relative z-10">
             <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.originals.heading}</h2>
             <div className="w-20 h-1 bg-accent/30 mt-8" />
@@ -1094,7 +1094,7 @@ export default function Home() {
         {/* 5. BRAND COLLABORATIONS */}
         <section id="brands" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
           {/* SWITCH: Using tyler_crossed_arms_side.jpg here */}
-          <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} />
+          <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} mobilePos="object-[center_10%]" />
           <div className="relative z-10">
             <div className="mb-20">
               <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.brands.heading}</h2>
@@ -1145,7 +1145,7 @@ export default function Home() {
         {/* 6. PARTNERSHIP PACKAGES */}
         <section id="packages" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.01]">
           {/* AUDIT: Using unique '20251206_TylerRasch0425_BW.jpg' */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} />
+          <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} mobilePos="object-[center_15%]" />
           <div className="relative z-10">
             <div className="mb-20">
               <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.packages.heading}</h2>
@@ -1179,7 +1179,7 @@ export default function Home() {
         {/* 7. CONTACT */}
         <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
           {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} />
+          <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} mobilePos="object-[center_10%]" />
           <div className="max-w-6xl mx-auto relative z-10">
             <div className="mb-20">
               <div className="flex items-baseline gap-6 mb-8">
