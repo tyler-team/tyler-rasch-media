@@ -1064,7 +1064,7 @@ export default function Home() {
 
                 <div className="space-y-8">
                   <div>
-                    <span className="text-accent text-xs font-bold tracking-[0.3em] uppercase block mb-4">{item.subtitle}</span>
+                    <span className="text-accent text-sm font-bold tracking-[0.3em] uppercase block mb-4">{item.subtitle}</span>
                     <h3 className="text-5xl md:text-7xl font-black text-white leading-none mb-6 italic">{item.title}</h3>
                     <p className="text-zinc-400 text-xl leading-relaxed max-w-xl">{item.desc}</p>
                   </div>
@@ -1077,7 +1077,7 @@ export default function Home() {
                           <div key={idx} className="p-4 glass rounded-xl border border-white/5 hover:border-accent/30 transition-colors">
                             <div className="flex justify-between items-start mb-1">
                               <span className="text-white font-bold">{guest.name}</span>
-                              <span className="text-[10px] text-accent font-mono">{guest.tag}</span>
+                              <span className="text-xs text-accent font-mono">{guest.tag}</span>
                             </div>
                             <p className="text-xs text-zinc-500">{guest.topic}</p>
                           </div>
