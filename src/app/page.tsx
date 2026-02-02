@@ -711,16 +711,14 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-accent/40 hover:bg-accent/5 transition-all group flex flex-col justify-between"
+                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="text-white group-hover:text-accent transition-colors scale-125">
-                      <SocialIcon name={p.icon} />
-                    </div>
+                  <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
+                    <SocialIcon name={p.icon} />
                   </div>
-                  <div>
-                    <div className="font-bold text-base text-white mb-1">{p.name}</div>
-                    <div className="text-xs text-zinc-500 group-hover:text-accent transition-colors font-medium truncate">{p.handle}</div>
+                  <div className="w-full">
+                    <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
+                    <div className="text-[10px] text-zinc-500 group-hover:text-accent font-bold truncate w-full">{p.handle}</div>
                   </div>
                 </motion.a>
               ))}
