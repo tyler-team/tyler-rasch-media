@@ -503,7 +503,7 @@ const SocialIcon = ({ name }: { name: string }) => {
     ),
     twitter: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
       </svg>
     ),
     facebook: (
@@ -767,9 +767,47 @@ const MediaKitModal = ({ isOpen, onClose, title, btnText }: { isOpen: boolean, o
   );
 };
 
+const getYouTubeId = (url: string) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
+const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: () => void, videoUrl: string | null }) => {
+  if (!isOpen || !videoUrl) return null;
+  const videoId = getYouTubeId(videoUrl);
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/90 backdrop-blur-md" onClick={onClose}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative w-full max-w-6xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button onClick={onClose} className="absolute top-4 right-4 z-10 text-white/50 hover:text-white transition-colors bg-black/50 p-2 rounded-full hover:bg-black/80 backdrop-blur-sm">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        {videoId && (
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            title="YouTube video player"
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        )}
+      </motion.div>
+    </div>
+  );
+};
+
 export default function Home() {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
 
   const { scrollYProgress } = useScroll();
@@ -786,6 +824,7 @@ export default function Home() {
       <Sidebar lang={lang} setLang={setLang} />
       <StickyCTA text={t.sidebar.sticky_cta} />
       <MediaKitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t.hero.media_kit_cta} btnText={lang === 'KR' ? '받기' : 'Receive Deck'} />
+      <VideoModal isOpen={!!selectedVideo} onClose={() => setSelectedVideo(null)} videoUrl={selectedVideo} />
 
       <main className="pl-20 md:pl-64">
 
@@ -868,19 +907,17 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-24 relative z-10">
             {t.portfolio.originals.items.map((item, i) => (
               <div key={i} className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
-                <motion.a
-                  href={item.videoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.div
+                  onClick={() => item.videoUrl && setSelectedVideo(item.videoUrl)}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl block"
+                  className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl block cursor-pointer"
                 >
                   <Image src={item.thumbnail} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" unoptimized={item.thumbnail.startsWith('http')} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
                     <span className="text-white font-bold text-sm">&rarr; WATCH PREVIEW</span>
                   </div>
-                </motion.a>
+                </motion.div>
 
                 <div className="space-y-8">
                   <div>
@@ -924,11 +961,9 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {t.portfolio.brands.items.map((item, i) => (
-                <motion.a
+                <motion.div
                   key={i}
-                  href={item.url}
-                  target={item.url ? "_blank" : undefined}
-                  rel={item.url ? "noopener noreferrer" : undefined}
+                  onClick={() => item.url && setSelectedVideo(item.url)}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: (i % 3) * 0.1 }}
@@ -958,7 +993,7 @@ export default function Home() {
                       )}
                     </div>
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </div>
           </div>
