@@ -736,8 +736,35 @@ const StickyCTA = ({ text }: { text: string }) => {
   );
 };
 
-const MediaKitModal = ({ isOpen, onClose, title, btnText }: { isOpen: boolean, onClose: () => void, title: string, btnText: string }) => {
+const MediaKitModal = ({ isOpen, onClose, title, btnText, lang }: { isOpen: boolean, onClose: () => void, title: string, btnText: string, lang: 'KR' | 'EN' }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({ name: '', company: '', email: '' });
+
   if (!isOpen) return null;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Simulate network request
+    setTimeout(() => {
+      console.log('Lead Captured:', formData);
+
+      // Trigger Download
+      const fileName = lang === 'KR' ? 'TylerRasch_MediaKit_2026_KR.pdf' : 'TylerRasch_MediaKit_2026_EN.pdf';
+      const link = document.createElement('a');
+      link.href = `/assets/docs/${fileName}`;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setIsLoading(false);
+      setFormData({ name: '', company: '', email: '' });
+      onClose();
+    }, 1500);
+  };
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
@@ -754,12 +781,59 @@ const MediaKitModal = ({ isOpen, onClose, title, btnText }: { isOpen: boolean, o
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           </div>
           <h3 className="text-2xl font-black text-white uppercase tracking-tight">{title}</h3>
-          <p className="text-zinc-400 text-sm mt-2">Enter your email to receive the full partnership deck instantly.</p>
+          <p className="text-zinc-400 text-sm mt-2">
+            {lang === 'KR' ? '제안서 전문을 확인하기 위해 간단한 정보를 입력해주세요.' : 'Please enter your details to receive the full partnership guide.'}
+          </p>
         </div>
-        <form onSubmit={(e) => { e.preventDefault(); alert("Media Kit sent to your email!"); onClose(); }}>
-          <input type="email" placeholder="name@company.com" required className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-accent mb-4" />
-          <button type="submit" className="w-full bg-accent text-black font-bold py-3 rounded-lg hover:bg-white transition-colors uppercase tracking-widest text-sm">
-            {btnText} &rarr;
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div>
+            <input
+              type="text"
+              placeholder={lang === 'KR' ? '성함' : 'Name'}
+              required
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-accent"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder={lang === 'KR' ? '소속 (회사명)' : 'Company / Organization'}
+              required
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-accent"
+              value={formData.company}
+              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              placeholder={lang === 'KR' ? '이메일 주소' : 'Email Address'}
+              required
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-accent"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full bg-accent text-black font-bold py-3 rounded-lg hover:bg-white transition-colors uppercase tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+          >
+            {isLoading ? (
+              <>
+                <svg className="animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Processing...
+              </>
+            ) : (
+              <>
+                {lang === 'KR' ? 'PDF 다운로드' : 'Download PDF'} &rarr;
+              </>
+            )}
           </button>
         </form>
       </motion.div>
@@ -823,7 +897,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#02060C] text-foreground selection:bg-accent selection:text-black font-sans scroll-smooth uppercase-headings">
       <Sidebar lang={lang} setLang={setLang} />
       <StickyCTA text={t.sidebar.sticky_cta} />
-      <MediaKitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t.hero.media_kit_cta} btnText={lang === 'KR' ? '받기' : 'Receive Deck'} />
+      <MediaKitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t.hero.media_kit_cta} btnText={lang === 'KR' ? '받기' : 'Receive Deck'} lang={lang} />
       <VideoModal isOpen={!!selectedVideo} onClose={() => setSelectedVideo(null)} videoUrl={selectedVideo} />
 
       <main className="pl-20 md:pl-64">
