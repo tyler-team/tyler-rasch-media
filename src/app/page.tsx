@@ -58,6 +58,7 @@ type Content = {
           age_label: string;
           age_value: string;
           insight: string;
+          summary: string;
         };
         instagram: {
           label: string;
@@ -67,6 +68,7 @@ type Content = {
           age_label: string;
           age_value: string;
           insight: string;
+          summary: string;
         };
       };
     };
@@ -169,7 +171,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
             gender: { male: 53, female: 47 },
             age_label: "Core Age: 25 - 44세 (70%)",
             age_value: "70%",
-            insight: "경제 활동이 가장 활발한 '구매 핵심층'으로, 테크, 금융, 자동차 등 고관여 제품군에 즉각 반응합니다."
+            insight: "경제 활동이 가장 활발한 '구매 핵심층'으로, 테크, 금융, 자동차 등 고관여 제품군에 즉각 반응합니다.",
+            summary: "경제 활동이 가장 활발한 '구매 핵심층'"
           },
           instagram: {
             label: "INSTAGRAM",
@@ -178,7 +181,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
             gender: { male: 23, female: 77 },
             age_label: "Core Age: 35 - 44세 (Dominant)",
             age_value: "Dominant",
-            insight: "트렌드와 라이프스타일 소비를 주도하는 핵심 연령층으로, 뷰티, 패션, 리빙 등 비주얼 중심 소비재에 높은 반응률을 보입니다."
+            insight: "트렌드와 라이프스타일 소비를 주도하는 핵심 연령층으로, 뷰티, 패션, 리빙 등 비주얼 중심 소비재에 높은 반응률을 보입니다.",
+            summary: "트렌드와 라이프스타일 소비를 주도하는 데모그래픽"
           }
         }
       },
@@ -309,7 +313,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
             gender: { male: 53, female: 47 },
             age_label: "Core Age: 25 - 44 (70%)",
             age_value: "70%",
-            insight: "Core purchasing power. Creates immediate reaction to high-involvement products (Tech, Finance, Automotive)."
+            insight: "Core purchasing power. Creates immediate reaction to high-involvement products (Tech, Finance, Automotive).",
+            summary: "A core consumer segment with peak economic activity."
           },
           instagram: {
             label: "INSTAGRAM",
@@ -318,7 +323,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
             gender: { male: 23, female: 77 },
             age_label: "Core Age: 35 - 44 (Dominant)",
             age_value: "Dominant",
-            insight: "Leading trends and lifestyle consumption. High responsiveness to visual-centric goods (Beauty, Fashion, Living)."
+            insight: "Leading trends and lifestyle consumption. High responsiveness to visual-centric goods (Beauty, Fashion, Living).",
+            summary: "A key demographic leading trends and lifestyle consumption."
           }
         }
       },
@@ -654,10 +660,13 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
 
           {/* Gender Bar */}
           <div>
-            <div className="text-sm font-bold text-zinc-500 mb-3 uppercase tracking-wider">{t.platform_demography.tabs.youtube.gender_label}</div>
-            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex">
+            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.gender_label}</div>
+            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex mb-6">
               <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}>M</div>
               <div className="h-full bg-red-600 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}>F</div>
+            </div>
+            <div className="text-accent text-sm font-bold tracking-wide border-t border-white/5 pt-4">
+              {t.platform_demography.tabs.youtube.summary}
             </div>
           </div>
         </div>
@@ -683,10 +692,13 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
 
           {/* Gender Bar */}
           <div>
-            <div className="text-sm font-bold text-zinc-500 mb-3 uppercase tracking-wider">{t.platform_demography.tabs.instagram.gender_label}</div>
-            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex">
+            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.instagram.gender_label}</div>
+            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex mb-6">
               <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}>M</div>
               <div className="h-full bg-pink-500 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}>F</div>
+            </div>
+            <div className="text-accent text-sm font-bold tracking-wide border-t border-white/5 pt-4">
+              {t.platform_demography.tabs.instagram.summary}
             </div>
           </div>
         </div>
