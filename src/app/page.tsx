@@ -231,8 +231,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
           { client: "LG Electronics", title: "한국인이 얼음에 집착하는 이유 (Ice Culture)", category: "Branded Content", thumbnail: "/portfolio/lg_thumbnail.jpg", url: "https://www.youtube.com/watch?v=Qzwno5WrXl8" },
           { client: "Cooper Vision", title: "플라스틱 중립: 새로운 경제 모델", category: "ESG Campaign", thumbnail: "/portfolio/cooper_thumbnail.png", url: "https://www.youtube.com/watch?v=vVnqUP0-h8o" },
           { client: "고용노동부", title: "노동시간과 경제 성장의 관계", category: "Public Sector", thumbnail: "/portfolio/moel_thumbnail.png", url: "https://youtu.be/_zrFXYSseMI?si=01QGXlcK_-JqLAaB" },
-          { client: "NOOGI", title: "자세를 바로잡는 쿠션 통합 마케팅", category: "Product Placement" },
-          { client: "8APM", title: "몰입을 돕는 포커스 젤 활용 제안", category: "Product Placement" }
+          { client: "NOOGI", title: "자세를 바로잡는 쿠션 통합 마케팅", category: "Product Placement", thumbnail: "/portfolio/noogi_thumbnail.png", url: "https://youtu.be/Vdx9J0oco4o?si=AcMv88pc7XKIt0V-&t=353" },
+          { client: "8APM", title: "몰입을 돕는 포커스 젤 활용 제안", category: "Product Placement", thumbnail: "/portfolio/8apm_thumbnail.png", url: "https://youtu.be/XbTgQWIeTN8?si=o352uQggIJFkPa53&t=51" }
         ]
       }
     },
@@ -371,8 +371,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
           { client: "LG Electronics", title: "Why Koreans Can't Live Without Ice", category: "Branded Content", thumbnail: "/portfolio/lg_thumbnail.jpg", url: "https://www.youtube.com/watch?v=Qzwno5WrXl8" },
           { client: "Cooper Vision", title: "The Plastic Neutral Economic Model", category: "ESG Campaign", thumbnail: "/portfolio/cooper_thumbnail.png", url: "https://www.youtube.com/watch?v=vVnqUP0-h8o" },
           { client: "Ministry of Employment and Labor", title: "Economy of Shorter Labor Hours", category: "Public Sector", thumbnail: "/portfolio/moel_thumbnail.png", url: "https://youtu.be/_zrFXYSseMI?si=01QGXlcK_-JqLAaB" },
-          { client: "NOOGI", title: "Ergonomic Cushion Integration", category: "Product Placement" },
-          { client: "8APM", title: "Focus Gel for Productive Sessions", category: "Product Placement" }
+          { client: "NOOGI", title: "Ergonomic Cushion Integration", category: "Product Placement", thumbnail: "/portfolio/noogi_thumbnail.png", url: "https://youtu.be/Vdx9J0oco4o?si=AcMv88pc7XKIt0V-&t=353" },
+          { client: "8APM", title: "Focus Gel for Productive Sessions", category: "Product Placement", thumbnail: "/portfolio/8apm_thumbnail.png", url: "https://youtu.be/XbTgQWIeTN8?si=o352uQggIJFkPa53&t=51" }
         ]
       }
     },
