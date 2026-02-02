@@ -650,12 +650,9 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
             <div className="scale-125"><SocialIcon name="youtube" /></div>
           </div>
 
-          {/* Age & Insight */}
+          {/* Age Group only */}
           <div className="mb-10">
-            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.age_label}</div>
-            <p className="text-white text-base font-medium leading-relaxed border-l-2 border-red-600 pl-4">
-              "{t.platform_demography.tabs.youtube.insight}"
-            </p>
+            <div className="text-xl font-black text-white">{t.platform_demography.tabs.youtube.age_label}</div>
           </div>
 
           {/* Gender Bar */}
@@ -665,7 +662,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
               <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}>M</div>
               <div className="h-full bg-red-600 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}>F</div>
             </div>
-            <div className="text-accent text-sm font-bold tracking-wide border-t border-white/5 pt-4">
+            <div className="text-white text-sm font-bold tracking-wide border-t border-white/5 pt-4 border-l-2 border-red-600 pl-4">
               {t.platform_demography.tabs.youtube.summary}
             </div>
           </div>
@@ -682,12 +679,9 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
             <div className="scale-125"><SocialIcon name="instagram" /></div>
           </div>
 
-          {/* Age & Insight */}
+          {/* Age Group only */}
           <div className="mb-10">
-            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.instagram.age_label}</div>
-            <p className="text-white text-base font-medium leading-relaxed border-l-2 border-pink-500 pl-4">
-              "{t.platform_demography.tabs.instagram.insight}"
-            </p>
+            <div className="text-xl font-black text-white">{t.platform_demography.tabs.instagram.age_label}</div>
           </div>
 
           {/* Gender Bar */}
@@ -697,7 +691,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
               <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}>M</div>
               <div className="h-full bg-pink-500 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}>F</div>
             </div>
-            <div className="text-accent text-sm font-bold tracking-wide border-t border-white/5 pt-4">
+            <div className="text-white text-sm font-bold tracking-wide border-t border-white/5 pt-4 border-l-2 border-pink-500 pl-4">
               {t.platform_demography.tabs.instagram.summary}
             </div>
           </div>
