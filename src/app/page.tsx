@@ -247,10 +247,10 @@ const contentData: Record<'KR' | 'EN', Content> = {
           detail: "10분 내외의 본편 영상을 통해 브랜드의 핵심 메시지를 타일러의 시각으로 깊이 있게 분석하고 전달합니다. 시청자가 자발적으로 찾아보고 공유하는 고품격 스토리텔링을 제공합니다."
         },
         {
-          title: "Organic Integration",
-          subtitle: "PPL (In-Video)",
-          desc: "흐름을 해치지 않는 자연스러운 맥락 연결",
-          detail: "콘텐츠의 지적 논의 과정에서 브랜드 제품이나 서비스가 자연스러운 해결책이나 예시로 등장합니다. 90초 내외의 노출로 거부감 없이 확실한 각인 효과를 창출합니다."
+          title: "PPL (Product Placement)",
+          subtitle: "자연스러운 노출 (Seamless Integration)",
+          desc: "콘텐츠의 흐름을 방해하지 않는 최적화된 브랜드 노출",
+          detail: "콘텐츠의 흐름을 방해하지 않는 최적화된 위치에 광고를 배치합니다. 시청자의 몰입을 유지하면서도, 필요한 순간에 브랜드가 자연스럽게 노출되어 광고 피로도를 최소화합니다. (약 90초 내외 노출)"
         },
         {
           title: "Viral Impact",
@@ -387,10 +387,10 @@ const contentData: Record<'KR' | 'EN', Content> = {
           detail: "A dedicated ~10m episode where Tyler deconstructs your brand message through his analytical lens. We create content that viewers actively seek out, ensuring deep engagement and high retention."
         },
         {
-          title: "Organic Integration",
-          subtitle: "Product Placement (PPL)",
-          desc: "Context-Driven Seamless Exposure",
-          detail: "Your product appears as a natural solution or example within a high-level intellectual discussion. (~90s). We ensure zero viewer fatigue while maximizing brand recall."
+          title: "PPL (Product Placement)",
+          subtitle: "Seamless Integration",
+          desc: "Strategic Exposure that respects the viewer’s focus",
+          detail: "Seamless Integration that respects the viewer’s focus. By placing your brand within high-engagement segments, we minimize ad fatigue while maintaining maximum impact. (~90s exposure)"
         },
         {
           title: "Viral Impact",
