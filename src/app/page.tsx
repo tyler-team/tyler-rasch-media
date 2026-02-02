@@ -761,7 +761,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
 const SectionBackground = ({ src, y, pos = "object-[center_10%]", mobilePos = "object-[center_15%]", priority = false }: { src: string, y: any, pos?: string, mobilePos?: string, priority?: boolean }) => (
   <motion.div
     style={{ y }}
-    className="absolute right-0 top-0 bottom-0 w-full md:w-[65%] lg:w-[55%] opacity-[0.75] md:opacity-[0.6] grayscale pointer-events-none z-0 transition-opacity duration-700"
+    className="absolute right-0 top-0 bottom-0 w-full md:w-[65%] lg:w-[55%] opacity-[0.8] md:opacity-[0.6] grayscale pointer-events-none z-0 transition-opacity duration-700"
   >
     <Image
       src={src}
@@ -1041,7 +1041,7 @@ export default function Home() {
         {/* 4. ORIGINAL CONTENTS */}
         <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
           {/* SWITCH: Using tyler_prayer_hands.jpg here */}
-          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_15%]" />
+          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_5%]" />
           <div className="mb-20 relative z-10">
             <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.originals.heading}</h2>
             <div className="w-20 h-1 bg-accent/30 mt-8" />
@@ -1145,7 +1145,7 @@ export default function Home() {
         {/* 6. PARTNERSHIP PACKAGES */}
         <section id="packages" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.01]">
           {/* AUDIT: Using unique '20251206_TylerRasch0425_BW.jpg' */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} mobilePos="object-[center_15%]" />
+          <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} mobilePos="object-[center_10%]" />
           <div className="relative z-10">
             <div className="mb-20">
               <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.packages.heading}</h2>
