@@ -103,6 +103,8 @@ type Content = {
         client: string;
         title: string;
         category: string;
+        thumbnail?: string;
+        url?: string;
       }[];
     };
   };
@@ -128,14 +130,14 @@ const contentData: Record<'KR' | 'EN', Content> = {
       impact: "미디어 영향력",
       originals: "오리지널 시리즈",
       brands: "브랜드 파트너십",
-      packages: "파트너십",
+      packages: "파트너십 패키지",
       contact: "문의하기",
       sticky_cta: "협업 문의하기"
     },
     hero: {
       label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
-      subtitle: "지적인 아이콘 • 현대 미디어의 권위자",
+      subtitle: "지적 아이콘 • 브랜드에 지성을 더하는 목소리",
       description: "타일러 라쉬는 단순한 방송인이 아닙니다. 대한민국에서 가장 신뢰받는 외국인 지식인이자, 브랜드의 메시지에 '지적 권위'를 부여하는 독보적인 미디어 솔루션입니다.",
       cta: "협업 문의하기",
       media_kit_cta: "미디어 키트 다운로드"
@@ -225,7 +227,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         heading: "브랜드 파트너십",
         subheading: "브랜드 철학을 타일러만의 논리적인 서사로 재해석한 성공 사례",
         items: [
-          { client: "SK Telecom", title: "당신의 시간을 아끼는 법 (Neuroscience of Design)", category: "Branded Content" },
+          { client: "SK Telecom", title: "당신의 시간을 아끼는 법 (Neuroscience of Design)", category: "Branded Content", thumbnail: "/portfolio/skt_thumbnail.jpg", url: "https://youtu.be/2WJvdU11OfM?si=Qe9XOS-FQl1Qg2-q" },
           { client: "LG Electronics", title: "한국인이 얼음에 집착하는 이유 (Ice Culture)", category: "Branded Content" },
           { client: "Cooper Vision", title: "플라스틱 중립: 새로운 경제 모델", category: "ESG Campaign" },
           { client: "고용노동부", title: "노동시간과 경제 성장의 관계", category: "Public Sector" },
@@ -235,7 +237,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "파트너십",
+      heading: "파트너십 패키지",
       subheading: "브랜드의 격을 높이는 전략적 솔루션",
       items: [
         {
@@ -365,7 +367,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         heading: "BRAND PARTNERSHIP",
         subheading: "Brand philosophies translated into Tyler's logical narratives.",
         items: [
-          { client: "SK Telecom", title: "Neuroscience Behind Design", category: "Branded Content" },
+          { client: "SK Telecom", title: "Neuroscience Behind Design", category: "Branded Content", thumbnail: "/portfolio/skt_thumbnail.jpg", url: "https://youtu.be/2WJvdU11OfM?si=Qe9XOS-FQl1Qg2-q" },
           { client: "LG Electronics", title: "Why Koreans Can't Live Without Ice", category: "Branded Content" },
           { client: "Cooper Vision", title: "The Plastic Neutral Economic Model", category: "ESG Campaign" },
           { client: "MOEL", title: "Economy of Shorter Labor Hours", category: "Public Sector" },
@@ -922,12 +924,15 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {t.portfolio.brands.items.map((item, i) => (
-                <motion.div
+                <motion.a
                   key={i}
+                  href={item.url}
+                  target={item.url ? "_blank" : undefined}
+                  rel={item.url ? "noopener noreferrer" : undefined}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: (i % 3) * 0.1 }}
-                  className="p-8 bg-zinc-900/40 border border-white/5 hover:border-accent/40 rounded-2xl group cursor-pointer transition-all hover:bg-zinc-900/60"
+                  className={`p-8 bg-zinc-900/40 border border-white/5 hover:border-accent/40 rounded-2xl group transition-all hover:bg-zinc-900/60 block ${item.url ? 'cursor-pointer' : 'cursor-default'}`}
                 >
                   <div className="flex flex-col h-full justify-between gap-12">
                     <div>
@@ -938,13 +943,22 @@ export default function Home() {
                       <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors leading-snug mb-2">{item.title}</h3>
                       <p className="text-zinc-500 text-sm font-medium">{item.client}</p>
                     </div>
-                    <div className="h-24 w-full bg-black/40 rounded-lg flex items-center justify-center border border-white/5 overflow-hidden">
-                      <div className="text-zinc-800 font-black text-4xl tracking-tighter select-none opacity-20 uppercase group-hover:opacity-40 transition-opacity">
-                        {item.client.split(' ')[0]}
-                      </div>
+                    <div className="h-48 w-full bg-black/40 rounded-lg flex items-center justify-center border border-white/5 overflow-hidden relative">
+                      {item.thumbnail ? (
+                        <Image
+                          src={item.thumbnail}
+                          alt={item.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="text-zinc-800 font-black text-4xl tracking-tighter select-none opacity-20 uppercase group-hover:opacity-40 transition-opacity">
+                          {item.client.split(' ')[0]}
+                        </div>
+                      )}
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </div>
@@ -965,7 +979,7 @@ export default function Home() {
               {t.packages.items.map((item, i) => (
                 <div key={i} className="group grid grid-cols-1 lg:grid-cols-12 gap-12 border-l-2 border-white/5 pl-8 hover:border-accent transition-colors duration-500">
                   <div className="lg:col-span-4">
-                    <span className="text-8xl font-black text-white/5 -ml-4 block -mt-10 mb-4 select-none">0{i + 1}</span>
+                    <span className="text-8xl font-black text-white/15 -ml-4 block -mt-10 mb-4 select-none">0{i + 1}</span>
                     <h3 className="text-3xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-accent text-sm font-bold uppercase tracking-wider">{item.subtitle}</p>
                   </div>
