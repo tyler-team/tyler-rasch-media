@@ -617,7 +617,13 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           >
             <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-50">{item.tag}</span>
             <div className="text-5xl font-black text-white mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
-              {item.val}
+              {typeof item.val === 'string' && item.val.includes('만') ? (
+                <>
+                  {item.val.split('만')[0]}
+                  <span className="text-2xl font-bold ml-1">만</span>
+                  {item.val.split('만')[1]}
+                </>
+              ) : item.val}
             </div>
             <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{item.label}</p>
           </motion.div>
