@@ -1059,7 +1059,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-24 relative z-10">
             {t.portfolio.originals.items.map((item, i) => (
-              <div key={i} className="grid grid-cols-1 xl:grid-cols-[0.8fr_1.2fr] gap-12 xl:gap-20 items-center">
+              <div key={i} className="grid grid-cols-1 xl:grid-cols-[0.8fr_1.2fr] gap-12 xl:gap-20 items-start">
                 <motion.div
                   onClick={() => item.videoUrl && setSelectedVideo(item.videoUrl)}
                   initial={{ opacity: 0, scale: 0.95 }}
