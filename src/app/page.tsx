@@ -617,12 +617,12 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           >
             <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-50">{item.tag}</span>
             <div className="text-5xl font-black text-white mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
-              {typeof item.val === 'string' && item.val.includes('만') ? (
-                <>
-                  {item.val.split('만')[0]}
-                  <span className="text-2xl font-bold ml-1">만</span>
-                  {item.val.split('만')[1]}
-                </>
+              {typeof item.val === 'string' ? (
+                item.val.split(/(만|\+|%)/).map((part, index) =>
+                  ['만', '+', '%'].includes(part) ? (
+                    <span key={index} className="text-3xl font-bold mx-0.5">{part}</span>
+                  ) : part
+                )
               ) : item.val}
             </div>
             <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{item.label}</p>
