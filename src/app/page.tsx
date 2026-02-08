@@ -1246,6 +1246,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 8. CAREERS (KOREAN ONLY) */}
+        {lang === 'KR' && t.careers && (
+          <section id="careers" className="relative py-48 px-8 md:px-20 bg-[#02060C] border-t border-white/5">
+            <div className="relative z-10">
+              <div className="mb-20">
+                <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.careers.heading}</h2>
+                <div className="w-20 h-1 bg-accent/30 mt-8" />
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
+                <div>
+                  <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 break-keep">{t.careers.subheading}</h3>
+                  <p className="text-xl text-zinc-400 break-keep">{t.careers.desc}</p>
+                </div>
+              </div>
+
+              {/* Core Values */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+                {t.careers.values.map((value, i) => (
+                  <div key={i} className="p-8 border border-white/10 bg-white/5 rounded-3xl hover:border-accent/30 transition-colors">
+                    <h4 className="text-xl font-bold text-white mb-4">{value.title}</h4>
+                    <p className="text-sm text-zinc-400 leading-relaxed break-keep">{value.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Open Positions */}
+              <div className="space-y-8">
+                {t.careers.positions.map((pos, i) => (
+                  <div key={i} className="p-10 border border-white/10 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-8 group hover:border-accent/50 transition-colors bg-white/[0.02]">
+                    <div>
+                      <h4 className="text-2xl font-bold text-white mb-2">{pos.title}</h4>
+                      <p className="text-zinc-400 max-w-2xl break-keep">{pos.desc}</p>
+                    </div>
+                    <button className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-accent transition-colors whitespace-nowrap">
+                      {pos.action}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
       </main>
     </div>
   );
