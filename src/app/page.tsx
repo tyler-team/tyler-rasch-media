@@ -20,6 +20,7 @@ type Content = {
     brands: string;
     packages: string;
     contact: string;
+    careers?: string;
     sticky_cta: string;
   };
   hero: {
@@ -123,6 +124,13 @@ type Content = {
   contact: {
     heading: React.ReactNode;
   };
+  careers?: {
+    heading: string;
+    subheading: string;
+    desc: string;
+    values: { title: string; desc: string }[];
+    positions: { title: string; desc: string; action: string }[];
+  };
 };
 
 const contentData: Record<'KR' | 'EN', Content> = {
@@ -132,9 +140,10 @@ const contentData: Record<'KR' | 'EN', Content> = {
       impact: "미디어 영향력",
       originals: "오리지널 시리즈",
       brands: "브랜드 파트너십",
-      packages: "파트너십 패키지",
+      packages: "파트너십",
       contact: "문의하기",
-      sticky_cta: "협업 문의하기"
+      careers: "채용",
+      sticky_cta: "타일러와 협업하기"
     },
     hero: {
       label: "STRATEGIC PARTNERSHIP",
@@ -266,6 +275,20 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     contact: {
       heading: <>Lead with Authority.<br />Partner with Tyler.</>
+    },
+    careers: {
+      heading: "채용",
+      subheading: "지적 영향력을 설계하는 사람들",
+      desc: "우리는 조회수 너머의 가치를 만듭니다. 타일러와 함께 미디어의 새로운 기준이 되어주세요.",
+      values: [
+        { title: "Deep Dive (본질적 탐구)", desc: "표면적인 재미가 아닌, 본질을 꿰뚫는 기획을 지향합니다. '왜?'라는 질문을 멈추지 않는 집요함이 필요합니다." },
+        { title: "Autonomous Growth (자율과 성장)", desc: "시키는 일만 하지 않습니다. 스스로 채널의 성장을 위한 가설을 세우고, 검증하고, 결과를 만들어냅니다." },
+        { title: "Global Standard (초격차 기준)", desc: "단순한 유튜버 팀이 아닙니다. 글로벌 탑티어 브랜드와 협업하며 업계 최고의 퀄리티를 타협하지 않습니다." }
+      ],
+      positions: [
+        { title: "Content Lead (콘텐츠 리드)", desc: "타일러볼까요 채널의 '뇌'가 되어주세요. 리서치 기반 기획부터 제작 매니징, 검수, 발행 최적화까지 채널 성장의 모든 것을 주도합니다.", action: "지원하기" },
+        { title: "Community Lead (커뮤니티 리드)", desc: "단순 관리가 아닙니다. 타일러의 철학을 지지하는 '브랜드 에반젤리스트'를 양성하고, 자생적인 고관여 커뮤니티 생태계를 구축합니다.", action: "지원하기" }
+      ]
     }
   },
   EN: {
@@ -481,6 +504,15 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
                     {t[item as keyof typeof t]}
                   </a>
                 ))}
+                {lang === 'KR' && (
+                  <a
+                    href="#careers"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors"
+                  >
+                    {t.careers}
+                  </a>
+                )}
               </div>
 
             </div>
@@ -503,6 +535,12 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
               <span>{t[item as keyof typeof t]}</span>
             </a>
           ))}
+          {lang === 'KR' && (
+            <a href="#careers" className="flex items-center gap-4 hover:text-accent transition-colors group">
+              <span className="w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span>{t.careers}</span>
+            </a>
+          )}
         </div>
 
         <div className="space-y-8">
