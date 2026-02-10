@@ -447,7 +447,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
     <>
       {/* MOBILE TOP BAR */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-[#02060C]/90 backdrop-blur-md border-b border-white/10 z-50 flex items-center justify-between px-6">
-        <button onClick={() => setView('home')} className="font-black text-xl tracking-tighter leading-none text-white cursor-pointer">
+        <button onClick={() => { setView('home'); window.scrollTo(0, 0); }} className="font-black text-xl tracking-tighter leading-none text-white cursor-pointer">
           TYLER <span className="text-accent">MEDIA</span>
         </button>
         <div className="flex items-center gap-4">
@@ -522,7 +522,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
       {/* DESKTOP SIDEBAR (Persistent) */}
       <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-12 px-8">
         <div>
-          <button onClick={() => setView('home')} className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity cursor-pointer">
+          <button onClick={() => { setView('home'); window.scrollTo(0, 0); }} className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity cursor-pointer">
             TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span>
           </button>
         </div>
