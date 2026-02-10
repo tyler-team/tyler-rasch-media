@@ -128,8 +128,8 @@ type Content = {
     heading: string;
     subheading: string;
     desc: string;
-    values: { title: string; desc: string }[];
-    positions: { title: string; desc: string; action: string }[];
+    values: { title: React.ReactNode; desc: React.ReactNode }[];
+    positions: { title: string; desc: React.ReactNode; action: string }[];
   };
 };
 
@@ -282,12 +282,12 @@ const contentData: Record<'KR' | 'EN', Content> = {
       desc: "우리는 조회수 너머의 가치를 만듭니다. 타일러와 함께 미디어의 새로운 기준이 되어주세요.",
       values: [
         { title: "Deep Dive (본질적 탐구)", desc: "표면적인 재미가 아닌, 본질을 꿰뚫는 기획을 지향합니다. '왜?'라는 질문을 멈추지 않는 집요함이 필요합니다." },
-        { title: "Autonomous Growth (자율과 성장)", desc: "시키는 일만 하지 않습니다. 스스로 채널의 성장을 위한 가설을 세우고, 검증하고, 결과를 만들어냅니다." },
-        { title: "Global Standard (초격차 기준)", desc: "단순한 유튜버 팀이 아닙니다. 글로벌 탑티어 브랜드와 협업하며 업계 최고의 퀄리티를 타협하지 않습니다." }
+        { title: <>Autonomous Growth<br />(자율과 성장)</>, desc: "시키는 일만 하지 않습니다. 스스로 브랜드의 성장을 위한 가설을 세우고, 검증하고, 결과를 만들어냅니다." },
+        { title: "Global Standard (글로벌 기준)", desc: "단순한 유튜버 팀이 아닙니다. 글로벌 탑티어 브랜드와 협업하며 업계 최고의 퀄리티를 타협하지 않습니다." }
       ],
       positions: [
-        { title: "Content Lead (콘텐츠 리드)", desc: "타일러볼까요 채널의 '뇌'가 되어주세요. 리서치 기반 기획부터 제작 매니징, 검수, 발행 최적화까지 채널 성장의 모든 것을 주도합니다.", action: "지원하기" },
-        { title: "Community Lead (커뮤니티 리드)", desc: "단순 관리가 아닙니다. 타일러의 철학을 지지하는 '브랜드 에반젤리스트'를 양성하고, 자생적인 고관여 커뮤니티 생태계를 구축합니다.", action: "지원하기" }
+        { title: "Head of Content (콘텐츠 총괄)", desc: "타일러볼까요 채널의 'Showrunner'를 찾습니다. 단순 제작을 넘어, 데이터 기반의 성장 전략 수립부터 제작 시스템 총괄, 퀄리티 컨트롤(QC)까지. 타일러의 지적 자산을 가장 매력적인 콘텐츠로 가공하는 최종 책임자입니다.", action: "지원하기" },
+        { title: "Head of Community (커뮤니티 총괄)", desc: "구독자를 강력한 '지적 연대'로 변화시킬 설계자(Architect)를 찾습니다. 멤버십 비즈니스 모델을 구축하고, 브랜드 에반젤리스트를 양성하여 자생적이고 결속력 있는 팬덤 생태계를 직접 설계하고 리딩합니다.", action: "지원하기" }
       ]
     }
   },
@@ -437,7 +437,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
 
 // --- COMPONENTS ---
 
-const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void }) => {
+const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers', setView: (v: 'home' | 'careers') => void }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = contentData[lang].sidebar;
 
@@ -447,9 +447,9 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
     <>
       {/* MOBILE TOP BAR */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-[#02060C]/90 backdrop-blur-md border-b border-white/10 z-50 flex items-center justify-between px-6">
-        <a href="/" className="font-black text-xl tracking-tighter leading-none text-white">
+        <button onClick={() => setView('home')} className="font-black text-xl tracking-tighter leading-none text-white cursor-pointer">
           TYLER <span className="text-accent">MEDIA</span>
-        </a>
+        </button>
         <div className="flex items-center gap-4">
           {/* Mobile Language Toggle */}
           <div className="flex bg-white/5 border border-white/10 p-0.5 rounded-full relative w-20">
@@ -498,20 +498,19 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
                   <a
                     key={item}
                     href={`#${item}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors"
+                    onClick={() => { setView('home'); setMobileMenuOpen(false); }}
+                    className={`flex items-center gap-4 transition-colors ${view === 'home' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-white'}`}
                   >
                     {t[item as keyof typeof t]}
                   </a>
                 ))}
                 {lang === 'KR' && (
-                  <a
-                    href="#careers"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors"
+                  <button
+                    onClick={() => { setView('careers'); setMobileMenuOpen(false); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'careers' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
                   >
                     {t.careers}
-                  </a>
+                  </button>
                 )}
               </div>
 
@@ -523,23 +522,31 @@ const Sidebar = ({ lang, setLang }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN
       {/* DESKTOP SIDEBAR (Persistent) */}
       <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-12 px-8">
         <div>
-          <a href="/" className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity">
+          <button onClick={() => setView('home')} className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity cursor-pointer">
             TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span>
-          </a>
+          </button>
         </div>
 
         <div className="flex flex-col gap-8 text-sm font-bold tracking-widest uppercase">
           {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
-            <a key={item} href={`#${item}`} className="flex items-center gap-4 hover:text-accent transition-colors group">
-              <span className="w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+            <a
+              key={item}
+              href={`#${item}`}
+              onClick={() => setView('home')}
+              className={`flex items-center gap-4 transition-colors group ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'home' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
               <span>{t[item as keyof typeof t]}</span>
             </a>
           ))}
           {lang === 'KR' && (
-            <a href="#careers" className="flex items-center gap-4 hover:text-accent transition-colors group">
-              <span className="w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+            <button
+              onClick={() => setView('careers')}
+              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'careers' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
               <span>{t.careers}</span>
-            </a>
+            </button>
           )}
         </div>
 
@@ -828,7 +835,7 @@ const SectionBackground = ({ src, y, pos = "object-[center_10%]", mobilePos = "o
   </motion.div>
 );
 
-const StickyCTA = ({ text }: { text: string }) => {
+const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'careers') => void }) => {
   const [visible, setVisible] = useState(false);
   const { scrollY } = useScroll();
 
@@ -846,6 +853,7 @@ const StickyCTA = ({ text }: { text: string }) => {
     <div className={`fixed bottom-8 right-8 z-50 transition-all duration-500 transform ${visible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
       <a
         href="#contact"
+        onClick={() => setView('home')}
         className="flex items-center gap-3 pl-6 pr-2 py-2 bg-accent text-black rounded-full shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:scale-105 hover:shadow-[0_0_30px_rgba(0,229,255,0.6)] transition-all group"
       >
         <span className="font-bold text-sm tracking-widest uppercase my-2 mr-2">{text}</span>
@@ -1001,9 +1009,14 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
 
 export default function Home() {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
+  const [view, setView] = useState<'home' | 'careers'>('home');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view]);
 
   const { scrollYProgress } = useScroll();
   const yHero = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
@@ -1016,280 +1029,285 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#02060C] text-foreground selection:bg-accent selection:text-black font-sans scroll-smooth uppercase-headings">
-      <Sidebar lang={lang} setLang={setLang} />
-      <StickyCTA text={t.sidebar.sticky_cta} />
+      <Sidebar lang={lang} setLang={setLang} view={view} setView={setView} />
+      <StickyCTA text={t.sidebar.sticky_cta} setView={setView} />
       <MediaKitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t.hero.media_kit_cta} btnText={lang === 'KR' ? '받기' : 'Receive Deck'} lang={lang} />
       <VideoModal isOpen={!!selectedVideo} onClose={() => setSelectedVideo(null)} videoUrl={selectedVideo} />
 
       <main className="pt-16 md:pt-0 pl-0 md:pl-64">
+        {view === 'home' ? (
+          <>
 
-        {/* 1. HERO section */}
-        <section id="vision" className="relative min-h-screen flex flex-col justify-center px-8 md:px-20 overflow-hidden border-b border-white/5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,229,255,0.05)_0%,transparent_50%)]" />
+            {/* 1. HERO section */}
+            <section id="vision" className="relative min-h-screen flex flex-col justify-center px-8 md:px-20 overflow-hidden border-b border-white/5">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,229,255,0.05)_0%,transparent_50%)]" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative z-10 max-w-4xl"
-          >
-            <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-8 text-white uppercase">
-              TYLER <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800">RASCH</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white font-medium mb-4">{t.hero.subtitle}</p>
-            <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl word-keep-all mb-12">
-              {t.hero.description}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="px-8 py-4 bg-accent text-black font-bold text-sm tracking-widest hover:bg-white transition-colors text-center">
-                {t.hero.cta} &rarr;
-              </a>
-              <button onClick={() => setIsModalOpen(true)} className="px-8 py-4 border border-white/20 text-white font-bold text-sm tracking-widest hover:bg-white/10 transition-colors text-center">
-                {t.hero.media_kit_cta} ↓
-              </button>
-            </div>
-          </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative z-10 max-w-4xl"
+              >
+                <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-8 text-white uppercase">
+                  TYLER <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800">RASCH</span>
+                </h1>
+                <p className="text-xl md:text-2xl text-white font-medium mb-4">{t.hero.subtitle}</p>
+                <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl word-keep-all mb-12">
+                  {t.hero.description}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="#contact" className="px-8 py-4 bg-accent text-black font-bold text-sm tracking-widest hover:bg-white transition-colors text-center">
+                    {t.hero.cta} &rarr;
+                  </a>
+                  <button onClick={() => setIsModalOpen(true)} className="px-8 py-4 border border-white/20 text-white font-bold text-sm tracking-widest hover:bg-white/10 transition-colors text-center">
+                    {t.hero.media_kit_cta} ↓
+                  </button>
+                </div>
+              </motion.div>
 
-          {/* AUDIT: Keep 'tyler_suit_thinking.jpg' as the first one as requested */}
-          <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} mobilePos="object-[center_10%]" />
-        </section>
+              {/* AUDIT: Keep 'tyler_suit_thinking.jpg' as the first one as requested */}
+              <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} mobilePos="object-[center_10%]" />
+            </section>
 
-        {/* 2. PHILOSOPHY */}
-        <section className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
-          <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} mobilePos="object-[center_5%]" />
-          <div className="max-w-5xl relative z-10">
-            <div className="mb-20">
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.sidebar.vision}</h2>
-              <div className="w-20 h-1 bg-accent/30 mt-8" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-lg md:text-xl leading-relaxed text-zinc-400 border-l border-accent/20 pl-8">
-              <p className="word-keep-all">{t.philosophy.p1}</p>
-              <p className="word-keep-all">{t.philosophy.p2}</p>
-            </div>
-            <div className="mt-16 pt-8 border-t border-white/5">
-              <p className="text-2xl md:text-3xl font-serif italic text-white/80 mb-20 opacity-80">"{t.philosophy.quote}"</p>
-              <div className="text-3xl md:text-5xl font-black text-zinc-200 leading-tight uppercase tracking-tighter">
-                {t.philosophy.manifesto}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. IMPACT DASHBOARD - SIGNIFICANT EXPANSION */}
-        <section id="impact" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          {/* SWITCH: Using tyler_laughing.jpg here */}
-          <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} mobilePos="object-[center_10%]" />
-          <div className="relative z-10">
-            <ImpactDashboard t={t.dashboard} title={t.sidebar.impact} />
-          </div>
-        </section>
-
-        {/* 4. ORIGINAL CONTENTS */}
-        <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
-          {/* SWITCH: Using tyler_prayer_hands.jpg here */}
-          <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_5%]" />
-          <div className="mb-20 relative z-10">
-            <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.originals.heading}</h2>
-            <div className="w-20 h-1 bg-accent/30 mt-8" />
-          </div>
-
-          <div className="grid grid-cols-1 gap-24 relative z-10">
-            {t.portfolio.originals.items.map((item, i) => (
-              <div key={i} className="grid grid-cols-1 xl:grid-cols-[0.8fr_1.2fr] gap-12 xl:gap-20 items-start">
-                <motion.div
-                  onClick={() => item.videoUrl && setSelectedVideo(item.videoUrl)}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl block cursor-pointer"
-                >
-                  <Image src={item.thumbnail} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" unoptimized={item.thumbnail.startsWith('http')} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                    <span className="text-white font-bold text-sm">&rarr; WATCH PREVIEW</span>
+            {/* 2. PHILOSOPHY */}
+            <section className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+              {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
+              <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} mobilePos="object-[center_5%]" />
+              <div className="max-w-5xl relative z-10">
+                <div className="mb-20">
+                  <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.sidebar.vision}</h2>
+                  <div className="w-20 h-1 bg-accent/30 mt-8" />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-lg md:text-xl leading-relaxed text-zinc-400 border-l border-accent/20 pl-8">
+                  <p className="word-keep-all">{t.philosophy.p1}</p>
+                  <p className="word-keep-all">{t.philosophy.p2}</p>
+                </div>
+                <div className="mt-16 pt-8 border-t border-white/5">
+                  <p className="text-2xl md:text-3xl font-serif italic text-white/80 mb-20 opacity-80">"{t.philosophy.quote}"</p>
+                  <div className="text-3xl md:text-5xl font-black text-zinc-200 leading-tight uppercase tracking-tighter">
+                    {t.philosophy.manifesto}
                   </div>
-                </motion.div>
-
-                <div className="space-y-8">
-                  <div>
-                    <span className="text-accent text-sm font-bold tracking-[0.3em] uppercase block mb-4">{item.subtitle}</span>
-                    <h3 className="text-5xl md:text-7xl font-black text-white leading-none mb-6 italic">{item.title}</h3>
-                    <p className="text-zinc-400 text-xl leading-relaxed max-w-xl">{item.desc}</p>
-                  </div>
-
-                  {item.guests && (
-                    <div className="space-y-4">
-                      <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Featured Guests & Topics</p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {item.guests.map((guest, idx) => (
-                          <div key={idx} className="p-4 glass rounded-xl border border-white/5 hover:border-accent/30 transition-colors">
-                            <div className="flex justify-between items-start mb-1">
-                              <span className="text-white font-bold">{guest.name}</span>
-                              <span className="text-xs text-accent font-mono">{guest.tag}</span>
-                            </div>
-                            <p className="text-xs text-zinc-500">{guest.topic}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
 
-        {/* 5. BRAND COLLABORATIONS */}
-        <section id="brands" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          {/* SWITCH: Using tyler_crossed_arms_side.jpg here */}
-          <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} mobilePos="object-[center_10%]" />
-          <div className="relative z-10">
-            <div className="mb-20">
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.brands.heading}</h2>
-              <p className="text-accent text-sm font-bold uppercase tracking-widest mt-4">{t.portfolio.brands.subheading}</p>
-              <div className="w-20 h-1 bg-accent/30 mt-8" />
-            </div>
+            {/* 3. IMPACT DASHBOARD - SIGNIFICANT EXPANSION */}
+            <section id="impact" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+              {/* SWITCH: Using tyler_laughing.jpg here */}
+              <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} mobilePos="object-[center_10%]" />
+              <div className="relative z-10">
+                <ImpactDashboard t={t.dashboard} title={t.sidebar.impact} />
+              </div>
+            </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {t.portfolio.brands.items.map((item, i) => (
-                <motion.div
-                  key={i}
-                  onClick={() => item.url && setSelectedVideo(item.url)}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (i % 3) * 0.1 }}
-                  className={`p-8 bg-zinc-900/40 border border-white/5 hover:border-accent/40 rounded-2xl group transition-all hover:bg-zinc-900/60 block ${item.url ? 'cursor-pointer' : 'cursor-default'}`}
-                >
-                  <div className="flex flex-col h-full justify-between gap-12">
-                    <div>
-                      <div className="flex justify-between items-start mb-6">
-                        <span className="text-[10px] font-bold text-zinc-500 tracking-widest uppercase py-1 px-3 border border-zinc-800 rounded-full">{item.category}</span>
-                        <span className="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+            {/* 4. ORIGINAL CONTENTS */}
+            <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+              {/* SWITCH: Using tyler_prayer_hands.jpg here */}
+              <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_5%]" />
+              <div className="mb-20 relative z-10">
+                <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.originals.heading}</h2>
+                <div className="w-20 h-1 bg-accent/30 mt-8" />
+              </div>
+
+              <div className="grid grid-cols-1 gap-24 relative z-10">
+                {t.portfolio.originals.items.map((item, i) => (
+                  <div key={i} className="grid grid-cols-1 xl:grid-cols-[0.8fr_1.2fr] gap-12 xl:gap-20 items-start">
+                    <motion.div
+                      onClick={() => item.videoUrl && setSelectedVideo(item.videoUrl)}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl block cursor-pointer"
+                    >
+                      <Image src={item.thumbnail} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" unoptimized={item.thumbnail.startsWith('http')} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                        <span className="text-white font-bold text-sm">&rarr; WATCH PREVIEW</span>
                       </div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors leading-snug mb-2">{item.title}</h3>
-                      <p className="text-zinc-500 text-sm font-medium">{item.client}</p>
-                    </div>
-                    <div className="aspect-video w-full bg-black/40 rounded-lg flex items-center justify-center border border-white/5 overflow-hidden relative">
-                      {item.thumbnail ? (
-                        <Image
-                          src={item.thumbnail}
-                          alt={item.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      ) : (
-                        <div className="text-zinc-800 font-black text-4xl tracking-tighter select-none opacity-20 uppercase group-hover:opacity-40 transition-opacity">
-                          {item.client.split(' ')[0]}
+                    </motion.div>
+
+                    <div className="space-y-8">
+                      <div>
+                        <span className="text-accent text-sm font-bold tracking-[0.3em] uppercase block mb-4">{item.subtitle}</span>
+                        <h3 className="text-5xl md:text-7xl font-black text-white leading-none mb-6 italic">{item.title}</h3>
+                        <p className="text-zinc-400 text-xl leading-relaxed max-w-xl">{item.desc}</p>
+                      </div>
+
+                      {item.guests && (
+                        <div className="space-y-4">
+                          <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Featured Guests & Topics</p>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {item.guests.map((guest, idx) => (
+                              <div key={idx} className="p-4 glass rounded-xl border border-white/5 hover:border-accent/30 transition-colors">
+                                <div className="flex justify-between items-start mb-1">
+                                  <span className="text-white font-bold">{guest.name}</span>
+                                  <span className="text-xs text-accent font-mono">{guest.tag}</span>
+                                </div>
+                                <p className="text-xs text-zinc-500">{guest.topic}</p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       )}
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 6. PARTNERSHIP PACKAGES */}
-        <section id="packages" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.01]">
-          {/* AUDIT: Using unique '20251206_TylerRasch0425_BW.jpg' */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} mobilePos="object-[center_10%]" />
-          <div className="relative z-10">
-            <div className="mb-20">
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.packages.heading}</h2>
-              <p className="text-accent text-sm font-mono tracking-widest uppercase mt-4">{t.packages.subheading}</p>
-              <div className="w-20 h-1 bg-accent/30 mt-8" />
-            </div>
-
-            <div className="space-y-24">
-              {t.packages.items.map((item, i) => (
-                <div key={i} className="group grid grid-cols-1 lg:grid-cols-12 gap-12 border-l-2 border-white/5 pl-8 hover:border-accent transition-colors duration-500">
-                  <div className="lg:col-span-4">
-                    <span className="text-8xl font-black text-white/15 -ml-4 block -mt-10 mb-4 select-none">0{i + 1}</span>
-                    <h3 className="text-3xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-accent text-sm font-bold uppercase tracking-wider">{item.subtitle}</p>
-                  </div>
-                  <div className="lg:col-span-8 space-y-6">
-                    <p className="text-xl text-white font-medium word-keep-all">{item.desc}</p>
-                    <p className="text-zinc-400 leading-relaxed word-keep-all">{item.detail}</p>
-                    <div className="pt-4">
-                      <a href="#contact" className="inline-block border-b border-white/20 pb-1 text-xs font-bold uppercase tracking-widest hover:text-accent hover:border-accent transition-all">
-                        {t.sidebar.contact} &rarr;
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 7. CONTACT */}
-        <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
-          {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
-          <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} mobilePos="object-[center_10%]" />
-          <div className="max-w-6xl mx-auto relative z-10">
-            <div className="mb-20">
-              <div className="flex items-baseline gap-6 mb-8">
-                <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.sidebar.contact}</h2>
-                <div className="animate-bounce text-accent text-2xl">↓</div>
-              </div>
-              <div className="w-20 h-1 bg-accent/30" />
-            </div>
-
-            <TypeformEmbed />
-
-            <div className="mt-12 flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-widest">
-              <span>© 2026 Tyler Rasch Media</span>
-              <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors">contact@tylerrasch.com</a>
-            </div>
-          </div>
-        </section>
-
-        {/* 8. CAREERS (KOREAN ONLY) */}
-        {lang === 'KR' && t.careers && (
-          <section id="careers" className="relative py-48 px-8 md:px-20 bg-[#02060C] border-t border-white/5">
-            <div className="relative z-10">
-              <div className="mb-20">
-                <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.careers.heading}</h2>
-                <div className="w-20 h-1 bg-accent/30 mt-8" />
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
-                <div>
-                  <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 break-keep">{t.careers.subheading}</h3>
-                  <p className="text-xl text-zinc-400 break-keep">{t.careers.desc}</p>
-                </div>
-              </div>
-
-              {/* Core Values */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
-                {t.careers.values.map((value, i) => (
-                  <div key={i} className="p-8 border border-white/10 bg-white/5 rounded-3xl hover:border-accent/30 transition-colors">
-                    <h4 className="text-xl font-bold text-white mb-4">{value.title}</h4>
-                    <p className="text-sm text-zinc-400 leading-relaxed break-keep">{value.desc}</p>
-                  </div>
                 ))}
               </div>
+            </section>
 
-              {/* Open Positions */}
-              <div className="space-y-8">
-                {t.careers.positions.map((pos, i) => (
-                  <div key={i} className="p-10 border border-white/10 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-8 group hover:border-accent/50 transition-colors bg-white/[0.02]">
-                    <div>
-                      <h4 className="text-2xl font-bold text-white mb-2">{pos.title}</h4>
-                      <p className="text-zinc-400 max-w-2xl break-keep">{pos.desc}</p>
-                    </div>
-                    <button className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-accent transition-colors whitespace-nowrap">
-                      {pos.action}
-                    </button>
-                  </div>
-                ))}
+            {/* 5. BRAND COLLABORATIONS */}
+            <section id="brands" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+              {/* SWITCH: Using tyler_crossed_arms_side.jpg here */}
+              <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} mobilePos="object-[center_10%]" />
+              <div className="relative z-10">
+                <div className="mb-20">
+                  <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.brands.heading}</h2>
+                  <p className="text-accent text-sm font-bold uppercase tracking-widest mt-4">{t.portfolio.brands.subheading}</p>
+                  <div className="w-20 h-1 bg-accent/30 mt-8" />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {t.portfolio.brands.items.map((item, i) => (
+                    <motion.div
+                      key={i}
+                      onClick={() => item.url && setSelectedVideo(item.url)}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: (i % 3) * 0.1 }}
+                      className={`p-8 bg-zinc-900/40 border border-white/5 hover:border-accent/40 rounded-2xl group transition-all hover:bg-zinc-900/60 block ${item.url ? 'cursor-pointer' : 'cursor-default'}`}
+                    >
+                      <div className="flex flex-col h-full justify-between gap-12">
+                        <div>
+                          <div className="flex justify-between items-start mb-6">
+                            <span className="text-[10px] font-bold text-zinc-500 tracking-widest uppercase py-1 px-3 border border-zinc-800 rounded-full">{item.category}</span>
+                            <span className="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+                          </div>
+                          <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors leading-snug mb-2">{item.title}</h3>
+                          <p className="text-zinc-500 text-sm font-medium">{item.client}</p>
+                        </div>
+                        <div className="aspect-video w-full bg-black/40 rounded-lg flex items-center justify-center border border-white/5 overflow-hidden relative">
+                          {item.thumbnail ? (
+                            <Image
+                              src={item.thumbnail}
+                              alt={item.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          ) : (
+                            <div className="text-zinc-800 font-black text-4xl tracking-tighter select-none opacity-20 uppercase group-hover:opacity-40 transition-opacity">
+                              {item.client.split(' ')[0]}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+
+            {/* 6. PARTNERSHIP PACKAGES */}
+            <section id="packages" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.01]">
+              {/* AUDIT: Using unique '20251206_TylerRasch0425_BW.jpg' */}
+              <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} mobilePos="object-[center_10%]" />
+              <div className="relative z-10">
+                <div className="mb-20">
+                  <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.packages.heading}</h2>
+                  <p className="text-accent text-sm font-mono tracking-widest uppercase mt-4">{t.packages.subheading}</p>
+                  <div className="w-20 h-1 bg-accent/30 mt-8" />
+                </div>
+
+                <div className="space-y-24">
+                  {t.packages.items.map((item, i) => (
+                    <div key={i} className="group grid grid-cols-1 lg:grid-cols-12 gap-12 border-l-2 border-white/5 pl-8 hover:border-accent transition-colors duration-500">
+                      <div className="lg:col-span-4">
+                        <span className="text-8xl font-black text-white/15 -ml-4 block -mt-10 mb-4 select-none">0{i + 1}</span>
+                        <h3 className="text-3xl font-bold text-white mb-2">{item.title}</h3>
+                        <p className="text-accent text-sm font-bold uppercase tracking-wider">{item.subtitle}</p>
+                      </div>
+                      <div className="lg:col-span-8 space-y-6">
+                        <p className="text-xl text-white font-medium word-keep-all">{item.desc}</p>
+                        <p className="text-zinc-400 leading-relaxed word-keep-all">{item.detail}</p>
+                        <div className="pt-4">
+                          <a href="#contact" className="inline-block border-b border-white/20 pb-1 text-xs font-bold uppercase tracking-widest hover:text-accent hover:border-accent transition-all">
+                            {t.sidebar.contact} &rarr;
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 7. CONTACT */}
+            <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
+              {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
+              <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} mobilePos="object-[center_10%]" />
+              <div className="max-w-6xl mx-auto relative z-10">
+                <div className="mb-20">
+                  <div className="flex items-baseline gap-6 mb-8">
+                    <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.sidebar.contact}</h2>
+                    <div className="animate-bounce text-accent text-2xl">↓</div>
+                  </div>
+                  <div className="w-20 h-1 bg-accent/30" />
+                </div>
+
+                <TypeformEmbed />
+
+                <div className="mt-12 flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-widest">
+                  <span>© 2026 Tyler Rasch Media</span>
+                  <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors">contact@tylerrasch.com</a>
+                </div>
+              </div>
+            </section>
+          </>
+        ) : (
+          /* CAREERS VIEW (KOREAN ONLY) */
+          lang === 'KR' && t.careers && (
+            <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
+              <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} mobilePos="object-[center_10%]" />
+              <div className="relative z-10 max-w-6xl mx-auto">
+                <div className="mb-20">
+                  <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">Careers</span>
+                  <h2 className="text-5xl md:text-8xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.careers.heading}</h2>
+                  <div className="w-20 h-1 bg-accent/30 mt-8" />
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
+                  <div>
+                    <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 break-keep tracking-tight">{t.careers.subheading}</h3>
+                    <p className="text-xl text-zinc-400 break-keep leading-relaxed">{t.careers.desc}</p>
+                  </div>
+                </div>
+
+                {/* Core Values */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+                  {t.careers.values.map((value: any, i: number) => (
+                    <div key={i} className="p-8 border border-white/10 bg-white/5 rounded-3xl hover:border-accent/30 transition-all hover:-translate-y-1 duration-300">
+                      <h4 className="text-xl font-bold text-white mb-4">{value.title}</h4>
+                      <p className="text-sm text-zinc-400 leading-relaxed break-keep">{value.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Open Positions */}
+                <div className="space-y-8">
+                  {t.careers.positions.map((pos: any, i: number) => (
+                    <div key={i} className="p-10 border border-white/10 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-8 group hover:border-accent/50 transition-all bg-white/[0.02] hover:bg-white/[0.04]">
+                      <div>
+                        <h4 className="text-2xl font-bold text-white mb-2">{pos.title}</h4>
+                        <p className="text-zinc-400 max-w-2xl break-keep">{pos.desc}</p>
+                      </div>
+                      <button className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-accent transition-colors whitespace-nowrap">
+                        {pos.action}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )
         )}
-
       </main>
     </div>
   );
