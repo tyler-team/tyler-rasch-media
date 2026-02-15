@@ -1048,14 +1048,14 @@ const BrandLogoWall = () => {
   const partners = [
     { name: "SK Telecom", logo: "/partners/sk_telecom_new.png" },
     { name: "Maxim", logo: "/partners/media__1771143610825.png" },
-    { name: "LG Electronics", logo: "/partners/media__1771143613583.png" },
+    { name: "LG Electronics", logo: "/partners/lg_new.png" },
     { name: "3M", logo: "/partners/3m_new.png" },
     { name: "고용노동부", logo: "/partners/media__1771143619967.png" },
     { name: "NOOGI", logo: "/partners/media__1771143764734.png" },
     { name: "8APM", logo: "/partners/media__1771143767907.png" },
     { name: "Breezm", logo: "/partners/media__1771143782118.png" },
     { name: "Nicorette", logo: "/partners/nicorette_new.png" },
-    { name: "LG U+", logo: "/partners/media__1771143772354.png" },
+    { name: "LG U+", logo: "/partners/lg_new.png" },
     { name: "NordVPN", logo: "/partners/media__1771143775321.png" },
     { name: "CooperVision", logo: "/partners/coopervision_new.png" }
   ];
