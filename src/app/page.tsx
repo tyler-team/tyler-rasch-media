@@ -1047,14 +1047,14 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
 const BrandLogoWall = () => {
   const partners = [
     { name: "SK Telecom", logo: "/partners/sk_telecom_new.png", scale: 1.3 },
-    { name: "Maxim", logo: "/partners/media__1771143610825.png", scale: 1.2 },
+    { name: "Maxim", logo: "/partners/maxim_final.png", scale: 1.2 },
     { name: "LG Electronics", logo: "/partners/lg_electronics_new.png" },
     { name: "3M", logo: "/partners/3m_new.png" },
     { name: "고용노동부", logo: "/partners/media__1771143619967.png", scale: 1.2 },
     { name: "NOOGI", logo: "/partners/media__1771143764734.png", scale: 1.1 },
     { name: "8APM", logo: "/partners/media__1771143767907.png" },
     { name: "Breezm", logo: "/partners/media__1771143782118.png" },
-    { name: "Nicorette", logo: "/partners/nicorette_new.png", scale: 1.1 },
+    { name: "Nicorette", logo: "/partners/nicorette_final.png", scale: 1.1 },
     { name: "LG U+", logo: "/partners/lg_uplus_final.png" },
     { name: "NordVPN", logo: "/partners/media__1771143775321.png" },
     { name: "CooperVision", logo: "/partners/coopervision_new.png" }
