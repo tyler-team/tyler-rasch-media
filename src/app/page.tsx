@@ -96,6 +96,8 @@ type Content = {
         thumbnail: string;
         videoUrl?: string;
         guests?: Guest[];
+        features?: Guest[];
+        featureLabel?: string;
         locations?: string[];
       }[];
     };
@@ -214,6 +216,20 @@ const contentData: Record<'KR' | 'EN', Content> = {
       originals: {
         heading: "오리지널 시리즈",
         items: [
+          {
+            title: "Tylerbolkkayo",
+            subtitle: "타일러볼까요 본편",
+            desc: "세상을 보는 새로운 관점",
+            thumbnail: "/thumbnails/tylerbolkkayo_main.jpg",
+            videoUrl: "https://www.youtube.com/@tylerbolkkayo",
+            features: [
+              { name: "세상과 이슈", topic: "글로벌 트렌드와 시사 이슈의 본질", tag: "#GlobalIssues" },
+              { name: "관점과 생각", topic: "현상을 읽는 새로운 프레임워크", tag: "#Perspective" },
+              { name: "문화와 삶", topic: "다양성 속에서 발견하는 보편적 가치", tag: "#Culture" },
+              { name: "언어와 학습", topic: "사고를 확장하는 도구로서의 언어", tag: "#Learning" }
+            ],
+            featureLabel: "다양한 주제"
+          },
           {
             title: "Candid Couch",
             subtitle: "캔디드 카우치",
@@ -371,6 +387,20 @@ const contentData: Record<'KR' | 'EN', Content> = {
       originals: {
         heading: "ORIGINAL SERIES",
         items: [
+          {
+            title: "Tylerbolkkayo",
+            subtitle: "Tylerbolkkayo Main Series",
+            desc: "New Perspectives on the World",
+            thumbnail: "/thumbnails/tylerbolkkayo_main.jpg",
+            videoUrl: "https://www.youtube.com/@tylerbolkkayo",
+            features: [
+              { name: "World & Issues", topic: "Deep dive into global trends", tag: "#GlobalIssues" },
+              { name: "Perspectives", topic: "New frameworks for thinking", tag: "#Perspective" },
+              { name: "Culture & Life", topic: "Universal values in diversity", tag: "#Culture" },
+              { name: "Language", topic: "Tools for expanding thought", tag: "#Learning" }
+            ],
+            featureLabel: "Topics"
+          },
           {
             title: "Candid Couch",
             subtitle: "Guest Talk Show",
@@ -1139,17 +1169,19 @@ export default function Home() {
                         <p className="text-zinc-400 text-xl leading-relaxed max-w-xl">{item.desc}</p>
                       </div>
 
-                      {item.guests && (
+                      {(item.guests || item.features) && (
                         <div className="space-y-4">
-                          <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Featured Guests & Topics</p>
+                          <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
+                            {item.featureLabel || "Featured Guests & Topics"}
+                          </p>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {item.guests.map((guest, idx) => (
+                            {(item.guests || item.features)?.map((feature: any, idx: number) => (
                               <div key={idx} className="p-4 glass rounded-xl border border-white/5 hover:border-accent/30 transition-colors">
                                 <div className="flex justify-between items-start mb-1">
-                                  <span className="text-white font-bold">{guest.name}</span>
-                                  <span className="text-xs text-accent font-mono">{guest.tag}</span>
+                                  <span className="text-white font-bold">{feature?.name}</span>
+                                  <span className="text-xs text-accent font-mono">{feature?.tag}</span>
                                 </div>
-                                <p className="text-xs text-zinc-500">{guest.topic}</p>
+                                <p className="text-xs text-zinc-500">{feature?.topic}</p>
                               </div>
                             ))}
                           </div>
