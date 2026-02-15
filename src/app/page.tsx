@@ -1046,15 +1046,15 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
 
 const BrandLogoWall = () => {
   const partners = [
-    { name: "SK Telecom", logo: "/partners/sk_telecom_new.png" },
-    { name: "Maxim", logo: "/partners/media__1771143610825.png" },
+    { name: "SK Telecom", logo: "/partners/sk_telecom_new.png", scale: 1.3 },
+    { name: "Maxim", logo: "/partners/media__1771143610825.png", scale: 1.2 },
     { name: "LG Electronics", logo: "/partners/lg_electronics_new.png" },
     { name: "3M", logo: "/partners/3m_new.png" },
-    { name: "고용노동부", logo: "/partners/media__1771143619967.png" },
-    { name: "NOOGI", logo: "/partners/media__1771143764734.png" },
+    { name: "고용노동부", logo: "/partners/media__1771143619967.png", scale: 1.2 },
+    { name: "NOOGI", logo: "/partners/media__1771143764734.png", scale: 1.1 },
     { name: "8APM", logo: "/partners/media__1771143767907.png" },
     { name: "Breezm", logo: "/partners/media__1771143782118.png" },
-    { name: "Nicorette", logo: "/partners/nicorette_new.png" },
+    { name: "Nicorette", logo: "/partners/nicorette_new.png", scale: 1.1 },
     { name: "LG U+", logo: "/partners/lg_uplus_final.png" },
     { name: "NordVPN", logo: "/partners/media__1771143775321.png" },
     { name: "CooperVision", logo: "/partners/coopervision_new.png" }
@@ -1067,7 +1067,8 @@ const BrandLogoWall = () => {
         {partners.map((brand, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: (brand.scale || 1) * 1.1 }}
+            initial={{ scale: brand.scale || 1 }}
             className="relative w-32 h-12 opacity-30 hover:opacity-100 transition-all duration-500 cursor-default"
             style={{
               filter: 'brightness(0) saturate(100%) invert(64%) sepia(91%) saturate(2847%) hue-rotate(145deg) brightness(105%) contrast(102%)'
