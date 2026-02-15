@@ -1055,7 +1055,7 @@ const BrandLogoWall = () => {
     { name: "8APM", logo: "/partners/media__1771143767907.png" },
     { name: "Breezm", logo: "/partners/media__1771143782118.png" },
     { name: "Nicorette", logo: "/partners/nicorette_new.png" },
-    { name: "LG U+", logo: "/partners/lg_uplus_new.png" },
+    { name: "LG U+", logo: "/partners/lg_uplus_final.png" },
     { name: "NordVPN", logo: "/partners/media__1771143775321.png" },
     { name: "CooperVision", logo: "/partners/coopervision_new.png" }
   ];
