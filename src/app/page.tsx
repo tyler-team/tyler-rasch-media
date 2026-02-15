@@ -1045,23 +1045,38 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
 };
 
 const BrandLogoWall = () => {
-  const brands = [
-    "SK Telecom", "T.O.P coffee", "LG Electronics", "3M",
-    "고용노동부", "NOOGI", "8APM", "브리즘",
-    "니코레트", "LG유플러스", "NordVPN", "누지"
+  const partners = [
+    { name: "SK Telecom", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/SK_Telecom_Logo.svg" },
+    { name: "Maxim T.O.P", logo: "https://www.dongsuh.co.kr/2017/brand/top/img/logo_top.png" },
+    { name: "LG Electronics", logo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/LG_Electronics_Logo_%28modern%29.svg" },
+    { name: "3M", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4c/3M_wordmark.svg" },
+    { name: "고용노동부", logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Ministry_of_Employment_and_Labor_of_the_Republic_of_Korea_Logo_%28horizontal%29.svg" },
+    { name: "NOOGI", logo: "https://noogifurniture.com/web/upload/logo/noogi_logo.png" },
+    { name: "8APM", logo: "https://8apm.co.kr/web/upload/category/logo/v2_logo_8apm.png" },
+    { name: "Breezm", logo: "https://breezm.com/assets/images/logo/logo-breezm.png" },
+    { name: "Nicorette", logo: "https://logos-world.net/wp-content/uploads/2022/05/Nicorette-Logo.png" },
+    { name: "LG U+", logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/LG_U%2B_CI.svg" },
+    { name: "NordVPN", logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/NordVPN_logo.svg" },
+    { name: "CooperVision", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/CooperVision_logo.svg" }
   ];
 
   return (
     <div className="mt-32 pt-20 border-t border-white/5">
       <p className="text-[10px] font-bold text-zinc-500 tracking-[0.3em] uppercase mb-12 text-center opacity-40">Trusted Partners</p>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center opacity-40 hover:opacity-100 transition-opacity duration-700">
-        {brands.map((brand, i) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-16 items-center justify-items-center">
+        {partners.map((brand, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.05 }}
-            className="text-zinc-500 hover:text-accent transition-colors duration-300 font-black text-sm md:text-base tracking-tighter uppercase text-center cursor-default whitespace-nowrap"
+            whileHover={{ scale: 1.1 }}
+            className="relative w-32 h-12 grayscale brightness-0 invert opacity-20 hover:opacity-100 hover:brightness-100 hover:grayscale-0 transition-all duration-500 cursor-default"
           >
-            {brand}
+            <Image
+              src={brand.logo}
+              alt={brand.name}
+              fill
+              className="object-contain"
+              unoptimized={brand.logo.endsWith('.svg')}
+            />
           </motion.div>
         ))}
       </div>
