@@ -205,7 +205,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
           { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X (Twitter)", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "X", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch" },
           { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
         ]
       }
@@ -362,7 +362,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
           { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X (Twitter)", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "X", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch" },
           { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
         ]
       }
@@ -641,7 +641,7 @@ const SocialIcon = ({ name }: { name: string }) => {
     ),
     threads: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M16.142 2H7.858C4.621 2 2 4.621 2 7.858v8.284C2 19.379 4.621 22 7.858 22h8.284c3.237 0 5.858-2.621 5.858-5.858V7.858C22 4.621 19.379 2 16.142 2zm3.858 14.142c0 2.126-1.732 3.858-3.858 3.858H7.858C5.732 20 4 18.268 4 16.142V7.858C4 5.732 5.732 4 7.858 4h8.284c2.126 0 3.858 1.732 3.858 3.858v8.284zm-8-9.142c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3z" />
+        <path d="M19.1032 13.2386C19.1032 17.8286 15.4232 21.5086 10.8332 21.5086C6.2432 21.5086 2.5632 17.8286 2.5632 13.2386C2.5632 8.6486 6.2432 4.9686 10.8332 4.9686C14.4832 4.9686 17.3932 7.3786 18.5732 10.7086C18.6732 10.9986 18.5232 11.3086 18.2332 11.4186C17.9432 11.5286 17.6232 11.3686 17.5232 11.0886C16.5132 8.2486 13.8832 6.1386 10.8332 6.1386C6.8332 6.1386 3.7332 9.2386 3.7332 13.2386C3.7332 17.2386 6.8332 20.3386 10.8332 20.3386C14.8332 20.3386 17.9332 17.2386 17.9332 13.2386V13.0686C17.9332 11.7586 17.0632 10.1586 15.5432 10.1586C14.8332 10.1586 14.3432 10.4586 14.1532 10.6686C13.6832 11.1686 13.5132 11.8586 13.5132 12.5586V12.7286C13.5132 13.5686 12.8332 14.2486 11.9932 14.2486C11.1532 14.2486 10.4732 13.5686 10.4732 12.7286V12.5586C10.4732 11.7286 11.1532 11.0486 11.9932 11.0486H12.0132C12.1632 11.0486 12.3132 11.0786 12.4532 11.1286C12.4332 10.9186 12.4232 10.7086 12.4232 10.4986C12.4232 10.2186 12.6532 9.9886 12.9332 9.9886C13.2132 9.9886 13.4432 10.2186 13.4432 10.4986C13.4432 10.6586 13.4532 10.8186 13.4632 10.9786C13.7832 10.4586 14.3932 9.1286 15.5432 9.1286C17.6532 9.1286 19.1032 11.2386 19.1032 13.0686V13.2386V13.2386Z" />
       </svg>
     )
   };
