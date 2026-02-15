@@ -1046,29 +1046,32 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
 
 const BrandLogoWall = () => {
   const partners = [
-    { name: "SK Telecom", logo: "/partners/media__1771143608470.png" },
+    { name: "SK Telecom", logo: "/partners/sk_telecom_new.png" },
     { name: "Maxim", logo: "/partners/media__1771143610825.png" },
     { name: "LG Electronics", logo: "/partners/media__1771143613583.png" },
-    { name: "3M", logo: "/partners/media__1771143617083.jpg" },
+    { name: "3M", logo: "/partners/3m_new.png" },
     { name: "고용노동부", logo: "/partners/media__1771143619967.png" },
     { name: "NOOGI", logo: "/partners/media__1771143764734.png" },
     { name: "8APM", logo: "/partners/media__1771143767907.png" },
     { name: "Breezm", logo: "/partners/media__1771143782118.png" },
-    { name: "Nicorette", logo: "/partners/media__1771143856014.png" },
+    { name: "Nicorette", logo: "/partners/nicorette_new.png" },
     { name: "LG U+", logo: "/partners/media__1771143772354.png" },
     { name: "NordVPN", logo: "/partners/media__1771143775321.png" },
-    { name: "CooperVision", logo: "/partners/coopervision.png" }
+    { name: "CooperVision", logo: "/partners/coopervision_new.png" }
   ];
 
   return (
     <div className="mt-32 pt-20 border-t border-white/5">
-      <p className="text-[10px] font-bold text-zinc-500 tracking-[0.3em] uppercase mb-12 text-center opacity-40">Trusted Partners</p>
+      <p className="text-[12px] font-bold text-accent/40 tracking-[0.4em] uppercase mb-16 text-center">Trusted Partners</p>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-16 items-center justify-items-center">
         {partners.map((brand, i) => (
           <motion.div
             key={i}
             whileHover={{ scale: 1.1 }}
-            className="relative w-32 h-12 grayscale brightness-0 invert opacity-20 hover:opacity-100 hover:brightness-100 hover:grayscale-0 transition-all duration-500 cursor-default"
+            className="relative w-32 h-12 opacity-30 hover:opacity-100 transition-all duration-500 cursor-default"
+            style={{
+              filter: 'brightness(0) saturate(100%) invert(64%) sepia(91%) saturate(2847%) hue-rotate(145deg) brightness(105%) contrast(102%)'
+            }}
           >
             <Image
               src={brand.logo}
