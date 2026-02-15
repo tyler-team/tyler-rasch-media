@@ -1044,6 +1044,31 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
   );
 };
 
+const BrandLogoWall = () => {
+  const brands = [
+    "SK Telecom", "T.O.P coffee", "LG Electronics", "3M",
+    "고용노동부", "NOOGI", "8APM", "브리즘",
+    "니코레트", "LG유플러스", "NordVPN", "누지"
+  ];
+
+  return (
+    <div className="mt-32 pt-20 border-t border-white/5">
+      <p className="text-[10px] font-bold text-zinc-500 tracking-[0.3em] uppercase mb-12 text-center opacity-40">Trusted Partners</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center opacity-40 hover:opacity-100 transition-opacity duration-700">
+        {brands.map((brand, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05 }}
+            className="text-zinc-500 hover:text-accent transition-colors duration-300 font-black text-sm md:text-base tracking-tighter uppercase text-center cursor-default whitespace-nowrap"
+          >
+            {brand}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
   const [view, setView] = useState<'home' | 'careers'>('home');
@@ -1241,6 +1266,7 @@ export default function Home() {
                     </motion.div>
                   ))}
                 </div>
+                <BrandLogoWall />
               </div>
             </section>
 
