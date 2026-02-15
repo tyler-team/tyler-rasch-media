@@ -196,13 +196,14 @@ const contentData: Record<'KR' | 'EN', Content> = {
         }
       },
       ecosystem: {
-        channel_title: "타일러볼까요 (Channel)",
-        personal_title: "Tyler Rasch (Personal)",
+        channel_title: "Tylerbolkkayo Channel",
+        personal_title: "Tyler Rasch",
         platforms: [
           { name: "YouTube", handle: "@tylerbolkkayo", count: "165K", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tylerbolkkayo", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
           { name: "TikTok", handle: "@tylerbolkkayo", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
+          { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
           { name: "X (Twitter)", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch" },
           { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
@@ -352,13 +353,14 @@ const contentData: Record<'KR' | 'EN', Content> = {
         }
       },
       ecosystem: {
-        channel_title: "Tylerbolkkayo (Official)",
-        personal_title: "Tyler Rasch (Personal)",
+        channel_title: "Tylerbolkkayo Channel",
+        personal_title: "Tyler Rasch",
         platforms: [
           { name: "YouTube", handle: "@tylerbolkkayo", count: "", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tylerbolkkayo", count: "", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
           { name: "TikTok", handle: "@tylerbolkkayo", count: "", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
+          { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
           { name: "X (Twitter)", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch" },
           { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
@@ -636,6 +638,11 @@ const SocialIcon = ({ name }: { name: string }) => {
         <path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.506 1.64 4.708 4.12 6.046l-.82 2.99z" />
         <circle cx="12" cy="11" r="1.5" />
       </svg>
+    ),
+    threads: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M16.142 2H7.858C4.621 2 2 4.621 2 7.858v8.284C2 19.379 4.621 22 7.858 22h8.284c3.237 0 5.858-2.621 5.858-5.858V7.858C22 4.621 19.379 2 16.142 2zm3.858 14.142c0 2.126-1.732 3.858-3.858 3.858H7.858C5.732 20 4 18.268 4 16.142V7.858C4 5.732 5.732 4 7.858 4h8.284c2.126 0 3.858 1.732 3.858 3.858v8.284zm-8-9.142c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3z" />
+      </svg>
     )
   };
   return icons[name.toLowerCase()] || <span className="w-5 h-5 bg-white/10 rounded-full" />;
@@ -761,31 +768,6 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
-          {/* Channel Brand Group */}
-          <div className="space-y-8">
-            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.channel_title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
-                <motion.a
-                  key={i}
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
-                >
-                  <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
-                    <SocialIcon name={p.icon} />
-                  </div>
-                  <div className="w-full">
-                    <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
-                    <div className="text-[10px] text-zinc-500 group-hover:text-accent font-bold truncate w-full">{p.handle}</div>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
           {/* Personal Group */}
           <div className="space-y-8">
             <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.personal_title}</h4>
@@ -805,6 +787,31 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   <div className="w-full">
                     <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
                     <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.handle}</div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Channel Brand Group */}
+          <div className="space-y-8">
+            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.channel_title}</h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
+                <motion.a
+                  key={i}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5 }}
+                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
+                >
+                  <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
+                    <SocialIcon name={p.icon} />
+                  </div>
+                  <div className="w-full">
+                    <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
+                    <div className="text-[10px] text-zinc-500 group-hover:text-accent font-bold truncate w-full">{p.handle}</div>
                   </div>
                 </motion.a>
               ))}
