@@ -769,9 +769,9 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
 
         <div className="flex flex-col items-center gap-24">
           {/* Personal Group */}
-          <div className="space-y-8 w-full max-w-4xl">
+          <div className="space-y-8 w-full max-w-5xl">
             <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.personal_title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center">
               {t.ecosystem.platforms.filter(p => !p.isChannel).map((p, i) => (
                 <motion.a
                   key={i}
@@ -779,7 +779,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-6 h-40 w-full glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
+                  className="p-4 aspect-square w-full max-w-[160px] glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-2"
                 >
                   <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
                     <SocialIcon name={p.icon} />
@@ -794,9 +794,9 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           </div>
 
           {/* Channel Brand Group */}
-          <div className="space-y-8 w-full max-w-4xl">
+          <div className="space-y-8 w-full max-w-3xl">
             <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.channel_title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
               {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
                 <motion.a
                   key={i}
@@ -804,7 +804,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-6 h-40 w-full glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
+                  className="p-4 aspect-square w-full max-w-[160px] glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-2"
                 >
                   <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
                     <SocialIcon name={p.icon} />
