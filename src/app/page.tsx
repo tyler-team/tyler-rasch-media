@@ -1046,18 +1046,18 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
 
 const BrandLogoWall = () => {
   const partners = [
-    { name: "SK Telecom", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/SK_Telecom_Logo.svg" },
-    { name: "Maxim T.O.P", logo: "https://www.dongsuh.co.kr/2017/brand/top/img/logo_top.png" },
-    { name: "LG Electronics", logo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/LG_Electronics_Logo_%28modern%29.svg" },
-    { name: "3M", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4c/3M_wordmark.svg" },
-    { name: "고용노동부", logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Ministry_of_Employment_and_Labor_of_the_Republic_of_Korea_Logo_%28horizontal%29.svg" },
-    { name: "NOOGI", logo: "https://noogifurniture.com/web/upload/logo/noogi_logo.png" },
-    { name: "8APM", logo: "https://8apm.co.kr/web/upload/category/logo/v2_logo_8apm.png" },
-    { name: "Breezm", logo: "https://breezm.com/assets/images/logo/logo-breezm.png" },
-    { name: "Nicorette", logo: "https://logos-world.net/wp-content/uploads/2022/05/Nicorette-Logo.png" },
-    { name: "LG U+", logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/LG_U%2B_CI.svg" },
-    { name: "NordVPN", logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/NordVPN_logo.svg" },
-    { name: "CooperVision", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/CooperVision_logo.svg" }
+    { name: "SK Telecom", logo: "/partners/media__1771143608470.png" },
+    { name: "Maxim", logo: "/partners/media__1771143610825.png" },
+    { name: "LG Electronics", logo: "/partners/media__1771143613583.png" },
+    { name: "3M", logo: "/partners/media__1771143617083.jpg" },
+    { name: "고용노동부", logo: "/partners/media__1771143619967.png" },
+    { name: "NOOGI", logo: "/partners/media__1771143764734.png" },
+    { name: "8APM", logo: "/partners/media__1771143767907.png" },
+    { name: "Breezm", logo: "/partners/media__1771143782118.png" },
+    { name: "Nicorette", logo: "/partners/media__1771143856014.png" },
+    { name: "LG U+", logo: "/partners/media__1771143772354.png" },
+    { name: "NordVPN", logo: "/partners/media__1771143775321.png" },
+    { name: "CooperVision", logo: "/partners/coopervision.png" }
   ];
 
   return (
@@ -1075,7 +1075,6 @@ const BrandLogoWall = () => {
               alt={brand.name}
               fill
               className="object-contain"
-              unoptimized={brand.logo.endsWith('.svg')}
             />
           </motion.div>
         ))}
