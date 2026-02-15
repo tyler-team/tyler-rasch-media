@@ -220,8 +220,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
             title: "Tylerbolkkayo",
             subtitle: "타일러볼까요 본편",
             desc: "세상을 보는 새로운 관점",
-            thumbnail: "/thumbnails/tylerbolkkayo_main.jpg",
-            videoUrl: "https://www.youtube.com/@tylerbolkkayo",
+            thumbnail: "https://i.ytimg.com/vi/71o3DGhGtXw/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=71o3DGhGtXw",
             features: [
               { name: "세상과 이슈", topic: "글로벌 트렌드와 시사 이슈의 본질", tag: "#GlobalIssues" },
               { name: "관점과 생각", topic: "현상을 읽는 새로운 프레임워크", tag: "#Perspective" },
@@ -391,8 +391,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
             title: "Tylerbolkkayo",
             subtitle: "Tylerbolkkayo Main Series",
             desc: "New Perspectives on the World",
-            thumbnail: "/thumbnails/tylerbolkkayo_main.jpg",
-            videoUrl: "https://www.youtube.com/@tylerbolkkayo",
+            thumbnail: "https://i.ytimg.com/vi/71o3DGhGtXw/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=71o3DGhGtXw",
             features: [
               { name: "World & Issues", topic: "Deep dive into global trends", tag: "#GlobalIssues" },
               { name: "Perspectives", topic: "New frameworks for thinking", tag: "#Perspective" },
