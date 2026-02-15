@@ -640,8 +640,8 @@ const SocialIcon = ({ name }: { name: string }) => {
       </svg>
     ),
     threads: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M19.1032 13.2386C19.1032 17.8286 15.4232 21.5086 10.8332 21.5086C6.2432 21.5086 2.5632 17.8286 2.5632 13.2386C2.5632 8.6486 6.2432 4.9686 10.8332 4.9686C14.4832 4.9686 17.3932 7.3786 18.5732 10.7086C18.6732 10.9986 18.5232 11.3086 18.2332 11.4186C17.9432 11.5286 17.6232 11.3686 17.5232 11.0886C16.5132 8.2486 13.8832 6.1386 10.8332 6.1386C6.8332 6.1386 3.7332 9.2386 3.7332 13.2386C3.7332 17.2386 6.8332 20.3386 10.8332 20.3386C14.8332 20.3386 17.9332 17.2386 17.9332 13.2386V13.0686C17.9332 11.7586 17.0632 10.1586 15.5432 10.1586C14.8332 10.1586 14.3432 10.4586 14.1532 10.6686C13.6832 11.1686 13.5132 11.8586 13.5132 12.5586V12.7286C13.5132 13.5686 12.8332 14.2486 11.9932 14.2486C11.1532 14.2486 10.4732 13.5686 10.4732 12.7286V12.5586C10.4732 11.7286 11.1532 11.0486 11.9932 11.0486H12.0132C12.1632 11.0486 12.3132 11.0786 12.4532 11.1286C12.4332 10.9186 12.4232 10.7086 12.4232 10.4986C12.4232 10.2186 12.6532 9.9886 12.9332 9.9886C13.2132 9.9886 13.4432 10.2186 13.4432 10.4986C13.4432 10.6586 13.4532 10.8186 13.4632 10.9786C13.7832 10.4586 14.3932 9.1286 15.5432 9.1286C17.6532 9.1286 19.1032 11.2386 19.1032 13.0686V13.2386V13.2386Z" />
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 192 192">
+        <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.935 108.662 128.946 98.4405 129.507Z" />
       </svg>
     )
   };
@@ -767,11 +767,11 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           <div className="h-[1px] w-20 bg-accent mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
+        <div className="flex flex-col items-center gap-24">
           {/* Personal Group */}
-          <div className="space-y-8">
-            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.personal_title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="space-y-8 w-full max-w-4xl">
+            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.personal_title}</h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
               {t.ecosystem.platforms.filter(p => !p.isChannel).map((p, i) => (
                 <motion.a
                   key={i}
@@ -779,7 +779,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
+                  className="p-6 h-40 w-full glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
                 >
                   <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
                     <SocialIcon name={p.icon} />
@@ -794,9 +794,9 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           </div>
 
           {/* Channel Brand Group */}
-          <div className="space-y-8">
-            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4">{t.ecosystem.channel_title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="space-y-8 w-full max-w-4xl">
+            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.channel_title}</h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
               {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
                 <motion.a
                   key={i}
@@ -804,7 +804,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-6 h-40 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
+                  className="p-6 h-40 w-full glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-3"
                 >
                   <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
                     <SocialIcon name={p.icon} />
