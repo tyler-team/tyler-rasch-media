@@ -1058,10 +1058,10 @@ const BrandLogoWall = () => {
     { name: "LG U+", logo: "/partners/lg_uplus_final.png" },
     { name: "NordVPN", logo: "/partners/media__1771143775321.png" },
     { name: "CooperVision", logo: "/partners/coopervision_new.png" },
-    { name: "Toss", logo: "/partners/toss.png", scale: 1.2 },
+    { name: "Toss", logo: "/partners/toss_final.png", scale: 1.2 },
     { name: "29CM", logo: "/partners/29cm.png", scale: 1.3 },
     { name: "FSC", logo: "/partners/fsc.png", scale: 1.1 },
-    { name: "LAR", logo: "/partners/lar.png", scale: 1.4 }
+    { name: "LAR", logo: "/partners/lar_final.png", scale: 1.4 }
   ];
 
   return (
