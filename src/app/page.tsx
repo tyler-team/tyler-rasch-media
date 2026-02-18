@@ -303,8 +303,41 @@ const contentData: Record<'KR' | 'EN', Content> = {
         { title: "Global Standard (글로벌 기준)", desc: "단순한 유튜버 팀이 아닙니다. 글로벌 탑티어 브랜드와 협업하며 업계 최고의 퀄리티를 타협하지 않습니다." }
       ],
       positions: [
-        { title: "Head of Content (콘텐츠 총괄)", desc: "타일러볼까요 채널의 'Showrunner'를 찾습니다. 단순 제작을 넘어, 데이터 기반의 성장 전략 수립부터 제작 시스템 총괄, 퀄리티 컨트롤(QC)까지. 타일러의 지적 자산을 가장 매력적인 콘텐츠로 가공하는 최종 책임자입니다.", action: "지원하기" },
-        { title: "Head of Community (커뮤니티 총괄)", desc: "구독자를 강력한 '지적 연대'로 변화시킬 설계자(Architect)를 찾습니다. 멤버십 비즈니스 모델을 구축하고, 브랜드 에반젤리스트를 양성하여 자생적이고 결속력 있는 팬덤 생태계를 직접 설계하고 리딩합니다.", action: "지원하기" }
+        {
+          title: "1. CONTENT LEAD (콘텐츠 리드)",
+          desc: "단순한 PD가 아닌, 타일러라는 IP를 글로벌 미디어 브랜드로 확장할 ‘쇼러너(Showrunner)’를 찾습니다. 기획부터 제작, 발행에 이르는 전 과정을 총괄하며, AI 기술과 데이터를 적극 활용해 콘텐츠의 비즈니스 가치를 극대화해야 합니다. 한국과 웨스턴 미디어 생태계의 트렌드를 동시에 포착하여 ‘원 소스 멀티 유즈(OSMU)’ 전략을 설계하고, 타일러의 잠재력을 폭발시킬 집요한 리더십을 기대합니다.",
+          action: "지원하기"
+        },
+        {
+          title: "2. COMMUNITY LEAD (커뮤니티 리드)",
+          desc: "구독자를 팬덤으로, 팬덤을 살아있는 커뮤니티로 진화시킬 ‘관계의 건축가’를 찾습니다. 온라인과 오프라인을 넘나들며 사람들이 타일러라는 매개체를 통해 실제로 연결되고 행동하게 만드는, 사실상 ‘대외 관계 최고 책임자(CEO of External Human Relations)’입니다. 고도의 외교적 소통 능력으로 0에서부터 견고한 팬덤 문화를 구축하고, 이를 비즈니스 전략으로 연결할 수 있는 비전이 필요합니다.",
+          action: "지원하기"
+        },
+        {
+          title: "3. DATA & TRENDS LEAD (데이터 & 트렌드 리드)",
+          desc: "직감이 아닌 숫자로 의사결정을 이끌 ‘데이터 스토리텔러’를 모십니다. 매의 눈으로 자사 및 경쟁사의 데이터를 분석하여 비즈니스의 성공과 실패 요인을 규명하고, 복잡한 지표를 직관적인 인사이트로 시각화해 팀의 나침반 역할을 수행해야 합니다. 미디어 트렌드의 파도를 읽고 콘텐츠와 비즈니스가 나아가야 할 정확한 좌표를 제시해 주십시오.",
+          action: "지원하기"
+        },
+        {
+          title: "4. SHORTFORM PRODUCTION (숏폼 제작)",
+          desc: "틱톡, 릴스, 쇼츠의 문법을 완벽히 체화한 ‘숏폼 네이티브’를 찾습니다. 타일러의 모든 활동을 밀착 마크하며 찰나의 순간을 트렌디한 밈(Meme)과 콘텐츠로 가공해내는 기동성이 필수입니다. 촬영부터 편집, 업로드까지 주도하며, 단순한 컷 편집을 넘어 시각적 스토리텔링으로 알고리즘을 타격할 수 있는 감각적인 크리에이터를 기다립니다.",
+          action: "지원하기"
+        },
+        {
+          title: "5. LONGFORM PRODUCTION (롱폼 제작)",
+          desc: "롱폼 콘텐츠의 기획부터 퍼블리싱까지 전 과정을 책임질 ‘프로덕션 매니저’입니다. 편집 일정 관리부터 SEO, 썸네일, 카피라이팅 등 플랫폼 최적화 전략을 실행하여 콘텐츠의 도달률을 극대화합니다. 유튜브 생태계에 대한 깊은 이해를 바탕으로 시청자를 사로잡는 ‘비주얼 & 버벌 훅(Hook)’을 지속적으로 연구하고 개선하여 타일러 브랜드의 톤앤매너를 지켜내야 합니다.",
+          action: "지원하기"
+        },
+        {
+          title: "6. SHOOT & EDIT TEAM MEMBER (촬영 및 편집)",
+          desc: "타일러 브랜드의 톤앤매너를 시각적으로 구현할 ‘비주얼 크리에이터 그룹’입니다. 스튜디오 및 야외 촬영 현장에서 조명과 카메라를 능숙하게 다루고, 편집을 통해 브랜드의 결을 완성합니다. 프로젝트 베이스 혹은 파트타임 등 유연한 형태로 협업하되, 결과물에 대해서는 프로페셔널한 퀄리티와 책임감을 공유하며 브랜드의 미적 기준을 높여줄 분들을 모십니다.",
+          action: "지원하기"
+        },
+        {
+          title: "7. ASSISTANT (업무 지원)",
+          desc: "폭발적으로 성장하는 미디어 비즈니스의 최전선에서 커뮤니케이션을 지원할 ‘차세대 미디어 전문가’입니다. 외부 파트너와의 이메일, 전화 응대 및 일정 조율을 담당하며 비즈니스 협상이 어떻게 이루어지는지 현장에서 직접 배울 수 있습니다. 엔터테인먼트 및 미디어 산업의 실무를 바닥부터 경험하며 미래의 핵심 인재로 성장하고 싶은 분에게 최적의 기회입니다.",
+          action: "지원하기"
+        }
       ]
     }
   },
@@ -463,6 +496,53 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     contact: {
       heading: <>Lead with Authority.<br />Partner with Tyler.</>
+    },
+    careers: {
+      heading: "CAREERS",
+      subheading: "Designers of Intellectual Influence",
+      desc: "We create value beyond views. Join Tyler in setting a new standard for media.",
+      values: [
+        { title: "Deep Dive", desc: "We seek planning that pierces through the surface to the essence. Relentlessly asking 'Why?' is essential." },
+        { title: "Autonomous Growth", desc: "We don't just follow orders. We set hypotheses for brand growth, verify them, and create results." },
+        { title: "Global Standard", desc: "We are not just a YouTuber team. We collaborate with top-tier global brands and never compromise on quality." }
+      ],
+      positions: [
+        {
+          title: "1. CONTENT LEAD",
+          desc: "We are looking for a visionary 'Showrunner'—not just a PD, but a VP of Content who can oversee the entire lifecycle of our IP. You will be responsible for planning and implementing high-impact content using AI tools, managing internal and external teams, and ensuring every piece meets our uncompromising standards. This role requires a deep understanding of both Korean and Western media ecosystems to drive our 'One Source Multi-Use' strategy, evolving the Tyler brand from a personality into a scalable global business.",
+          action: "Apply"
+        },
+        {
+          title: "2. COMMUNITY LEAD",
+          desc: "We need a 'CEO of External Human Relations' to build our community infrastructure from ground zero. Your mission is to transform passive viewers into an active, mobilized fandom by designing meaningful online and offline experiences that get real people to do real things. This role requires high diplomatic skills to manage complex relationships and the strategic vision to turn community engagement into a core business asset, moving far beyond simple social media management.",
+          action: "Apply"
+        },
+        {
+          title: "3. DATA & TRENDS LEAD",
+          desc: "We are seeking an analytical obsessionist to watch our metrics and competitors like a hawk. Your role is to sift through the noise of the digital sphere, extracting clear, actionable insights that directly correlate to business growth and content success. You must be able to visualize complex data for the team, translating quantitative trends into qualitative strategies that ensure our decisions are driven by facts rather than fear or guesswork.",
+          action: "Apply"
+        },
+        {
+          title: "4. SHORTFORM PRODUCTION",
+          desc: "We need a creator who is absolutely obsessed with the short-form ecosystem—TikTok, Reels, and Shorts. You must have the agility to follow Tyler and instantly extract high-value content, shooting and editing with speed and precision. This role demands a strong sense of visuals, a deep understanding of trending formats, and the flexibility to execute both viral one-offs and strategic series that expand our exposure to new audiences.",
+          action: "Apply"
+        },
+        {
+          title: "5. LONGFORM PRODUCTION",
+          desc: "This position is the engine room of our publishing process, responsible for ensuring that our high-standard long-form content lands with maximum impact. You will manage the editing workflow to ensure on-time delivery while mastering the technical art of SEO, scheduling, and platform optimization. We need someone constantly analyzing and improving visual and verbal hooks to ensure the Tyler brand’s message gains the traction it deserves on YouTube and beyond.",
+          action: "Apply"
+        },
+        {
+          title: "6. SHOOT & EDIT TEAM MEMBER",
+          desc: "We are building a pool of talented visual storytellers—shooters and editors—capable of executing both dynamic outdoor shoots and controlled studio sessions. Whether full-time or flexible, you must be able to handle cameras, lighting, and editing with professional proficiency. Crucially, you must quickly internalize the Tyler brand’s specific tone and manner to deliver consistent, high-quality visual assets that align with our vision.",
+          action: "Apply"
+        },
+        {
+          title: "7. ASSISTANT",
+          desc: "This role is the communication hub for our growing media business, processing the exponential increase in external requests and opportunities. You will assist the team in managing negotiations, drafting professional correspondence, and coordinating with potential partners. This is an ideal launchpad for someone eager to get their feet wet in the entertainment industry, learning firsthand how deal flows and high-level business communications are executed.",
+          action: "Apply"
+        }
+      ]
     }
   }
 };
@@ -536,7 +616,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     {t[item as keyof typeof t]}
                   </a>
                 ))}
-                {lang === 'KR' && (
+                {t.careers && (
                   <button
                     onClick={() => { setView('careers'); setMobileMenuOpen(false); }}
                     className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'careers' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
@@ -571,9 +651,9 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
               <span>{t[item as keyof typeof t]}</span>
             </a>
           ))}
-          {lang === 'KR' && (
+          {t.careers && (
             <button
-              onClick={() => setView('careers')}
+              onClick={() => { setView('careers'); window.scrollTo(0, 0); }}
               className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
             >
               <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'careers' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -1349,8 +1429,8 @@ export default function Home() {
             </section>
           </>
         ) : (
-          /* CAREERS VIEW (KOREAN ONLY) */
-          lang === 'KR' && t.careers && (
+          /* CAREERS VIEW (BILINGUAL) */
+          t.careers && (
             <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
               <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} mobilePos="object-[center_10%]" />
               <div className="relative z-10 max-w-6xl mx-auto">
