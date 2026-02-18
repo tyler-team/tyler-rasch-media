@@ -304,37 +304,37 @@ const contentData: Record<'KR' | 'EN', Content> = {
       ],
       positions: [
         {
-          title: "1. CONTENT LEAD (콘텐츠 리드)",
+          title: "CONTENT LEAD (콘텐츠 리드)",
           desc: <>단순한 PD가 아닌, 타일러 IP 세계관을 총괄할 <span className="text-accent font-bold">‘쇼러너(Showrunner)’</span>를 찾습니다. 기획부터 제작, 발행까지의 A to Z를 리딩하며, 트래픽 소스(Traffic Source)와 이탈 구간을 분석하는 그로스 해킹(Growth Hacking) 역량을 갖춰야 합니다. AI와 데이터를 기반으로 한국과 글로벌 트렌드를 동시에 포착하고, 하나의 콘텐츠를 블로그, 팟캐스트 등 다양한 포맷으로 재가공하는 OSMU 전략을 통해 브랜드 가치를 극대화해 주십시오.</>,
           action: "지원하기"
         },
         {
-          title: "2. COMMUNITY LEAD (커뮤니티 리드)",
+          title: "COMMUNITY LEAD (커뮤니티 리드)",
           desc: <>구독자를 팬덤으로, 팬덤을 <span className="text-accent font-bold">‘타일러쉽(Tylership)’</span>이라는 견고한 생태계로 진화시킬 <span className="text-accent font-bold">‘관계의 건축가’</span>를 찾습니다. 온/오프라인을 넘나드는 리추얼(Ritual)과 밋업을 설계하여 소속감을 고취하고, 커뮤니티의 목소리(VOC)를 비즈니스에 반영하는 피드백 루프를 구축해야 합니다. 단순 관리를 넘어 멤버십의 가치 제안(Value Proposition)을 설계하고, 브랜드의 철학을 자발적으로 전파하는 충성 고객군(Evangelist)을 양성하는 전략가입니다.</>,
           action: "지원하기"
         },
         {
-          title: "3. DATA & TRENDS LEAD (데이터 & 트렌드 리드)",
+          title: "DATA & TRENDS LEAD (데이터 & 트렌드 리드)",
           desc: <>직감이 아닌 객관적 지표(ROI, LTV 등)로 의사결정을 지원할 <span className="text-accent font-bold">‘비즈니스 인텔리전스(BI) 파트너’</span>입니다. 매의 눈으로 채널 데이터와 경쟁사를 분석하여 성공 방정식을 도출하고, 복잡한 데이터를 직관적인 인사이트로 시각화해 팀의 나침반 역할을 수행합니다. 알고리즘 변화와 글로벌 미디어 트렌드를 감지하여 타일러 브랜드가 선점해야 할 새로운 니치(Niche) 시장을 발굴해 주십시오.</>,
           action: "지원하기"
         },
         {
-          title: "4. SHORTFORM PRODUCTION (숏폼 제작)",
+          title: "SHORTFORM PRODUCTION (숏폼 제작)",
           desc: <>인스타그램, 틱톡, 유튜브 쇼츠의 문법을 완벽히 체화한 <span className="text-accent font-bold">‘숏폼 네이티브’</span>를 찾습니다. 단순히 유튜브 본편으로 유입시키는 예고편 제작자가 아닙니다. 독자적인 기획과 폭발적인 조회수로 <span className="text-accent font-bold">자체적인 수익 모델을 창출할 수 있는 ‘성장 엔진’</span>을 만드는 것이 핵심입니다. 3초 안에 시선을 사로잡는 강력한 훅(Hook)과 감각적인 편집으로, 타일러의 숏폼 채널을 하나의 거대한 플랫폼으로 키워낼 야심 찬 크리에이터를 기다립니다.</>,
           action: "지원하기"
         },
         {
-          title: "5. LONGFORM PRODUCTION (롱폼 제작)",
+          title: "LONGFORM PRODUCTION (롱폼 제작)",
           desc: <>콘텐츠의 퍼블리싱과 품질을 책임질 <span className="text-accent font-bold">‘프로덕션 거버넌스(Governance) 담당자’</span>입니다. 편집 일정 관리부터 SEO, 썸네일 전략을 통해 플랫폼 최적화를 주도하고, 시청 지속 시간을 늘릴 비주얼/버벌 훅을 끊임없이 연구합니다. 제작 파이프라인이 원활하게 돌아가도록 관리하며, 타일러 브랜드의 톤앤매너가 모든 영상에서 일관되게 유지되도록 퀄리티 컨트롤(QC)을 수행합니다.</>,
           action: "지원하기"
         },
         {
-          title: "6. SHOOT & EDIT TEAM MEMBER (촬영 및 편집)",
+          title: "SHOOT & EDIT TEAM MEMBER (촬영 및 편집)",
           desc: <>타일러 브랜드의 비주얼을 완성할 <span className="text-accent font-bold">‘크리에이티브 풀(Pool)’</span>입니다. 현장에서 조명과 카메라를 능숙하게 다루고(Native Production), 모바일과 전문 툴을 오가며 기동성 있게 콘텐츠를 제작합니다. 프로젝트 성격에 맞춰 유연하게 합류하되, 브랜드 가이드라인을 준수하며 최상의 결과물을 만들어낼 프로페셔널한 파트너들을 모십니다.</>,
           action: "지원하기"
         },
         {
-          title: "7. ASSISTANT (업무 지원 & 세일즈 오퍼레이션)",
+          title: "ASSISTANT (업무 지원 & 세일즈 오퍼레이션)",
           desc: <>폭발적으로 성장하는 미디어 비즈니스의 <span className="text-accent font-bold">‘오퍼레이션 코디네이터’</span>입니다. 외부 파트너와의 커뮤니케이션을 1차적으로 조율하고, 제안서 초안 작성, 계약 검토, 데이터베이스 관리(CRM) 등 영업 행정 업무의 완결성을 확보합니다. 엔터테인먼트 산업의 딜(Deal) 구조와 협상 과정을 현장에서 배우며, 향후 세일즈 리드나 운영 전문가로 성장할 수 있는 기회입니다.</>,
           action: "지원하기"
         }
@@ -508,37 +508,37 @@ const contentData: Record<'KR' | 'EN', Content> = {
       ],
       positions: [
         {
-          title: "1. CONTENT LEAD",
+          title: "CONTENT LEAD",
           desc: "We are looking for a visionary \"Showrunner\"—not just a PD, but a VP of Content who can oversee the entire lifecycle of our IP. You will be responsible for planning and implementing high-impact content using AI tools, managing internal and external teams, and ensuring every piece meets our uncompromising standards. This role requires a deep understanding of both Korean and Western media ecosystems to drive our \"One Source Multi-Use\" strategy, evolving the Tyler brand from a personality into a scalable global business.",
           action: "Apply"
         },
         {
-          title: "2. COMMUNITY LEAD",
+          title: "COMMUNITY LEAD",
           desc: "We need a \"CEO of External Human Relations\" to build our community infrastructure from ground zero. Your mission is to transform passive viewers into an active \"Tylership\" fandom by designing meaningful online and offline rituals that get real people to do real things. This role requires high diplomatic skills to manage complex relationships and the strategic vision to turn community engagement and VOC (Voice of Customer) into core business assets.",
           action: "Apply"
         },
         {
-          title: "3. DATA & TRENDS LEAD",
+          title: "DATA & TRENDS LEAD",
           desc: "We are seeking an analytical obsessionist to watch our metrics and competitors like a hawk. Your role is to sift through the noise of the digital sphere, extracting clear \"Success Equations\" that directly correlate to business growth. You must be able to visualize complex data (ROI, LTV, Retention) for the team, translating quantitative trends into qualitative strategies that ensure our decisions are driven by facts rather than fear or guesswork.",
           action: "Apply"
         },
         {
-          title: "4. SHORTFORM PRODUCTION",
+          title: "SHORTFORM PRODUCTION",
           desc: "We need a \"Short-form Native\" to build an independent, explosive growth engine on Instagram, TikTok, and YouTube Shorts. This is not just about driving traffic to YouTube; it is about creating stand-alone, viral content that dominates algorithms and generates its own significant revenue streams. You must have the agility to identify memes instantly, the editing skills to hook viewers in 3 seconds, and the ambition to turn our short-form channels into massive, self-sustaining platforms.",
           action: "Apply"
         },
         {
-          title: "5. LONGFORM PRODUCTION",
+          title: "LONGFORM PRODUCTION",
           desc: "This position is the \"Governance Manager\" of our publishing process, responsible for ensuring that our high-standard long-form content lands with maximum impact. You will manage the editing workflow to ensure on-time delivery while mastering the technical art of SEO, thumbnail strategy, and platform optimization. We need someone constantly analyzing visual and verbal hooks to ensure the Tyler brand’s \"Deep, yet Fun\" tone gains the traction it deserves on YouTube and beyond.",
           action: "Apply"
         },
         {
-          title: "6. SHOOT & EDIT TEAM MEMBER",
+          title: "SHOOT & EDIT TEAM MEMBER",
           desc: "We are building a pool of talented visual storytellers—shooters and editors—capable of executing both dynamic outdoor shoots and controlled studio sessions. Whether full-time or flexible, you must be able to handle cameras, lighting, and editing with professional proficiency. Crucially, you must quickly internalize the Tyler brand’s specific tone and manner to deliver consistent, high-quality visual assets that align with our vision.",
           action: "Apply"
         },
         {
-          title: "7. ASSISTANT",
+          title: "ASSISTANT",
           desc: "This role is the \"Operation Coordinator\" for our growing media business, processing the exponential increase in external requests and opportunities. You will assist the team in managing negotiations, drafting professional correspondence, and maintaining our CRM database. This is an ideal launchpad for someone eager to get their feet wet in the entertainment industry, learning firsthand how deal flows and high-level business communications are executed.",
           action: "Apply"
         }
