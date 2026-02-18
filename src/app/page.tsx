@@ -324,13 +324,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
           action: "지원하기"
         },
         {
-          title: "LONGFORM PRODUCTION (롱폼 제작)",
-          desc: <>콘텐츠의 퍼블리싱과 품질을 책임질 <span className="text-accent font-bold">‘프로덕션 거버넌스(Governance) 담당자’</span>입니다. 편집 일정 관리부터 SEO, 썸네일 전략을 통해 플랫폼 최적화를 주도하고, 시청 지속 시간을 늘릴 비주얼/버벌 훅을 끊임없이 연구합니다. 제작 파이프라인이 원활하게 돌아가도록 관리하며, 타일러 브랜드의 톤앤매너가 모든 영상에서 일관되게 유지되도록 퀄리티 컨트롤(QC)을 수행합니다.</>,
-          action: "지원하기"
-        },
-        {
           title: "SHOOT & EDIT TEAM MEMBER (촬영 및 편집)",
-          desc: <>타일러 브랜드의 비주얼을 완성할 <span className="text-accent font-bold">‘크리에이티브 풀(Pool)’</span>입니다. 현장에서 조명과 카메라를 능숙하게 다루고(Native Production), 모바일과 전문 툴을 오가며 기동성 있게 콘텐츠를 제작합니다. 프로젝트 성격에 맞춰 유연하게 합류하되, 브랜드 가이드라인을 준수하며 최상의 결과물을 만들어낼 프로페셔널한 파트너들을 모십니다.</>,
+          desc: <>타일러 브랜드의 비주얼을 완성할 <span className="text-accent font-bold">‘크리에이티브(Creative)’</span>입니다. 현장에서 조명과 카메라를 능숙하게 다루고, 모바일과 전문 툴을 오가며 기동성 있게 콘텐츠를 제작합니다. 프로젝트 성격에 맞춰 유연하게 합류하되, 브랜드 가이드라인을 준수하며 최상의 결과물을 만들어낼 프로페셔널한 파트너들을 모십니다.</>,
           action: "지원하기"
         },
         {
@@ -525,11 +520,6 @@ const contentData: Record<'KR' | 'EN', Content> = {
         {
           title: "SHORTFORM PRODUCTION",
           desc: "We need a \"Short-form Native\" to build an independent, explosive growth engine on Instagram, TikTok, and YouTube Shorts. This is not just about driving traffic to YouTube; it is about creating stand-alone, viral content that dominates algorithms and generates its own significant revenue streams. You must have the agility to identify memes instantly, the editing skills to hook viewers in 3 seconds, and the ambition to turn our short-form channels into massive, self-sustaining platforms.",
-          action: "Apply"
-        },
-        {
-          title: "LONGFORM PRODUCTION",
-          desc: "This position is the \"Governance Manager\" of our publishing process, responsible for ensuring that our high-standard long-form content lands with maximum impact. You will manage the editing workflow to ensure on-time delivery while mastering the technical art of SEO, thumbnail strategy, and platform optimization. We need someone constantly analyzing visual and verbal hooks to ensure the Tyler brand’s \"Deep, yet Fun\" tone gains the traction it deserves on YouTube and beyond.",
           action: "Apply"
         },
         {
