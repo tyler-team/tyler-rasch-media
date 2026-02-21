@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tyler Rasch Media 2026 | B2B Media Portfolio",
+  title: "Tyler Rasch Media | 타일러 라쉬 미디어",
   description: "A high-end, professional media portfolio for Tyler Rasch, focusing on B2B excellence and industrial creativity.",
 };
 
