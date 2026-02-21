@@ -1455,9 +1455,14 @@ export default function Home() {
                         <h4 className="text-2xl font-bold text-white mb-2">{pos.title}</h4>
                         <p className="text-zinc-400 max-w-2xl break-keep">{pos.desc}</p>
                       </div>
-                      <button className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-accent transition-colors whitespace-nowrap">
+                      <a
+                        href="https://form.typeform.com/to/BurZwq4x"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-accent transition-colors whitespace-nowrap"
+                      >
                         {pos.action}
-                      </button>
+                      </a>
                     </div>
                   ))}
                 </div>
