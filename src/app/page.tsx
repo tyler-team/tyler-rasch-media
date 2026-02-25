@@ -92,7 +92,7 @@ type Content = {
       items: {
         title: string;
         subtitle: string;
-        desc: string;
+        desc: React.ReactNode;
         thumbnail: string;
         videoUrl?: string;
         guests?: Guest[];
@@ -119,7 +119,7 @@ type Content = {
     items: {
       title: string;
       subtitle: string;
-      desc: string;
+      desc: React.ReactNode;
       detail: string;
     }[];
   };
@@ -234,7 +234,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
               타일러 라쉬(Tyler Rasch)는 단순한 유튜버나 인플루언서 브랜드가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 팀입니다.
               <br /><br />
               우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’를 찾습니다. 두려움 없이 실험하고, 활발하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.
-            </>, 문화, 시스템) 을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 팀입니다.우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 '빌더(Builder)'를 찾습니다.두려움 없이 실험하고, 활발하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.",
+            </>,
             thumbnail: "https://i.ytimg.com/vi/71o3DGhGtXw/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=71o3DGhGtXw",
             features: [
@@ -648,316 +648,91 @@ const contentData: Record<'KR' | 'EN', Content> = {
         }
       ]
     }
-  }
-},
-  {
-    "title": "COMMUNITY LEAD (커뮤니티 총괄 리드)",
-    "desc": <>구독자를 팬덤으로, 팬덤을 ‘타일러쉽’ 생태계로 진화시킬 ‘관계의 건축가’를 찾습니다. 멤버십의 가치 제안을 설계하고 에반젤리스트를 양성해 주십시오.</>,
-      "action": "지원하기",
-        "details": {
-  "responsibilities": [
-    "신규 프리미엄 멤버십 ‘타일러쉽(Tylership)’의 등급별 가치 제안(Value Proposition) 설계 및 운영",
-    "팬덤을 충성 고객군(Evangelist)으로 전환시키기 위한 온/오프라인 이벤트, 밋업, 캠페인 기획 총괄",
-    "커뮤니티 여론 및 VOC(Voice of Customer) 분석을 통한 실시간 피드백 루프 구축",
-    "이탈률(Churn rate) 방어 및 커뮤니티 내 크고 작은 갈등 요소 사전 관리",
-    "멤버십 기반의 독자적인 수익화 모델 기획 및 실행"
-  ],
-    "qualifications": [
-      "팬덤 비즈니스, 커뮤니티 매니징, 혹은 CRM 기획/운영 경험을 보유하신 분 (최소 3년 이상)",
-      "온/오프라인을 아우르는 행사 기획력과 실행력을 갖추신 분",
-      "복잡한 이해관계자들 사이에서 갈등을 중재하고 해결하는 뛰어난 외교적 소통 능력",
-      "무(無)에서 유(有)를 만드는 인프라 초기 셋업 경험이 있으신 분"
-    ],
-      "preferred": [
-        "유료 구독/멤버십 서비스 런칭 및 운영 경험자",
-        "대규모 오프라인 이벤트(팬미팅, 컨퍼런스 등) PM 경험자"
-      ],
-        "workInfo": {
-    "label": "근무 형태 및 보상",
-      "items": [
-        {
-          "label": "근무 형태",
-          "value": "풀타임 계약직, 정규직 전환 가능"
-        },
-        {
-          "label": "근무 방식",
-          "value": "하이브리드 근무 (재택 + 오피스 출근 병행). 성과 중심의 자율 근무제를 지향하며, 업무의 효율성에 맞춰 유연하게 조정합니다."
-        },
-        {
-          "label": "근무지",
-          "value": "서울특별시 영등포구"
-        },
-        {
-          "label": "급여 및 보상",
-          "value": "지원자의 경력과 역량을 고려하여 합리적이고 경쟁력 있는 기본급을 책정하며, 채널 및 비즈니스 성장에 기여한 임팩트에 비례하는 성과급 구조를 별도로 협의합니다."
-        }
-      ]
-  }
-}
-        },
-{
-  "title": "DATA & TRENDS LEAD (데이터 및 트렌드 분석 리드)",
-    "desc": <>직감이 아닌 객관적 지표로 의사결정을 지원할 ‘BI 파트너’입니다. 데이터를 인사이트로 시각화해 팀의 나침반 역할을 수행해 주십시오.</>,
-      "action": "지원하기",
-        "details": {
-    "responsibilities": [
-      "유튜브 채널 리포트, 멤버십 가입률, 유입 경로 등 자사 비즈니스 데이터의 정밀 분석",
-      "성장을 저해하는 병목 구간 파악 및 해결을 위한 데이터 기반의 인사이트 도출",
-      "신규 프로젝트 런칭 시 타겟 데모그래픽 분석 및 A/B 테스트(썸네일/타이틀 등) 성과 측정",
-      "경쟁사 및 벤치마크 채널의 데이터를 모니터링하여 성공 방정식(Success Equation) 역설계",
-      "실무진이 쉽게 활용할 수 있는 형태의 정기 데이터 리포트 및 대시보드 시각화 제공"
-    ],
-      "qualifications": [
-        "데이터 분석, 퍼포먼스 마케팅, 비즈니스 인텔리전스(BI) 관련 실무 경험이 있으신 분 (최소 2년 이상)",
-        "수많은 지표 속에서 '비즈니스 임팩트'를 창출할 핵심 KPI를 찾아내는 통찰력",
-        "정량적 데이터를 정성적 언어로 번역해 팀원들을 설득할 수 있는 탁월한 커뮤니케이션 능력"
-      ],
-        "preferred": [
-          "콘텐츠/미디어/엔터테인먼트 산업 내 데이터 분석 경험자",
-          "데이터 시각화 툴(Tableau, Google Data Studio 등) 활용 능숙자"
-        ],
-          "workInfo": {
-      "label": "근무 형태 및 보상",
-        "items": [
-          {
-            "label": "근무 형태",
-            "value": "풀타임 계약직, 정규직 전환 가능"
-          },
-          {
-            "label": "근무 방식",
-            "value": "하이브리드 근무 (재택 + 오피스 출근 병행). 성과 중심의 자율 근무제를 지향하며, 업무의 효율성에 맞춰 유연하게 조정합니다."
-          },
-          {
-            "label": "근무지",
-            "value": "서울특별시 영등포구"
-          },
-          {
-            "label": "급여 및 보상",
-            "value": "지원자의 경력과 역량을 고려하여 합리적이고 경쟁력 있는 기본급을 책정하며, 채널 및 비즈니스 성장에 기여한 임팩트에 비례하는 성과급 구조를 별도로 협의합니다."
-          }
-        ]
-    }
-  }
-},
-{
-  "title": "SHORTFORM PRODUCTION (숏폼 제작 및 채널 디렉터)",
-    "desc": <>숏폼의 문법을 완벽히 체화한 ‘숏폼 네이티브’를 찾습니다. 자체적인 수익 모델을 창출할 수 있는 ‘성장 엔진’을 만들어 주십시오.</>,
-      "action": "지원하기",
-        "details": {
-    "responsibilities": [
-      "인스타그램 릴스, 틱톡, 유튜브 쇼츠에 최적화된 오리지널 숏폼 콘텐츠 기획/촬영/편집",
-      "타일러의 일상 및 외부 활동을 밀착 마크하여 트렌디한 숏폼 콘텐츠로 즉각 가공",
-      "성공하는 숏폼의 3초 훅(Hook)과 밈(Meme) 패턴을 분석하여 '성공 공식 라이브러리' 구축",
-      "타 크리에이터와의 숏폼 콜라보레이션 기획 및 숏폼 시리즈물 기획을 통한 팔로워 확보",
-      "숏폼 플랫폼 내 자체 트래픽을 활용한 비즈니스 모델(브랜디드 광고 등) 연계"
-    ],
-      "qualifications": [
-        "숏폼 플랫폼의 문법과 트렌드를 완벽하게 이해하고 즉각 반영할 수 있는 분",
-        "스마트폰 중심의 기동성 있는 촬영 및 모바일/PC 숏폼 편집 툴(CapCut, Premiere 등) 활용 능력",
-        "한 번의 실패에 머무르지 않고, 데이터를 보며 끊임없이 가설을 테스트하는 유연성"
-      ],
-        "preferred": [
-          "본인이 직접 운영하여 바이럴(떡상)을 만들어 본 숏폼 채널(인스타/틱톡) 보유자",
-          "빠른 턴어라운드(Turn-around) 환경에 익숙하신 분"
-        ],
-          "workInfo": {
-      "label": "근무 형태 및 보상",
-        "items": [
-          {
-            "label": "근무 형태",
-            "value": "계약직, 프리랜서 등 지원자의 상황과 당사의 니즈에 맞춰 유연하게 협의 가능합니다."
-          },
-          {
-            "label": "근무 방식",
-            "value": "숏폼 콘텐츠 특성상 타일러의 스케줄에 맞춘 동행 및 현장 촬영이 주 업무가 됩니다. 편집 등 기타 업무는 가장 효율적인 방식으로 탄력적으로 조율합니다."
-          },
-          {
-            "label": "근무지",
-            "value": "타일러의 주요 활동 현장 및 서울특별시 영등포구"
-          },
-          {
-            "label": "급여 및 보상",
-            "value": "근무 형태 및 개인의 역량, 경력에 따라 상호 협의하여 합리적으로 결정합니다."
-          }
-        ]
-    }
-  }
-},
-{
-  "title": "SHOOT & EDIT TEAM MEMBER (촬영/편집 및 시각 디자인 스페셜리스트)",
-    "desc": <>타일러 브랜드의 철학을 카메라 앵글과 컷 편집으로 구현할 스페셜리스트입니다. 영상의 미적 기준을 책임지고 프로페셔널한 파트너가 되어 주십시오.</>,
-      "action": "지원하기",
-        "details": {
-    "responsibilities": [
-      "스튜디오 촬영, 야외 브이로그 등 다양한 형태의 영상 메인 촬영 (카메라, 조명, 오디오 세팅)",
-      "브랜드 가이드라인에 맞춘 빠르고 감각적인 영상 컷 편집 및 후반 작업",
-      "콘텐츠 리드의 기획에 맞춘 시선을 끄는 유튜브 썸네일 이미지 디자인 및 제작",
-      "AI 툴을 적극 활용한 바이럴 쇼츠 영상 대량 제작 및 SNS 플랫폼 게시",
-      "인스타그램 등 SNS 채널을 위한 정보성 카드뉴스 및 캐러셀(Carousel) 포맷 기획·디자인·게시",
-      "현장의 돌발 상황에 대처하며 롱/숏폼 리드와 협업하여 최적화된 영상/시각 소스 제공"
-    ],
-      "qualifications": [
-        "상업 영상, 방송, 또는 하이엔드 유튜브 콘텐츠 촬영 및 편집 실무 경험자",
-        "다중 카메라(Multi-cam) 세팅, 오디오 수음, 조명 설계 등 독립적인 현장 운용 능력",
-        "영상 편집 툴(Premiere Pro, After Effects, DaVinci Resolve 등) 및 2D 이미지 편집 툴(Photoshop, Illustrator 등) 활용 능력이 모두 우수하신 분"
-      ],
-        "preferred": [
-          "평소 타일러의 콘텐츠를 즐겨 소비하며, <타일러볼까요> 브랜드 철학과 세계관에 대한 이해도가 매우 높으신 분",
-          "지식형 콘텐츠, 인터뷰, 다큐멘터리 포맷 제작 경험자",
-          "감각적인 모션 그래픽, 자막 템플릿, 시각 디자인 포트폴리오를 보유하신 분"
-        ],
-          "workInfo": {
-      "label": "근무 형태 및 보상",
-        "items": [
-          {
-            "label": "근무 형태",
-            "value": "수습/계약 기간을 거쳐 직무 평가에 따라 정규직 전환을 적극 고려합니다."
-          },
-          {
-            "label": "근무 방식",
-            "value": "현장 촬영 일정 및 편집 마감일에 맞춰 탄력적으로 조율합니다."
-          },
-          {
-            "label": "근무지",
-            "value": "촬영 현장 및 재택/오피스 병행"
-          },
-          {
-            "label": "급여 및 보상",
-            "value": "근무 형태 및 개인의 역량에 따라 상호 협의하여 결정합니다."
-          }
-        ]
-    }
-  }
-},
-{
-  "title": "ASSISTANT (세일즈 오퍼레이션 & 업무 지원)",
-    "desc": <>폭발적으로 성장하는 미디어 비즈니스의 코디네이터입니다. 파트너 커뮤니케이션과 영업 행정의 완결성을 확보해 주십시오.</>,
-      "action": "지원하기",
-        "details": {
-    "responsibilities": [
-      "국내외 브랜드 협찬, 강연, 제휴 등 인바운드 비즈니스 문의 1차 응대 및 필터링",
-      "기존 세일즈 담당자를 보조하여 제안서 초안 작성, 견적 산출, 계약서 검토 지원",
-      "대내외 회의 일정 조율, 미팅 준비 및 꼼꼼한 회의록(Meeting Minutes) 작성",
-      "파트너사 데이터베이스(CRM) 업데이트 및 기타 영업 행정, 세무/정산 보조 업무 수행"
-    ],
-      "qualifications": [
-        "격식 있고 매끄러운 비즈니스 이메일 및 유선 커뮤니케이션이 가능하신 분",
-        "주어진 업무를 꼼꼼하게 챙기고, 복잡한 일정을 오차 없이 조율하는 꼼꼼함",
-        "협업 툴(Google Workspace, Slack, Notion 등) 활용에 능숙하신 분",
-        "엔터테인먼트/미디어 산업 비즈니스 딜(Deal) 프로세스에 대한 강한 학습 의지"
-      ],
-        "preferred": [
-          "미디어, MCN, 또는 엔터테인먼트 업계 인턴 및 실무 경험자"
-        ],
-          "workInfo": {
-      "label": "근무 형태 및 보상",
-        "items": [
-          {
-            "label": "근무 형태",
-            "value": "인턴십으로 시작하여 추후 업무 성과 및 상호 니즈에 따라 계약직 또는 정규직으로 유연하게 전환을 고려합니다."
-          },
-          {
-            "label": "근무 방식",
-            "value": "하이브리드 근무 (재택 + 오피스 출근 병행) 및 유연 근무제 지향"
-          },
-          {
-            "label": "근무지",
-            "value": "서울특별시 영등포구 및 협의"
-          },
-          {
-            "label": "급여 및 보상",
-            "value": "인턴십 규정에 따르며, 전환 시 역량에 맞춰 상호 협의하여 합리적으로 결정합니다."
-          }
-        ]
-    }
-  }
-}
-      ]
-    }
   },
-EN: {
-  sidebar: {
-    vision: "Vision",
+  EN: {
+    sidebar: {
+      vision: "Vision",
       impact: "Media Influence",
-        originals: "Original Series",
-          brands: "Brand Partnership",
-            packages: "Partnership",
-              contact: "Inquire",
-                sticky_cta: "Work with Tyler"
-  },
-  hero: {
-    label: "STRATEGIC PARTNERSHIP",
+      originals: "Original Series",
+      brands: "Brand Partnership",
+      packages: "Partnership",
+      contact: "Inquire",
+      careers: "Careers",
+      sticky_cta: "Work with Tyler"
+    },
+    hero: {
+      label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
-        subtitle: "The Intellectual Icon • Modern Media Authority",
-          description: "Tyler Rasch is more than a broadcaster. He is Korea's most trusted foreign intellectual—a unique media solution that imbues your brand message with undeniable authority and depth.",
-            cta: "Inquire Now",
-              media_kit_cta: "Download Media Kit"
-  },
-  philosophy: {
-    heading: "VISION",
+      subtitle: "The Intellectual Icon • Modern Media Authority",
+      description: "Tyler Rasch is more than a broadcaster. He is Korea's most trusted foreign intellectual—a unique media solution that imbues your brand message with undeniable authority and depth.",
+      cta: "Inquire Now",
+      media_kit_cta: "Download Media Kit"
+    },
+    philosophy: {
+      heading: "VISION",
       p1: <>Tyler holds a unique position in the Korean market, combining <span className="text-accent font-bold">National Recognition</span> with <span className="text-accent font-bold">Unwavering Trust</span>. As a thought leader on Climate, Humanities, and Economics, he elevates brands beyond simple promotion.</>,
-        p2: <>We don't just offer exposure. We promise <span className="text-accent font-bold">Strategic Communication</span> where your brand philosophy is translated into Tyler's logical, persuasive language, resonating deeply with the "Active Economic Class".</>,
-          quote: "Authenticity is the only currency that matters.",
-            manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives</span>Lend <span className="text-accent">Intellectual Authority</span> to Your Brand</>
-  },
-  dashboard: {
-    label: "REAL-TIME IMPACT",
+      p2: <>We don't just offer exposure. We promise <span className="text-accent font-bold">Strategic Communication</span> where your brand philosophy is translated into Tyler's logical, persuasive language, resonating deeply with the "Active Economic Class".</>,
+      quote: "Authenticity is the only currency that matters.",
+      manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives</span>Lend <span className="text-accent">Intellectual Authority</span> to Your Brand</>
+    },
+    dashboard: {
+      label: "REAL-TIME IMPACT",
       views: "63M+",
-        views_label: "Total YouTube Views",
-          reach: "1.5M+",
-            reach_label: "Avg. Monthly Reach",
-              engagement: "677K+",
-                engagement_label: "YouTube Subscribers",
-                  trust: "TOP 1%",
-                    trust_label: "Brand Trust Index",
-                      platform_demography: {
-      title: "PLATFORM DEMOGRAPHY",
+      views_label: "Total YouTube Views",
+      reach: "1.5M+",
+      reach_label: "Avg. Monthly Reach",
+      engagement: "677K+",
+      engagement_label: "YouTube Subscribers",
+      trust: "TOP 1%",
+      trust_label: "Brand Trust Index",
+      platform_demography: {
+        title: "PLATFORM DEMOGRAPHY",
         tabs: {
-        youtube: {
-          label: "YOUTUBE",
+          youtube: {
+            label: "YOUTUBE",
             tagline: "Intellectual Core",
-              gender_label: "Gender: Male 53% / Female 47%",
-                gender: { male: 53, female: 47 },
-          age_label: "Core Age: 25 - 44 (70%)",
+            gender_label: "Gender: Male 53% / Female 47%",
+            gender: { male: 53, female: 47 },
+            age_label: "Core Age: 25 - 44 (70%)",
             age_value: "70%",
-              insight: "Core purchasing power. Creates immediate reaction to high-involvement products (Tech, Finance, Automotive).",
-                summary: "A core consumer segment with peak economic activity."
-        },
-        instagram: {
-          label: "INSTAGRAM",
+            insight: "Core purchasing power. Creates immediate reaction to high-involvement products (Tech, Finance, Automotive).",
+            summary: "A core consumer segment with peak economic activity."
+          },
+          instagram: {
+            label: "INSTAGRAM",
             tagline: "Cultural Drivers",
-              gender_label: "Gender: Female 77% / Male 23%",
-                gender: { male: 23, female: 77 },
-          age_label: "Core Age: 35 - 44 (Dominant)",
+            gender_label: "Gender: Female 77% / Male 23%",
+            gender: { male: 23, female: 77 },
+            age_label: "Core Age: 35 - 44 (Dominant)",
             age_value: "Dominant",
-              insight: "Leading trends and lifestyle consumption. High responsiveness to visual-centric goods (Beauty, Fashion, Living).",
-                summary: "A key demographic leading trends and lifestyle consumption."
+            insight: "Leading trends and lifestyle consumption. High responsiveness to visual-centric goods (Beauty, Fashion, Living).",
+            summary: "A key demographic leading trends and lifestyle consumption."
+          }
         }
+      },
+      ecosystem: {
+        channel_title: "Tylerbolkkayo Channel",
+        personal_title: "Tyler Rasch",
+        platforms: [
+          { name: "YouTube", handle: "@tylerbolkkayo", count: "", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tylerbolkkayo", count: "", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "TikTok", handle: "@tylerbolkkayo", count: "", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
+          { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
+          { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
+          { name: "X", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
+        ]
       }
     },
-    ecosystem: {
-      channel_title: "Tylerbolkkayo Channel",
-        personal_title: "Tyler Rasch",
-          platforms: [
-            { name: "YouTube", handle: "@tylerbolkkayo", count: "", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
-            { name: "Instagram", handle: "@tylerbolkkayo", count: "", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
-            { name: "TikTok", handle: "@tylerbolkkayo", count: "", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
-            { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
-            { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
-            { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-            { name: "X", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch" },
-            { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
-          ]
-    }
-  },
-  portfolio: {
-    originals: {
-      heading: "ORIGINAL SERIES",
+    portfolio: {
+      originals: {
+        heading: "ORIGINAL SERIES",
         items: [
           {
             title: "Tylerbolkkayo",
             subtitle: "Tylerbolkkayo Main Series",
-            desc: "Tyler Rasch is not just a YouTuber or an influencer brand. On the Tyler Team, we interpret the world through Tyler's unique perspective (language, culture, systems) and expand upon those insights to develop them into a global media business. We are looking for "Builders"—those who crave change and growth rather than stability. If you are ready to experiment without fear, collaborate actively, and leave a market impact through high standards, join us now.",
+            desc: "Tyler Rasch is not just a YouTuber or an influencer brand. On the Tyler Team, we interpret the world through Tyler's unique perspective (language, culture, systems) and expand upon those insights to develop them into a global media business. We are looking for 'Builders'—those who crave change and growth rather than stability. If you are ready to experiment without fear, collaborate actively, and leave a market impact through high standards, join us now.",
             thumbnail: "https://i.ytimg.com/vi/71o3DGhGtXw/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=71o3DGhGtXw",
             features: [
@@ -990,396 +765,396 @@ EN: {
             locations: ["Boston", "Vancouver", "Brussels", "London", "Munich", "Istanbul"]
           }
         ]
-    },
-    brands: {
-      heading: "BRAND PARTNERSHIP",
+      },
+      brands: {
+        heading: "BRAND PARTNERSHIP",
         subheading: "Brand philosophies translated into Tyler's logical narratives.",
-          items: [
-            { client: "SK Telecom", title: "Neuroscience Behind Design", category: "Branded Content", thumbnail: "/portfolio/skt_thumbnail.jpg", url: "https://youtu.be/2WJvdU11OfM?si=Qe9XOS-FQl1Qg2-q" },
-            { client: "LG Electronics", title: "Why Koreans Can't Live Without Ice", category: "Branded Content", thumbnail: "/portfolio/lg_thumbnail.jpg", url: "https://www.youtube.com/watch?v=Qzwno5WrXl8" },
-            { client: "Cooper Vision", title: "The Plastic Neutral Economic Model", category: "ESG Campaign", thumbnail: "/portfolio/cooper_thumbnail.png", url: "https://www.youtube.com/watch?v=vVnqUP0-h8o" },
-            { client: "Ministry of Employment and Labor", title: "Economy of Shorter Labor Hours", category: "Public Sector", thumbnail: "/portfolio/moel_thumbnail.png", url: "https://youtu.be/_zrFXYSseMI?si=01QGXlcK_-JqLAaB" },
-            { client: "NOOGI", title: "Ergonomic Cushion Integration", category: "Product Placement", thumbnail: "/portfolio/noogi_thumbnail.png", url: "https://youtu.be/Vdx9J0oco4o?si=AcMv88pc7XKIt0V-&t=353" },
-            { client: "8APM", title: "Focus Gel for Productive Sessions", category: "Product Placement", thumbnail: "/portfolio/8apm_thumbnail.png", url: "https://youtu.be/XbTgQWIeTN8?si=o352uQggIJFkPa53&t=51" }
-          ]
-    }
-  },
-  packages: {
-    heading: "PARTNERSHIP",
-      subheading: "Strategic Integration for Industry Leaders",
         items: [
-          {
-            title: "Branded Contents (Premium)",
-            subtitle: "Signature Storytelling Content",
-            desc: "Not an Ad, but Intellectual Property.",
-            detail: "A dedicated ~10m episode where Tyler deconstructs your brand message through his analytical lens. We create content that viewers actively seek out, ensuring deep engagement and high retention."
-          },
-          {
-            title: "PPL (Product Placement)",
-            subtitle: "Seamless Integration",
-            desc: "Strategic Exposure that respects the viewer’s focus",
-            detail: "Seamless Integration that respects the viewer’s focus. By placing your brand within high-engagement segments, we minimize ad fatigue while maintaining maximum impact. (~90s exposure)"
-          },
-          {
-            title: "Social Network & Short-Form",
-            subtitle: "Viral Impact",
-            desc: "High-Frequency Visual Communication",
-            detail: "Leveraging Instagram Reels and YouTube Shorts for immediate viral reach. Targeting the 25-44 demographic with punchy, visually sophisticated narratives."
-          }
+          { client: "SK Telecom", title: "Neuroscience Behind Design", category: "Branded Content", thumbnail: "/portfolio/skt_thumbnail.jpg", url: "https://youtu.be/2WJvdU11OfM?si=Qe9XOS-FQl1Qg2-q" },
+          { client: "LG Electronics", title: "Why Koreans Can't Live Without Ice", category: "Branded Content", thumbnail: "/portfolio/lg_thumbnail.jpg", url: "https://www.youtube.com/watch?v=Qzwno5WrXl8" },
+          { client: "Cooper Vision", title: "The Plastic Neutral Economic Model", category: "ESG Campaign", thumbnail: "/portfolio/cooper_thumbnail.png", url: "https://www.youtube.com/watch?v=vVnqUP0-h8o" },
+          { client: "Ministry of Employment and Labor", title: "Economy of Shorter Labor Hours", category: "Public Sector", thumbnail: "/portfolio/moel_thumbnail.png", url: "https://youtu.be/_zrFXYSseMI?si=01QGXlcK_-JqLAaB" },
+          { client: "NOOGI", title: "Ergonomic Cushion Integration", category: "Product Placement", thumbnail: "/portfolio/noogi_thumbnail.png", url: "https://youtu.be/Vdx9J0oco4o?si=AcMv88pc7XKIt0V-&t=353" },
+          { client: "8APM", title: "Focus Gel for Productive Sessions", category: "Product Placement", thumbnail: "/portfolio/8apm_thumbnail.png", url: "https://youtu.be/XbTgQWIeTN8?si=o352uQggIJFkPa53&t=51" }
         ]
-  },
-  contact: {
-    heading: <>Lead with Authority.<br />Partner with Tyler.</>
-  },
-  careers: {
-  "heading": "CAREERS",
-  "subheading": <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
-  "desc": <>
+      }
+    },
+    packages: {
+      heading: "PARTNERSHIP",
+      subheading: "Strategic Integration for Industry Leaders",
+      items: [
+        {
+          title: "Branded Contents (Premium)",
+          subtitle: "Signature Storytelling Content",
+          desc: "Not an Ad, but Intellectual Property.",
+          detail: "A dedicated ~10m episode where Tyler deconstructs your brand message through his analytical lens. We create content that viewers actively seek out, ensuring deep engagement and high retention."
+        },
+        {
+          title: "PPL (Product Placement)",
+          subtitle: "Seamless Integration",
+          desc: "Strategic Exposure that respects the viewer’s focus",
+          detail: "Seamless Integration that respects the viewer’s focus. By placing your brand within high-engagement segments, we minimize ad fatigue while maintaining maximum impact. (~90s exposure)"
+        },
+        {
+          title: "Social Network & Short-Form",
+          subtitle: "Viral Impact",
+          desc: "High-Frequency Visual Communication",
+          detail: "Leveraging Instagram Reels and YouTube Shorts for immediate viral reach. Targeting the 25-44 demographic with punchy, visually sophisticated narratives."
+        }
+      ]
+    },
+    contact: {
+      heading: <>Lead with Authority.<br />Partner with Tyler.</>
+    },
+    careers: {
+      "heading": "CAREERS",
+      "subheading": <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
+      "desc": <>
         <span className="block text-accent font-bold mb-4">[Our Team & Direction]</span>
         Tyler Rasch is not just a YouTuber or an influencer brand. On the Tyler Team, we interpret the world through Tyler's unique perspective (language, culture, systems) and expand upon those insights to develop them into a global media business.
         <br /><br />
         We are looking for "Builders"—those who crave change and growth rather than stability. If you are ready to experiment without fear, collaborate actively, and leave a market impact through high standards, join us now.
       </>,
-  "values": [
-    {
-      "title": "Deep Dive",
-      "desc": "We seek planning that pierces through the surface to the essence. Relentlessly asking 'Why?' is essential."
-    },
-    {
-      "title": "Autonomous Growth",
-      "desc": "We don't just follow orders. We set hypotheses for brand growth, verify them, and create results."
-    },
-    {
-      "title": "Global Standard",
-      "desc": "We are not just a YouTuber team. We collaborate with top-tier global brands and never compromise on quality."
+      "values": [
+        {
+          "title": "Deep Dive",
+          "desc": "We seek planning that pierces through the surface to the essence. Relentlessly asking 'Why?' is essential."
+        },
+        {
+          "title": "Autonomous Growth",
+          "desc": "We don't just follow orders. We set hypotheses for brand growth, verify them, and create results."
+        },
+        {
+          "title": "Global Standard",
+          "desc": "We are not just a YouTuber team. We collaborate with top-tier global brands and never compromise on quality."
+        }
+      ],
+      "positions": [
+        {
+          "title": "CONTENT LEAD",
+          "desc": <>We are looking for a visionary "Showrunner" who can oversee the entire lifecycle of our IP. Drive our brand value through strategic OSMU planning.</>,
+          "action": "Apply",
+          "details": {
+            "responsibilities": {
+              "label": "Key Responsibilities",
+              "items": [
+                "Oversee the entire planning and production pipeline for all content (Long-form/Short-form) on the <Tylerbolkkayo> channel.",
+                "Establish YouTube upload strategies (Title/Copywriting planning, thumbnail concepts, metadata, and SEO optimization).",
+                "Manage scheduling for internal/external staff (editing teams, etc.) and perform final Quality Control (QC) aligned with the brand tone: \"Deep, yet Fun.\"",
+                "Actively utilize AI tools (Gemini, ChatGPT, etc.) for scriptwriting, proposal generation, and workflow efficiency.",
+                "Continuously research \"Hooks\" and develop new formats to improve retention and CTR.",
+                "Establish and execute OSMU (One Source Multi-Use) strategies, expanding single content pieces into short-forms, podcasts, and newsletters."
+              ]
+            },
+            "qualifications": {
+              "label": "Requirements",
+              "items": [
+                "2+ years of experience leading content planning, production, and channel management for New Media/YouTube.",
+                "Deep understanding of the YouTube algorithm and how titles/thumbnails/SEO impact traffic.",
+                "Comprehensive knowledge of the production process, from planning to filming and post-production.",
+                "Ability to maintain the Tyler brand philosophy and high-quality standards while communicating smoothly with creators."
+              ]
+            },
+            "preferred": {
+              "label": "Preferred Qualifications",
+              "items": [
+                "PM experience operating a large-scale channel with over 1 million subscribers and coordinating multiple projects.",
+                "Experience in business expansion based on IP (Intellectual Property).",
+                "Exceptional sense for copywriting and planning."
+              ]
+            },
+            "workInfo": {
+              "label": "Work Format & Compensation",
+              "items": [
+                {
+                  "label": "Employment Type",
+                  "value": "Full-time Contract (Conversion to permanent role available upon review)."
+                },
+                {
+                  "label": "Work Style",
+                  "value": "Hybrid Work (A mix of Remote and On-site). We prioritize a performance-driven, autonomous environment where flexibility is adjusted based on operational efficiency."
+                },
+                {
+                  "label": "Location",
+                  "value": "Yeongdeungpo-gu, Seoul."
+                },
+                {
+                  "label": "Compensation",
+                  "value": "We offer a reasonable and competitive base salary commensurate with your experience and expertise. Additionally, a performance-based incentive structure directly tied to your impact on the channel and business growth will be negotiated separately."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "COMMUNITY LEAD",
+          "desc": <>We need an "Architect of Relationships" to evolve our fandom into the 'Tylership' ecosystem. Design value propositions and cultivate evangelists.</>,
+          "action": "Apply",
+          "details": {
+            "responsibilities": {
+              "label": "Key Responsibilities",
+              "items": [
+                "Design and operate the Value Proposition for the new premium membership, \"Tylership.\"",
+                "Oversee the planning of online/offline events, meetups, and campaigns to convert the fandom into Evangelists (loyal customers).",
+                "Establish a real-time feedback loop through community sentiment and VOC (Voice of Customer) analysis.",
+                "Manage churn rate defense and proactively resolve conflicts within the community.",
+                "Plan and execute independent monetization models based on the membership."
+              ]
+            },
+            "qualifications": {
+              "label": "Requirements",
+              "items": [
+                "3+ years of experience in fandom business, community management, or CRM planning/operation.",
+                "Strong planning and execution skills for both online and offline events.",
+                "Excellent diplomatic communication skills to mediate and resolve conflicts among complex stakeholders.",
+                "Experience in initial infrastructure setup (from 0 to 1)."
+              ]
+            },
+            "preferred": {
+              "label": "Preferred Qualifications",
+              "items": [
+                "Experience launching and operating paid subscription/membership services.",
+                "PM experience for large-scale offline events (fan meetings, conferences, etc.)."
+              ]
+            },
+            "workInfo": {
+              "label": "Work Format & Compensation",
+              "items": [
+                {
+                  "label": "Employment Type",
+                  "value": "Full-time Contract (Conversion to permanent role available upon review)."
+                },
+                {
+                  "label": "Work Style",
+                  "value": "Hybrid Work (A mix of Remote and On-site). We prioritize a performance-driven, autonomous environment where flexibility is adjusted based on operational efficiency."
+                },
+                {
+                  "label": "Location",
+                  "value": "Yeongdeungpo-gu, Seoul."
+                },
+                {
+                  "label": "Compensation",
+                  "value": "We offer a reasonable and competitive base salary commensurate with your experience and expertise. Additionally, a performance-based incentive structure directly tied to your impact on the channel and business growth will be negotiated separately."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "DATA & TRENDS LEAD",
+          "desc": <>A 'BI Partner' supporting decisions with objective metrics. Visualize data into insights to serve as the team's compass.</>,
+          "action": "Apply",
+          "details": {
+            "responsibilities": {
+              "label": "Key Responsibilities",
+              "items": [
+                "Perform precision analysis of business data (YouTube reports, membership sign-up rates, inflow paths, etc.).",
+                "Identify growth bottlenecks and derive data-driven insights to solve them.",
+                "Analyze target demographics for new projects and measure performance via A/B testing (thumbnails, titles, etc.).",
+                "Monitor competitors and benchmark channels to reverse-engineer \"Success Equations.\"",
+                "Provide regular data reports and visualized dashboards that are easily actionable for the team."
+              ]
+            },
+            "qualifications": {
+              "label": "Requirements",
+              "items": [
+                "2+ years of professional experience in Data Analysis, Performance Marketing, or Business Intelligence (BI).",
+                "Insight to identify key KPIs that create \"Business Impact\" amidst a sea of metrics.",
+                "Exceptional communication skills to translate quantitative data into qualitative language to persuade team members."
+              ]
+            },
+            "preferred": {
+              "label": "Preferred Qualifications",
+              "items": [
+                "Data analysis experience within the content/media/entertainment industry.",
+                "Proficiency in data visualization tools (Tableau, Google Data Studio, etc.)."
+              ]
+            },
+            "workInfo": {
+              "label": "Work Format & Compensation",
+              "items": [
+                {
+                  "label": "Employment Type",
+                  "value": "Full-time Contract (Conversion to permanent role available upon review)."
+                },
+                {
+                  "label": "Work Style",
+                  "value": "Hybrid Work (A mix of Remote and On-site). We prioritize a performance-driven, autonomous environment where flexibility is adjusted based on operational efficiency."
+                },
+                {
+                  "label": "Location",
+                  "value": "Yeongdeungpo-gu, Seoul."
+                },
+                {
+                  "label": "Compensation",
+                  "value": "We offer a reasonable and competitive base salary commensurate with your experience and expertise. Additionally, a performance-based incentive structure directly tied to your impact on the channel and business growth will be negotiated separately."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "SHORTFORM PRODUCTION (Director)",
+          "desc": <>Looking for a 'Shortform Native' who lives and breathes shortform grammar. Create a 'Growth Engine' with its own revenue model.</>,
+          "action": "Apply",
+          "details": {
+            "responsibilities": {
+              "label": "Key Responsibilities",
+              "items": [
+                "Plan, film, and edit original short-form content optimized for Instagram Reels, TikTok, and YouTube Shorts.",
+                "Closely follow Tyler’s daily life and external activities to process them into trendy short-form content immediately.",
+                "Build a \"Success Formula Library\" by analyzing 3-second hooks and meme patterns.",
+                "Acquire followers through short-form collaborations with other creators and specialized short-form series.",
+                "Link business models (branded ads, etc.) utilizing native short-form platform traffic."
+              ]
+            },
+            "qualifications": {
+              "label": "Requirements",
+              "items": [
+                "Complete understanding of short-form platform grammar/trends and the ability to reflect them instantly.",
+                "Mobile-centric filming agility and proficiency in short-form editing tools (CapCut, Premiere, etc.).",
+                "Flexibility to constantly test hypotheses based on data rather than being discouraged by a single failure."
+              ]
+            },
+            "preferred": {
+              "label": "Preferred Qualifications",
+              "items": [
+                "Experience running a personal short-form channel (Instagram/TikTok) that has achieved viral success.",
+                "Accustomed to a fast turn-around environment."
+              ]
+            },
+            "workInfo": {
+              "label": "Work Format & Compensation",
+              "items": [
+                {
+                  "label": "Employment Type",
+                  "value": "Highly flexible and negotiable (Part-time, Contract, or Freelance) based on the candidate's availability and company needs."
+                },
+                {
+                  "label": "Work Style",
+                  "value": "On-site work and accompanying Tyler's schedule will be the primary focus due to the nature of short-form filming. Editing and other tasks will be managed flexibly."
+                },
+                {
+                  "label": "Location",
+                  "value": "Tyler's main activity sites and Yeongdeungpo-gu, Seoul."
+                },
+                {
+                  "label": "Compensation",
+                  "value": "Negotiable based on employment type, experience, and expertise."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "SHOOT & EDIT TEAM MEMBER",
+          "desc": <>A specialist to bring Tyler's brand philosophy to life through camera angles and editing. Be a professional partner responsible for visual standards.</>,
+          "action": "Apply",
+          "details": {
+            "responsibilities": {
+              "label": "Key Responsibilities",
+              "items": [
+                "Lead filming for studio shoots, outdoor vlogs, etc. (Camera, lighting, audio setup).",
+                "Fast, sensory video cutting and post-production aligned with brand guidelines.",
+                "Design eye-catching YouTube thumbnails based on the Content Lead’s planning.",
+                "Mass-produce viral Shorts using AI tools and post across SNS platforms.",
+                "Design and post informative card news and carousel formats for Instagram.",
+                "Handle unexpected on-site situations and collaborate with Long/Short-form leads to provide optimized video/visual assets."
+              ]
+            },
+            "qualifications": {
+              "label": "Requirements",
+              "items": [
+                "Professional experience in filming and editing commercial videos, broadcasts, or high-end YouTube content.",
+                "Independent field operation skills (Multi-cam setup, audio recording, lighting design).",
+                "Proficiency in video tools (Premiere Pro, After Effects, DaVinci Resolve) and 2D design tools (Photoshop, Illustrator)."
+              ]
+            },
+            "preferred": {
+              "label": "Preferred Qualifications",
+              "items": [
+                "[Core Preference]: Deep understanding of the <Tylerbolkkayo> brand philosophy and worldview as an active consumer of the content.",
+                "Experience in producing knowledge-based content, interviews, or documentary formats.",
+                "Possess a portfolio showcasing trendy motion graphics, subtitle templates, and visual design."
+              ]
+            },
+            "workInfo": {
+              "label": "Work Format & Compensation",
+              "items": [
+                {
+                  "label": "Employment Type",
+                  "value": "Probationary/Contract period with strong consideration for permanent full-time conversion based on performance. (Project-based or freelance options also highly flexible/negotiable)."
+                },
+                {
+                  "label": "Work Style",
+                  "value": "Flexible working hours adjusted according to shooting schedules and editing deadlines."
+                },
+                {
+                  "label": "Location",
+                  "value": "On-site shoots and Remote/On-site hybrid for editing."
+                },
+                {
+                  "label": "Compensation",
+                  "value": "Negotiable based on employment type, experience, and expertise."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "ASSISTANT (Sales Operations & Support)",
+          "desc": <>A coordinator for a rapidly growing media business. Ensure the completion of partner communication and sales administration.</>,
+          "action": "Apply",
+          "details": {
+            "responsibilities": {
+              "label": "Key Responsibilities",
+              "items": [
+                "Initial response and filtering for inbound business inquiries (Sponsorships, lectures, partnerships).",
+                "Assist Sales Managers in drafting proposals, calculating quotes, and reviewing contracts.",
+                "Coordinate internal/external meeting schedules and draft meticulous Meeting Minutes.",
+                "Update Partner CRM databases and support administrative, tax, and settlement tasks."
+              ]
+            },
+            "qualifications": {
+              "label": "Requirements",
+              "items": [
+                "Ability to conduct professional and smooth business communication via email and phone.",
+                "Meticulousness in managing complex schedules and following through on assigned tasks without error.",
+                "Proficiency in collaboration tools (Google Workspace, Slack, Notion).",
+                "Strong willingness to learn the business deal processes of the entertainment/media industry."
+              ]
+            },
+            "preferred": {
+              "label": "Preferred Qualifications",
+              "items": [
+                "Internship or practical experience in the media, MCN, or entertainment industry."
+              ]
+            },
+            "workInfo": {
+              "label": "Work Format & Compensation",
+              "items": [
+                {
+                  "label": "Employment Type",
+                  "value": "Starting as an Internship with highly flexible opportunities for conversion to Contract or Full-time based on performance and mutual needs."
+                },
+                {
+                  "label": "Work Style",
+                  "value": "Hybrid Work (A mix of Remote and On-site) with flexible working hours."
+                },
+                {
+                  "label": "Location",
+                  "value": "Yeongdeungpo-gu, Seoul (or Remote, open to discussion)."
+                },
+                {
+                  "label": "Compensation",
+                  "value": "Based on internship guidelines; negotiable upon conversion based on performance and experience."
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
-  ],
-  "positions": [
-    {
-      "title": "CONTENT LEAD",
-      "desc": <>We are looking for a visionary "Showrunner" who can oversee the entire lifecycle of our IP. Drive our brand value through strategic OSMU planning.</>,
-      "action": "Apply",
-      "details": {
-        "responsibilities": {
-          "label": "Key Responsibilities",
-          "items": [
-            "Oversee the entire planning and production pipeline for all content (Long-form/Short-form) on the <Tylerbolkkayo> channel.",
-            "Establish YouTube upload strategies (Title/Copywriting planning, thumbnail concepts, metadata, and SEO optimization).",
-            "Manage scheduling for internal/external staff (editing teams, etc.) and perform final Quality Control (QC) aligned with the brand tone: \"Deep, yet Fun.\"",
-            "Actively utilize AI tools (Gemini, ChatGPT, etc.) for scriptwriting, proposal generation, and workflow efficiency.",
-            "Continuously research \"Hooks\" and develop new formats to improve retention and CTR.",
-            "Establish and execute OSMU (One Source Multi-Use) strategies, expanding single content pieces into short-forms, podcasts, and newsletters."
-          ]
-        },
-        "qualifications": {
-          "label": "Requirements",
-          "items": [
-            "2+ years of experience leading content planning, production, and channel management for New Media/YouTube.",
-            "Deep understanding of the YouTube algorithm and how titles/thumbnails/SEO impact traffic.",
-            "Comprehensive knowledge of the production process, from planning to filming and post-production.",
-            "Ability to maintain the Tyler brand philosophy and high-quality standards while communicating smoothly with creators."
-          ]
-        },
-        "preferred": {
-          "label": "Preferred Qualifications",
-          "items": [
-            "PM experience operating a large-scale channel with over 1 million subscribers and coordinating multiple projects.",
-            "Experience in business expansion based on IP (Intellectual Property).",
-            "Exceptional sense for copywriting and planning."
-          ]
-        },
-        "workInfo": {
-          "label": "Work Format & Compensation",
-          "items": [
-            {
-              "label": "Employment Type",
-              "value": "Full-time Contract (Conversion to permanent role available upon review)."
-            },
-            {
-              "label": "Work Style",
-              "value": "Hybrid Work (A mix of Remote and On-site). We prioritize a performance-driven, autonomous environment where flexibility is adjusted based on operational efficiency."
-            },
-            {
-              "label": "Location",
-              "value": "Yeongdeungpo-gu, Seoul."
-            },
-            {
-              "label": "Compensation",
-              "value": "We offer a reasonable and competitive base salary commensurate with your experience and expertise. Additionally, a performance-based incentive structure directly tied to your impact on the channel and business growth will be negotiated separately."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "title": "COMMUNITY LEAD",
-      "desc": <>We need an "Architect of Relationships" to evolve our fandom into the 'Tylership' ecosystem. Design value propositions and cultivate evangelists.</>,
-      "action": "Apply",
-      "details": {
-        "responsibilities": {
-          "label": "Key Responsibilities",
-          "items": [
-            "Design and operate the Value Proposition for the new premium membership, \"Tylership.\"",
-            "Oversee the planning of online/offline events, meetups, and campaigns to convert the fandom into Evangelists (loyal customers).",
-            "Establish a real-time feedback loop through community sentiment and VOC (Voice of Customer) analysis.",
-            "Manage churn rate defense and proactively resolve conflicts within the community.",
-            "Plan and execute independent monetization models based on the membership."
-          ]
-        },
-        "qualifications": {
-          "label": "Requirements",
-          "items": [
-            "3+ years of experience in fandom business, community management, or CRM planning/operation.",
-            "Strong planning and execution skills for both online and offline events.",
-            "Excellent diplomatic communication skills to mediate and resolve conflicts among complex stakeholders.",
-            "Experience in initial infrastructure setup (from 0 to 1)."
-          ]
-        },
-        "preferred": {
-          "label": "Preferred Qualifications",
-          "items": [
-            "Experience launching and operating paid subscription/membership services.",
-            "PM experience for large-scale offline events (fan meetings, conferences, etc.)."
-          ]
-        },
-        "workInfo": {
-          "label": "Work Format & Compensation",
-          "items": [
-            {
-              "label": "Employment Type",
-              "value": "Full-time Contract (Conversion to permanent role available upon review)."
-            },
-            {
-              "label": "Work Style",
-              "value": "Hybrid Work (A mix of Remote and On-site). We prioritize a performance-driven, autonomous environment where flexibility is adjusted based on operational efficiency."
-            },
-            {
-              "label": "Location",
-              "value": "Yeongdeungpo-gu, Seoul."
-            },
-            {
-              "label": "Compensation",
-              "value": "We offer a reasonable and competitive base salary commensurate with your experience and expertise. Additionally, a performance-based incentive structure directly tied to your impact on the channel and business growth will be negotiated separately."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "title": "DATA & TRENDS LEAD",
-      "desc": <>A 'BI Partner' supporting decisions with objective metrics. Visualize data into insights to serve as the team's compass.</>,
-      "action": "Apply",
-      "details": {
-        "responsibilities": {
-          "label": "Key Responsibilities",
-          "items": [
-            "Perform precision analysis of business data (YouTube reports, membership sign-up rates, inflow paths, etc.).",
-            "Identify growth bottlenecks and derive data-driven insights to solve them.",
-            "Analyze target demographics for new projects and measure performance via A/B testing (thumbnails, titles, etc.).",
-            "Monitor competitors and benchmark channels to reverse-engineer \"Success Equations.\"",
-            "Provide regular data reports and visualized dashboards that are easily actionable for the team."
-          ]
-        },
-        "qualifications": {
-          "label": "Requirements",
-          "items": [
-            "2+ years of professional experience in Data Analysis, Performance Marketing, or Business Intelligence (BI).",
-            "Insight to identify key KPIs that create \"Business Impact\" amidst a sea of metrics.",
-            "Exceptional communication skills to translate quantitative data into qualitative language to persuade team members."
-          ]
-        },
-        "preferred": {
-          "label": "Preferred Qualifications",
-          "items": [
-            "Data analysis experience within the content/media/entertainment industry.",
-            "Proficiency in data visualization tools (Tableau, Google Data Studio, etc.)."
-          ]
-        },
-        "workInfo": {
-          "label": "Work Format & Compensation",
-          "items": [
-            {
-              "label": "Employment Type",
-              "value": "Full-time Contract (Conversion to permanent role available upon review)."
-            },
-            {
-              "label": "Work Style",
-              "value": "Hybrid Work (A mix of Remote and On-site). We prioritize a performance-driven, autonomous environment where flexibility is adjusted based on operational efficiency."
-            },
-            {
-              "label": "Location",
-              "value": "Yeongdeungpo-gu, Seoul."
-            },
-            {
-              "label": "Compensation",
-              "value": "We offer a reasonable and competitive base salary commensurate with your experience and expertise. Additionally, a performance-based incentive structure directly tied to your impact on the channel and business growth will be negotiated separately."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "title": "SHORTFORM PRODUCTION (Director)",
-      "desc": <>Looking for a 'Shortform Native' who lives and breathes shortform grammar. Create a 'Growth Engine' with its own revenue model.</>,
-      "action": "Apply",
-      "details": {
-        "responsibilities": {
-          "label": "Key Responsibilities",
-          "items": [
-            "Plan, film, and edit original short-form content optimized for Instagram Reels, TikTok, and YouTube Shorts.",
-            "Closely follow Tyler’s daily life and external activities to process them into trendy short-form content immediately.",
-            "Build a \"Success Formula Library\" by analyzing 3-second hooks and meme patterns.",
-            "Acquire followers through short-form collaborations with other creators and specialized short-form series.",
-            "Link business models (branded ads, etc.) utilizing native short-form platform traffic."
-          ]
-        },
-        "qualifications": {
-          "label": "Requirements",
-          "items": [
-            "Complete understanding of short-form platform grammar/trends and the ability to reflect them instantly.",
-            "Mobile-centric filming agility and proficiency in short-form editing tools (CapCut, Premiere, etc.).",
-            "Flexibility to constantly test hypotheses based on data rather than being discouraged by a single failure."
-          ]
-        },
-        "preferred": {
-          "label": "Preferred Qualifications",
-          "items": [
-            "Experience running a personal short-form channel (Instagram/TikTok) that has achieved viral success.",
-            "Accustomed to a fast turn-around environment."
-          ]
-        },
-        "workInfo": {
-          "label": "Work Format & Compensation",
-          "items": [
-            {
-              "label": "Employment Type",
-              "value": "Highly flexible and negotiable (Part-time, Contract, or Freelance) based on the candidate's availability and company needs."
-            },
-            {
-              "label": "Work Style",
-              "value": "On-site work and accompanying Tyler's schedule will be the primary focus due to the nature of short-form filming. Editing and other tasks will be managed flexibly."
-            },
-            {
-              "label": "Location",
-              "value": "Tyler's main activity sites and Yeongdeungpo-gu, Seoul."
-            },
-            {
-              "label": "Compensation",
-              "value": "Negotiable based on employment type, experience, and expertise."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "title": "SHOOT & EDIT TEAM MEMBER",
-      "desc": <>A specialist to bring Tyler's brand philosophy to life through camera angles and editing. Be a professional partner responsible for visual standards.</>,
-      "action": "Apply",
-      "details": {
-        "responsibilities": {
-          "label": "Key Responsibilities",
-          "items": [
-            "Lead filming for studio shoots, outdoor vlogs, etc. (Camera, lighting, audio setup).",
-            "Fast, sensory video cutting and post-production aligned with brand guidelines.",
-            "Design eye-catching YouTube thumbnails based on the Content Lead’s planning.",
-            "Mass-produce viral Shorts using AI tools and post across SNS platforms.",
-            "Design and post informative card news and carousel formats for Instagram.",
-            "Handle unexpected on-site situations and collaborate with Long/Short-form leads to provide optimized video/visual assets."
-          ]
-        },
-        "qualifications": {
-          "label": "Requirements",
-          "items": [
-            "Professional experience in filming and editing commercial videos, broadcasts, or high-end YouTube content.",
-            "Independent field operation skills (Multi-cam setup, audio recording, lighting design).",
-            "Proficiency in video tools (Premiere Pro, After Effects, DaVinci Resolve) and 2D design tools (Photoshop, Illustrator)."
-          ]
-        },
-        "preferred": {
-          "label": "Preferred Qualifications",
-          "items": [
-            "[Core Preference]: Deep understanding of the <Tylerbolkkayo> brand philosophy and worldview as an active consumer of the content.",
-            "Experience in producing knowledge-based content, interviews, or documentary formats.",
-            "Possess a portfolio showcasing trendy motion graphics, subtitle templates, and visual design."
-          ]
-        },
-        "workInfo": {
-          "label": "Work Format & Compensation",
-          "items": [
-            {
-              "label": "Employment Type",
-              "value": "Probationary/Contract period with strong consideration for permanent full-time conversion based on performance. (Project-based or freelance options also highly flexible/negotiable)."
-            },
-            {
-              "label": "Work Style",
-              "value": "Flexible working hours adjusted according to shooting schedules and editing deadlines."
-            },
-            {
-              "label": "Location",
-              "value": "On-site shoots and Remote/On-site hybrid for editing."
-            },
-            {
-              "label": "Compensation",
-              "value": "Negotiable based on employment type, experience, and expertise."
-            }
-          ]
-        }
-      }
-    },
-    {
-      "title": "ASSISTANT (Sales Operations & Support)",
-      "desc": <>A coordinator for a rapidly growing media business. Ensure the completion of partner communication and sales administration.</>,
-      "action": "Apply",
-      "details": {
-        "responsibilities": {
-          "label": "Key Responsibilities",
-          "items": [
-            "Initial response and filtering for inbound business inquiries (Sponsorships, lectures, partnerships).",
-            "Assist Sales Managers in drafting proposals, calculating quotes, and reviewing contracts.",
-            "Coordinate internal/external meeting schedules and draft meticulous Meeting Minutes.",
-            "Update Partner CRM databases and support administrative, tax, and settlement tasks."
-          ]
-        },
-        "qualifications": {
-          "label": "Requirements",
-          "items": [
-            "Ability to conduct professional and smooth business communication via email and phone.",
-            "Meticulousness in managing complex schedules and following through on assigned tasks without error.",
-            "Proficiency in collaboration tools (Google Workspace, Slack, Notion).",
-            "Strong willingness to learn the business deal processes of the entertainment/media industry."
-          ]
-        },
-        "preferred": {
-          "label": "Preferred Qualifications",
-          "items": [
-            "Internship or practical experience in the media, MCN, or entertainment industry."
-          ]
-        },
-        "workInfo": {
-          "label": "Work Format & Compensation",
-          "items": [
-            {
-              "label": "Employment Type",
-              "value": "Starting as an Internship with highly flexible opportunities for conversion to Contract or Full-time based on performance and mutual needs."
-            },
-            {
-              "label": "Work Style",
-              "value": "Hybrid Work (A mix of Remote and On-site) with flexible working hours."
-            },
-            {
-              "label": "Location",
-              "value": "Yeongdeungpo-gu, Seoul (or Remote, open to discussion)."
-            },
-            {
-              "label": "Compensation",
-              "value": "Based on internship guidelines; negotiable upon conversion based on performance and experience."
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
   }
 };
 
