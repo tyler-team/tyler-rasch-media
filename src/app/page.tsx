@@ -128,7 +128,7 @@ type Content = {
   };
   careers?: {
     heading: string;
-    subheading: string;
+    subheading: React.ReactNode;
     desc: string;
     values: { title: React.ReactNode; desc: React.ReactNode }[];
     positions: { title: string; desc: React.ReactNode; action: string; details?: { responsibilities: string[], qualifications: string[], preferred: string[] } }[];
@@ -295,7 +295,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     careers: {
       heading: "CAREERS",
-      subheading: "Tyler is a business. We do not accept mediocrity.",
+      subheading: <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
       desc: "타일러 라쉬(Tyler Rasch)는 단순한 인플루언서가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 혁신 조직입니다. 우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’를 찾습니다. 두려움 없이 실험하고, 치열하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.",
       values: [
         { title: "Deep Dive (본질적 탐구)", desc: "표면적인 재미가 아닌, 본질을 꿰뚫는 기획을 지향합니다. '왜?'라는 질문을 멈추지 않는 집요함이 필요합니다." },
@@ -607,7 +607,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     careers: {
       heading: "CAREERS",
-      subheading: "Tyler is a business. We do not accept mediocrity.",
+      subheading: <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
       desc: "Tyler Rasch is not just an influencer. We are an innovative organization that interprets the world through Tyler's unique perspective (language, culture, systems) and expands it into a global media business. We are looking for 'builders' who crave change and growth rather than those who seek stability. If you are ready to experiment without fear, collaborate intensely, and leave an impact on the market with high standards, join us now.",
       values: [
         { title: "Deep Dive", desc: "We seek planning that pierces through the surface to the essence. Relentlessly asking 'Why?' is essential." },
