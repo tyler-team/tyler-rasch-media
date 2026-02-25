@@ -312,7 +312,6 @@ const contentData: Record<'KR' | 'EN', Content> = {
       heading: "CAREERS",
       subheading: <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
       desc: <>
-        <span className="block text-accent font-bold mb-4">[우리 팀과 우리가 찾는 인재상]</span>
         타일러 라쉬(Tyler Rasch)는 단순한 유튜버나 인플루언서 브랜드가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 팀입니다.
         <br /><br />
         우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’를 찾습니다. 두려움 없이 실험하고, 활발하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.
@@ -810,7 +809,6 @@ const contentData: Record<'KR' | 'EN', Content> = {
       "heading": "CAREERS",
       "subheading": <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
       "desc": <>
-        <span className="block text-accent font-bold mb-4">[Our Team & Direction]</span>
         Tyler Rasch is not just a YouTuber or an influencer brand. On the Tyler Team, we interpret the world through Tyler's unique perspective (language, culture, systems) and expand upon those insights to develop them into a global media business.
         <br /><br />
         We are looking for "Builders"—those who crave change and growth rather than stability. If you are ready to experiment without fear, collaborate actively, and leave a market impact through high standards, join us now.
@@ -2049,7 +2047,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                               <div className="space-y-3 text-zinc-300 text-sm">
                                 {pos.details.workInfo.items.map((item: any, idx: number) => (
                                   <div key={idx} className="flex flex-col md:flex-row gap-1 md:gap-4 break-keep">
-                                    <span className="font-bold text-white min-w-[150px] inline-block">• {item.label}:</span>
+                                    <span className="text-white min-w-[150px] inline-block">• {item.label}:</span>
                                     <span className="flex-1 opacity-80">{item.value}</span>
                                   </div>
                                 ))}
