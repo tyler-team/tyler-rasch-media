@@ -1626,7 +1626,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                       {pos.details && (
                         <div className="px-10 pb-10 pt-4 border-t border-white/5 space-y-8 animate-in slide-in-from-top-4 fade-in duration-300">
                           <div>
-                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[주요 업무 / Responsibilities]</h5>
+                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[주요업무 / Responsibilities]</h5>
                             <ul className="list-disc pl-5 space-y-2 text-zinc-300">
                               {pos.details.responsibilities.map((req: string, idx: number) => (
                                 <li key={idx} className="break-keep">{req}</li>
@@ -1634,7 +1634,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                             </ul>
                           </div>
                           <div>
-                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[자격 요건 / Qualifications]</h5>
+                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[자격요건 / Qualifications]</h5>
                             <ul className="list-disc pl-5 space-y-2 text-zinc-300">
                               {pos.details.qualifications.map((req: string, idx: number) => (
                                 <li key={idx} className="break-keep">{req}</li>
@@ -1642,7 +1642,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                             </ul>
                           </div>
                           <div>
-                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[우대 사항 / Preferred]</h5>
+                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[우대사항 / Preferred]</h5>
                             <ul className="list-disc pl-5 space-y-2 text-zinc-300">
                               {pos.details.preferred.map((req: string, idx: number) => (
                                 <li key={idx} className="break-keep">{req}</li>
