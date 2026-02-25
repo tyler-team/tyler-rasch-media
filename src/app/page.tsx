@@ -294,9 +294,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
       heading: <>Lead with Authority.<br />Partner with Tyler.</>
     },
     careers: {
-      heading: "채용",
-      subheading: "지적 영향력을 설계하는 사람들",
-      desc: "우리는 조회수 너머의 가치를 만듭니다. 타일러와 함께 미디어의 새로운 기준이 되어주세요.",
+      heading: "CAREERS",
+      subheading: "Tyler is a business. We do not accept mediocrity.",
+      desc: "타일러 라쉬(Tyler Rasch)는 단순한 인플루언서가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 혁신 조직입니다. 우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’를 찾습니다. 두려움 없이 실험하고, 치열하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.",
       values: [
         { title: "Deep Dive (본질적 탐구)", desc: "표면적인 재미가 아닌, 본질을 꿰뚫는 기획을 지향합니다. '왜?'라는 질문을 멈추지 않는 집요함이 필요합니다." },
         { title: <>Autonomous Growth<br />(자율과 성장)</>, desc: "시키는 일만 하지 않습니다. 스스로 브랜드의 성장을 위한 가설을 세우고, 검증하고, 결과를 만들어냅니다." },
@@ -308,143 +308,143 @@ const contentData: Record<'KR' | 'EN', Content> = {
           desc: <>단순한 PD가 아닌, 타일러 IP 세계관을 총괄할 <span className="text-accent font-bold">‘쇼러너(Showrunner)’</span>를 찾습니다. 기획부터 제작, 발행까지의 A to Z를 리딩하며, 트래픽 소스(Traffic Source)와 이탈 구간을 분석하는 그로스 해킹(Growth Hacking) 역량을 갖춰야 합니다. AI와 데이터를 기반으로 한국과 글로벌 트렌드를 동시에 포착하고, 하나의 콘텐츠를 블로그, 팟캐스트 등 다양한 포맷으로 재가공하는 OSMU 전략을 통해 브랜드 가치를 극대화해 주십시오.</>,
           action: "지원하기",
           details: {
-  "responsibilities": [
-    "<타일러볼까요> 채널의 롱폼/숏폼 등 모든 콘텐츠 기획 및 제작 파이프라인 총괄",
-    "유튜브 업로드 전략 수립 (제목/카피라이팅 기획, 썸네일 콘셉트 도출, 메타데이터 및 SEO 최적화)",
-    "내/외부 인력(편집팀 등)의 스케줄링 관리 및 타일러 브랜드 톤앤매너(\"Deep, yet Fun\")에 맞춘 최종 퀄리티 컨트롤(QC)",
-    "AI 툴(Gemini, ChatGPT 등)을 적극 활용한 스크립트 작성, 기획안 도출 및 업무 효율화",
-    "시청 지속 시간 및 클릭률 향상을 위한 훅(Hook) 지속 연구 및 신규 포맷 개발",
-    "하나의 콘텐츠를 숏폼, 팟캐스트, 뉴스레터 등으로 확장하는 OSMU 전략 수립 및 실행"
-  ],
-  "qualifications": [
-    "뉴미디어/유튜브 채널 콘텐츠 기획, 제작, 채널 운영 리드 경험을 보유하신 분 (최소 2년 이상)",
-    "유튜브 알고리즘, 제목/썸네일/SEO가 트래픽에 미치는 영향력을 깊이 이해하고 계신 분",
-    "영상 기획부터 촬영, 후반 작업까지 프로덕션 전반의 프로세스를 꿰뚫고 계신 분",
-    "타일러 브랜드의 철학과 높은 퀄리티 스탠다드를 유지하며, 작업자들과 원활히 소통할 수 있는 분"
-  ],
-  "preferred": [
-    "100만 구독자 이상의 대형 채널 운영 및 다수의 프로젝트를 조율해 본 PM 경험자",
-    "IP(지식재산권) 기반의 비즈니스 확장 경험이 있으신 분",
-    "탁월한 카피라이팅 기획 감각을 보유하신 분"
-  ]
-}
+            "responsibilities": [
+              "<타일러볼까요> 채널의 롱폼/숏폼 등 모든 콘텐츠 기획 및 제작 파이프라인 총괄",
+              "유튜브 업로드 전략 수립 (제목/카피라이팅 기획, 썸네일 콘셉트 도출, 메타데이터 및 SEO 최적화)",
+              "내/외부 인력(편집팀 등)의 스케줄링 관리 및 타일러 브랜드 톤앤매너(\"Deep, yet Fun\")에 맞춘 최종 퀄리티 컨트롤(QC)",
+              "AI 툴(Gemini, ChatGPT 등)을 적극 활용한 스크립트 작성, 기획안 도출 및 업무 효율화",
+              "시청 지속 시간 및 클릭률 향상을 위한 훅(Hook) 지속 연구 및 신규 포맷 개발",
+              "하나의 콘텐츠를 숏폼, 팟캐스트, 뉴스레터 등으로 확장하는 OSMU 전략 수립 및 실행"
+            ],
+            "qualifications": [
+              "뉴미디어/유튜브 채널 콘텐츠 기획, 제작, 채널 운영 리드 경험을 보유하신 분 (최소 2년 이상)",
+              "유튜브 알고리즘, 제목/썸네일/SEO가 트래픽에 미치는 영향력을 깊이 이해하고 계신 분",
+              "영상 기획부터 촬영, 후반 작업까지 프로덕션 전반의 프로세스를 꿰뚫고 계신 분",
+              "타일러 브랜드의 철학과 높은 퀄리티 스탠다드를 유지하며, 작업자들과 원활히 소통할 수 있는 분"
+            ],
+            "preferred": [
+              "100만 구독자 이상의 대형 채널 운영 및 다수의 프로젝트를 조율해 본 PM 경험자",
+              "IP(지식재산권) 기반의 비즈니스 확장 경험이 있으신 분",
+              "탁월한 카피라이팅 기획 감각을 보유하신 분"
+            ]
+          }
         },
         {
           title: "COMMUNITY LEAD (커뮤니티 리드)",
           desc: <>구독자를 팬덤으로, 팬덤을 <span className="text-accent font-bold">‘타일러쉽(Tylership)’</span>이라는 견고한 생태계로 진화시킬 <span className="text-accent font-bold">‘관계의 건축가’</span>를 찾습니다. 온/오프라인을 넘나드는 리추얼(Ritual)과 밋업을 설계하여 소속감을 고취하고, 커뮤니티의 목소리(VOC)를 비즈니스에 반영하는 피드백 루프를 구축해야 합니다. 단순 관리를 넘어 멤버십의 가치 제안(Value Proposition)을 설계하고, 브랜드의 철학을 자발적으로 전파하는 충성 고객군(Evangelist)을 양성하는 전략가입니다.</>,
           action: "지원하기",
           details: {
-  "responsibilities": [
-    "신규 프리미엄 멤버십 ‘타일러쉽(Tylership)’의 등급별 가치 제안(Value Proposition) 설계 및 운영",
-    "팬덤을 충성 고객군(Evangelist)으로 전환시키기 위한 온/오프라인 이벤트, 밋업, 캠페인 기획 총괄",
-    "커뮤니티 여론 및 VOC(Voice of Customer) 분석을 통한 실시간 피드백 루프 구축",
-    "이탈률(Churn rate) 방어 및 커뮤니티 내 크고 작은 갈등 요소 사전 관리",
-    "멤버십 기반의 독자적인 수익화 모델 기획 및 실행"
-  ],
-  "qualifications": [
-    "팬덤 비즈니스, 커뮤니티 매니징, 혹은 CRM 기획/운영 경험을 보유하신 분 (최소 3년 이상)",
-    "온/오프라인을 아우르는 행사 기획력과 실행력을 갖추신 분",
-    "복잡한 이해관계자들 사이에서 갈등을 중재하고 해결하는 뛰어난 외교적 소통 능력",
-    "무(無)에서 유(有)를 만드는 인프라 초기 셋업 경험이 있으신 분"
-  ],
-  "preferred": [
-    "유료 구독/멤버십 서비스 런칭 및 운영 경험자",
-    "대규모 오프라인 이벤트(팬미팅, 컨퍼런스 등) PM 경험자"
-  ]
-}
+            "responsibilities": [
+              "신규 프리미엄 멤버십 ‘타일러쉽(Tylership)’의 등급별 가치 제안(Value Proposition) 설계 및 운영",
+              "팬덤을 충성 고객군(Evangelist)으로 전환시키기 위한 온/오프라인 이벤트, 밋업, 캠페인 기획 총괄",
+              "커뮤니티 여론 및 VOC(Voice of Customer) 분석을 통한 실시간 피드백 루프 구축",
+              "이탈률(Churn rate) 방어 및 커뮤니티 내 크고 작은 갈등 요소 사전 관리",
+              "멤버십 기반의 독자적인 수익화 모델 기획 및 실행"
+            ],
+            "qualifications": [
+              "팬덤 비즈니스, 커뮤니티 매니징, 혹은 CRM 기획/운영 경험을 보유하신 분 (최소 3년 이상)",
+              "온/오프라인을 아우르는 행사 기획력과 실행력을 갖추신 분",
+              "복잡한 이해관계자들 사이에서 갈등을 중재하고 해결하는 뛰어난 외교적 소통 능력",
+              "무(無)에서 유(有)를 만드는 인프라 초기 셋업 경험이 있으신 분"
+            ],
+            "preferred": [
+              "유료 구독/멤버십 서비스 런칭 및 운영 경험자",
+              "대규모 오프라인 이벤트(팬미팅, 컨퍼런스 등) PM 경험자"
+            ]
+          }
         },
         {
           title: "DATA & TRENDS LEAD (데이터 & 트렌드 리드)",
           desc: <>직감이 아닌 객관적 지표(ROI, LTV 등)로 의사결정을 지원할 <span className="text-accent font-bold">‘비즈니스 인텔리전스(BI) 파트너’</span>입니다. 매의 눈으로 채널 데이터와 경쟁사를 분석하여 성공 방정식을 도출하고, 복잡한 데이터를 직관적인 인사이트로 시각화해 팀의 나침반 역할을 수행합니다. 알고리즘 변화와 글로벌 미디어 트렌드를 감지하여 타일러 브랜드가 선점해야 할 새로운 니치(Niche) 시장을 발굴해 주십시오.</>,
           action: "지원하기",
           details: {
-  "responsibilities": [
-    "유튜브 채널 리포트, 멤버십 가입률, 유입 경로 등 자사 비즈니스 데이터의 정밀 분석",
-    "성장을 저해하는 병목 구간 파악 및 해결을 위한 데이터 기반의 인사이트 도출",
-    "신규 프로젝트 런칭 시 타겟 데모그래픽 분석 및 A/B 테스트(썸네일/타이틀 등) 성과 측정",
-    "경쟁사 및 벤치마크 채널의 데이터를 모니터링하여 성공 방정식(Success Equation) 역설계",
-    "실무진이 쉽게 활용할 수 있는 형태의 정기 데이터 리포트 및 대시보드 시각화 제공"
-  ],
-  "qualifications": [
-    "데이터 분석, 퍼포먼스 마케팅, 비즈니스 인텔리전스(BI) 관련 실무 경험이 있으신 분 (최소 2년 이상)",
-    "수많은 지표 속에서 '비즈니스 임팩트'를 창출할 핵심 KPI를 찾아내는 통찰력",
-    "정량적 데이터를 정성적 언어로 번역해 팀원들을 설득할 수 있는 탁월한 커뮤니케이션 능력"
-  ],
-  "preferred": [
-    "콘텐츠/미디어/엔터테인먼트 산업 내 데이터 분석 경험자",
-    "데이터 시각화 툴(Tableau, Google Data Studio 등) 활용 능숙자"
-  ]
-}
+            "responsibilities": [
+              "유튜브 채널 리포트, 멤버십 가입률, 유입 경로 등 자사 비즈니스 데이터의 정밀 분석",
+              "성장을 저해하는 병목 구간 파악 및 해결을 위한 데이터 기반의 인사이트 도출",
+              "신규 프로젝트 런칭 시 타겟 데모그래픽 분석 및 A/B 테스트(썸네일/타이틀 등) 성과 측정",
+              "경쟁사 및 벤치마크 채널의 데이터를 모니터링하여 성공 방정식(Success Equation) 역설계",
+              "실무진이 쉽게 활용할 수 있는 형태의 정기 데이터 리포트 및 대시보드 시각화 제공"
+            ],
+            "qualifications": [
+              "데이터 분석, 퍼포먼스 마케팅, 비즈니스 인텔리전스(BI) 관련 실무 경험이 있으신 분 (최소 2년 이상)",
+              "수많은 지표 속에서 '비즈니스 임팩트'를 창출할 핵심 KPI를 찾아내는 통찰력",
+              "정량적 데이터를 정성적 언어로 번역해 팀원들을 설득할 수 있는 탁월한 커뮤니케이션 능력"
+            ],
+            "preferred": [
+              "콘텐츠/미디어/엔터테인먼트 산업 내 데이터 분석 경험자",
+              "데이터 시각화 툴(Tableau, Google Data Studio 등) 활용 능숙자"
+            ]
+          }
         },
         {
           title: "SHORTFORM PRODUCTION (숏폼 제작)",
           desc: <>인스타그램, 틱톡, 유튜브 쇼츠의 문법을 완벽히 체화한 <span className="text-accent font-bold">‘숏폼 네이티브’</span>를 찾습니다. 단순히 유튜브 본편으로 유입시키는 예고편 제작자가 아닙니다. 독자적인 기획과 폭발적인 조회수로 <span className="text-accent font-bold">자체적인 수익 모델을 창출할 수 있는 ‘성장 엔진’</span>을 만드는 것이 핵심입니다. 3초 안에 시선을 사로잡는 강력한 훅(Hook)과 감각적인 편집으로, 타일러의 숏폼 채널을 하나의 거대한 플랫폼으로 키워낼 야심 찬 크리에이터를 기다립니다.</>,
           action: "지원하기",
           details: {
-  "responsibilities": [
-    "인스타그램 릴스, 틱톡, 유튜브 쇼츠에 최적화된 오리지널 숏폼 콘텐츠 기획/촬영/편집",
-    "타일러의 일상 및 외부 활동을 밀착 마크하여 트렌디한 숏폼 콘텐츠로 즉각 가공",
-    "성공하는 숏폼의 3초 훅(Hook)과 밈(Meme) 패턴을 분석하여 '성공 공식 라이브러리' 구축",
-    "타 크리에이터와의 숏폼 콜라보레이션 기획 및 숏폼 시리즈물 기획을 통한 팔로워 확보",
-    "숏폼 플랫폼 내 자체 트래픽을 활용한 비즈니스 모델(브랜디드 광고 등) 연계"
-  ],
-  "qualifications": [
-    "숏폼 플랫폼의 문법과 트렌드를 완벽하게 이해하고 즉각 반영할 수 있는 분",
-    "스마트폰 중심의 기동성 있는 촬영 및 모바일/PC 숏폼 편집 툴(CapCut, Premiere 등) 활용 능력",
-    "한 번의 실패에 머무르지 않고, 데이터를 보며 끊임없이 가설을 테스트하는 유연성"
-  ],
-  "preferred": [
-    "본인이 직접 운영하여 바이럴(떡상)을 만들어 본 숏폼 채널(인스타/틱톡) 보유자",
-    "빠른 턴어라운드(Turn-around) 환경에 익숙하신 분"
-  ]
-}
+            "responsibilities": [
+              "인스타그램 릴스, 틱톡, 유튜브 쇼츠에 최적화된 오리지널 숏폼 콘텐츠 기획/촬영/편집",
+              "타일러의 일상 및 외부 활동을 밀착 마크하여 트렌디한 숏폼 콘텐츠로 즉각 가공",
+              "성공하는 숏폼의 3초 훅(Hook)과 밈(Meme) 패턴을 분석하여 '성공 공식 라이브러리' 구축",
+              "타 크리에이터와의 숏폼 콜라보레이션 기획 및 숏폼 시리즈물 기획을 통한 팔로워 확보",
+              "숏폼 플랫폼 내 자체 트래픽을 활용한 비즈니스 모델(브랜디드 광고 등) 연계"
+            ],
+            "qualifications": [
+              "숏폼 플랫폼의 문법과 트렌드를 완벽하게 이해하고 즉각 반영할 수 있는 분",
+              "스마트폰 중심의 기동성 있는 촬영 및 모바일/PC 숏폼 편집 툴(CapCut, Premiere 등) 활용 능력",
+              "한 번의 실패에 머무르지 않고, 데이터를 보며 끊임없이 가설을 테스트하는 유연성"
+            ],
+            "preferred": [
+              "본인이 직접 운영하여 바이럴(떡상)을 만들어 본 숏폼 채널(인스타/틱톡) 보유자",
+              "빠른 턴어라운드(Turn-around) 환경에 익숙하신 분"
+            ]
+          }
         },
         {
           title: "SHOOT & EDIT TEAM MEMBER (촬영 및 편집)",
           desc: <>타일러 브랜드의 철학을 카메라 앵글과 컷 편집으로 구현할 <span className="text-accent font-bold">‘크리에이티브 스페셜리스트(Creative Specialist)’</span>입니다. 야외 로케이션부터 딥다이브 스튜디오 촬영까지, 상황에 맞게 유연하게 대처하며 영상의 미적 기준을 책임집니다. 현장에서 조명과 카메라를 능숙하게 다루고, 모바일과 전문 툴을 오가며 기동성 있게 콘텐츠를 제작할 프로페셔널한 파트너들을 모십니다.</>,
           action: "지원하기",
           details: {
-  "responsibilities": [
-    "스튜디오 촬영, 야외 브이로그 등 다양한 형태의 영상 메인 촬영 (카메라, 조명, 오디오 세팅)",
-    "브랜드 가이드라인에 맞춘 빠르고 감각적인 영상 컷 편집 및 후반 작업",
-    "콘텐츠 리드의 기획에 맞춘 시선을 끄는 유튜브 썸네일 이미지 디자인 및 제작",
-    "AI 툴을 적극 활용한 바이럴 쇼츠 영상 대량 제작 및 SNS 플랫폼 게시",
-    "인스타그램 등 SNS 채널을 위한 정보성 카드뉴스 및 캐러셀(Carousel) 포맷 기획·디자인·게시",
-    "현장의 돌발 상황에 대처하며 롱/숏폼 리드와 협업하여 최적화된 영상/시각 소스 제공"
-  ],
-  "qualifications": [
-    "상업 영상, 방송, 또는 하이엔드 유튜브 콘텐츠 촬영 및 편집 실무 경험자",
-    "다중 카메라(Multi-cam) 세팅, 오디오 수음, 조명 설계 등 독립적인 현장 운용 능력",
-    "영상 편집 툴(Premiere Pro, After Effects, DaVinci Resolve 등) 및 2D 이미지 편집 툴(Photoshop, Illustrator 등) 활용 능력이 모두 우수하신 분"
-  ],
-  "preferred": [
-    "[핵심 우대] 평소 타일러의 콘텐츠를 즐겨 소비하며, <타일러볼까요> 브랜드 철학과 세계관에 대한 이해도가 매우 높으신 분",
-    "지식형 콘텐츠, 인터뷰, 다큐멘터리 포맷 제작 경험자",
-    "감각적인 모션 그래픽, 자막 템플릿, 시각 디자인 포트폴리오를 보유하신 분"
-  ]
-}
+            "responsibilities": [
+              "스튜디오 촬영, 야외 브이로그 등 다양한 형태의 영상 메인 촬영 (카메라, 조명, 오디오 세팅)",
+              "브랜드 가이드라인에 맞춘 빠르고 감각적인 영상 컷 편집 및 후반 작업",
+              "콘텐츠 리드의 기획에 맞춘 시선을 끄는 유튜브 썸네일 이미지 디자인 및 제작",
+              "AI 툴을 적극 활용한 바이럴 쇼츠 영상 대량 제작 및 SNS 플랫폼 게시",
+              "인스타그램 등 SNS 채널을 위한 정보성 카드뉴스 및 캐러셀(Carousel) 포맷 기획·디자인·게시",
+              "현장의 돌발 상황에 대처하며 롱/숏폼 리드와 협업하여 최적화된 영상/시각 소스 제공"
+            ],
+            "qualifications": [
+              "상업 영상, 방송, 또는 하이엔드 유튜브 콘텐츠 촬영 및 편집 실무 경험자",
+              "다중 카메라(Multi-cam) 세팅, 오디오 수음, 조명 설계 등 독립적인 현장 운용 능력",
+              "영상 편집 툴(Premiere Pro, After Effects, DaVinci Resolve 등) 및 2D 이미지 편집 툴(Photoshop, Illustrator 등) 활용 능력이 모두 우수하신 분"
+            ],
+            "preferred": [
+              "[핵심 우대] 평소 타일러의 콘텐츠를 즐겨 소비하며, <타일러볼까요> 브랜드 철학과 세계관에 대한 이해도가 매우 높으신 분",
+              "지식형 콘텐츠, 인터뷰, 다큐멘터리 포맷 제작 경험자",
+              "감각적인 모션 그래픽, 자막 템플릿, 시각 디자인 포트폴리오를 보유하신 분"
+            ]
+          }
         },
         {
           title: "ASSISTANT (업무 지원 & 세일즈 오퍼레이션)",
           desc: <>폭발적으로 성장하는 미디어 비즈니스의 <span className="text-accent font-bold">‘오퍼레이션 코디네이터’</span>입니다. 외부 파트너와의 커뮤니케이션을 1차적으로 조율하고, 제안서 초안 작성, 계약 검토, 데이터베이스 관리(CRM) 등 영업 행정 업무의 완결성을 확보합니다. 엔터테인먼트 산업의 딜(Deal) 구조와 협상 과정을 현장에서 배우며, 향후 세일즈 리드나 운영 전문가로 성장할 수 있는 기회입니다.</>,
           action: "지원하기",
           details: {
-  "responsibilities": [
-    "국내외 브랜드 협찬, 강연, 제휴 등 인바운드 비즈니스 문의 1차 응대 및 필터링",
-    "기존 세일즈 담당자를 보조하여 제안서 초안 작성, 견적 산출, 계약서 검토 지원",
-    "대내외 회의 일정 조율, 미팅 준비 및 꼼꼼한 회의록(Meeting Minutes) 작성",
-    "파트너사 데이터베이스(CRM) 업데이트 및 기타 영업 행정, 세무/정산 보조 업무 수행"
-  ],
-  "qualifications": [
-    "격식 있고 매끄러운 비즈니스 이메일 및 유선 커뮤니케이션이 가능하신 분",
-    "주어진 업무를 꼼꼼하게 챙기고, 복잡한 일정을 오차 없이 조율하는 꼼꼼함",
-    "협업 툴(Google Workspace, Slack, Notion 등) 활용에 능숙하신 분",
-    "엔터테인먼트/미디어 산업 비즈니스 딜(Deal) 프로세스에 대한 강한 학습 의지"
-  ],
-  "preferred": [
-    "미디어, MCN, 또는 엔터테인먼트 업계 인턴 및 실무 경험자"
-  ]
-}
+            "responsibilities": [
+              "국내외 브랜드 협찬, 강연, 제휴 등 인바운드 비즈니스 문의 1차 응대 및 필터링",
+              "기존 세일즈 담당자를 보조하여 제안서 초안 작성, 견적 산출, 계약서 검토 지원",
+              "대내외 회의 일정 조율, 미팅 준비 및 꼼꼼한 회의록(Meeting Minutes) 작성",
+              "파트너사 데이터베이스(CRM) 업데이트 및 기타 영업 행정, 세무/정산 보조 업무 수행"
+            ],
+            "qualifications": [
+              "격식 있고 매끄러운 비즈니스 이메일 및 유선 커뮤니케이션이 가능하신 분",
+              "주어진 업무를 꼼꼼하게 챙기고, 복잡한 일정을 오차 없이 조율하는 꼼꼼함",
+              "협업 툴(Google Workspace, Slack, Notion 등) 활용에 능숙하신 분",
+              "엔터테인먼트/미디어 산업 비즈니스 딜(Deal) 프로세스에 대한 강한 학습 의지"
+            ],
+            "preferred": [
+              "미디어, MCN, 또는 엔터테인먼트 업계 인턴 및 실무 경험자"
+            ]
+          }
         }
       ]
     }
@@ -607,8 +607,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     careers: {
       heading: "CAREERS",
-      subheading: "Designers of Intellectual Influence",
-      desc: "We create value beyond views. Join Tyler in setting a new standard for media.",
+      subheading: "Tyler is a business. We do not accept mediocrity.",
+      desc: "Tyler Rasch is not just an influencer. We are an innovative organization that interprets the world through Tyler's unique perspective (language, culture, systems) and expands it into a global media business. We are looking for 'builders' who crave change and growth rather than those who seek stability. If you are ready to experiment without fear, collaborate intensely, and leave an impact on the market with high standards, join us now.",
       values: [
         { title: "Deep Dive", desc: "We seek planning that pierces through the surface to the essence. Relentlessly asking 'Why?' is essential." },
         { title: "Autonomous Growth", desc: "We don't just follow orders. We set hypotheses for brand growth, verify them, and create results." },
@@ -620,143 +620,143 @@ const contentData: Record<'KR' | 'EN', Content> = {
           desc: "We are looking for a visionary \"Showrunner\"—not just a PD, but a VP of Content who can oversee the entire lifecycle of our IP. You will be responsible for planning and implementing high-impact content using AI tools, managing internal and external teams, and ensuring every piece meets our uncompromising standards. This role requires a deep understanding of both Korean and Western media ecosystems to drive our \"One Source Multi-Use\" strategy, evolving the Tyler brand from a personality into a scalable global business.",
           action: "Apply",
           details: {
-  "responsibilities": [
-    "Oversee all content planning and production pipelines including long-form and short-form content for the channel.",
-    "Establish YouTube upload strategies (title/copywriting, thumbnail concepts, metadata, and SEO optimization).",
-    "Manage scheduling for internal/external resources (e.g. editing team) and ensure final quality control (QC) aligns with brand tone.",
-    "Actively utilize AI tools (Gemini, ChatGPT) for scriptwriting, planning, and workflow efficiency.",
-    "Continuously research hooks and develop new formats to improve viewer retention and click-through rates.",
-    "Implement OSMU (One Source Multi-Use) strategies to expand single content across short-forms, podcasts, newsletters, etc."
-  ],
-  "qualifications": [
-    "Minimum 2 years of experience in new media/YouTube content planning, production, and channel operation leadership.",
-    "Deep understanding of how YouTube algorithms, titles, thumbnails, and SEO impact traffic.",
-    "Comprehensive knowledge of the entire production process from ideation to post-production.",
-    "Strong communication skills with team members while maintaining the brand's philosophy and high-quality standards."
-  ],
-  "preferred": [
-    "Experience as a PM managing operations for a large YouTube channel (1M+ subscribers) and coordinating multiple projects.",
-    "Experience in IP-based business expansion.",
-    "Exceptional copywriting skills."
-  ]
-}
+            "responsibilities": [
+              "Oversee all content planning and production pipelines including long-form and short-form content for the channel.",
+              "Establish YouTube upload strategies (title/copywriting, thumbnail concepts, metadata, and SEO optimization).",
+              "Manage scheduling for internal/external resources (e.g. editing team) and ensure final quality control (QC) aligns with brand tone.",
+              "Actively utilize AI tools (Gemini, ChatGPT) for scriptwriting, planning, and workflow efficiency.",
+              "Continuously research hooks and develop new formats to improve viewer retention and click-through rates.",
+              "Implement OSMU (One Source Multi-Use) strategies to expand single content across short-forms, podcasts, newsletters, etc."
+            ],
+            "qualifications": [
+              "Minimum 2 years of experience in new media/YouTube content planning, production, and channel operation leadership.",
+              "Deep understanding of how YouTube algorithms, titles, thumbnails, and SEO impact traffic.",
+              "Comprehensive knowledge of the entire production process from ideation to post-production.",
+              "Strong communication skills with team members while maintaining the brand's philosophy and high-quality standards."
+            ],
+            "preferred": [
+              "Experience as a PM managing operations for a large YouTube channel (1M+ subscribers) and coordinating multiple projects.",
+              "Experience in IP-based business expansion.",
+              "Exceptional copywriting skills."
+            ]
+          }
         },
         {
           title: "COMMUNITY LEAD",
           desc: "We need a \"CEO of External Human Relations\" to build our community infrastructure from ground zero. Your mission is to transform passive viewers into an active \"Tylership\" fandom by designing meaningful online and offline rituals that get real people to do real things. This role requires high diplomatic skills to manage complex relationships and the strategic vision to turn community engagement and VOC (Voice of Customer) into core business assets.",
           action: "Apply",
           details: {
-  "responsibilities": [
-    "Design and manage the value proposition for each tier of the new premium membership, 'Tylership'.",
-    "Lead the planning of online/offline events, meetups, and campaigns to turn fandom into evangelists.",
-    "Establish a real-time feedback loop through community sentiment and VOC (Voice of Customer) analysis.",
-    "Prevent churn rate and preemptively manage potential conflicts within the community.",
-    "Plan and execute proprietary monetization models based on membership."
-  ],
-  "qualifications": [
-    "Minimum 3 years of experience in fandom business, community management, or CRM planning/operations.",
-    "Strong event planning and execution skills spanning both online and offline platforms.",
-    "Excellent diplomatic communication skills to mediate and resolve conflicts among complex stakeholders.",
-    "Experience in initial infrastructure setup from scratch."
-  ],
-  "preferred": [
-    "Experience launching and operating paid subscription/membership services.",
-    "PM experience for large-scale offline events (fan meetings, conferences, etc.)."
-  ]
-}
+            "responsibilities": [
+              "Design and manage the value proposition for each tier of the new premium membership, 'Tylership'.",
+              "Lead the planning of online/offline events, meetups, and campaigns to turn fandom into evangelists.",
+              "Establish a real-time feedback loop through community sentiment and VOC (Voice of Customer) analysis.",
+              "Prevent churn rate and preemptively manage potential conflicts within the community.",
+              "Plan and execute proprietary monetization models based on membership."
+            ],
+            "qualifications": [
+              "Minimum 3 years of experience in fandom business, community management, or CRM planning/operations.",
+              "Strong event planning and execution skills spanning both online and offline platforms.",
+              "Excellent diplomatic communication skills to mediate and resolve conflicts among complex stakeholders.",
+              "Experience in initial infrastructure setup from scratch."
+            ],
+            "preferred": [
+              "Experience launching and operating paid subscription/membership services.",
+              "PM experience for large-scale offline events (fan meetings, conferences, etc.)."
+            ]
+          }
         },
         {
           title: "DATA & TRENDS LEAD",
           desc: "We are seeking an analytical obsessionist to watch our metrics and competitors like a hawk. Your role is to sift through the noise of the digital sphere, extracting clear \"Success Equations\" that directly correlate to business growth. You must be able to visualize complex data (ROI, LTV, Retention) for the team, translating quantitative trends into qualitative strategies that ensure our decisions are driven by facts rather than fear or guesswork.",
           action: "Apply",
           details: {
-  "responsibilities": [
-    "Precise analysis of business data including YouTube channel reports, membership sign-up rates, and user acquisition flow.",
-    "Extract data-driven insights to identify and resolve bottlenecks hindering growth.",
-    "Analyze target demographics during new project launches and measure A/B test results (thumbnails/titles).",
-    "Reverse-engineer success equations by monitoring competitor and benchmark channel data.",
-    "Provide regular data reports and visualized dashboards that are easily digestible for the working-level team."
-  ],
-  "qualifications": [
-    "Minimum 2 years of practical experience in data analysis, performance marketing, or Business Intelligence (BI).",
-    "Insight to identify core KPIs that create real business impact among countless metrics.",
-    "Excellent communication skills to translate quantitative data into qualitative language to persuade the team."
-  ],
-  "preferred": [
-    "Data analysis experience within the content/media/entertainment industries.",
-    "Proficient in using data visualization tools (Tableau, Google Data Studio, etc.)."
-  ]
-}
+            "responsibilities": [
+              "Precise analysis of business data including YouTube channel reports, membership sign-up rates, and user acquisition flow.",
+              "Extract data-driven insights to identify and resolve bottlenecks hindering growth.",
+              "Analyze target demographics during new project launches and measure A/B test results (thumbnails/titles).",
+              "Reverse-engineer success equations by monitoring competitor and benchmark channel data.",
+              "Provide regular data reports and visualized dashboards that are easily digestible for the working-level team."
+            ],
+            "qualifications": [
+              "Minimum 2 years of practical experience in data analysis, performance marketing, or Business Intelligence (BI).",
+              "Insight to identify core KPIs that create real business impact among countless metrics.",
+              "Excellent communication skills to translate quantitative data into qualitative language to persuade the team."
+            ],
+            "preferred": [
+              "Data analysis experience within the content/media/entertainment industries.",
+              "Proficient in using data visualization tools (Tableau, Google Data Studio, etc.)."
+            ]
+          }
         },
         {
           title: "SHORTFORM PRODUCTION",
           desc: "We need a \"Short-form Native\" to build an independent, explosive growth engine on Instagram, TikTok, and YouTube Shorts. This is not just about driving traffic to YouTube; it is about creating stand-alone, viral content that dominates algorithms and generates its own significant revenue streams. You must have the agility to identify memes instantly, the editing skills to hook viewers in 3 seconds, and the ambition to turn our short-form channels into massive, self-sustaining platforms.",
           action: "Apply",
           details: {
-  "responsibilities": [
-    "Plan, shoot, and edit original short-form content optimized for Instagram Reels, TikTok, and YouTube Shorts.",
-    "Closely follow Tyler's daily life and external activities to instantly process them into trendy short-form content.",
-    "Analyze 3-second hooks and meme patterns of successful short-forms to build a 'Success Formula Library'.",
-    "Plan short-form collaborations with other creators and series to acquire followers.",
-    "Develop business models (like branded ads) utilizing the native traffic within short-form platforms."
-  ],
-  "qualifications": [
-    "Complete understanding of short-form platform grammar and trends, capable of instant application.",
-    "High mobility in smartphone-based filming, and proficiency in mobile/PC editing tools (CapCut, Premiere, etc.).",
-    "Flexibility to constantly test hypotheses based on data without being discouraged by setbacks."
-  ],
-  "preferred": [
-    "Ownership of a personally run, highly viral short-form channel (Instagram/TikTok).",
-    "Comfortable working in a fast turn-around environment."
-  ]
-}
+            "responsibilities": [
+              "Plan, shoot, and edit original short-form content optimized for Instagram Reels, TikTok, and YouTube Shorts.",
+              "Closely follow Tyler's daily life and external activities to instantly process them into trendy short-form content.",
+              "Analyze 3-second hooks and meme patterns of successful short-forms to build a 'Success Formula Library'.",
+              "Plan short-form collaborations with other creators and series to acquire followers.",
+              "Develop business models (like branded ads) utilizing the native traffic within short-form platforms."
+            ],
+            "qualifications": [
+              "Complete understanding of short-form platform grammar and trends, capable of instant application.",
+              "High mobility in smartphone-based filming, and proficiency in mobile/PC editing tools (CapCut, Premiere, etc.).",
+              "Flexibility to constantly test hypotheses based on data without being discouraged by setbacks."
+            ],
+            "preferred": [
+              "Ownership of a personally run, highly viral short-form channel (Instagram/TikTok).",
+              "Comfortable working in a fast turn-around environment."
+            ]
+          }
         },
         {
           title: "SHOOT & EDIT TEAM MEMBER",
           desc: "We are building a pool of talented visual storytellers—shooters and editors—capable of executing both dynamic outdoor shoots and controlled studio sessions. Whether full-time or flexible, you must be able to handle cameras, lighting, and editing with professional proficiency. Crucially, you must quickly internalize the Tyler brand’s specific tone and manner to deliver consistent, high-quality visual assets that align with our vision.",
           action: "Apply",
           details: {
-  "responsibilities": [
-    "Main filming for various video formats including studio shoots and outdoor vlogs (handling camera, lighting, audio setup).",
-    "Fast and stylistic video cut editing and post-production adhering to brand guidelines.",
-    "Designing and creating compelling YouTube thumbnail images aligned with the Content Lead's vision.",
-    "Mass-producing viral shorts utilizing AI tools and posting across SNS platforms.",
-    "Planning, designing, and posting informative card news and Carousel formats for SNS channels like Instagram.",
-    "Adapting to unexpected situations on set and collaborating with long/short-form leads to provide optimized visual assets."
-  ],
-  "qualifications": [
-    "Hands-on experience in filming and editing commercial videos, broadcasts, or high-end YouTube content.",
-    "Independent on-set operation capabilities including multi-cam setup, audio recording, and lighting design.",
-    "High proficiency in both video editing tools (Premiere Pro, After Effects, DaVinci Resolve) and 2D graphic tools (Photoshop, Illustrator)."
-  ],
-  "preferred": [
-    "[Key Advantage] High understanding of the brand philosophy and universe, being a regular consumer of Tyler's content.",
-    "Experience in producing knowledge-based content, interviews, or documentary formats.",
-    "A portfolio featuring stylistic motion graphics, subtitle templates, and visual design."
-  ]
-}
+            "responsibilities": [
+              "Main filming for various video formats including studio shoots and outdoor vlogs (handling camera, lighting, audio setup).",
+              "Fast and stylistic video cut editing and post-production adhering to brand guidelines.",
+              "Designing and creating compelling YouTube thumbnail images aligned with the Content Lead's vision.",
+              "Mass-producing viral shorts utilizing AI tools and posting across SNS platforms.",
+              "Planning, designing, and posting informative card news and Carousel formats for SNS channels like Instagram.",
+              "Adapting to unexpected situations on set and collaborating with long/short-form leads to provide optimized visual assets."
+            ],
+            "qualifications": [
+              "Hands-on experience in filming and editing commercial videos, broadcasts, or high-end YouTube content.",
+              "Independent on-set operation capabilities including multi-cam setup, audio recording, and lighting design.",
+              "High proficiency in both video editing tools (Premiere Pro, After Effects, DaVinci Resolve) and 2D graphic tools (Photoshop, Illustrator)."
+            ],
+            "preferred": [
+              "[Key Advantage] High understanding of the brand philosophy and universe, being a regular consumer of Tyler's content.",
+              "Experience in producing knowledge-based content, interviews, or documentary formats.",
+              "A portfolio featuring stylistic motion graphics, subtitle templates, and visual design."
+            ]
+          }
         },
         {
           title: "ASSISTANT",
           desc: "This role is the \"Operation Coordinator\" for our growing media business, processing the exponential increase in external requests and opportunities. You will assist the team in managing negotiations, drafting professional correspondence, and maintaining our CRM database. This is an ideal launchpad for someone eager to get their feet wet in the entertainment industry, learning firsthand how deal flows and high-level business communications are executed.",
           action: "Apply",
           details: {
-  "responsibilities": [
-    "First-line response and filtering of inbound business inquiries for brand sponsorships, lectures, and partnerships.",
-    "Drafting proposals, calculating estimates, and supporting contract reviews to assist the lead sales representative.",
-    "Coordinating internal/external meeting schedules, preparing for meetings, and writing thorough meeting minutes.",
-    "Updating the partner CRM database and performing other sales administration, tax/billing support duties."
-  ],
-  "qualifications": [
-    "Capable of formal and smooth professional communication via email and phone.",
-    "Meticulous attention to detail in executing assigned tasks and flawlessly coordinating complex schedules.",
-    "Proficiency in collaboration tools (Google Workspace, Slack, Notion, etc.).",
-    "Strong will to learn the deal process within the entertainment/media industry."
-  ],
-  "preferred": [
-    "Internship or practical experience in the media, MCN, or entertainment industry."
-  ]
-}
+            "responsibilities": [
+              "First-line response and filtering of inbound business inquiries for brand sponsorships, lectures, and partnerships.",
+              "Drafting proposals, calculating estimates, and supporting contract reviews to assist the lead sales representative.",
+              "Coordinating internal/external meeting schedules, preparing for meetings, and writing thorough meeting minutes.",
+              "Updating the partner CRM database and performing other sales administration, tax/billing support duties."
+            ],
+            "qualifications": [
+              "Capable of formal and smooth professional communication via email and phone.",
+              "Meticulous attention to detail in executing assigned tasks and flawlessly coordinating complex schedules.",
+              "Proficiency in collaboration tools (Google Workspace, Slack, Notion, etc.).",
+              "Strong will to learn the deal process within the entertainment/media industry."
+            ],
+            "preferred": [
+              "Internship or practical experience in the media, MCN, or entertainment industry."
+            ]
+          }
         }
       ]
     }
