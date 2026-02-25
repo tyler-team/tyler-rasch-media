@@ -1716,8 +1716,27 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
   const t = contentData[lang];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [view]);
+
+  // Handle initial hash on mount
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 500); // Give a bit more time for initial load
+    }
+  }, []);
 
   const { scrollYProgress } = useScroll();
   const yHero = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
@@ -1740,7 +1759,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
           <>
 
             {/* 1. HERO section */}
-            <section id="vision" className="relative min-h-screen flex flex-col justify-center px-8 md:px-20 overflow-hidden border-b border-white/5">
+            <section id="hero" className="relative min-h-screen flex flex-col justify-center px-8 md:px-20 overflow-hidden border-b border-white/5">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,229,255,0.05)_0%,transparent_50%)]" />
 
               <motion.div
@@ -1772,7 +1791,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
             </section>
 
             {/* 2. PHILOSOPHY */}
-            <section className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+            <section id="vision" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
               {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
               <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} mobilePos="object-[center_5%]" />
               <div className="max-w-5xl relative z-10">
