@@ -325,7 +325,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         },
         {
           title: "SHOOT & EDIT TEAM MEMBER (촬영 및 편집)",
-          desc: <>타일러 브랜드의 비주얼을 완성할 <span className="text-accent font-bold">‘크리에이티브(Creative)’</span>입니다. 현장에서 조명과 카메라를 능숙하게 다루고, 모바일과 전문 툴을 오가며 기동성 있게 콘텐츠를 제작합니다. 프로젝트 성격에 맞춰 유연하게 합류하되, 브랜드 가이드라인을 준수하며 최상의 결과물을 만들어낼 프로페셔널한 파트너들을 모십니다.</>,
+          desc: <>타일러 브랜드의 철학을 카메라 앵글과 컷 편집으로 구현할 <span className="text-accent font-bold">‘크리에이티브 스페셜리스트(Creative Specialist)’</span>입니다. 야외 로케이션부터 딥다이브 스튜디오 촬영까지, 상황에 맞게 유연하게 대처하며 영상의 미적 기준을 책임집니다. 현장에서 조명과 카메라를 능숙하게 다루고, 모바일과 전문 툴을 오가며 기동성 있게 콘텐츠를 제작할 프로페셔널한 파트너들을 모십니다.</>,
           action: "지원하기"
         },
         {
