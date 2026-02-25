@@ -549,9 +549,9 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
     <>
       {/* MOBILE TOP BAR */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-[#02060C]/90 backdrop-blur-md border-b border-white/10 z-50 flex items-center justify-between px-6">
-        <button onClick={() => { setView('home'); window.scrollTo(0, 0); }} className="font-black text-xl tracking-tighter leading-none text-white cursor-pointer">
+        <a href="/" onClick={(e) => { e.preventDefault(); setView('home'); window.scrollTo(0, 0); window.history.pushState(null, '', '/'); }} className="font-black text-xl tracking-tighter leading-none text-white cursor-pointer">
           TYLER <span className="text-accent">MEDIA</span>
-        </button>
+        </a>
         <div className="flex items-center gap-4">
           {/* Mobile Language Toggle */}
           <div className="flex bg-white/5 border border-white/10 p-0.5 rounded-full relative w-20">
@@ -599,20 +599,21 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                 {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
                   <a
                     key={item}
-                    href={`#${item}`}
-                    onClick={() => { setView('home'); setMobileMenuOpen(false); }}
+                    href={`/#${item}`}
+                    onClick={(e) => { e.preventDefault(); setView('home'); setMobileMenuOpen(false); window.history.pushState(null, '', `/#${item}`); const el = document.getElementById(item); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
                     className={`flex items-center gap-4 transition-colors ${view === 'home' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-white'}`}
                   >
                     {t[item as keyof typeof t]}
                   </a>
                 ))}
                 {t.careers && (
-                  <button
-                    onClick={() => { setView('careers'); setMobileMenuOpen(false); }}
+                  <a
+                    href="/careers"
+                    onClick={(e) => { e.preventDefault(); setView('careers'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
                     className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'careers' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
                   >
                     {t.careers}
-                  </button>
+                  </a>
                 )}
               </div>
 
@@ -624,17 +625,17 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
       {/* DESKTOP SIDEBAR (Persistent) */}
       <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-12 px-8">
         <div>
-          <button onClick={() => { setView('home'); window.scrollTo(0, 0); }} className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity cursor-pointer">
+          <a href="/" onClick={(e) => { e.preventDefault(); setView('home'); window.scrollTo(0, 0); window.history.pushState(null, '', '/'); }} className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity cursor-pointer">
             TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span>
-          </button>
+          </a>
         </div>
 
         <div className="flex flex-col gap-8 text-sm font-bold tracking-widest uppercase">
           {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
             <a
               key={item}
-              href={`#${item}`}
-              onClick={() => setView('home')}
+              href={`/#${item}`}
+              onClick={(e) => { e.preventDefault(); setView('home'); window.history.pushState(null, '', `/#${item}`); const el = document.getElementById(item); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
               className={`flex items-center gap-4 transition-colors group ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
             >
               <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'home' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -642,13 +643,14 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             </a>
           ))}
           {t.careers && (
-            <button
-              onClick={() => { setView('careers'); window.scrollTo(0, 0); }}
+            <a
+              href="/careers"
+              onClick={(e) => { e.preventDefault(); setView('careers'); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
               className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
             >
               <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'careers' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
               <span>{t.careers}</span>
-            </button>
+            </a>
           )}
         </div>
 
@@ -1087,9 +1089,9 @@ const BrandLogoWall = () => {
   );
 };
 
-export default function Home() {
+export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' }) {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
-  const [view, setView] = useState<'home' | 'careers'>('home');
+  const [view, setView] = useState<'home' | 'careers'>(initialView);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
