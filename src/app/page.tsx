@@ -296,7 +296,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     careers: {
       heading: "CAREERS",
       subheading: <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
-      desc: "타일러 라쉬(Tyler Rasch)는 단순한 인플루언서가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 혁신 조직입니다. 우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’를 찾습니다. 두려움 없이 실험하고, 치열하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.",
+      desc: "타일러 라쉬(Tyler Rasch)는 단순한 유튜버나 인플루언서 브랜드가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 팀입니다. 우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’를 찾습니다. 두려움 없이 실험하고, 활발하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.",
       values: [
         { title: "Deep Dive (본질적 탐구)", desc: "표면적인 재미가 아닌, 본질을 꿰뚫는 기획을 지향합니다. '왜?'라는 질문을 멈추지 않는 집요함이 필요합니다." },
         { title: <>Autonomous Growth<br />(자율과 성장)</>, desc: "시키는 일만 하지 않습니다. 스스로 브랜드의 성장을 위한 가설을 세우고, 검증하고, 결과를 만들어냅니다." },
@@ -608,7 +608,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     careers: {
       heading: "CAREERS",
       subheading: <>Tyler Brand is a business.<br />We do not accept mediocrity.</>,
-      desc: "Tyler Rasch is not just an influencer. We are an innovative organization that interprets the world through Tyler's unique perspective (language, culture, systems) and expands it into a global media business. We are looking for 'builders' who crave change and growth rather than those who seek stability. If you are ready to experiment without fear, collaborate intensely, and leave an impact on the market with high standards, join us now.",
+      desc: "Tyler Rasch is not just a YouTuber or an influencer brand. We are a team that interprets the world through Tyler's unique perspective (language, culture, systems) and expands it into a global media business. We are looking for 'builders' who crave change and growth rather than those who seek stability. If you are ready to experiment without fear, collaborate actively, and leave an impact on the market with high standards, join us now.",
       values: [
         { title: "Deep Dive", desc: "We seek planning that pierces through the surface to the essence. Relentlessly asking 'Why?' is essential." },
         { title: "Autonomous Growth", desc: "We don't just follow orders. We set hypotheses for brand growth, verify them, and create results." },
@@ -1579,7 +1579,6 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
               <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} mobilePos="object-[center_10%]" />
               <div className="relative z-10 max-w-6xl mx-auto">
                 <div className="mb-20">
-                  <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">Careers</span>
                   <h2 className="text-5xl md:text-8xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.careers.heading}</h2>
                   <div className="w-20 h-1 bg-accent/30 mt-8" />
                 </div>
