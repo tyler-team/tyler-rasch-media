@@ -1992,7 +1992,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
                   <div>
-                    <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 break-keep tracking-tight">{t.careers.subheading}</h3>
+                    <h3 className="text-[25px] md:text-[41px] font-bold text-white mb-6 break-keep tracking-tight">{t.careers.subheading}</h3>
                     <p className="text-xl text-zinc-400 break-keep leading-relaxed">{t.careers.desc}</p>
                   </div>
                 </div>
