@@ -227,14 +227,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
         heading: "오리지널 시리즈",
         items: [
           {
-            title: "Tylerbolkkayo",
-            subtitle: "타일러볼까요 본편",
-            desc: <>
-              <span className="block text-accent font-bold mb-4">[우리 팀과 우리가 찾는 인재상]</span>
-              타일러 라쉬(Tyler Rasch)는 단순한 유튜버나 인플루언서 브랜드가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 팀입니다.
-              <br /><br />
-              우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’를 찾습니다. 두려움 없이 실험하고, 활발하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되셨다면 지금 바로 합류하세요.
-            </>,
+            title: "타일러볼까요 본편",
+            subtitle: "Tylerbolkkayo",
+            desc: "세상을 보는 새로운 관점",
             thumbnail: "https://i.ytimg.com/vi/71o3DGhGtXw/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=71o3DGhGtXw",
             features: [
@@ -729,9 +724,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
         heading: "ORIGINAL SERIES",
         items: [
           {
-            title: "Tylerbolkkayo",
-            subtitle: "Tylerbolkkayo Main Series",
-            desc: "Tyler Rasch is not just a YouTuber or an influencer brand. On the Tyler Team, we interpret the world through Tyler's unique perspective (language, culture, systems) and expand upon those insights to develop them into a global media business. We are looking for 'Builders'—those who crave change and growth rather than stability. If you are ready to experiment without fear, collaborate actively, and leave a market impact through high standards, join us now.",
+            title: "Tylerbolkkayo Main Series",
+            subtitle: "Tylerbolkkayo",
+            desc: "A new perspective on the world",
             thumbnail: "https://i.ytimg.com/vi/71o3DGhGtXw/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=71o3DGhGtXw",
             features: [
