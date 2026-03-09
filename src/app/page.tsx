@@ -1775,9 +1775,6 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                   <a href="#contact" className="px-8 py-4 bg-accent text-black font-bold text-sm tracking-widest hover:bg-white transition-colors text-center">
                     {t.hero.cta} &rarr;
                   </a>
-                  <button onClick={() => setIsModalOpen(true)} className="px-8 py-4 border border-white/20 text-white font-bold text-sm tracking-widest hover:bg-white/10 transition-colors text-center">
-                    {t.hero.media_kit_cta} ↓
-                  </button>
                 </div>
               </motion.div>
 
