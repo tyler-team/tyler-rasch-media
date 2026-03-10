@@ -1970,13 +1970,10 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                 <TypeformEmbed />
 
                 <div className="mt-24 pt-12 border-t border-white/5 flex flex-col gap-4 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
-                  <div className="flex flex-col md:flex-row gap-2 md:gap-4 opacity-70">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-y-2">
                     <span>주식회사 큰미르(Knmir Inc.)</span>
-                    <span className="hidden md:inline text-zinc-800">|</span>
                     <span>대표자: RASCH TYLER JOSEF</span>
-                    <span className="hidden md:inline text-zinc-800">|</span>
                     <span>사업자등록번호: 116-81-96227</span>
-                    <span className="hidden md:inline text-zinc-800">|</span>
                     <span>주소: 서울특별시 영등포구 영중로29길 2, B1</span>
                   </div>
                   <div className="flex justify-between items-center">
@@ -2083,13 +2080,10 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                 </div>
 
                 <div className="mt-32 pt-12 border-t border-white/5 flex flex-col gap-4 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
-                  <div className="flex flex-col md:flex-row gap-2 md:gap-4 opacity-70">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-y-2">
                     <span>주식회사 큰미르(Knmir Inc.)</span>
-                    <span className="hidden md:inline text-zinc-800">|</span>
                     <span>대표자: RASCH TYLER JOSEF</span>
-                    <span className="hidden md:inline text-zinc-800">|</span>
                     <span>사업자등록번호: 116-81-96227</span>
-                    <span className="hidden md:inline text-zinc-800">|</span>
                     <span>주소: 서울특별시 영등포구 영중로29길 2, B1</span>
                   </div>
                   <div className="flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-widest">
