@@ -1976,8 +1976,11 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                     <span>사업자등록번호: 116-81-96227</span>
                     <span>주소: 서울특별시 영등포구 영중로29길 2, B1</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span>© 2026 Tyler Rasch Media</span>
+                  <div className="flex justify-between items-center gap-4 flex-wrap text-[10px] text-zinc-600 uppercase tracking-widest">
+                    <div className="flex items-center gap-4 md:gap-8">
+                      <span>© 2026 Tyler Rasch Media</span>
+                      <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
+                    </div>
                     <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors">contact@tylerrasch.com</a>
                   </div>
                 </div>
@@ -2086,8 +2089,11 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                     <span>사업자등록번호: 116-81-96227</span>
                     <span>주소: 서울특별시 영등포구 영중로29길 2, B1</span>
                   </div>
-                  <div className="flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-widest">
-                    <span>© 2026 Tyler Rasch Media</span>
+                  <div className="flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-widest gap-4 flex-wrap">
+                    <div className="flex items-center gap-4 md:gap-8">
+                      <span>© 2026 Tyler Rasch Media</span>
+                      <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
+                    </div>
                     <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors lowercase">contact@tylerrasch.com</a>
                   </div>
                 </div>
