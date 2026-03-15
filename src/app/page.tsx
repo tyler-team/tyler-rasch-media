@@ -1969,19 +1969,24 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
 
                 <TypeformEmbed />
 
-                <div className="mt-24 pt-12 border-t border-white/5 flex flex-col gap-4 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-y-2">
-                    <span>주식회사 큰미르(Knmir Inc.)</span>
-                    <span>대표자: RASCH TYLER JOSEF</span>
-                    <span>사업자등록번호: 116-81-96227</span>
-                    <span>주소: 서울특별시 영등포구 영중로29길 2, B1</span>
-                  </div>
-                  <div className="flex justify-between items-center gap-4 flex-wrap text-[10px] text-zinc-600 uppercase tracking-widest">
-                    <div className="flex items-center gap-4 md:gap-8">
-                      <span>© 2026 Tyler Rasch Media</span>
-                      <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
+                <div className="mt-24 pt-12 border-t border-white/5 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+                        <span className="font-bold">주식회사 큰미르(Knmir Inc.)</span>
+                        <span className="hidden md:inline text-zinc-800">|</span>
+                        <span>대표자: RASCH TYLER JOSEF</span>
+                        <span className="hidden md:inline text-zinc-800">|</span>
+                        <span>사업자등록번호: 116-81-96227</span>
+                      </div>
+                      <div>주소: 서울특별시 영등포구 영중로29길 2, B1</div>
+                      <div className="flex flex-wrap items-center gap-4 mt-2">
+                        <span>© 2026 Tyler Rasch Media</span>
+                        <span className="text-zinc-800">•</span>
+                        <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
+                      </div>
                     </div>
-                    <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors">contact@tylerrasch.com</a>
+                    <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors lowercase">contact@tylerrasch.com</a>
                   </div>
                 </div>
               </div>
@@ -2082,17 +2087,22 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                   ))}
                 </div>
 
-                <div className="mt-32 pt-12 border-t border-white/5 flex flex-col gap-4 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-y-2">
-                    <span>주식회사 큰미르(Knmir Inc.)</span>
-                    <span>대표자: RASCH TYLER JOSEF</span>
-                    <span>사업자등록번호: 116-81-96227</span>
-                    <span>주소: 서울특별시 영등포구 영중로29길 2, B1</span>
-                  </div>
-                  <div className="flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-widest gap-4 flex-wrap">
-                    <div className="flex items-center gap-4 md:gap-8">
-                      <span>© 2026 Tyler Rasch Media</span>
-                      <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
+                <div className="mt-32 pt-12 border-t border-white/5 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+                        <span className="font-bold">주식회사 큰미르(Knmir Inc.)</span>
+                        <span className="hidden md:inline text-zinc-800">|</span>
+                        <span>대표자: RASCH TYLER JOSEF</span>
+                        <span className="hidden md:inline text-zinc-800">|</span>
+                        <span>사업자등록번호: 116-81-96227</span>
+                      </div>
+                      <div>주소: 서울특별시 영등포구 영중로29길 2, B1</div>
+                      <div className="flex flex-wrap items-center gap-4 mt-2">
+                        <span>© 2026 Tyler Rasch Media</span>
+                        <span className="text-zinc-800">•</span>
+                        <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
+                      </div>
                     </div>
                     <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors lowercase">contact@tylerrasch.com</a>
                   </div>
