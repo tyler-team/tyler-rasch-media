@@ -1300,16 +1300,15 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
   );
 };
 
-const TypeformEmbed = () => {
+const TallyEmbed = () => {
   return (
     <div className="w-full h-[600px] md:h-[710px] rounded-sm overflow-hidden bg-white/5 border border-white/10">
       <iframe
-        id="typeform-full"
+        data-tally-src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
         width="100%"
         height="100%"
         frameBorder="0"
-        allow="camera; microphone; autoplay; encrypted-media;"
-        src="https://form.typeform.com/to/PgzHUUgI?typeform-medium=embed-sdk&typeform-source=www.tylerrasch.com"
         title="Tyler Rasch Partnership Inquiry"
       ></iframe>
     </div>
@@ -1967,7 +1966,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                   <div className="w-20 h-1 bg-accent/30" />
                 </div>
 
-                <TypeformEmbed />
+                <TallyEmbed />
 
                 <div className="mt-24 pt-12 border-t border-white/5 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">

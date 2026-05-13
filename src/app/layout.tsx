@@ -43,6 +43,7 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
+        <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
         {children}
       </body>
     </html>

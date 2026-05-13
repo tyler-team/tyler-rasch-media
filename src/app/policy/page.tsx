@@ -176,7 +176,7 @@ export default function PolicyPage() {
                         <td className="px-6 py-4">제3조의 보유기간과 동일</td>
                       </tr>
                       <tr className="hover:bg-white/[0.02]">
-                        <td className="px-6 py-4 font-bold text-white">Typeform</td>
+                        <td className="px-6 py-4 font-bold text-white">Tally</td>
                         <td className="px-6 py-4">고객 폼(Form) 접수 및 데이터 호스팅</td>
                         <td className="px-6 py-4">제3조의 보유기간과 동일</td>
                       </tr>
@@ -238,8 +238,8 @@ export default function PolicyPage() {
                         <td className="px-6 py-4">데이터 저장(제3조 기준)</td>
                       </tr>
                       <tr className="hover:bg-white/[0.02]">
-                        <td className="px-6 py-4 font-bold text-white">Typeform</td>
-                        <td className="px-6 py-4">미국 (Virginia) 등</td>
+                        <td className="px-6 py-4 font-bold text-white">Tally</td>
+                        <td className="px-6 py-4">벨기에, 독일 등 유럽 (EU)</td>
                         <td className="px-6 py-4">폼 제출 시 자동 전송</td>
                         <td className="px-6 py-4">개인정보 전 항목</td>
                         <td className="px-6 py-4">데이터 수집/호스팅(제3조 기준)</td>
@@ -392,7 +392,7 @@ export default function PolicyPage() {
 
               <section className="space-y-6">
                 <h2 className="text-2xl font-bold text-white border-b border-white/10 pb-4">Article 5 & 6 (Outsourcing & Overseas Transfer)</h2>
-                <p className="leading-relaxed text-zinc-300">To ensure efficient workflow and automation, personal information may be transferred over global networks to trusted SaaS operators such as Google Workspace, Typeform, HubSpot, Slack, Zapier, and Mattermost. These services process data for CRM, communication, and automation routing purposes within standard retention limits.</p>
+                <p className="leading-relaxed text-zinc-300">To ensure efficient workflow and automation, personal information may be transferred over global networks to trusted SaaS operators such as Google Workspace, Tally, HubSpot, Slack, Zapier, and Mattermost. These services process data for CRM, communication, and automation routing purposes within standard retention limits.</p>
               </section>
 
               <section className="space-y-6">
