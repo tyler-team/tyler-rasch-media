@@ -1302,7 +1302,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
 
 const TallyEmbed = () => {
   return (
-    <div className="w-full h-[600px] md:h-[710px] rounded-sm overflow-hidden bg-white/5 border border-white/10">
+    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white/5 border border-white/10 shadow-2xl transition-all duration-500">
       <iframe
         data-tally-src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         loading="lazy"
@@ -1310,6 +1310,7 @@ const TallyEmbed = () => {
         height="100%"
         frameBorder="0"
         title="Tyler Rasch Partnership Inquiry"
+        className="min-h-[900px] md:min-h-[1100px]"
       ></iframe>
     </div>
   );
