@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import SMEStartupprogramView from "../components/SMEStartupprogramView";
 
 // --- TYPES & CONTENT DICTIONARY ---
 
@@ -21,6 +22,7 @@ type Content = {
     packages: string;
     contact: string;
     careers?: string;
+    smestartupprogram?: string;
     sticky_cta: string;
   };
   hero: {
@@ -155,6 +157,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       packages: "파트너십",
       contact: "문의하기",
       careers: "채용",
+      smestartupprogram: "SME/스타트업 지원",
       sticky_cta: "타일러와 협업하기"
     },
     hero: {
@@ -652,6 +655,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       packages: "Partnership",
       contact: "Inquire",
       careers: "Careers",
+      smestartupprogram: "SME/Startup Program",
       sticky_cta: "Work with Tyler"
     },
     hero: {
@@ -1153,7 +1157,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
 
 // --- COMPONENTS ---
 
-const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers', setView: (v: 'home' | 'careers') => void }) => {
+const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers' | 'smestartupprogram', setView: (v: 'home' | 'careers' | 'smestartupprogram') => void }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = contentData[lang].sidebar;
 
@@ -1210,7 +1214,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
           >
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-6 text-xl font-bold tracking-widest uppercase">
-                {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
+                {['vision', 'impact', 'originals', 'brands', 'packages'].map((item) => (
                   <a
                     key={item}
                     href={`/#${item}`}
@@ -1229,6 +1233,24 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     {t.careers}
                   </a>
                 )}
+                {t.smestartupprogram && (
+                  <a
+                    href="/smestartupprogram"
+                    onClick={(e) => { e.preventDefault(); setView('smestartupprogram'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/smestartupprogram'); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'smestartupprogram' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
+                  >
+                    {t.smestartupprogram}
+                  </a>
+                )}
+                {t.contact && (
+                  <a
+                    href="/#contact"
+                    onClick={(e) => { e.preventDefault(); setView('home'); setMobileMenuOpen(false); window.history.pushState(null, '', '/#contact'); const el = document.getElementById('contact'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'home' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-white'}`}
+                  >
+                    {t.contact}
+                  </a>
+                )}
               </div>
 
             </div>
@@ -1245,7 +1267,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
         </div>
 
         <div className="flex flex-col gap-8 text-sm font-bold tracking-widest uppercase">
-          {['vision', 'impact', 'originals', 'brands', 'packages', 'contact'].map((item) => (
+          {['vision', 'impact', 'originals', 'brands', 'packages'].map((item) => (
             <a
               key={item}
               href={`/#${item}`}
@@ -1264,6 +1286,26 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             >
               <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'careers' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
               <span>{t.careers}</span>
+            </a>
+          )}
+          {t.smestartupprogram && (
+            <a
+              href="/smestartupprogram"
+              onClick={(e) => { e.preventDefault(); setView('smestartupprogram'); window.scrollTo(0, 0); window.history.pushState(null, '', '/smestartupprogram'); }}
+              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'smestartupprogram' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'smestartupprogram' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span>{t.smestartupprogram}</span>
+            </a>
+          )}
+          {t.contact && (
+            <a
+              href="/#contact"
+              onClick={(e) => { e.preventDefault(); setView('home'); window.history.pushState(null, '', '/#contact'); const el = document.getElementById('contact'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'home' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span>{t.contact}</span>
             </a>
           )}
         </div>
@@ -1703,9 +1745,9 @@ const BrandLogoWall = () => {
   );
 };
 
-export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' }) {
+export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' | 'smestartupprogram' }) {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
-  const [view, setView] = useState<'home' | 'careers'>(initialView);
+  const [view, setView] = useState<'home' | 'careers' | 'smestartupprogram'>(initialView);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
@@ -1992,7 +2034,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
               </div>
             </section>
           </>
-        ) : (
+        ) : view === 'careers' ? (
           /* CAREERS VIEW (BILINGUAL) */
           t.careers && (
             <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
@@ -2110,6 +2152,9 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
               </div>
             </section>
           )
+        ) : (
+          /* SME/STARTUP PROGRAM VIEW */
+          <SMEStartupprogramView />
         )}
       </main>
     </div>
