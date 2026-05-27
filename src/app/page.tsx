@@ -1355,10 +1355,10 @@ const TallyEmbed = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white/[0.02] border border-white/10 backdrop-blur-sm shadow-xl transition-all duration-500">
+    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white shadow-2xl transition-all duration-500">
       <iframe
-        data-tally-src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1&transparentBackground=1"
-        src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1&transparentBackground=1"
+        data-tally-src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1"
+        src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1"
         loading="lazy"
         width="100%"
         height="100%"
