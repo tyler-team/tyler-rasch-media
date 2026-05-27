@@ -1343,10 +1343,22 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
 };
 
 const TallyEmbed = () => {
+  useEffect(() => {
+    // If Tally widget script has already loaded, re-initialize the embed on mount
+    if (typeof (window as any).Tally !== "undefined") {
+      try {
+        (window as any).Tally.loadEmbeds();
+      } catch (err) {
+        console.error("Failed to load Tally embeds:", err);
+      }
+    }
+  }, []);
+
   return (
     <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white shadow-2xl transition-all duration-500">
       <iframe
         data-tally-src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1"
+        src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1"
         loading="lazy"
         width="100%"
         height="100%"

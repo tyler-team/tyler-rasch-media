@@ -94,9 +94,9 @@ export default function SMEStartupprogramView() {
             <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-accent font-bold tracking-widest uppercase mb-8">
               SME & Startup Support Program
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight break-keep mb-8 uppercase">
-              광고비 부담은 제로, 효과는 압도적.<br />
-              이제 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">타일러의 영향력</span>을 귀사의 성장에 무료로 활용하세요.
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight break-keep mb-8">
+              타일러 미디어가 귀사의 성장을 응원하며,<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">&apos;무료 PPL&apos;의 기회</span>를 드립니다.
             </h1>
             <p className="text-base md:text-xl text-zinc-400 max-w-2xl leading-relaxed mb-12 break-keep">
               단 5분이면 지원 끝. 비용 없이 타일러 미디어 콘텐츠의 주인공이 되어보세요. 실질적인 성장을 원하는 대표님들을 위한 가장 쉽고 확실한 광고 기회, 지금 바로 잡으세요.
