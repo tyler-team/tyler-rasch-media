@@ -323,7 +323,7 @@ export default function SMEStartupprogramView() {
                   <div className="inline-block px-3 py-1 bg-accent/10 border border-accent/20 rounded-full text-xs text-accent font-bold mb-2">STAGE 02</div>
                   <h3 className="text-xl font-bold text-white mb-2">분기별 심사 및 발표</h3>
                   <p className="text-zinc-400 text-sm break-keep">
-                    매 분기 마지막 달(3, 6, 9, 12월) 1일~15일 사이 꼼꼼한 심사 및 최종 대상 발표가 순차 진행됩니다.
+                    매 분기 첫 달(4, 7, 10, 1월) 1일~15일 사이 꼼꼼한 심사가 진행됩니다.
                   </p>
                 </div>
                 
@@ -353,7 +353,7 @@ export default function SMEStartupprogramView() {
                 
                 <div className="w-full md:w-[45%] bg-white/[0.01] border border-white/5 rounded-2xl p-4 text-xs text-zinc-500">
                   🗓️ 예시 타임라인:<br />
-                  1~3월 접수건 ➡️ 3월 발표 ➡️ 4~6월 중 광고 기획 제작 및 노출 진행!
+                  1분기(1~3월) 접수건 ➡️ 2분기(4~6월) 중 심사 및 광고 진행!
                 </div>
               </div>
 
