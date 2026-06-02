@@ -28,7 +28,7 @@ const ShareIcon = () => (
   </svg>
 );
 
-export default function SMEStartupprogramView() {
+export default function SMEStartupprogramView({ setSelectedVideo }: { setSelectedVideo?: (url: string | null) => void }) {
   // Tabs for Section 7: Required Documents
   const [docTab, setDocTab] = useState<"individual" | "corporate">("individual");
   const [copied, setCopied] = useState(false);
@@ -115,6 +115,36 @@ export default function SMEStartupprogramView() {
               >
                 프로젝트 취지 더보기
               </a>
+            </div>
+
+            <div className="w-full max-w-3xl mt-16 aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-[0_0_50px_rgba(0,0,0,0.8)] relative bg-black">
+              <motion.div
+                onClick={() => setSelectedVideo && setSelectedVideo("https://www.youtube.com/watch?v=UMwyIpVEGSY")}
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="w-full h-full relative cursor-pointer"
+              >
+                <img
+                  src="https://img.youtube.com/vi/UMwyIpVEGSY/maxresdefault.jpg"
+                  alt="SME Support Program Intro Video"
+                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 opacity-80"
+                />
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                  <div className="w-20 h-20 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-[0_0_30px_rgba(0,229,255,0.4)] group-hover:scale-110 group-hover:shadow-[0_0_50px_rgba(0,229,255,0.7)] transition-all duration-300">
+                    <svg className="w-8 h-8 fill-current ml-1.5" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#02060C] via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                  <span className="text-white font-bold text-sm tracking-widest uppercase flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 bg-accent rounded-full animate-pulse" />
+                    소개 영상 보기 (PLAY VIDEO)
+                  </span>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </section>

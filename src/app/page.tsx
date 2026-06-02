@@ -2166,7 +2166,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
           )
         ) : (
           /* SME/STARTUP PROGRAM VIEW */
-          <SMEStartupprogramView />
+          <SMEStartupprogramView setSelectedVideo={setSelectedVideo} />
         )}
       </main>
     </div>
