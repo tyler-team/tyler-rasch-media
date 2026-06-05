@@ -2040,7 +2040,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                         <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
                       </div>
                     </div>
-                    <a href="mailto:request@tylerrasch.com" className="hover:text-white transition-colors lowercase">request@tylerrasch.com</a>
+                    <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors lowercase">contact@tylerrasch.com</a>
                   </div>
                 </div>
               </div>
@@ -2158,7 +2158,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                         <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
                       </div>
                     </div>
-                    <a href="mailto:request@tylerrasch.com" className="hover:text-white transition-colors lowercase">request@tylerrasch.com</a>
+                    <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors lowercase">contact@tylerrasch.com</a>
                   </div>
                 </div>
               </div>
