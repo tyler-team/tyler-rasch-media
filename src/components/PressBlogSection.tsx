@@ -36,8 +36,7 @@ export default function PressBlogSection() {
                 PRESS RELEASE
               </h3>
               <div className="flex gap-4 text-xs font-bold font-mono">
-                <a href="/ko/press" className="text-zinc-500 hover:text-accent transition-colors">KO FEED &rarr;</a>
-                <a href="/en/press" className="text-zinc-500 hover:text-accent transition-colors">EN EPK &rarr;</a>
+                <a href="/press" className="text-zinc-500 hover:text-accent transition-colors">VIEW NEWSROOM &rarr;</a>
               </div>
             </div>
 
@@ -87,7 +86,7 @@ export default function PressBlogSection() {
                 <span className="w-2 h-2 bg-accent/60 rounded-full" />
                 COMMENTARY & ESSAYS
               </h3>
-              <a href="/blog/ai-era-sme-survival" className="text-xs font-bold font-mono text-zinc-500 hover:text-accent transition-colors">
+              <a href="/blog" className="text-xs font-bold font-mono text-zinc-500 hover:text-accent transition-colors">
                 VIEW ESSAYS &rarr;
               </a>
             </div>

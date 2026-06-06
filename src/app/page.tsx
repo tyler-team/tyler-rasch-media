@@ -5,6 +5,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import SMEStartupprogramView from "../components/SMEStartupprogramView";
 import PressBlogSection from "../components/PressBlogSection";
+import PressView from "../components/PressView";
+import BlogView from "../components/BlogView";
 
 // --- TYPES & CONTENT DICTIONARY ---
 
@@ -24,6 +26,8 @@ type Content = {
     contact: string;
     careers?: string;
     smestartupprogram?: string;
+    press?: string;
+    blog?: string;
     sticky_cta: string;
   };
   hero: {
@@ -159,6 +163,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       contact: "문의하기",
       careers: "채용",
       smestartupprogram: "SME/스타트업 지원",
+      press: "보도자료",
+      blog: "블로그 & 에세이",
       sticky_cta: "타일러와 협업하기"
     },
     hero: {
@@ -657,6 +663,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       contact: "Inquire",
       careers: "Careers",
       smestartupprogram: "SME/Startup Program",
+      press: "Press & Media",
+      blog: "Blogs & Essays",
       sticky_cta: "Work with Tyler"
     },
     hero: {
@@ -1158,7 +1166,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
 
 // --- COMPONENTS ---
 
-const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers' | 'smestartupprogram', setView: (v: 'home' | 'careers' | 'smestartupprogram') => void }) => {
+const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog', setView: (v: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog') => void }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = contentData[lang].sidebar;
 
@@ -1243,6 +1251,24 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     {t.smestartupprogram}
                   </a>
                 )}
+                {t.press && (
+                  <a
+                    href="/press"
+                    onClick={(e) => { e.preventDefault(); setView('press'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'press' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
+                  >
+                    {t.press}
+                  </a>
+                )}
+                {t.blog && (
+                  <a
+                    href="/blog"
+                    onClick={(e) => { e.preventDefault(); setView('blog'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/blog'); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'blog' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
+                  >
+                    {t.blog}
+                  </a>
+                )}
                 {t.contact && (
                   <a
                     href="/#contact"
@@ -1297,6 +1323,26 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             >
               <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'smestartupprogram' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
               <span>{t.smestartupprogram}</span>
+            </a>
+          )}
+          {t.press && (
+            <a
+              href="/press"
+              onClick={(e) => { e.preventDefault(); setView('press'); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
+              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'press' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'press' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span>{t.press}</span>
+            </a>
+          )}
+          {t.blog && (
+            <a
+              href="/blog"
+              onClick={(e) => { e.preventDefault(); setView('blog'); window.scrollTo(0, 0); window.history.pushState(null, '', '/blog'); }}
+              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'blog' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'blog' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span>{t.blog}</span>
             </a>
           )}
           {t.contact && (
@@ -1613,7 +1659,7 @@ const SectionBackground = ({ src, y, pos = "object-[center_10%]", mobilePos = "o
   </motion.div>
 );
 
-const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'careers') => void }) => {
+const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog') => void }) => {
   const [visible, setVisible] = useState(false);
   const { scrollY } = useScroll();
 
@@ -1758,9 +1804,9 @@ const BrandLogoWall = () => {
   );
 };
 
-export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' | 'smestartupprogram' }) {
+export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog' }) {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
-  const [view, setView] = useState<'home' | 'careers' | 'smestartupprogram'>(initialView);
+  const [view, setView] = useState<'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog'>(initialView);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
@@ -2167,9 +2213,15 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
               </div>
             </section>
           )
-        ) : (
+        ) : view === 'smestartupprogram' ? (
           /* SME/STARTUP PROGRAM VIEW */
           <SMEStartupprogramView setSelectedVideo={setSelectedVideo} />
+        ) : view === 'press' ? (
+          /* EMBEDDED PRESS & MEDIA VIEW */
+          <PressView lang={lang} />
+        ) : (
+          /* EMBEDDED BLOG & ESSAY VIEW */
+          <BlogView lang={lang} />
         )}
       </main>
     </div>
