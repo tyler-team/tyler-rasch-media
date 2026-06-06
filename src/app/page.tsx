@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import SMEStartupprogramView from "../components/SMEStartupprogramView";
+import PressBlogSection from "../components/PressBlogSection";
 
 // --- TYPES & CONTENT DICTIONARY ---
 
@@ -2007,6 +2008,8 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                 </div>
               </div>
             </section>
+
+            <PressBlogSection />
 
             {/* 7. CONTACT */}
             <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
