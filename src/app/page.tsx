@@ -1233,15 +1233,6 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     {t[item as keyof typeof t]}
                   </a>
                 ))}
-                {t.careers && (
-                  <a
-                    href="/careers"
-                    onClick={(e) => { e.preventDefault(); setView('careers'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
-                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'careers' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
-                  >
-                    {t.careers}
-                  </a>
-                )}
                 {t.smestartupprogram && (
                   <a
                     href="/smestartupprogram"
@@ -1251,15 +1242,6 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     {t.smestartupprogram}
                   </a>
                 )}
-                {t.press && (
-                  <a
-                    href="/press"
-                    onClick={(e) => { e.preventDefault(); setView('press'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
-                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'press' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
-                  >
-                    {t.press}
-                  </a>
-                )}
                 {t.blog && (
                   <a
                     href="/blog"
@@ -1267,6 +1249,15 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'blog' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
                   >
                     {t.blog}
+                  </a>
+                )}
+                {t.press && (
+                  <a
+                    href="/press"
+                    onClick={(e) => { e.preventDefault(); setView('press'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'press' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
+                  >
+                    {t.press}
                   </a>
                 )}
                 {t.contact && (
@@ -1308,16 +1299,6 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
               </a>
             );
           })}
-          {t.careers && (
-            <a
-              href="/careers"
-              onClick={(e) => { e.preventDefault(); setView('careers'); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
-            >
-              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'careers' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
-              <span>{t.careers}</span>
-            </a>
-          )}
           {t.smestartupprogram && (
             <a
               href="/smestartupprogram"
@@ -1328,16 +1309,6 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
               <span>{t.smestartupprogram}</span>
             </a>
           )}
-          {t.press && (
-            <a
-              href="/press"
-              onClick={(e) => { e.preventDefault(); setView('press'); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'press' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
-            >
-              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'press' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
-              <span>{t.press}</span>
-            </a>
-          )}
           {t.blog && (
             <a
               href="/blog"
@@ -1346,6 +1317,16 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             >
               <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'blog' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.blog}</span>
+            </a>
+          )}
+          {t.press && (
+            <a
+              href="/press"
+              onClick={(e) => { e.preventDefault(); setView('press'); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'press' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'press' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
+              <span>{t.press}</span>
             </a>
           )}
           {t.contact && (
