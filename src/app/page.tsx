@@ -1286,32 +1286,35 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
       </AnimatePresence>
 
       {/* DESKTOP SIDEBAR (Persistent) */}
-      <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-12 px-8">
-        <div>
+      <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-10 px-8 items-start">
+        <div className="w-full">
           <a href="/" onClick={(e) => { e.preventDefault(); setView('home'); window.scrollTo(0, 0); window.history.pushState(null, '', '/'); }} className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity cursor-pointer">
             TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span>
           </a>
         </div>
 
-        <div className="flex flex-col gap-8 text-sm font-bold tracking-widest uppercase">
-          {['vision', 'impact', 'originals', 'brands', 'packages'].map((item) => (
-            <a
-              key={item}
-              href={`/#${item}`}
-              onClick={(e) => { e.preventDefault(); setView('home'); window.history.pushState(null, '', `/#${item}`); const el = document.getElementById(item); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
-              className={`flex items-center gap-4 transition-colors group ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
-            >
-              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'home' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
-              <span>{t[item as keyof typeof t]}</span>
-            </a>
-          ))}
+        <div className="flex flex-col gap-4.5 text-xs font-bold tracking-widest uppercase w-full items-start">
+          {['vision', 'impact', 'originals', 'brands', 'packages'].map((item) => {
+            const isActive = view === 'home';
+            return (
+              <a
+                key={item}
+                href={`/#${item}`}
+                onClick={(e) => { e.preventDefault(); setView('home'); window.history.pushState(null, '', `/#${item}`); const el = document.getElementById(item); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+                className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+              >
+                <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
+                <span>{t[item as keyof typeof t]}</span>
+              </a>
+            );
+          })}
           {t.careers && (
             <a
               href="/careers"
               onClick={(e) => { e.preventDefault(); setView('careers'); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
-              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
             >
-              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'careers' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'careers' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.careers}</span>
             </a>
           )}
@@ -1319,9 +1322,9 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/smestartupprogram"
               onClick={(e) => { e.preventDefault(); setView('smestartupprogram'); window.scrollTo(0, 0); window.history.pushState(null, '', '/smestartupprogram'); }}
-              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'smestartupprogram' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'smestartupprogram' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
             >
-              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'smestartupprogram' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'smestartupprogram' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.smestartupprogram}</span>
             </a>
           )}
@@ -1329,9 +1332,9 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/press"
               onClick={(e) => { e.preventDefault(); setView('press'); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
-              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'press' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'press' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
             >
-              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'press' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'press' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.press}</span>
             </a>
           )}
@@ -1339,9 +1342,9 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/blog"
               onClick={(e) => { e.preventDefault(); setView('blog'); window.scrollTo(0, 0); window.history.pushState(null, '', '/blog'); }}
-              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'blog' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'blog' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
             >
-              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'blog' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'blog' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.blog}</span>
             </a>
           )}
@@ -1349,18 +1352,18 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/#contact"
               onClick={(e) => { e.preventDefault(); setView('home'); window.history.pushState(null, '', '/#contact'); const el = document.getElementById('contact'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
-              className={`flex items-center gap-4 transition-colors group text-left font-bold tracking-widest uppercase ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
             >
-              <span className={`w-1 h-1 bg-accent rounded-full transition-opacity ${view === 'home' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'home' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.contact}</span>
             </a>
           )}
         </div>
 
-        <div className="space-y-8">
-          <div className="flex flex-col gap-3">
+        <div className="space-y-6 w-full items-start">
+          <div className="flex flex-col gap-2.5 w-full items-start">
             <span className="text-[10px] font-black tracking-widest text-zinc-500 uppercase px-1">Language</span>
-            <div className="flex bg-white/5 border border-white/10 p-1 rounded-full relative">
+            <div className="flex bg-white/5 border border-white/10 p-1 rounded-full relative w-full">
               <motion.div
                 animate={{ x: lang === 'EN' ? '100%' : '0%' }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -1380,7 +1383,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
               </button>
             </div>
           </div>
-          <div className="text-[10px] text-zinc-700 px-1">
+          <div className="text-[10px] text-zinc-700 px-1 text-left">
             © 2026 TRM
           </div>
         </div>
