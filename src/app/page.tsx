@@ -669,7 +669,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     philosophy: {
       heading: "VISION",
-      p1: <>Tyler holds a unique position in the Korean market, combining <span className="text-accent font-bold">National Recognition</span> with <span className="text-accent font-bold">Unwavering Trust</span>. As a thought leader on Climate, Humanities, and Economics, he elevates brands beyond simple promotion.</>,
+      p1: <>Tyler holds a unique position in the Korean market, combining <span className="text-accent font-bold">National Recognition</span> with <span className="text-accent font-bold">Unwavering Trust</span>. As a thought leader on Global Affairs, Macroeconomics, and Technology Security, he elevates brands beyond simple promotion.</>,
       p2: <>We don't just offer exposure. We promise <span className="text-accent font-bold">Strategic Communication</span> where your brand philosophy is translated into Tyler's logical, persuasive language, resonating deeply with the "Active Economic Class".</>,
       quote: "Authenticity is the only currency that matters.",
       manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives</span>Lend <span className="text-accent">Intellectual Authority</span> to Your Brand</>

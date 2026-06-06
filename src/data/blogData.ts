@@ -70,12 +70,12 @@ export const blogPosts: BlogPost[] = [
       KR: [
         "오늘날 소비자들은 역사상 그 어느 때보다 교묘하고 영리한 광고와 미끼성 마케팅에 무차별적으로 노출되어 있습니다. 그에 비례해 마케팅 피로도는 사상 최고조에 달했으며, 단순 노출 수치는 더 이상 매출 전환으로 연결되지 않습니다.",
         "이러한 불신의 시대에 소비자의 지갑을 열고 마음을 움직이는 유일한 힘은 '맥락적 진정성(Contextual Authenticity)'입니다. 즉, 브랜드의 철학이 단순히 듣기 좋은 슬로건에 그치지 않고, 고객이 겪는 페인 포인트를 진심으로 공감하고 실현할 수 있는 행동으로 드러나야 함을 뜻합니다.",
-        "타일러 미디어가 오리지널 시리즈나 브랜드 파트너십을 진행할 때 가장 우선시하는 가치 역시 진정성입니다. 우리는 타일러 라쉬 본인의 삶의 태도(환경 보호, 학문적 탐구, 글로벌 시각)와 완벽히 교차하는 맥락에 있는 브랜드와만 협업을 진행합니다. 억지스러운 제품 강요가 아니라, 가치의 결이 일치하는 파트너십을 추구할 때 비로소 광고는 콘텐츠가 되고, 신뢰는 브랜드 자산으로 축적됩니다."
+        "타일러 미디어가 오리지널 시리즈나 브랜드 파트너십을 진행할 때 가장 우선시하는 가치 역시 진정성입니다. 우리는 타일러 라쉬 본인의 삶의 태도(글로벌 정세 분석, 학문적 탐구, 혁신적 기업가 정신)와 완벽히 교차하는 맥락에 있는 브랜드와만 협업을 진행합니다. 억지스러운 제품 강요가 아니라, 가치의 결이 일치하는 파트너십을 추구할 때 비로소 광고는 콘텐츠가 되고, 신뢰는 브랜드 자산으로 축적됩니다."
       ],
       EN: [
         "Consumers today are bombarded with clickbaits and aggressive algorithms. As a result, ad fatigue has reached an all-time high, and superficial impression metrics no longer guarantee customer loyalty.",
         "In this age of skepticism, the only currency that retains long-term value is 'Contextual Authenticity'. A brand's core mission must not remain a written slogan; it must manifest as aligned, actionable truth that solves tangible problems.",
-        "At Tyler Media, authenticity is our absolute baseline. We only form partnerships with brands whose values intersect naturally with Tyler's genuine lifestyle—climate action, intellectual integrity, and analytical curiosity. When values align, sponsorship elevates to storytelling, and skepticism shifts to solid trust."
+        "At Tyler Media, authenticity is our absolute baseline. We only form partnerships with brands whose values intersect naturally with Tyler's genuine focus—global affairs, macroeconomic analysis, and analytical curiosity. When values align, sponsorship elevates to storytelling, and skepticism shifts to solid trust."
       ]
     },
     socialExcerpts: {

@@ -46,34 +46,32 @@ export const pressReleases: PressRelease[] = [
     boilerplate: "주식회사 큰미르(타일러 미디어)는 지식 아이콘 타일러 라쉬의 독창적인 시각과 깊이 있는 가치를 대중문화 콘텐츠 및 B2B 브랜드 파트너십을 통해 확산하는 통합 미디어 전문 기업입니다."
   },
   {
-    slug: "tyler-rasch-climate-forum-keynote",
-    date: "2026-06-02",
+    slug: "tyler-media-1bws-transition",
+    date: "2026-06-01",
     lang: "en",
-    title: "Tyler Rasch to Deliver Keynote Address at the 2026 Global Green Horizon Forum",
+    title: "Tyler Media Announces Strategic Transition of Tylerbolkkayo to 1BWS Framework",
     body: [
-      "SEOUL, South Korea — Tyler Rasch, leading environmental advocate and founder of Tyler Media, has been confirmed as a keynote speaker for the upcoming 2026 Global Green Horizon Forum. The forum, gathering key ESG leaders and policymakers worldwide, will address structural transformations in resource neutrality.",
-      "Rasch will speak on 'The Economics of Daily Climate Choices,' offering a pragmatic analysis of how modern consumer platforms can facilitate green conversions without placing undue burdens on individuals. Drawing from his extensive B2B sustainability campaigns with top-tier brands like Cooper Vision and LG Electronics, he plans to call on conglomerates to redefine operational packaging systems.",
-      "The speech will be livestreamed globally on June 21st, 2026, via the forum's official channels. Following the keynote, Tyler Rasch will participate in a private round-table discussion focusing on local government policy implementations for circular economic models."
+      "SEOUL, South Korea — Tyler Media (KNMIR Inc.) has officially announced the strategic restructuring of its flagship digital intellectual property, Tylerbolkkayo, transitioning the asset into the comprehensive 1BWS (One Big World Show) global affairs framework.",
+      "The structural overhaul aligns the media network's digital distribution channels with macroeconomic analysis, geopolitical insights, and technology security reporting. The 1BWS framework is designed to deliver high-density strategic intelligence to cross-border enterprises and premium business audiences.",
+      "Under the new format, Tyler Media will expand its collaborative corporate offerings, providing streamlined B2B advertising models, localized market translation services, and joint strategic research publications."
     ]
   }
 ];
 
 export const epkBios: EPKBios = {
-  short: "Tyler Rasch is a leading media personality, environmental activist, and bilingual intellectual in South Korea. Known for his analytical depth and sharp social commentary, he serves as a strategic growth partner for global brands, specializing in environmental sustainability and structural innovation campaigns.",
+  short: "Tyler Rasch is a Global Macro/Geopolitical Intellectual, Cross-Border Media Innovator, and Serial Entrepreneur based in Seoul. He holds a B.A. from the University of Chicago and an M.A. from Seoul National University, specializing in translating complex global intelligence into localized market capture for premium audiences.",
   
-  medium: "Tyler Rasch is a prominent American intellectual, media figure, and environmental advocate based in Seoul, South Korea. Armed with a deep understanding of Korean culture and systems, Tyler has spent over a decade translating complex global issues—ranging from climate action and resource neutrality to interdisciplinary humanities—into highly engaging, accessible media narratives. As the founder of Tyler Media, he collaborates with multinational enterprises to implement authentic ESG campaigns and structural branding initiatives.",
+  medium: "Tyler Rasch is a prominent Global Macro/Geopolitical Intellectual, Cross-Border Media Innovator, and Serial Entrepreneur. Armed with academic foundations from the University of Chicago (B.A. in International Studies) and Seoul National University (M.A. in International Relations / Political Science), Tyler has spent over a decade in South Korea translating complex global macroeconomic and technology security trends into localized market capture. As the founder of Tyler Media, he bridges international corporate ecosystems and premium audiences.",
   
-  long: "Tyler Rasch is South Korea's most trusted international voice, renowned for his work as a bilingual broadcaster, environmental strategist, and public intellectual. After receiving his Bachelor's degree in International Studies from the University of Chicago and a Master's degree in International Relations from Seoul National University, Tyler entered South Korea's media landscape, immediately establishing himself as a key intellectual presence. Over the past decade, he has authored best-selling books on climate action, hosted prime-time educational programs, and designed innovative B2B marketing models. As Chief Executive and Creative Director at Tyler Media (KNMIR Inc.), Tyler continues to bridge cultural and economic gaps, helping enterprises navigate macro crises like the 2026 AI transition and climate neutrality through contextual sustainability campaigns, structural reform advice, and high-impact media production."
+  long: "Tyler Rasch is a Global Macro/Geopolitical Intellectual, Cross-Border Media Innovator, and Serial Entrepreneur based in Seoul, South Korea. He received his Bachelor's degree in International Studies from the University of Chicago and his Master's degree in International Relations (Political Science) from Seoul National University. Over the past decade, Tyler has established himself as a prominent intellectual presence in South Korea's media landscape, translating complex global intelligence, macroeconomics, and technology security trends into localized market capture for premium audiences. As Chief Executive and Creative Director at Tyler Media (KNMIR Inc.), he leads cross-border enterprise initiatives, B2B strategic partnerships, and the SME & Startup PR Support Program."
 };
 
 export const operationalMetrics: OperationalMetric[] = [
-  { label: "Active Channels Reach", value: "3.2M+", category: "reach" },
-  { label: "YouTube Subscribers", value: "165K+", category: "reach" },
-  { label: "Instagram Followers", value: "240K+", category: "reach" },
-  { label: "Primary Demographic", value: "25 - 44 Years (68%)", category: "demographic" },
-  { label: "Gender Engagement", value: "Female 58% | Male 42%", category: "demographic" },
-  { label: "B2B Campaign Track Record", value: "45+ Corporate Projects", category: "logistics" },
+  { label: "YouTube Subscribers (Tylerbolkkayo)", value: "677K+", category: "reach" },
+  { label: "Total YouTube Channel Views", value: "63M+", category: "reach" },
+  { label: "SME & Startup PR Support Program", value: "Ecosystem integration with partners like D.CAMP", category: "logistics" },
   { label: "Operational HQ", value: "Seoul, South Korea", category: "logistics" },
+  { label: "Core Topic Coverage", value: "Global Affairs, Macroeconomics, Tech Security", category: "demographic" },
   { label: "Active Partnership Scale", value: "SMEs & Global Conglomerates", category: "logistics" }
 ];
 
