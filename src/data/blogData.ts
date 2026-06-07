@@ -14,79 +14,58 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "ai-era-sme-survival",
-    date: "2026-05-24",
-    author: "Tyler Rasch",
-    category: { KR: "인공지능 & 생존", EN: "AI & Survival" },
+    slug: "tyler-media-sme-program-guide",
+    date: "2026-06-01",
+    author: "Tyler Media Team",
+    category: { KR: "상생 & 마케팅", EN: "Support & Marketing" },
     title: {
-      KR: "2026년 AI 대전환기, 중소기업이 생존하는 연대의 로드맵",
-      EN: "Navigating the 2026 AI Shift: A Solidarity Roadmap for SMEs"
+      KR: "마케팅 예산 0원으로 타일러볼까요 PPL 주인공이 되는 법: SME·스타트업 지원 프로그램 가이드",
+      EN: "Redefining Market Access: The Tyler Media SME & Startup Support Program"
     },
     excerpt: {
-      KR: "인공지능 대격변의 한복판에서 중소기업과 스타트업이 거대 자본에 밀리지 않고 영리하게 연대하여 살아남는 실질적인 방법에 대하여.",
-      EN: "An analytical essay on how small businesses can form strategic alliances and leverage AI to survive against heavy capital monopolies."
+      KR: "타일러 미디어가 국내 우수 중소기업, 소상공인, 스타트업의 자립을 응원하며 광고 장벽을 제거하는 무료 PPL 상생 비전 가이드.",
+      EN: "An operational guide on how early-stage startups and small businesses in South Korea can secure zero-cost product placement on Tylerbolkkayo."
     },
     body: {
       KR: [
-        "2026년은 역사상 인공지능과 업무 자동화가 단순 보조 도구를 넘어 산업의 핵심 의사 결정 영역까지 침투한 결정적인 해입니다. 이제 AI는 선택이 아닌 생존의 생태적 필연성이 되었습니다.",
-        "글로벌 빅테크와 대기업들은 이미 수조 단위의 인프라를 바탕으로 자사 비즈니스 전체를 AI 네이티브 구조로 완벽히 리빌딩했습니다. 반면, 대다수 중소기업(SME)과 스타트업은 막대한 클라우드 구동 비용과 라이선스 금액, 그리고 고도로 전문화된 AI 핵심 인력을 유지할 자본적 여유가 없습니다. 기술 장벽이 자본 격차를 가속화하고 있는 냉혹한 현실입니다.",
-        "그렇다면 작은 기업들은 이대로 도태될 수밖에 없을까요? 대답은 단호히 '아니오'입니다. 생존의 핵심 키워드는 바로 '연대와 파트너십(Solidarity & Partnership)'입니다.",
-        "개별 기업은 미약하지만 업종과 특성에 맞는 중소기업들이 데이터 거버넌스를 결성하여 공동으로 파인튜닝된 경량 언어 모델(sLLM)을 개발하거나 마케팅 인프라를 공유하는 방식을 취해야 합니다. 독자 생존이 불가능한 구조라면, 상호 보완적인 파트너들이 모여 하나의 단단한 얼라이언스를 구축하는 것이 자본적 소외를 정면 돌파할 유일한 탈출구입니다."
+        "안녕하세요, 타일러 미디어 팀입니다.",
+        "대한민국 경제를 지탱하는 기업의 99%는 중소기업과 소상공인, 그리고 이제 막 걸음마를 뗀 스타트업입니다. 하지만 냉정하게도 현재의 디지털 마케팅 및 광고 시장은 자본력을 갖춘 대기업과 대형 대행사 중심으로 움직이고 있습니다. 좋은 제품과 혁신적인 서비스를 개발하고도 마케팅 예산 장벽에 부딪혀 빛을 보지 못하는 대표님들의 고군분투는 지금 이 순간에도 계속되고 있습니다.",
+        "이러한 문제를 해결하기 위해, 사업가 및 방송인 타일러 라쉬가 이끄는 타일러 미디어가 실질적인 해법을 제시합니다. 지난 6월 1일부터 공식 시작된 [타일러 미디어 SME & STARTUP SUPPORT PROGRAM]을 소개합니다.",
+        "왜 우리는 이 프로그램을 시작했을까요?\n타일러 미디어의 크루들 역시 대한민국에서 맨땅에 헤딩하며 비즈니스를 일궈온 경험이 있습니다. 한국의 창업 생태계는 때로 한 번의 실수가 치명적인 결과로 이어지는 냉혹한 현실과 마주합니다. 특히 2026년, AI와 자동화 기술이 산업 전반을 재편하는 매크로적 변화 속에서 작은 기업들이 생존할 수 있는 유일한 열쇠는 바로 '연대'와 '상생'입니다.",
+        "우리는 마케팅 비용이 없어 본질적인 성장에 집중하지 못하는 대표님들의 답답함을 덜어드리고자 합니다. 타일러 미디어가 제공하는 무료 PPL은 단순한 광고 송출을 넘어, \"당신의 혁신은 응원받을 가치가 있다\"는 연대의 메시지입니다.",
+        "선정 기업 및 참여 기업을 위한 압도적 혜택\n본 프로그램은 참여하는 모든 기업에게 리스크 없는 성장 파트너십을 제안합니다.",
+        "최종 선정 기업 혜택: 미디어 플랫폼 '타일러볼까요'의 오리지널 시리즈 콘텐츠 내에 귀사의 제품이나 서비스를 자연스럽게 녹여내는 무료 PPL 제작 및 노출을 지원합니다.",
+        "모든 지원 기업 혜택: 최종 선정이 되지 않더라도 실망하실 필요 없습니다. 지원 자격을 갖춘 모든 적격 사업체에게는 향후 타일러 미디어와 유료 광고 협업 시 적용되는 광고 단가 전용 할인 혜택을 제공합니다.",
+        "네트워킹 기회: 분기별로 개최되는 타일러 미디어 파트너사 오프라인 네트워킹 모임에 초대되어, 이종 산업 간의 협업 및 비즈니스 확장의 기회를 잡을 수 있습니다.",
+        "지원 대상 및 심사 일정 안내\n지원 대상: 중소기업, 스타트업, 소상공인, 개인 자영업자 등 고유 브랜드를 개발하는 모든 독립 사업체 (업종 제한 없음).",
+        "지원 불가 대상: 프랜차이즈 가맹 본부 및 소유 매장, 대기업 자회사 및 대규모 지분 보유사는 공평성을 위해 제외됩니다.",
+        "필수 조건: 광고가 온에어되는 시점에 소비자가 실제로 구매하거나 이용할 수 있는 제품·서비스 상태여야 합니다.",
+        "본 프로그램은 365일 상시 접수로 운영되며, 매 분기 첫 달(4월, 7월, 10월, 1월) 1일부터 15일 사이에 집중 심사를 거쳐 다음 분기에 콘텐츠가 본격 기획 및 송출됩니다. 단 5분이면 온라인으로 간편하게 접수가 가능하므로 타일러 미디어 공식 홈페이지 내 [SME/스타트업 지원] 탭을 통해 지금 바로 혁신의 기회를 잡으세요.",
+        "또한, 오는 6월 9일부터 12일까지 진행되는 서울푸드 박람회 현장에서도 본 SME 스타트업 프로그램의 상세 비전과 파트너십 안내를 직접 대면으로 소개해 드릴 예정이오니 현장 방문객분들의 많은 관심 부탁드립니다."
       ],
       EN: [
-        "The year 2026 marks a decisive turning point in history where artificial intelligence and workflow automation have evolved beyond mere assistant tools, deeply infiltrating core industrial decision-making.",
-        "While global conglomerates have re-engineered their entire pipelines using multi-billion dollar infrastructures, small and medium enterprises (SMEs) face a harsh bottleneck. The soaring cloud compute fees, software licensing costs, and scarcity of senior talent make independent R&D highly prohibitive.",
-        "Does this imply smaller teams are destined to be left behind? The answer is a resounding no. The singular key to survival in this era is 'Solidarity & Partnership'.",
-        "By pooling resources to train vertical-specific small language models (sLLMs) or sharing marketing reach through collaborative alliances, small businesses can bypass the heavy capital bottleneck. When independent scaling fails, strategic alignment succeeds."
+        "The digital marketing landscape requires capital. For independent businesses and early-stage startups in South Korea, securing visibility often means competing against the vast advertising budgets of multinational corporations and established conglomerates. To address this imbalance, Tyler Media launched the SME & Startup Support Program on June 1.",
+        "Our objective is straightforward: to leverage the production capacity and audience reach of Tylerbolkkayo to provide tangible market access for independent businesses.",
+        "Core Mechanics of the Support Program\nThe program is structured to provide high-leverage media assets without the associated financial risk.",
+        "Zero-Cost PPL Integration: Selected businesses will receive free product placement seamlessly integrated into Tylerbolkkayo’s original video series. This provides immediate exposure to our core demographic of professionals and decision-makers.",
+        "Universal Ad Rate Reductions: We recognize that not every applicant can be selected for immediate PPL. Therefore, all eligible companies that apply receive specialized, discounted rates for future advertising services with Tyler Media.",
+        "Quarterly B2B Networking: Beyond media exposure, Tyler Media hosts offline quarterly networking events, connecting founders and facilitating cross-industry partnerships.",
+        "Eligibility and Next Steps\nTo maintain the integrity of the program and ensure resources reach those who need them most, eligibility is strictly defined. We welcome applications from independent startups, SMEs, and local business owners across all sectors. However, franchise headquarters, subsidiary branches, and large corporate affiliates are excluded.",
+        "Applications are processed on a continuous, 365-day basis, with focused evaluations occurring at the start of each quarter.",
+        "For industry professionals attending Seoul Food 2026 (June 9-12), our team will be on-site to discuss program mechanics and potential partnerships in person.",
+        "To submit an application and access the official checklist, visit the [SME/Startup Support] section at tylerrasch.com."
       ]
     },
     socialExcerpts: {
       ratio1x1: [
-        "2026년 AI 대격변,\n중소기업의 생존 전략은?",
-        "대기업이 자본력으로\nAI 독점 구조를 만들 때,\n작은 기업들은 각개전투로\n살아남을 수 없습니다.",
-        "답은 '연대'에 있습니다.\n경량화 모델(sLLM) 공동 구축,\n마케팅 파트너십 결성을 통해\n장벽을 허물어야 합니다."
+        "마케팅 예산 0원 PPL?\n타일러 미디어가 쏩니다!",
+        "대기업 광고 독점 시대,\nSME와 스타트업이 살아남는\n유일한 방법은 '상생'입니다.",
+        "6월 서울푸드 박람회에서\n상생 파트너십을\n대면으로 만나보세요."
       ],
       ratio9x16: [
-        "SME 생존 리포트:\nAI 독점을 깨는 법",
-        "자본의 차이가\n기술의 격차가 되는\n냉혹한 2026년 비즈니스.",
-        "독자 생존 대신\n단단한 동맹을 통해\n함께 스케일업하세요."
-      ]
-    }
-  },
-  {
-    slug: "authenticity-marketing-strategy",
-    date: "2026-04-18",
-    author: "Tyler Rasch",
-    category: { KR: "진정성 & 브랜딩", EN: "Authenticity & Branding" },
-    title: {
-      KR: "광고 피로도 극복의 열쇠: 메시지의 '맥락적 진정성'을 확보하는 법",
-      EN: "Overcoming Ad Fatigue: Securing Contextual Authenticity in Modern Media"
-    },
-    excerpt: {
-      KR: "자극적인 클릭 미끼와 스팸성 광고에 지친 소비자들에게 깊은 울림을 남기기 위한 진정성 중심 브랜딩 철학을 논합니다.",
-      EN: "Exploring branding strategies that build long-term enterprise value by shifting from transactional ad clicks to deep, purpose-driven narratives."
-    },
-    body: {
-      KR: [
-        "오늘날 소비자들은 역사상 그 어느 때보다 교묘하고 영리한 광고와 미끼성 마케팅에 무차별적으로 노출되어 있습니다. 그에 비례해 마케팅 피로도는 사상 최고조에 달했으며, 단순 노출 수치는 더 이상 매출 전환으로 연결되지 않습니다.",
-        "이러한 불신의 시대에 소비자의 지갑을 열고 마음을 움직이는 유일한 힘은 '맥락적 진정성(Contextual Authenticity)'입니다. 즉, 브랜드의 철학이 단순히 듣기 좋은 슬로건에 그치지 않고, 고객이 겪는 페인 포인트를 진심으로 공감하고 실현할 수 있는 행동으로 드러나야 함을 뜻합니다.",
-        "타일러 미디어가 오리지널 시리즈나 브랜드 파트너십을 진행할 때 가장 우선시하는 가치 역시 진정성입니다. 우리는 타일러 라쉬 본인의 삶의 태도(글로벌 정세 분석, 학문적 탐구, 혁신적 기업가 정신)와 완벽히 교차하는 맥락에 있는 브랜드와만 협업을 진행합니다. 억지스러운 제품 강요가 아니라, 가치의 결이 일치하는 파트너십을 추구할 때 비로소 광고는 콘텐츠가 되고, 신뢰는 브랜드 자산으로 축적됩니다."
-      ],
-      EN: [
-        "Consumers today are bombarded with clickbaits and aggressive algorithms. As a result, ad fatigue has reached an all-time high, and superficial impression metrics no longer guarantee customer loyalty.",
-        "In this age of skepticism, the only currency that retains long-term value is 'Contextual Authenticity'. A brand's core mission must not remain a written slogan; it must manifest as aligned, actionable truth that solves tangible problems.",
-        "At Tyler Media, authenticity is our absolute baseline. We only form partnerships with brands whose values intersect naturally with Tyler's genuine focus—global affairs, macroeconomic analysis, and analytical curiosity. When values align, sponsorship elevates to storytelling, and skepticism shifts to solid trust."
-      ]
-    },
-    socialExcerpts: {
-      ratio1x1: [
-        "아무리 돈을 써도\n광고 효율이 떨어지는 이유",
-        "소비자들은 더 이상\n단순한 노출에 속지 않습니다.\n피로도를 넘는 핵심은\n'맥락적 진정성'입니다.",
-        "강요된 PPL 대신\n브랜드 철학과 결이 맞는\n이야기를 건네세요."
-      ],
-      ratio9x16: [
-        "신뢰의 붕괴 시대,\n진정성을 입히는 방법",
-        "억지스러운 연출을 빼고\n대표의 진짜 고집과\n스토리를 오픈하세요.\n그것이 무적의 광고판입니다."
+        "마케팅 비용 Zero!\n타일러볼까요 무료 PPL 기회",
+        "소상공인·스타트업을 위해\n타일러 미디어가 기획한\n상생 마케팅 프로그램.",
+        "지금 tylerrasch.com 에서\n5분 만에 신청하세요."
       ]
     }
   }

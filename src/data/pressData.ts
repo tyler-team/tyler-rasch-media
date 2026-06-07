@@ -32,37 +32,37 @@ export interface DownloadableAsset {
 export const pressReleases: PressRelease[] = [
   {
     slug: "tyler-media-sme-program-launch",
-    date: "2026-05-15",
+    date: "2026-06-07",
     lang: "ko",
-    title: "타일러 미디어, 중소기업·스타트업 상생 위한 ‘무료 PPL 지원 프로그램’ 공식 론칭",
-    subtitle: "마케팅비 부담 해소 선언... 연 4회 분기별 정기 심사 통해 콘텐츠 무료 노출 및 독점 혜택 제공",
-    byline: "서울=타일러 미디어 홍보팀 김지혜 기자 (pr@tylermedia.com)",
-    intro5W1H: "글로벌 미디어 솔루션을 선도하는 주식회사 큰미르(타일러 미디어)가 국내 우수 스타트업 및 소상공인의 마케팅 장벽을 전격 제거하기 위해 ‘SME/스타트업 무료 PPL 지원 프로그램’을 공식 출시하고 연중 상시 모집을 시작한다고 15일 밝혔다.",
+    title: "타일러 미디어, 소상공인·스타트업 성장을 위한 ‘무료 PPL 지원 프로그램’ 전격 가동",
+    subtitle: "사업가 및 방송인 타일러 라쉬, 서울푸드 박람회서 상생 플랫폼 비전 제시 예고",
+    byline: "이현지(Hyunji Lee) Lead (2026년 06월 07일, 서울)",
+    intro5W1H: "이현지(Hyunji Lee) Lead (2026년 06월 07일, 서울) -- 타일러 미디어가 지난 1일부터 국내 소상공인과 스타트업의 자생력을 높이기 위한 ‘SME·스타트업 지원 프로그램’을 본격 가동했다.",
     body: [
-      "이번 상생 프로그램은 대한민국 비즈니스의 99%를 차지하지만 대기업 위주의 광고 단가 장벽과 복잡한 정부 지원 서류에 막혀 효과적인 브랜딩 기회를 얻지 못하던 창업 생태계에 새로운 대안을 제시하고자 기획되었다.",
-      "최종 선정된 중소기업 및 스타트업에는 타일러 미디어의 공식 유튜브 채널 및 오리지널 콘텐츠 제작 시 상용 제품을 자연스럽게 노출하는 ‘무료 PPL 제작’ 기회가 제공된다. 또한, 향후 유료 광고 협업 시 활용할 수 있는 단가 우대 할인율 적용과 함께, 분기별 파트너사 전용 교류 모임(네트워킹) 초대권 등 강력한 서포트를 패키지로 공급한다.",
-      "심사는 상시 접수 후 분기 첫 달(4, 7, 10, 1월) 1일부터 15일까지 진행되며, 1분기 접수건은 2분기 중 콘텐츠 제작 및 온에어를 신속하게 집행할 방침이다. 참가를 희망하는 사업체는 온라인 지원 창구를 통해 간편한 서류 자가 진단과 사업자등록 사본 제출을 거쳐 5분 만에 접수를 완료할 수 있다."
-    ],
-    boilerplate: "주식회사 큰미르(타일러 미디어)는 지식 아이콘 타일러 라쉬의 독창적인 시각과 깊이 있는 가치를 대중문화 콘텐츠 및 B2B 브랜드 파트너십을 통해 확산하는 통합 미디어 전문 기업입니다."
+      "본 프로그램은 마케팅 예산 부족으로 성장에 제약을 겪는 독립 브랜드를 발굴해 미디어 플랫폼 ‘타일러볼까요’ 내 무료 PPL 노출 및 광고 단가 할인, 분기별 네트워킹 참여 기회를 제공하는 상생 프로젝트다. 대기업 중심으로 편향된 마케팅 생태계에서 중소기업의 진입 문턱을 낮추겠다는 취지다.",
+      "타일러 미디어는 오는 6월 9일부터 12일까지 진행되는 ‘서울푸드 박람회’ 현장에서 본 프로그램을 공식 소개하고 유망 파트너사 발굴에 나선다.",
+      "사업가 및 방송인 타일러 라쉬가 이끄는 타일러 미디어는 뉴미디어 플랫폼 타일러볼까요를 통해 고품격 지식 엔터테인먼트를 제공하고 있으며, 상세 내용은 공식 홈페이지(tylerrasch.com) 및 문의처(pr@tylerrasch.com)에서 확인 가능하다."
+    ]
   },
   {
-    slug: "tyler-media-1bws-transition",
-    date: "2026-06-01",
+    slug: "tyler-media-sme-program-launch-en",
+    date: "2026-06-07",
     lang: "en",
-    title: "Tyler Media Announces Strategic Transition of Tylerbolkkayo to 1BWS Framework",
+    title: "Tyler Media launches zero-cost product placement program for SMEs to counter corporate marketing concentration",
     body: [
-      "SEOUL, South Korea — Tyler Media (KNMIR Inc.) has officially announced the strategic restructuring of its flagship digital intellectual property, Tylerbolkkayo, transitioning the asset into the comprehensive 1BWS (One Big World Show) global affairs framework.",
-      "The structural overhaul aligns the media network's digital distribution channels with macroeconomic analysis, geopolitical insights, and technology security reporting. The 1BWS framework is designed to deliver high-density strategic intelligence to cross-border enterprises and premium business audiences.",
-      "Under the new format, Tyler Media will expand its collaborative corporate offerings, providing streamlined B2B advertising models, localized market translation services, and joint strategic research publications."
+      "SEOUL, South Korea — June 7, 2026 — Tyler Media initiated the SME & Startup Support Program on June 1 to provide independent businesses with free product placement (PPL) on the digital media platform Tylerbolkkayo. The company will detail the initiative to industry stakeholders at the Seoul Food exhibition from June 9 to 12.",
+      "The program addresses structural imbalances within the South Korean digital marketing sector, where large conglomerates and major agencies dictate market visibility. By offering zero-cost PPL within its original video series, Tyler Media lowers the barrier to entry for independent brands and startups that lack substantial marketing budgets. The initiative ensures that all eligible applicants, regardless of final selection for the PPL, receive discounted advertising rates for future campaigns.",
+      "To build a sustainable business ecosystem, Tyler Media integrates quarterly networking events for participating companies. Eligibility is strictly limited to independent entities; franchises and subsidiaries of large corporations are excluded. This framework guarantees that media resources are allocated directly to small and medium enterprises (SMEs) that require operational leverage to scale. Applications are accepted on a rolling basis throughout the year, with centralized reviews conducted quarterly.",
+      "The current macroeconomic environment, characterized by sustained high interest rates and operational costs, presents high customer acquisition hurdles for emerging brands. Tyler Media's program mitigates these marketing expenses, allowing founders to direct capital toward product development and core operations. Market data indicates that direct media partnerships offering content integration without upfront fees provide critical structural support for startups navigating restrictive funding environments.",
+      "About Tyler Media\nTyler Media is an independent digital media venture based in Seoul, operating the premium knowledge entertainment platform Tylerbolkkayo. The company was founded by entrepreneur and broadcaster Tyler Rasch, a University of Chicago and Seoul National University alumnus recognized for his analysis of geopolitics, macroeconomics, and global cultural trends. Tyler Media produces high-production, data-driven content connecting complex global agendas with localized market insights.",
+      "Media Contact:\nHyunji Lee, lead\nTyler Media PR\npr@tylerrasch.com\ntylerrasch.com"
     ]
   }
 ];
 
 export const epkBios: EPKBios = {
   short: "Tyler Rasch is a Global Macro/Geopolitical Intellectual, Cross-Border Media Innovator, and Serial Entrepreneur based in Seoul. He holds a B.A. from the University of Chicago and an M.A. from Seoul National University, specializing in translating complex global intelligence into localized market capture for premium audiences.",
-  
   medium: "Tyler Rasch is a prominent Global Macro/Geopolitical Intellectual, Cross-Border Media Innovator, and Serial Entrepreneur. Armed with academic foundations from the University of Chicago (B.A. in International Studies) and Seoul National University (M.A. in International Relations / Political Science), Tyler has spent over a decade in South Korea translating complex global macroeconomic and technology security trends into localized market capture. As the founder of Tyler Media, he bridges international corporate ecosystems and premium audiences.",
-  
   long: "Tyler Rasch is a Global Macro/Geopolitical Intellectual, Cross-Border Media Innovator, and Serial Entrepreneur based in Seoul, South Korea. He received his Bachelor's degree in International Studies from the University of Chicago and his Master's degree in International Relations (Political Science) from Seoul National University. Over the past decade, Tyler has established himself as a prominent intellectual presence in South Korea's media landscape, translating complex global intelligence, macroeconomics, and technology security trends into localized market capture for premium audiences. As Chief Executive and Creative Director at Tyler Media (KNMIR Inc.), he leads cross-border enterprise initiatives, B2B strategic partnerships, and the SME & Startup PR Support Program."
 };
 
