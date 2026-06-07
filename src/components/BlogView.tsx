@@ -1,13 +1,30 @@
 "use client";
 
-import React from "react";
-import { BlogPost, blogPosts } from "../data/blogData";
+import React, { useState, useEffect } from "react";
+import { BlogPost, blogPosts as staticBlogPosts } from "../data/blogData";
+import { getBlogPosts } from "../lib/sanity";
 
 interface BlogViewProps {
   lang: "KR" | "EN";
 }
 
 export default function BlogView({ lang }: BlogViewProps) {
+  const [posts, setPosts] = useState<BlogPost[]>(staticBlogPosts);
+
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        const cmsPosts = await getBlogPosts();
+        if (cmsPosts && cmsPosts.length > 0) {
+          setPosts(cmsPosts);
+        }
+      } catch (err) {
+        console.error("Failed to load blog posts from Sanity CMS, using static fallback:", err);
+      }
+    }
+    loadPosts();
+  }, []);
+
   return (
     <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
       <div className="relative z-10 max-w-4xl mx-auto space-y-12">
@@ -25,7 +42,7 @@ export default function BlogView({ lang }: BlogViewProps) {
 
         {/* Chronological List */}
         <div className="space-y-8">
-          {blogPosts.map((post) => (
+          {posts.map((post) => (
             <article key={post.slug} className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-300">
               <div className="flex justify-between items-center mb-3">
                 <time className="text-zinc-600 font-mono text-xs block" dateTime={post.date}>
@@ -40,9 +57,11 @@ export default function BlogView({ lang }: BlogViewProps) {
                 <a href={`/blog/${post.slug}`}>{post.title[lang]}</a>
               </h2>
 
-              <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                {post.excerpt[lang]}
-              </p>
+              {post.excerpt[lang] && (
+                <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
+                  {post.excerpt[lang]}
+                </p>
+              )}
 
               <a
                 href={`/blog/${post.slug}`}

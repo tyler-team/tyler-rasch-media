@@ -1,17 +1,25 @@
 import React from "react";
-import { pressReleases } from "../../../../data/pressData";
+import { getPressReleases } from "../../../../lib/sanity";
+import { pressReleases as staticPressReleases } from "../../../../data/pressData";
 import { notFound } from "next/navigation";
 import KoPressArticleClient from "./KoPressArticleClient";
 
+async function getReleases() {
+  const releases = await getPressReleases();
+  return releases && releases.length > 0 ? releases : staticPressReleases;
+}
+
 export async function generateStaticParams() {
-  return pressReleases.filter((pr) => pr.lang === "ko").map((release) => ({
+  const releases = await getReleases();
+  return releases.filter((pr) => pr.lang === "ko").map((release) => ({
     slug: release.slug,
   }));
 }
 
 export default async function KoPressArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const release = pressReleases.find((pr) => pr.slug === slug && pr.lang === "ko");
+  const releases = await getReleases();
+  const release = releases.find((pr) => pr.slug === slug && pr.lang === "ko");
   if (!release) notFound();
   return <KoPressArticleClient release={release} />;
 }

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { BlogPost } from "../../../data/blogData";
+import { BlogPost } from "../../../lib/sanity";
 
 export default function BlogArticleClient({ post }: { post: BlogPost }) {
   const [lang, setLang] = useState<"KR" | "EN">("KR");
