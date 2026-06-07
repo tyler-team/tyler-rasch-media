@@ -65,13 +65,13 @@ export default function PressView({ lang }: PressViewProps) {
   // English Version
   return (
     <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto space-y-16">
+      <div className="relative z-10 max-w-4xl mx-auto space-y-12">
         {/* Title Banner */}
-        <div className="border-b border-white/10 pb-8 max-w-4xl flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="border-b border-white/10 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Newsroom & EPK</span>
+            <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Press & Media</span>
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-              English Press Room
+              Press Room
             </h1>
             <p className="text-zinc-500 text-sm mt-3">
               Official announcements, business news, and media assets for partners.
@@ -109,52 +109,50 @@ export default function PressView({ lang }: PressViewProps) {
                 <AssetVault />
               </div>
 
-              <div className="max-w-6xl">
+              <div className="max-w-4xl">
                 <DataCheatSheet />
               </div>
             </motion.section>
           )}
         </AnimatePresence>
 
-        {/* 2. CHRONOLOGICAL RELEASE FEED */}
-        <section className="space-y-12">
-          <div className="border-l-2 border-accent/40 pl-4">
-            <h2 className="text-white font-black text-xl md:text-2xl tracking-wider uppercase">
-              Latest Announcements
-            </h2>
-            <p className="text-zinc-500 text-xs mt-1">Chronological official releases and media index.</p>
-          </div>
-
+        {/* Chronological List */}
+        <div className="space-y-8">
           {enReleases.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {enReleases.map((release) => (
-                <article key={release.slug} className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <time className="text-zinc-600 font-mono text-xs block mb-3" dateTime={release.date}>
-                      {release.date}
-                    </time>
-                    <h3 className="text-lg font-bold text-white mb-4 leading-snug hover:text-accent transition-colors">
-                      <a href={`/en/press/${release.slug}`}>{release.title}</a>
-                    </h3>
-                    <p className="text-zinc-500 text-xs leading-relaxed line-clamp-3 mb-6">
-                      {release.body[0]}
-                    </p>
-                  </div>
-                  <a
-                    href={`/en/press/${release.slug}`}
-                    className="text-xs font-bold text-accent hover:underline flex items-center gap-1"
-                  >
-                    View Announcement &rarr;
-                  </a>
-                </article>
-              ))}
-            </div>
+            enReleases.map((release) => (
+              <article key={release.slug} className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-300">
+                <time className="text-zinc-600 font-mono text-xs block mb-3" dateTime={release.date}>
+                  {release.date}
+                </time>
+                
+                <h2 className="text-xl md:text-2xl font-bold text-white mb-3 hover:text-accent transition-colors leading-snug">
+                  <a href={`/en/press/${release.slug}`}>{release.title}</a>
+                </h2>
+
+                {release.subtitle && (
+                  <p className="text-zinc-400 text-sm mb-4 font-medium leading-relaxed">
+                    {release.subtitle}
+                  </p>
+                )}
+
+                <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
+                  {release.intro5W1H || release.body[0]}
+                </p>
+
+                <a
+                  href={`/en/press/${release.slug}`}
+                  className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
+                >
+                  View Announcement &rarr;
+                </a>
+              </article>
+            ))
           ) : (
             <div className="text-zinc-600 text-sm font-mono py-12 text-center border border-dashed border-white/5 rounded-3xl bg-white/[0.005]">
               No active announcements found in English locale.
             </div>
           )}
-        </section>
+        </div>
       </div>
     </section>
   );
