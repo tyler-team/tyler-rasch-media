@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { pressReleases } from "../../../data/pressData";
 import BioMatrix from "../../../components/BioMatrix";
 import DataCheatSheet from "../../../components/DataCheatSheet";
@@ -9,6 +9,7 @@ import AssetVault from "../../../components/AssetVault";
 
 export default function EnPressPage() {
   const [lang, setLang] = useState<"KR" | "EN">("EN");
+  const [showEPK, setShowEPK] = useState(false);
   const enReleases = pressReleases.filter((pr) => pr.lang === "en");
 
   const handleLangToggle = (targetLang: "KR" | "EN") => {
@@ -47,45 +48,65 @@ export default function EnPressPage() {
       </header>
 
       {/* Main Content Container */}
-      <main className="pt-32 pb-32 px-6 md:px-12 max-w-6xl mx-auto space-y-24">
+      <main className="pt-32 pb-32 px-6 md:px-12 max-w-6xl mx-auto space-y-16">
         
         {/* Title Banner */}
-        <div className="border-b border-white/10 pb-8 max-w-4xl">
-          <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Newsroom & EPK</span>
-          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-            English Press Room & EPK
-          </h1>
-          <p className="text-zinc-500 text-sm mt-3">
-            Self-serve assets, operational logistics, and official announcements for journalists and partners.
-          </p>
+        <div className="border-b border-white/10 pb-8 max-w-4xl flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Newsroom & EPK</span>
+            <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+              English Press Room
+            </h1>
+            <p className="text-zinc-500 text-sm mt-3">
+              Official announcements, business news, and media assets for partners.
+            </p>
+          </div>
+
+          <button
+            onClick={() => setShowEPK(!showEPK)}
+            className="px-6 py-3 bg-white/5 border border-white/10 text-white hover:border-accent/30 hover:bg-white/10 rounded-full font-bold text-xs tracking-wider transition-all whitespace-nowrap self-start md:self-end shadow-lg flex items-center gap-2 group cursor-pointer"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:animate-ping" />
+            {showEPK ? "Hide Media Kit / EPK" : "Open Media Kit / EPK"}
+          </button>
         </div>
 
-        {/* 1. THE EVERGREEN MASTER LAYER (Pinned to Top) */}
+        {/* Conditionally Expanded EPK section */}
+        <AnimatePresence>
+          {showEPK && (
+            <motion.section
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-12 border-b border-white/10 pb-16 overflow-hidden"
+            >
+              <div className="border-l-2 border-accent pl-4">
+                <h2 className="text-white font-black text-xl md:text-2xl tracking-wider uppercase">
+                  Media Kit & Electronic Press Kit (EPK)
+                </h2>
+                <p className="text-zinc-500 text-xs mt-1">Self-serve copyable bios, digital assets, and key operations data.</p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <BioMatrix />
+                <AssetVault />
+              </div>
+
+              <div className="max-w-6xl">
+                <DataCheatSheet />
+              </div>
+            </motion.section>
+          )}
+        </AnimatePresence>
+
+        {/* 2. CHRONOLOGICAL RELEASE FEED */}
         <section className="space-y-12">
-          <div className="border-l-2 border-accent pl-4">
-            <h2 className="text-white font-black text-xl md:text-2xl tracking-wider uppercase">
-              Evergreen Master Layer
-            </h2>
-            <p className="text-zinc-500 text-xs">Self-serve operational kits and copyable brand bios.</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <BioMatrix />
-            <AssetVault />
-          </div>
-
-          <div className="max-w-6xl">
-            <DataCheatSheet />
-          </div>
-        </section>
-
-        {/* 2. CHRONOLOGICAL RELEASE FEED (Below Master Layer) */}
-        <section className="space-y-12 pt-12 border-t border-white/10">
           <div className="border-l-2 border-accent/40 pl-4">
             <h2 className="text-white font-black text-xl md:text-2xl tracking-wider uppercase">
-              Corporate Announcements
+              Latest Announcements
             </h2>
-            <p className="text-zinc-500 text-xs">Official chronological announcements index feed.</p>
+            <p className="text-zinc-500 text-xs mt-1">Chronological official releases and media index.</p>
           </div>
 
           {enReleases.length > 0 ? (
