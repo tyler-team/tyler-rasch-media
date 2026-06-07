@@ -64,10 +64,58 @@ export default function EnPressArticleClient({ release }: { release: PressReleas
         </header>
 
         {/* Article content */}
-        <article className="space-y-8 text-zinc-300 text-base leading-relaxed">
-          {release.body.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+        <article className="space-y-6 text-zinc-300 text-base leading-relaxed">
+          {(() => {
+            const aboutIndex = release.body.findIndex((p) => p === "About Tyler Media");
+            if (aboutIndex === -1) {
+              return release.body.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ));
+            }
+
+            const mainContent = release.body.slice(0, aboutIndex);
+            const boilerplateSection = release.body.slice(aboutIndex);
+            
+            // Expected indices in boilerplateSection:
+            // 0: "About Tyler Media"
+            // 1: Body text of About Tyler Media
+            // 2: "Media Contact:"
+            // 3+: Contact info lines
+            const aboutText = boilerplateSection[1] || "";
+            const contactLines = boilerplateSection.slice(3);
+
+            return (
+              <>
+                {mainContent.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+
+                <div className="mt-16 p-8 rounded-3xl bg-white/[0.02] border border-white/5 space-y-8 glass">
+                  <div>
+                    <h4 className="text-accent font-black text-sm uppercase tracking-widest mb-3">
+                      About Tyler Media
+                    </h4>
+                    <p className="text-zinc-400 text-sm leading-relaxed">
+                      {aboutText}
+                    </p>
+                  </div>
+
+                  {contactLines.length > 0 && (
+                    <div className="pt-6 border-t border-white/5">
+                      <h4 className="text-accent font-black text-sm uppercase tracking-widest mb-3">
+                        Media Contact
+                      </h4>
+                      <div className="text-zinc-400 text-sm space-y-1 font-mono">
+                        {contactLines.map((line, idx) => (
+                          <p key={idx}>{line}</p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            );
+          })()}
         </article>
       </main>
     </div>

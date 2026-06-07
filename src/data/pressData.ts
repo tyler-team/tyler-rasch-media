@@ -54,8 +54,13 @@ export const pressReleases: PressRelease[] = [
       "The program addresses structural imbalances within the South Korean digital marketing sector, where large conglomerates and major agencies dictate market visibility. By offering zero-cost PPL within its original video series, Tyler Media lowers the barrier to entry for independent brands and startups that lack substantial marketing budgets. The initiative ensures that all eligible applicants, regardless of final selection for the PPL, receive discounted advertising rates for future campaigns.",
       "To build a sustainable business ecosystem, Tyler Media integrates quarterly networking events for participating companies. Eligibility is strictly limited to independent entities; franchises and subsidiaries of large corporations are excluded. This framework guarantees that media resources are allocated directly to small and medium enterprises (SMEs) that require operational leverage to scale. Applications are accepted on a rolling basis throughout the year, with centralized reviews conducted quarterly.",
       "The current macroeconomic environment, characterized by sustained high interest rates and operational costs, presents high customer acquisition hurdles for emerging brands. Tyler Media's program mitigates these marketing expenses, allowing founders to direct capital toward product development and core operations. Market data indicates that direct media partnerships offering content integration without upfront fees provide critical structural support for startups navigating restrictive funding environments.",
-      "About Tyler Media\nTyler Media is an independent digital media venture based in Seoul, operating the premium knowledge entertainment platform Tylerbolkkayo. The company was founded by entrepreneur and broadcaster Tyler Rasch, a University of Chicago and Seoul National University alumnus recognized for his analysis of geopolitics, macroeconomics, and global cultural trends. Tyler Media produces high-production, data-driven content connecting complex global agendas with localized market insights.",
-      "Media Contact:\nHyunji Lee, lead\nTyler Media PR\npr@tylerrasch.com\ntylerrasch.com"
+      "About Tyler Media",
+      "Tyler Media is an independent digital media venture based in Seoul, operating the premium knowledge entertainment platform Tylerbolkkayo. The company was founded by entrepreneur and broadcaster Tyler Rasch, a University of Chicago and Seoul National University alumnus recognized for his analysis of geopolitics, macroeconomics, and global cultural trends. Tyler Media produces high-production, data-driven content connecting complex global agendas with localized market insights.",
+      "Media Contact:",
+      "Hyunji Lee, lead",
+      "Tyler Media PR",
+      "pr@tylerrasch.com",
+      "tylerrasch.com"
     ]
   }
 ];
