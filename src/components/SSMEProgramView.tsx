@@ -28,7 +28,7 @@ const ShareIcon = () => (
   </svg>
 );
 
-export default function SMEStartupprogramView({ setSelectedVideo }: { setSelectedVideo?: (url: string | null) => void }) {
+export default function SSMEProgramView({ setSelectedVideo }: { setSelectedVideo?: (url: string | null) => void }) {
   // Tabs for Section 7: Required Documents
   const [docTab, setDocTab] = useState<"individual" | "corporate">("individual");
   const [copied, setCopied] = useState(false);
@@ -42,7 +42,7 @@ export default function SMEStartupprogramView({ setSelectedVideo }: { setSelecte
 
   const handleShare = () => {
     if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.origin + "/smestartupprogram");
+      navigator.clipboard.writeText(window.location.origin + "/ssmeprogram");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -78,7 +78,7 @@ export default function SMEStartupprogramView({ setSelectedVideo }: { setSelecte
       <div className="absolute top-1/3 left-[-20%] w-[60%] h-[600px] bg-accent/5 rounded-full blur-[160px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 right-[-20%] w-[60%] h-[600px] bg-accent/5 rounded-full blur-[160px] pointer-events-none z-0" />
 
-      {/* Main Content (Nested inside pl-0 md:pl-64 parent layout main wrapper) */}
+      {/* Main Content */}
       <div className="relative z-10 py-16 md:py-24">
         
         {/* Section 1: Hero Banner */}
@@ -92,7 +92,7 @@ export default function SMEStartupprogramView({ setSelectedVideo }: { setSelecte
             className="max-w-4xl mx-auto flex flex-col items-center"
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-accent font-bold tracking-widest uppercase mb-8">
-              SME & Startup Support Program
+              SSME Program
             </div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight break-keep mb-8">
               타일러 미디어가 귀사의 성장을 응원하며,<br />
@@ -127,7 +127,7 @@ export default function SMEStartupprogramView({ setSelectedVideo }: { setSelecte
               >
                 <img
                   src="https://img.youtube.com/vi/UMwyIpVEGSY/maxresdefault.jpg"
-                  alt="SME Support Program Intro Video"
+                  alt="SSME Program Intro Video"
                   className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 opacity-80"
                 />
                 {/* Play Button Overlay */}
@@ -363,7 +363,7 @@ export default function SMEStartupprogramView({ setSelectedVideo }: { setSelecte
                 
                 <div className="w-full md:w-[45%] bg-white/[0.01] border border-white/5 rounded-2xl p-4 text-xs text-zinc-500">
                   🗓️ 심사 기간: 매 분기 첫 2주간<br />
-                  💡 결과 안내: 선정된 기업에는 이메일과 전화로 상세 협약 사항을 정식 전달해 드립니다.
+                  💡 결과 안내: 결과 통보는 이메일과 전화로 상세 협약 사항을 정식 전달해 드립니다.
                 </div>
               </div>
 
@@ -517,7 +517,7 @@ export default function SMEStartupprogramView({ setSelectedVideo }: { setSelecte
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-5 text-base md:text-lg font-bold text-accent-foreground bg-accent rounded-full hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(0,229,255,0.2)] hover:shadow-[0_0_35px_rgba(0,229,255,0.5)] cursor-pointer"
             >
-              중소기업 및 스타트업 홍보 지원 프로그램 지원서 작성하기
+              SSME 프로그램 홍보 지원서 작성하기
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
