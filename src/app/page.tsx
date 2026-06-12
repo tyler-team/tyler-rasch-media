@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import SMEStartupprogramView from "../components/SMEStartupprogramView";
+import SMEStartupProgramView from "../components/SMEStartupProgramView";
 import PressBlogSection from "../components/PressBlogSection";
 import PressView from "../components/PressView";
 import BlogView from "../components/BlogView";
@@ -25,7 +25,7 @@ type Content = {
     packages: string;
     contact: string;
     careers?: string;
-    smestartupprogram?: string;
+    "sme-startup-program"?: string;
     press?: string;
     blog?: string;
     sticky_cta: string;
@@ -162,7 +162,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       packages: "파트너십",
       contact: "문의하기",
       careers: "채용",
-      smestartupprogram: "SME/스타트업 지원",
+      "sme-startup-program": "SME/스타트업 지원",
       press: "보도자료",
       blog: "블로그 & 에세이",
       sticky_cta: "타일러와 협업하기"
@@ -662,7 +662,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       packages: "Partnership",
       contact: "Inquire",
       careers: "Careers",
-      smestartupprogram: "SME/Startup Program",
+      "sme-startup-program": "SME/Startup Program",
       press: "Press & Media",
       blog: "Blogs & Essays",
       sticky_cta: "Work with Tyler"
@@ -1166,7 +1166,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
 
 // --- COMPONENTS ---
 
-const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog', setView: (v: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog') => void }) => {
+const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog', setView: (v: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog') => void }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = contentData[lang].sidebar;
 
@@ -1233,13 +1233,13 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     {t[item as keyof typeof t]}
                   </a>
                 ))}
-                {t.smestartupprogram && (
+                {t["sme-startup-program"] && (
                   <a
-                    href="/smestartupprogram"
-                    onClick={(e) => { e.preventDefault(); setView('smestartupprogram'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/smestartupprogram'); }}
-                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'smestartupprogram' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
+                    href="/sme-startup-program"
+                    onClick={(e) => { e.preventDefault(); setView('sme-startup-program'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/sme-startup-program'); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'sme-startup-program' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
                   >
-                    {t.smestartupprogram}
+                    {t["sme-startup-program"]}
                   </a>
                 )}
                 {t.blog && (
@@ -1299,14 +1299,14 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
               </a>
             );
           })}
-          {t.smestartupprogram && (
+          {t["sme-startup-program"] && (
             <a
-              href="/smestartupprogram"
-              onClick={(e) => { e.preventDefault(); setView('smestartupprogram'); window.scrollTo(0, 0); window.history.pushState(null, '', '/smestartupprogram'); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'smestartupprogram' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              href="/sme-startup-program"
+              onClick={(e) => { e.preventDefault(); setView('sme-startup-program'); window.scrollTo(0, 0); window.history.pushState(null, '', '/sme-startup-program'); }}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'sme-startup-program' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
             >
-              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'smestartupprogram' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
-              <span>{t.smestartupprogram}</span>
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'sme-startup-program' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
+              <span>{t["sme-startup-program"]}</span>
             </a>
           )}
           {t.blog && (
@@ -1643,7 +1643,7 @@ const SectionBackground = ({ src, y, pos = "object-[center_10%]", mobilePos = "o
   </motion.div>
 );
 
-const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog') => void }) => {
+const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog') => void }) => {
   const [visible, setVisible] = useState(false);
   const { scrollY } = useScroll();
 
@@ -1788,9 +1788,9 @@ const BrandLogoWall = () => {
   );
 };
 
-export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog' }) {
+export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog' }) {
   const [lang, setLang] = useState<'KR' | 'EN'>('KR');
-  const [view, setView] = useState<'home' | 'careers' | 'smestartupprogram' | 'press' | 'blog'>(initialView);
+  const [view, setView] = useState<'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog'>(initialView);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
@@ -2197,9 +2197,9 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
               </div>
             </section>
           )
-        ) : view === 'smestartupprogram' ? (
+        ) : view === 'sme-startup-program' ? (
           /* SME/STARTUP PROGRAM VIEW */
-          <SMEStartupprogramView setSelectedVideo={setSelectedVideo} />
+          <SMEStartupProgramView setSelectedVideo={setSelectedVideo} />
         ) : view === 'press' ? (
           /* EMBEDDED PRESS & MEDIA VIEW */
           <PressView lang={lang} />
