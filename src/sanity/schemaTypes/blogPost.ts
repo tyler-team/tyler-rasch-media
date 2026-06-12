@@ -9,7 +9,7 @@ export const blogPost = defineType({
       name: 'title',
       title: 'Title (Display reference in studio list)',
       type: 'string',
-      description: 'Internal reference title, e.g., SSME Program Guide - PPL',
+      description: 'Internal reference title, e.g., SME Guide - PPL',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
