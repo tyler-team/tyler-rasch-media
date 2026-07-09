@@ -72,8 +72,8 @@ export const epkBios: EPKBios = {
 };
 
 export const operationalMetrics: OperationalMetric[] = [
-  { label: "YouTube Subscribers (Tylerbolkkayo)", value: "790K+", category: "reach" },
-  { label: "Total YouTube Channel Views", value: "63M+", category: "reach" },
+  { label: "YouTube Subscribers (Tylerbolkkayo)", value: "803.5K+", category: "reach" },
+  { label: "Total YouTube Channel Views", value: "99M+", category: "reach" },
   { label: "SME & Startup PR Support Program", value: "Ecosystem integration with partners like D.CAMP", category: "logistics" },
   { label: "Operational HQ", value: "Seoul, South Korea", category: "logistics" },
   { label: "Core Topic Coverage", value: "Global Affairs, Macroeconomics, Tech Security", category: "demographic" },
