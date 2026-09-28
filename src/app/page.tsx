@@ -68,6 +68,7 @@ type Content = {
       synergy_ig_title?: string;
       synergy_ig_stat?: string;
       synergy_ig_target?: string;
+      cross_amplifier?: string;
       tabs: {
         youtube: {
           label: string;
@@ -229,28 +230,29 @@ const contentData: Record<'KR' | 'EN', Content> = {
         synergy_ig_title: "타일러 인스타그램 엔진",
         synergy_ig_stat: "여성 77% · 35-44세 트렌드 리더층",
         synergy_ig_target: "F&B · 뷰티 · 패션 · 리빙 · 감각적 라이프스타일 소비재",
+        cross_amplifier: "타일러 라쉬 공식 인스타그램(@tylerrasch, 여성 77% 중심의 강력한 문화 소비력)과 각 채널별 숏폼 네트워크가 1BWS와 리얼리 타일러의 콘텐츠를 소셜 전반에 크로스 증폭시킵니다.",
         tabs: {
           youtube: {
-            label: "ONE BIG WORLD SHOW (YouTube Core)",
-            tagline: "프리미엄 지적 오디언스 & 의사결정권자",
-            audience_type: "25-54 핵심 경제활동 인구 (6:4 밸런스)",
+            label: "ONE BIG WORLD SHOW",
+            tagline: "지적 오디언스 & 비즈니스 리더십",
+            audience_type: "지적 오디언스 & 비즈니스 리더십",
             gender_label: "Gender: 남성 63% / 여성 37%",
             gender: { male: 63, female: 37 },
-            age_label: "Core Age: 25 - 54세 중심 (60%) / 35 - 64세 리더층 (66.5%)",
+            age_label: "Core Age: 25 - 54세 중심 (60%) / 35 - 64세 확장 (66.5%)",
             age_value: "60%",
-            insight: "가계 소비와 비즈니스 투자를 주도하는 25-54 고소득 전문직 및 핵심 경제활동 인구 (남성 63% · 여성 37%의 탄탄한 균형)로, 금융, 테크, B2B부터 프리미엄 소비재까지 실질적인 구매·투자 의사결정을 주도합니다.",
-            summary: "가계 소비와 비즈니스 투자를 주도하는 25-54 고소득 전문직 및 핵심 경제활동 인구 (남성 63% · 여성 37%의 탄탄한 균형)"
+            insight: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 핵심 경제활동 인구",
+            summary: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 핵심 경제활동 인구"
           },
           instagram: {
-            label: "REALLY TYLER & LIFESTYLE (Instagram & Multi)",
-            tagline: "트렌드 리더 & 라이프스타일 소비층",
-            audience_type: "트렌드 & F&B · 라이프스타일 소비층",
-            gender_label: "Gender: 여성 77% / 남성 23%",
-            gender: { male: 23, female: 77 },
-            age_label: "Core Age: 35 - 44세 (Dominant)",
+            label: "REALLY TYLER",
+            tagline: "라이프스타일, 언어 & 트렌드 소비층",
+            audience_type: "라이프스타일, 언어 & 트렌드 소비층",
+            gender_label: "Gender: 여성 중심 (라이프스타일 소비 타깃)",
+            gender: { male: 30, female: 70 },
+            age_label: "Core Age: 20 - 44세 영프로페셔널 & 트렌드 소비 주도층",
             age_value: "Dominant",
-            insight: "트렌드와 라이프스타일 소비를 주도하는 핵심 연령층으로, 뷰티, 패션, F&B, 리빙 등 비주얼 중심 소비재에 높은 반응률을 보입니다.",
-            summary: "트렌드와 라이프스타일 소비를 주도하는 핵심 소비층"
+            insight: "취향과 문화, 미식과 라이프스타일 트렌드를 선도하는 대중적 소비 주도층",
+            summary: "취향과 문화, 미식과 라이프스타일 트렌드를 선도하는 대중적 소비 주도층"
           }
         }
       },
@@ -361,7 +363,6 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     contact: {
       heading: <>Lead with Authority.<br />Partner with Tyler.</>,
-      intro: "안녕하세요! 타일러 미디어입니다. 타일러의 방송·강연부터 원빅월드쇼(1BWS)와 리얼리 타일러(Really Tyler) 채널 협업까지, 무엇이든 편하게 이야기해 주세요. 함께 의미 있는 프로젝트를 시작해 볼까요?",
       tallyFormId: "A7qA7W"
     },
     careers: {
@@ -756,28 +757,29 @@ const contentData: Record<'KR' | 'EN', Content> = {
         synergy_ig_title: "Tyler Instagram Engine",
         synergy_ig_stat: "Female 77% · Age 35-44 Cultural Trendsetters",
         synergy_ig_target: "F&B, Beauty, Fashion, Living & High-Engagement Lifestyle",
+        cross_amplifier: "Tyler Rasch's official Instagram (@tylerrasch, powerful cultural consumption driven by 77% female audience) and multi-channel short-form networks cross-amplify 1BWS and Really Tyler content across global social media.",
         tabs: {
           youtube: {
-            label: "ONE BIG WORLD SHOW (YouTube Core)",
-            tagline: "Premium Intellectual Core & Decision-Makers",
-            audience_type: "Prime Economic Demographics (6:4 Balance)",
+            label: "ONE BIG WORLD SHOW",
+            tagline: "Global Geopolitics, Macro & Tech IP",
+            audience_type: "Intellectual Audience & Business Leadership",
             gender_label: "Gender: Male 63% / Female 37%",
             gender: { male: 63, female: 37 },
-            age_label: "Core Age: 25 - 54 Prime Core (60%) / 35 - 64 Leaders (66.5%)",
+            age_label: "Core Age: 25 - 54 Core (60%) / 35 - 64 Expansion (66.5%)",
             age_value: "60%",
-            insight: "High-earning decision-makers, executives, and professionals with peak purchasing power.",
-            summary: "High-earning decision-makers, executives, and professionals with peak purchasing power."
+            insight: "Senior decision-makers leading household consumption and corporate investments.",
+            summary: "Senior decision-makers leading household consumption and corporate investments."
           },
           instagram: {
-            label: "REALLY TYLER & LIFESTYLE (Instagram & Multi)",
-            tagline: "Cultural Trendsetters & Lifestyle Drivers",
-            audience_type: "Trend & Lifestyle Drivers",
-            gender_label: "Gender: Female 77% / Male 23%",
-            gender: { male: 23, female: 77 },
-            age_label: "Core Age: 35 - 44 (Dominant)",
+            label: "REALLY TYLER",
+            tagline: "Lifestyle, Language & Cultural IP",
+            audience_type: "Lifestyle, Language & Cultural Trendsetters",
+            gender_label: "Gender: Female-Driven (Lifestyle Consumption Core)",
+            gender: { male: 30, female: 70 },
+            age_label: "Core Age: 20 - 44 Young Professionals & Trendsetters",
             age_value: "Dominant",
-            insight: "Leading trends and lifestyle consumption. High responsiveness to visual-centric goods (Beauty, Fashion, Living).",
-            summary: "A key demographic leading trends and lifestyle consumption."
+            insight: "Trendsetters driving taste, culture, culinary adventures, and modern lifestyle consumption.",
+            summary: "Trendsetters driving taste, culture, culinary adventures, and modern lifestyle consumption."
           }
         }
       },
@@ -888,7 +890,6 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     contact: {
       heading: <>Lead with Authority.<br />Partner with Tyler.</>,
-      intro: "Hello from Tyler Media! Whether you're reaching out for Tyler's global engagements, or exploring strategic media partnerships across 'One Big World Show (1BWS)' and 'Really Tyler', we're excited to collaborate. Let's get started!",
       tallyFormId: process.env.NEXT_PUBLIC_TALLY_FORM_EN || "A7qA7W"
     },
     careers: {
@@ -1582,121 +1583,140 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4 items-stretch">
 
-        {/* YouTube Intelligence */}
-        <div className="lg:col-span-6 glass p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-red-500/30 transition-colors">
-          <div className="absolute top-0 left-0 w-full h-1 bg-[#FF0000]" />
-          <div className="flex justify-between items-center mb-8">
-            <div>
-              {t.platform_demography.tabs.youtube.audience_type && (
-                <div className="mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-red-400 bg-red-500/10 px-2.5 py-0.5 rounded-full border border-red-500/20">
-                    {t.platform_demography.tabs.youtube.audience_type}
-                  </span>
-                </div>
-              )}
-              <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.youtube.label}</h4>
-              <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.youtube.tagline}</p>
-            </div>
-            <div className="scale-125 text-red-500"><SocialIcon name="youtube" /></div>
-          </div>
-
-          {/* Age Group */}
-          <div className="mb-8">
-            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Target Age Demographics</div>
-            <div className="text-xl font-black text-white flex flex-wrap items-center gap-2">
-              <span>{t.platform_demography.tabs.youtube.age_label.split(' / ')[0]}</span>
-              {t.platform_demography.tabs.youtube.age_label.includes(' / ') && (
-                <span className="text-xs font-bold text-red-400 px-2.5 py-0.5 rounded-full bg-red-500/10 border border-red-500/20">
-                  {t.platform_demography.tabs.youtube.age_label.split(' / ')[1]}
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* Gender Bar */}
+        {/* ONE BIG WORLD SHOW (YouTube) */}
+        <div className="lg:col-span-6 glass p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-[#00be61]/40 transition-colors flex flex-col justify-between h-full">
+          <div className="absolute top-0 left-0 w-full h-1 bg-[#00be61]" />
           <div>
-            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Demographics</div>
-            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.gender_label}</div>
-            <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-6 p-0.5">
-              <div
-                className="h-full bg-red-600 rounded-l-full flex items-center justify-center text-[10px] font-black text-white shadow-sm transition-all duration-500"
-                style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}
-              >
-                M {t.platform_demography.tabs.youtube.gender.male}%
+            <div className="flex justify-between items-start mb-8 min-h-[96px]">
+              <div>
+                {t.platform_demography.tabs.youtube.audience_type && (
+                  <div className="mb-2">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#00be61] bg-[#00be61]/10 px-2.5 py-0.5 rounded-full border border-[#00be61]/30">
+                      {t.platform_demography.tabs.youtube.audience_type}
+                    </span>
+                  </div>
+                )}
+                <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.youtube.label}</h4>
+                <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.youtube.tagline}</p>
               </div>
-              <div
-                className="h-full bg-rose-500/80 rounded-r-full flex items-center justify-center text-[10px] font-black text-white transition-all duration-500"
-                style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}
-              >
-                F {t.platform_demography.tabs.youtube.gender.female}%
+              <div className="scale-125 text-[#00be61] pt-1"><SocialIcon name="youtube" /></div>
+            </div>
+
+            {/* Age Group */}
+            <div className="mb-8 min-h-[72px] flex flex-col justify-center">
+              <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Target Age Demographics</div>
+              <div className="text-xl font-black text-white flex flex-wrap items-center gap-2">
+                <span>{t.platform_demography.tabs.youtube.age_label.split(' / ')[0]}</span>
+                {t.platform_demography.tabs.youtube.age_label.includes(' / ') && (
+                  <span className="text-xs font-bold text-[#00be61] px-2.5 py-0.5 rounded-full bg-[#00be61]/10 border border-[#00be61]/30">
+                    {t.platform_demography.tabs.youtube.age_label.split(' / ')[1]}
+                  </span>
+                )}
               </div>
             </div>
-            <div className="border-t border-white/5 pt-4">
-              <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-red-600 pl-4 leading-relaxed break-keep">
-                {t.platform_demography.tabs.youtube.summary}
+
+            {/* Gender Bar */}
+            <div className="mb-6">
+              <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Demographics</div>
+              <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.gender_label}</div>
+              <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-2 p-0.5">
+                <div
+                  className="h-full bg-[#00be61] rounded-l-full flex items-center justify-center text-[10px] font-black text-white shadow-[0_0_10px_rgba(0,190,97,0.4)] transition-all duration-500"
+                  style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}
+                >
+                  M {t.platform_demography.tabs.youtube.gender.male}%
+                </div>
+                <div
+                  className="h-full bg-zinc-800 rounded-r-full flex items-center justify-center text-[10px] font-black text-zinc-300 transition-all duration-500"
+                  style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}
+                >
+                  F {t.platform_demography.tabs.youtube.gender.female}%
+                </div>
               </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/5 pt-4 min-h-[68px] flex items-center">
+            <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-[#00be61] pl-4 leading-relaxed break-keep">
+              {t.platform_demography.tabs.youtube.summary}
             </div>
           </div>
         </div>
 
-        {/* Instagram Intelligence */}
-        <div className="lg:col-span-6 glass p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-pink-500/30 transition-colors">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500" />
-          <div className="flex justify-between items-center mb-8">
-            <div>
-              {t.platform_demography.tabs.instagram.audience_type && (
-                <div className="mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-pink-400 bg-pink-500/10 px-2.5 py-0.5 rounded-full border border-pink-500/20">
-                    {t.platform_demography.tabs.instagram.audience_type}
-                  </span>
-                </div>
-              )}
-              <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.instagram.label}</h4>
-              <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.instagram.tagline}</p>
-            </div>
-            <div className="scale-125 text-pink-500"><SocialIcon name="instagram" /></div>
-          </div>
-
-          {/* Age Group */}
-          <div className="mb-8">
-            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Target Age Demographics</div>
-            <div className="text-xl font-black text-white flex flex-wrap items-center gap-2">
-              <span>{t.platform_demography.tabs.instagram.age_label.split(' / ')[0]}</span>
-              {t.platform_demography.tabs.instagram.age_label.includes(' / ') && (
-                <span className="text-xs font-bold text-pink-400 px-2.5 py-0.5 rounded-full bg-pink-500/10 border border-pink-500/20">
-                  {t.platform_demography.tabs.instagram.age_label.split(' / ')[1]}
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* Gender Bar */}
+        {/* REALLY TYLER (YouTube) */}
+        <div className="lg:col-span-6 glass p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-[#ffc700]/40 transition-colors flex flex-col justify-between h-full">
+          <div className="absolute top-0 left-0 w-full h-1 bg-[#ffc700]" />
           <div>
-            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Distribution</div>
-            <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.instagram.gender_label}</div>
-            <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-6 p-0.5">
-              <div
-                className="h-full bg-zinc-700/80 rounded-l-full flex items-center justify-center text-[10px] font-bold text-zinc-300 transition-all duration-500"
-                style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}
-              >
-                M {t.platform_demography.tabs.instagram.gender.male}%
+            <div className="flex justify-between items-start mb-8 min-h-[96px]">
+              <div>
+                {t.platform_demography.tabs.instagram.audience_type && (
+                  <div className="mb-2">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#ffc700] bg-[#ffc700]/10 px-2.5 py-0.5 rounded-full border border-[#ffc700]/30">
+                      {t.platform_demography.tabs.instagram.audience_type}
+                    </span>
+                  </div>
+                )}
+                <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.instagram.label}</h4>
+                <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.instagram.tagline}</p>
               </div>
-              <div
-                className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-r-full flex items-center justify-center text-[10px] font-black text-white shadow-sm transition-all duration-500"
-                style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}
-              >
-                F {t.platform_demography.tabs.instagram.gender.female}%
+              <div className="scale-125 text-[#ffc700] pt-1"><SocialIcon name="youtube" /></div>
+            </div>
+
+            {/* Age Group */}
+            <div className="mb-8 min-h-[72px] flex flex-col justify-center">
+              <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Target Age Demographics</div>
+              <div className="text-xl font-black text-white flex flex-wrap items-center gap-2">
+                <span>{t.platform_demography.tabs.instagram.age_label.split(' / ')[0]}</span>
+                {t.platform_demography.tabs.instagram.age_label.includes(' / ') && (
+                  <span className="text-xs font-black text-black px-2.5 py-0.5 rounded-full bg-[#ffc700] border border-[#ffc700]/40">
+                    {t.platform_demography.tabs.instagram.age_label.split(' / ')[1]}
+                  </span>
+                )}
               </div>
             </div>
-            <div className="border-t border-white/5 pt-4">
-              <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-pink-500 pl-4 leading-relaxed">
-                {t.platform_demography.tabs.instagram.summary}
+
+            {/* Gender Bar */}
+            <div className="mb-6">
+              <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Distribution</div>
+              <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.instagram.gender_label}</div>
+              <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-2 p-0.5">
+                <div
+                  className="h-full bg-zinc-800 rounded-l-full flex items-center justify-center text-[10px] font-bold text-zinc-300 transition-all duration-500"
+                  style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}
+                >
+                  M {t.platform_demography.tabs.instagram.gender.male}%
+                </div>
+                <div
+                  className="h-full bg-[#ffc700] text-black rounded-r-full flex items-center justify-center text-[10px] font-black shadow-[0_0_10px_rgba(255,199,0,0.4)] transition-all duration-500"
+                  style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}
+                >
+                  F {t.platform_demography.tabs.instagram.gender.female}% (Core)
+                </div>
               </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/5 pt-4 min-h-[68px] flex items-center">
+            <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-[#ffc700] pl-4 leading-relaxed break-keep">
+              {t.platform_demography.tabs.instagram.summary}
             </div>
           </div>
         </div>
+
+        {/* Cross-Platform Demographics Amplifier Banner */}
+        {t.platform_demography.cross_amplifier && (
+          <div className="lg:col-span-12 glass p-6 md:p-7 rounded-2xl border border-white/10 flex flex-col md:flex-row items-center gap-4 bg-gradient-to-r from-[#00be61]/10 via-black/40 to-[#ffc700]/10">
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
+              <span className="text-accent text-xs font-black tracking-widest uppercase">Cross-Platform Amplifier</span>
+            </div>
+            <p className="text-zinc-300 text-xs md:text-sm leading-relaxed break-keep">
+              {t.platform_demography.cross_amplifier}
+            </p>
+          </div>
+        )}
 
       </div>
 
@@ -1707,21 +1727,21 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           <div className="h-[1px] w-20 bg-accent mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto w-full items-stretch">
           {/* Column 1: Tyler Rasch */}
-          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between relative overflow-hidden group">
+          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
             <div className="absolute top-0 left-0 w-full h-1 bg-accent" />
             <div>
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-4 h-6">
                 <span className="text-[10px] font-black uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
                   Personal Official
                 </span>
                 <span className="text-xs text-zinc-500 font-mono">5 Channels</span>
               </div>
-              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6">
+              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
                 {t.ecosystem.personal_title}
               </h4>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {t.ecosystem.platforms.filter(p => p.category === 'personal' || (!p.category && !p.isChannel)).map((p, i) => (
                   <motion.a
                     key={i}
@@ -1754,19 +1774,19 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           </div>
 
           {/* Column 2: One Big World Show */}
-          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#ff7f23]/30 transition-all flex flex-col justify-between relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-[#ff7f23]" />
+          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#00be61]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#00be61]" />
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#ff7f23] bg-[#ff7f23]/10 px-2.5 py-0.5 rounded-full border border-[#ff7f23]/20">
+              <div className="flex items-center justify-between mb-4 h-6">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#00be61] bg-[#00be61]/10 px-2.5 py-0.5 rounded-full border border-[#00be61]/30">
                   Global & Tech IP
                 </span>
                 <span className="text-xs text-zinc-500 font-mono">3 Channels</span>
               </div>
-              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6">
+              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
                 {t.ecosystem.channel_title}
               </h4>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {t.ecosystem.platforms.filter(p => p.category === '1bws' || (!p.category && p.isChannel)).map((p, i) => (
                   <motion.a
                     key={i}
@@ -1774,14 +1794,14 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 4 }}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#ff7f23]/40 transition-all group/item"
+                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#00be61]/40 transition-all group/item"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <span className="text-zinc-400 group-hover/item:text-[#ff7f23] transition-colors scale-110 flex-shrink-0">
+                      <span className="text-zinc-400 group-hover/item:text-[#00be61] transition-colors scale-110 flex-shrink-0">
                         <SocialIcon name={p.icon} />
                       </span>
                       <div className="min-w-0">
-                        <div className="text-xs font-bold text-white group-hover/item:text-[#ff7f23] transition-colors truncate">
+                        <div className="text-xs font-bold text-white group-hover/item:text-[#00be61] transition-colors truncate">
                           {p.name}
                         </div>
                         <div className="text-[10px] text-zinc-500 font-mono truncate">
@@ -1789,7 +1809,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                         </div>
                       </div>
                     </div>
-                    <span className="text-zinc-600 group-hover/item:text-[#ff7f23] transition-colors text-xs ml-2">
+                    <span className="text-zinc-600 group-hover/item:text-[#00be61] transition-colors text-xs ml-2">
                       &rarr;
                     </span>
                   </motion.a>
@@ -1799,19 +1819,19 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           </div>
 
           {/* Column 3: Really Tyler */}
-          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-pink-500/30 transition-all flex flex-col justify-between relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500" />
+          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#ffc700]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#ffc700]" />
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-black uppercase tracking-widest text-pink-400 bg-pink-500/10 px-2.5 py-0.5 rounded-full border border-pink-500/20">
+              <div className="flex items-center justify-between mb-4 h-6">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#ffc700] bg-[#ffc700]/10 px-2.5 py-0.5 rounded-full border border-[#ffc700]/30">
                   Lifestyle & Culture IP
                 </span>
                 <span className="text-xs text-zinc-500 font-mono">2 Channels</span>
               </div>
-              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6">
+              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
                 {t.ecosystem.really_tyler_title || "Really Tyler"}
               </h4>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {t.ecosystem.platforms.filter(p => p.category === 'really_tyler').map((p, i) => (
                   <motion.a
                     key={i}
@@ -1819,14 +1839,14 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 4 }}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-pink-500/40 transition-all group/item"
+                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#ffc700]/40 transition-all group/item"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <span className="text-zinc-400 group-hover/item:text-pink-400 transition-colors scale-110 flex-shrink-0">
+                      <span className="text-zinc-400 group-hover/item:text-[#ffc700] transition-colors scale-110 flex-shrink-0">
                         <SocialIcon name={p.icon} />
                       </span>
                       <div className="min-w-0">
-                        <div className="text-xs font-bold text-white group-hover/item:text-pink-400 transition-colors truncate">
+                        <div className="text-xs font-bold text-white group-hover/item:text-[#ffc700] transition-colors truncate">
                           {p.name}
                         </div>
                         <div className="text-[10px] text-zinc-500 font-mono truncate">
@@ -1834,7 +1854,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                         </div>
                       </div>
                     </div>
-                    <span className="text-zinc-600 group-hover/item:text-pink-400 transition-colors text-xs ml-2">
+                    <span className="text-zinc-600 group-hover/item:text-[#ffc700] transition-colors text-xs ml-2">
                       &rarr;
                     </span>
                   </motion.a>
@@ -1997,110 +2017,116 @@ const OriginalsSection = ({
           onClick={() => setFilter('1bws')}
           className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
             filter === '1bws'
-              ? 'bg-[#ff7f23] text-white shadow-[0_0_20px_rgba(255,127,35,0.3)]'
+              ? 'bg-[#00be61] text-white shadow-[0_0_20px_rgba(0,190,97,0.3)]'
               : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
           }`}
         >
-          <span className="w-2 h-2 rounded-full bg-[#ff7f23]" />
+          <span className="w-2 h-2 rounded-full bg-[#00be61]" />
           <span>{t.filter_1bws || '1BWS (2)'}</span>
         </button>
         <button
           onClick={() => setFilter('really_tyler')}
           className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
             filter === 'really_tyler'
-              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-[0_0_20px_rgba(236,72,153,0.3)]'
+              ? 'bg-[#ffc700] text-black font-black shadow-[0_0_20px_rgba(255,199,0,0.3)]'
               : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
           }`}
         >
-          <span className="w-2 h-2 rounded-full bg-pink-400" />
+          <span className="w-2 h-2 rounded-full bg-[#ffc700]" />
           <span>{t.filter_really_tyler || 'REALLY TYLER (2)'}</span>
         </button>
       </div>
 
       {/* 2x2 Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
         {filteredItems.map((item, i) => (
           <motion.div
             key={item.title}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="glass rounded-3xl border border-white/10 hover:border-accent/40 transition-all flex flex-col justify-between overflow-hidden group relative"
+            className="glass rounded-3xl border border-white/10 hover:border-accent/40 transition-all flex flex-col justify-between overflow-hidden group relative h-full"
           >
             {/* Top Channel Accent Bar */}
             <div
               className={`h-1 w-full ${
                 item.channel === '1bws'
-                  ? 'bg-[#ff7f23]'
-                  : 'bg-gradient-to-r from-purple-500 to-pink-500'
+                  ? 'bg-[#00be61]'
+                  : 'bg-[#ffc700]'
               }`}
             />
 
-            <div className="p-6 md:p-8 flex flex-col flex-1 justify-between gap-6">
-              {/* Thumbnail Container */}
-              <div
-                onClick={() => item.videoUrl && onSelectVideo(item.videoUrl)}
-                className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all shadow-xl cursor-pointer bg-black/50"
-              >
-                <Image
-                  src={item.thumbnail}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  unoptimized={item.thumbnail.startsWith('http')}
-                />
-                <div className="absolute top-4 left-4 z-10">
-                  <span
-                    className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase backdrop-blur-md shadow-md ${
-                      item.channel === '1bws'
-                        ? 'bg-[#ff7f23] text-white border border-[#ff7f23]/40'
-                        : 'bg-gradient-to-r from-purple-600/90 to-pink-600/90 text-white border border-pink-500/30'
-                    }`}
-                  >
-                    {item.channelLabel || (item.channel === '1bws' ? '1BWS' : 'REALLY TYLER')}
-                  </span>
+            <div className="p-6 md:p-8 flex flex-col flex-1 justify-between">
+              <div>
+                {/* Thumbnail Container */}
+                <div
+                  onClick={() => item.videoUrl && onSelectVideo(item.videoUrl)}
+                  className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all shadow-xl cursor-pointer bg-black/50 mb-6"
+                >
+                  <Image
+                    src={item.thumbnail}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    unoptimized={item.thumbnail.startsWith('http')}
+                  />
+                  <div className="absolute top-4 left-4 z-10">
+                    <span
+                      className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase backdrop-blur-md shadow-md ${
+                        item.channel === '1bws'
+                          ? 'bg-[#00be61] text-white border border-[#00be61]/40'
+                          : 'bg-[#ffc700] text-black font-black border border-[#ffc700]/40'
+                      }`}
+                    >
+                      {item.channelLabel || (item.channel === '1bws' ? '1BWS' : 'REALLY TYLER')}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Title & Desc */}
-              <div className="space-y-3">
-                <span className="text-accent text-xs font-bold tracking-[0.25em] uppercase block">
+                {/* Subtitle */}
+                <span className="text-accent text-xs font-bold tracking-[0.25em] uppercase block mb-2 min-h-[1.25rem] flex items-center">
                   {item.subtitle}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-black text-white italic tracking-tight leading-tight">
+
+                {/* Title */}
+                <h3 className="text-2xl md:text-3xl font-black text-white italic tracking-tight leading-tight mb-3 min-h-[2.5rem] md:min-h-[4.25rem] flex items-start">
                   {item.title}
                 </h3>
-                <p className="text-zinc-300 text-sm md:text-base leading-relaxed break-keep">
+
+                {/* Description */}
+                <p className="text-zinc-300 text-sm md:text-base leading-relaxed break-keep min-h-[4.5rem] md:min-h-[5.5rem] mb-6">
                   {item.desc}
                 </p>
               </div>
 
-              {/* Tags */}
-              {item.tags && item.tags.length > 0 && (
-                <div className="pt-4 border-t border-white/5 space-y-2.5">
-                  <div className="flex flex-wrap gap-1.5">
-                    {item.tags.map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/[0.08] border border-white/15 text-zinc-200 font-medium group-hover:border-white/30 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+              <div>
+                {/* Tags */}
+                {item.tags && item.tags.length > 0 && (
+                  <div className="pt-4 border-t border-white/5 mb-4 min-h-[4.25rem] flex items-start">
+                    <div className="flex flex-wrap gap-1.5">
+                      {item.tags.map((tag, tagIdx) => (
+                        <span
+                          key={tagIdx}
+                          className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/[0.08] border border-white/15 text-zinc-200 font-medium group-hover:border-white/30 transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Card Footer Button */}
-              <div
-                onClick={() => item.videoUrl && onSelectVideo(item.videoUrl)}
-                className="pt-2 flex items-center justify-between text-xs font-bold text-zinc-400 group-hover:text-accent cursor-pointer transition-colors"
-              >
-                <span className="tracking-widest uppercase flex items-center gap-2">
-                  <span>Watch Episode</span>
-                  <span>&rarr;</span>
-                </span>
-                <span className="text-zinc-600 group-hover:text-accent transition-colors font-mono">16:9 HD</span>
+                {/* Card Footer Button */}
+                <div
+                  onClick={() => item.videoUrl && onSelectVideo(item.videoUrl)}
+                  className="pt-3 border-t border-white/5 flex items-center justify-between text-xs font-bold text-zinc-400 group-hover:text-accent cursor-pointer transition-colors"
+                >
+                  <span className="tracking-widest uppercase flex items-center gap-2">
+                    <span>Watch Episode</span>
+                    <span>&rarr;</span>
+                  </span>
+                  <span className="text-zinc-600 group-hover:text-accent transition-colors font-mono">16:9 HD</span>
+                </div>
               </div>
             </div>
           </motion.div>
