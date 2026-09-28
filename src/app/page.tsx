@@ -132,6 +132,8 @@ type Content = {
   };
   contact: {
     heading: React.ReactNode;
+    intro: string;
+    tallyFormId?: string;
   };
   careers?: {
     heading: string;
@@ -311,7 +313,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
       ]
     },
     contact: {
-      heading: <>Lead with Authority.<br />Partner with Tyler.</>
+      heading: <>Lead with Authority.<br />Partner with Tyler.</>,
+      intro: "안녕하세요! 타일러 미디어입니다. 타일러의 방송·강연부터 원빅월드쇼(1BWS)와 리얼리 타일러(Really Tyler) 채널 협업까지, 무엇이든 편하게 이야기해 주세요. 함께 의미 있는 프로젝트를 시작해 볼까요?",
+      tallyFormId: "A7qA7W"
     },
     careers: {
       heading: "CAREERS",
@@ -811,7 +815,9 @@ const contentData: Record<'KR' | 'EN', Content> = {
       ]
     },
     contact: {
-      heading: <>Lead with Authority.<br />Partner with Tyler.</>
+      heading: <>Lead with Authority.<br />Partner with Tyler.</>,
+      intro: "Hello from Tyler Media! Whether you're reaching out for Tyler's global engagements, or exploring strategic media partnerships across 'One Big World Show (1BWS)' and 'Really Tyler', we're excited to collaborate. Let's get started!",
+      tallyFormId: process.env.NEXT_PUBLIC_TALLY_FORM_EN || "A7qA7W"
     },
     careers: {
       "heading": "CAREERS",
@@ -1373,9 +1379,9 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
   );
 };
 
-const TallyEmbed = () => {
+const TallyEmbed = ({ lang = 'KR', formId = 'A7qA7W' }: { lang?: 'KR' | 'EN'; formId?: string }) => {
   useEffect(() => {
-    // If Tally widget script has already loaded, re-initialize the embed on mount
+    // If Tally widget script has already loaded, re-initialize the embed on mount or language/form switch
     if (typeof (window as any).Tally !== "undefined") {
       try {
         (window as any).Tally.loadEmbeds();
@@ -1383,18 +1389,21 @@ const TallyEmbed = () => {
         console.error("Failed to load Tally embeds:", err);
       }
     }
-  }, []);
+  }, [lang, formId]);
+
+  const tallyUrl = `https://tally.so/embed/${formId}?alignLeft=1&hideTitle=1&dynamicHeight=1&lang=${lang.toLowerCase()}&locale=${lang.toLowerCase()}`;
 
   return (
     <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white shadow-2xl transition-all duration-500">
       <iframe
-        data-tally-src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1"
-        src="https://tally.so/embed/A7qA7W?alignLeft=1&hideTitle=1&dynamicHeight=1"
+        key={`${formId}-${lang}`}
+        data-tally-src={tallyUrl}
+        src={tallyUrl}
         loading="lazy"
         width="100%"
         height="100%"
         frameBorder="0"
-        title="Tyler Rasch Partnership Inquiry"
+        title={lang === 'EN' ? "Tyler Rasch Partnership Inquiry" : "타일러 라쉬 비즈니스 제휴 문의"}
         className="min-h-[900px] md:min-h-[1100px]"
       ></iframe>
     </div>
@@ -2052,9 +2061,14 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                     <div className="animate-bounce text-accent text-2xl">↓</div>
                   </div>
                   <div className="w-20 h-1 bg-accent/30" />
+                  {t.contact.intro && (
+                    <p className="mt-8 text-lg md:text-xl text-zinc-300 max-w-3xl leading-relaxed break-keep font-medium">
+                      {t.contact.intro}
+                    </p>
+                  )}
                 </div>
 
-                <TallyEmbed />
+                <TallyEmbed lang={lang} formId={t.contact.tallyFormId} />
 
                 <div className="mt-24 pt-12 border-t border-white/5 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
@@ -2073,7 +2087,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                         <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
                       </div>
                     </div>
-                    <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors lowercase">contact@tylerrasch.com</a>
+                    <a href="mailto:request@tylerrasch.com" className="hover:text-white transition-colors lowercase">request@tylerrasch.com</a>
                   </div>
                 </div>
               </div>
@@ -2191,7 +2205,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                         <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
                       </div>
                     </div>
-                    <a href="mailto:contact@tylerrasch.com" className="hover:text-white transition-colors lowercase">contact@tylerrasch.com</a>
+                    <a href="mailto:request@tylerrasch.com" className="hover:text-white transition-colors lowercase">request@tylerrasch.com</a>
                   </div>
                 </div>
               </div>
