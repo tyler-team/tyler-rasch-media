@@ -1708,25 +1708,30 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
         </div>
 
         {/* High-End Tech Visual: Cross-Platform Demographics Amplifier */}
-        <div className="lg:col-span-12 bg-[#161616] p-7 md:p-8 rounded-3xl border-y-2 border-y-[#00be61]/50 border-x border-x-white/5 space-y-6 shadow-2xl relative overflow-hidden">
+        <div className="lg:col-span-12 bg-[#141014] bg-gradient-to-br from-[#833AB4]/10 via-[#161616] to-[#FCAF45]/10 p-7 md:p-8 rounded-3xl border border-white/10 space-y-6 shadow-2xl relative overflow-hidden group">
+          {/* Instagram Signature Top & Bottom Gradient Accent Lines */}
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]" />
+          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]" />
+
           {/* Header Bar */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/5">
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-[#00be61] shadow-[0_0_15px_rgba(0,190,97,0.25)] w-fit">
-              <span className="w-2 h-2 rounded-full bg-[#00be61] animate-pulse" />
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-[#E1306C]/80 shadow-[0_0_15px_rgba(225,48,108,0.25)] w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#E1306C] shadow-[0_0_8px_#E1306C] animate-pulse" />
               <span className="text-white font-mono font-bold text-xs tracking-wider uppercase">[CROSS-PLATFORM AMPLIFIER]</span>
             </div>
-            <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest hidden md:block">
-              Multi-Channel Syndication & Viral Engine
+            <div className="text-[11px] font-mono text-[#E1306C] uppercase tracking-widest hidden md:flex items-center gap-2 font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#833AB4] to-[#FCAF45]" />
+              Instagram Engine & Multi-Channel Syndication
             </div>
           </div>
 
           {/* 3 Horizontal Data Chips */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Chip 1: Official Instagram Real Data */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#00be61]/40 transition-colors">
-              <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-medium mb-1.5 truncate">
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E1306C]/60 hover:bg-white/[0.05] transition-all">
+              <div className="flex items-center gap-1.5 text-xs text-zinc-300 font-medium mb-1.5 truncate">
                 <span>{lang === 'KR' ? '타일러 라쉬 공식 인스타그램' : "Tyler's Official Instagram"}</span>
-                <span className="text-zinc-500">@tyleroninsta</span>
+                <span className="text-[#E1306C] font-semibold">@tyleroninsta</span>
                 <svg className="w-3.5 h-3.5 text-[#3897f0] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                 </svg>
@@ -1737,7 +1742,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
             </div>
 
             {/* Chip 2: Target Power */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#ffc700]/40 transition-colors">
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E1306C]/60 hover:bg-white/[0.05] transition-all">
               <div className="text-xs font-bold text-white mb-1.5 leading-snug">
                 {lang === 'KR' ? 'F 77% 중심의 트렌드·라이프스타일 소비 주도층' : '77% Female Trend & Lifestyle Consumption Core'}
               </div>
@@ -1747,7 +1752,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
             </div>
 
             {/* Chip 3: Multi-Channel Synergy */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#00be61]/40 transition-colors">
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E1306C]/60 hover:bg-white/[0.05] transition-all">
               <div className="text-xs font-bold text-white mb-1.5 leading-snug">
                 {lang === 'KR' ? '1BWS & Really Tyler 숏폼 크로스 바이럴' : '1BWS & Really Tyler Short-Form Cross-Viral'}
               </div>
@@ -1758,7 +1763,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           </div>
 
           {/* Bottom Summary Copy */}
-          <p className="text-zinc-300 text-xs md:text-sm leading-relaxed border-t border-white/5 pt-4 break-keep">
+          <p className="text-zinc-300 text-xs md:text-sm leading-relaxed border-t border-white/10 pt-4 break-keep">
             {lang === 'KR'
               ? "유튜브 롱폼의 지적 담론과 라이프스타일 메시지를 24.6만 공식 인스타그램(@tyleroninsta) 및 멀티 숏폼 네트워크로 크로스 확산하여 브랜드 파급력을 극대화합니다."
               : "Cross-amplifying intellectual discourse and lifestyle narratives from YouTube long-form to 246K+ official Instagram (@tyleroninsta) and multi-platform short-form networks to maximize brand impact."}
