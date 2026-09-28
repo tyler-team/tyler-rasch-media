@@ -14,6 +14,30 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "macro-geopolitics-web3-media-model",
+    date: "2026-06-12",
+    author: "Tyler Rasch",
+    category: { KR: "INSIGHTS", EN: "INSIGHTS" },
+    title: {
+      KR: "[INSIGHTS] 매크로 지정학과 웹3의 결합: 원빅월드쇼가 제시하는 차세대 글로벌 미디어 모델",
+      EN: "[INSIGHTS] Convergence of Macro Geopolitics and Web3: 1BWS's Next-Gen Global Media Model"
+    },
+    excerpt: {
+      KR: "복잡한 글로벌 정세와 디지털 화폐, 기술 패권 경쟁을 대중의 언어로 풀어내는 타일러 미디어의 오리지널 에디토리얼 전략.",
+      EN: "Tyler Media's original editorial strategy translating complex global affairs, digital currency, and technological hegemony into accessible narratives."
+    },
+    body: {
+      KR: [
+        "복잡한 글로벌 정세와 디지털 화폐, 기술 패권 경쟁을 대중의 언어로 풀어내는 타일러 미디어의 오리지널 에디토리얼 전략.",
+        "지정학적 리스크와 글로벌 매크로 경제의 변화는 이제 모든 기업과 개인의 의사결정에 직결되는 상수가 되었습니다. 원빅월드쇼(1BWS)는 기존 미디어의 단편적 보도를 넘어, 거대한 맥락(Macro Context)을 해독하고 인사이트를 도출하는 차세대 미디어 모델을 선도합니다."
+      ],
+      EN: [
+        "Tyler Media's original editorial strategy translating complex global affairs, digital currency, and technological hegemony into accessible narratives.",
+        "Geopolitical risks and macroeconomic tectonic shifts have become non-negotiable variables in enterprise decision-making. 1BWS pioneers an intellectual media paradigm that decodes macro contexts into actionable strategic intelligence."
+      ]
+    }
+  },
+  {
     slug: "tyler-media-sme-program-guide",
     date: "2026-06-01",
     author: "Tyler Media Team",

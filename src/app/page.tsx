@@ -233,19 +233,19 @@ const contentData: Record<'KR' | 'EN', Content> = {
         cross_amplifier: "타일러 라쉬 공식 인스타그램(@tylerrasch, 여성 77% 중심의 강력한 문화 소비력)과 각 채널별 숏폼 네트워크가 1BWS와 리얼리 타일러의 콘텐츠를 소셜 전반에 크로스 증폭시킵니다.",
         tabs: {
           youtube: {
-            label: "ONE BIG WORLD SHOW",
-            tagline: "지적 오디언스 & 비즈니스 리더십",
+            label: "ONE BIG WORLD SHOW (YouTube Core)",
+            tagline: "글로벌 지정학, 매크로 경제 & 테크 인사이트",
             audience_type: "지적 오디언스 & 비즈니스 리더십",
             gender_label: "Gender: 남성 63% / 여성 37%",
             gender: { male: 63, female: 37 },
             age_label: "Core Age: 25 - 54세 중심 (60%) / 35 - 64세 확장 (66.5%)",
             age_value: "60%",
-            insight: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 핵심 경제활동 인구",
-            summary: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 핵심 경제활동 인구"
+            insight: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 25-54 핵심 경제활동 인구",
+            summary: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 25-54 핵심 경제활동 인구"
           },
           instagram: {
-            label: "REALLY TYLER",
-            tagline: "라이프스타일, 언어 & 트렌드 소비층",
+            label: "REALLY TYLER (YouTube & Multi)",
+            tagline: "글로벌 라이프스타일, 언어 마인드셋 & 컬처 큐레이션",
             audience_type: "라이프스타일, 언어 & 트렌드 소비층",
             gender_label: "Gender: 여성 중심 (라이프스타일 소비 타깃)",
             gender: { male: 30, female: 70 },
@@ -320,7 +320,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             desc: "소소한 일상 브이로그부터 요리와 미식 탐방, 새로운 경험과 취향의 발견, 그리고 국내외 여행까지. 타일러의 삶과 다채로운 이야기들을 솔직하고 풍성하게 담아내는 라이프스타일 콘텐츠",
             thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/maxresdefault.jpg",
             videoUrl: "https://youtu.be/n_kYQr50cEE",
-            tags: ["#타일러일상", "#데일리로그", "#라이프스타일", "#미식과요리", "#국내외여행", "#다채로운경험", "#일상생각"]
+            tags: ["#타일러일상", "#데일리로그", "#미식과요리", "#국내외여행", "#라이프스타일"]
           }
         ]
       },
@@ -760,19 +760,19 @@ const contentData: Record<'KR' | 'EN', Content> = {
         cross_amplifier: "Tyler Rasch's official Instagram (@tylerrasch, powerful cultural consumption driven by 77% female audience) and multi-channel short-form networks cross-amplify 1BWS and Really Tyler content across global social media.",
         tabs: {
           youtube: {
-            label: "ONE BIG WORLD SHOW",
-            tagline: "Global Geopolitics, Macro & Tech IP",
+            label: "ONE BIG WORLD SHOW (YouTube Core)",
+            tagline: "Global Geopolitics, Macroeconomics & Tech Insights",
             audience_type: "Intellectual Audience & Business Leadership",
             gender_label: "Gender: Male 63% / Female 37%",
             gender: { male: 63, female: 37 },
             age_label: "Core Age: 25 - 54 Core (60%) / 35 - 64 Expansion (66.5%)",
             age_value: "60%",
-            insight: "Senior decision-makers leading household consumption and corporate investments.",
-            summary: "Senior decision-makers leading household consumption and corporate investments."
+            insight: "Senior decision-makers leading household consumption and corporate investments (Ages 25-54).",
+            summary: "Senior decision-makers leading household consumption and corporate investments (Ages 25-54)."
           },
           instagram: {
-            label: "REALLY TYLER",
-            tagline: "Lifestyle, Language & Cultural IP",
+            label: "REALLY TYLER (YouTube & Multi)",
+            tagline: "Global Lifestyle, Language Mindset & Cultural Curation",
             audience_type: "Lifestyle, Language & Cultural Trendsetters",
             gender_label: "Gender: Female-Driven (Lifestyle Consumption Core)",
             gender: { male: 30, female: 70 },
@@ -847,7 +847,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             desc: "An authentic and multifaceted journey into Tyler's world: spanning daily life vlogs, culinary adventures, personal curiosities, and travel experiences around the globe.",
             thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/maxresdefault.jpg",
             videoUrl: "https://youtu.be/n_kYQr50cEE",
-            tags: ["#DailyLife", "#LifestyleVlog", "#Culinary", "#TravelStories", "#DiverseExperiences", "#PersonalJourney"]
+            tags: ["#DailyLife", "#LifestyleVlog", "#Culinary", "#Travel", "#Lifestyle"]
           }
         ]
       },
@@ -1531,7 +1531,7 @@ const SocialIcon = ({ name }: { name: string }) => {
   return icons[name.toLowerCase()] || <span className="w-5 h-5 bg-white/10 rounded-full" />;
 };
 
-const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string }) => {
+const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], title: string, lang?: 'KR' | 'EN' }) => {
   return (
     <div className="w-full relative z-20 space-y-32">
 
@@ -1551,12 +1551,14 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
             className=" glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center hover:border-accent/30 transition-all group"
           >
             <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-60">{item.tag}</span>
-            <div className="text-5xl font-black text-white mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
+            <div className="text-5xl font-black text-white text-[#ffffff] mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
               {typeof item.val === 'string' ? (
                 item.val.split(/(만|M|K|\+|%)/).map((part, index) =>
                   ['만', 'M', 'K', '+', '%'].includes(part) ? (
-                    <span key={index} className="text-3xl font-bold mx-0.5">{part}</span>
-                  ) : part
+                    <span key={index} className="text-3xl font-bold mx-0.5 text-white text-[#ffffff]">{part}</span>
+                  ) : (
+                    <span key={index} className="text-white text-[#ffffff]">{part}</span>
+                  )
                 )
               ) : item.val}
             </div>
@@ -1653,7 +1655,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
               <div>
                 {t.platform_demography.tabs.instagram.audience_type && (
                   <div className="mb-2">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#ffc700] bg-[#ffc700]/10 px-2.5 py-0.5 rounded-full border border-[#ffc700]/30">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-black bg-[#ffc700] px-2.5 py-0.5 rounded-full border border-[#ffc700]/40 shadow-sm">
                       {t.platform_demography.tabs.instagram.audience_type}
                     </span>
                   </div>
@@ -1692,7 +1694,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   className="h-full bg-[#ffc700] text-black rounded-r-full flex items-center justify-center text-[10px] font-black shadow-[0_0_10px_rgba(255,199,0,0.4)] transition-all duration-500"
                   style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}
                 >
-                  F {t.platform_demography.tabs.instagram.gender.female}% (Core)
+                  F {t.platform_demography.tabs.instagram.gender.female}%
                 </div>
               </div>
             </div>
@@ -1705,18 +1707,63 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           </div>
         </div>
 
-        {/* Cross-Platform Demographics Amplifier Banner */}
-        {t.platform_demography.cross_amplifier && (
-          <div className="lg:col-span-12 glass p-6 md:p-7 rounded-2xl border border-white/10 flex flex-col md:flex-row items-center gap-4 bg-gradient-to-r from-[#00be61]/10 via-black/40 to-[#ffc700]/10">
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
-              <span className="text-accent text-xs font-black tracking-widest uppercase">Cross-Platform Amplifier</span>
+        {/* High-End Tech Visual: Cross-Platform Demographics Amplifier */}
+        <div className="lg:col-span-12 bg-[#161616] p-7 md:p-8 rounded-3xl border-y-2 border-y-[#00be61]/50 border-x border-x-white/5 space-y-6 shadow-2xl relative overflow-hidden">
+          {/* Header Bar */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/5">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-[#00be61] shadow-[0_0_15px_rgba(0,190,97,0.25)] w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#00be61] animate-pulse" />
+              <span className="text-white font-mono font-bold text-xs tracking-wider uppercase">[CROSS-PLATFORM AMPLIFIER]</span>
             </div>
-            <p className="text-zinc-300 text-xs md:text-sm leading-relaxed break-keep">
-              {t.platform_demography.cross_amplifier}
-            </p>
+            <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest hidden md:block">
+              Multi-Channel Syndication & Viral Engine
+            </div>
           </div>
-        )}
+
+          {/* 3 Horizontal Data Chips */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Chip 1: Official Instagram Real Data */}
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#00be61]/40 transition-colors">
+              <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-medium mb-1.5 truncate">
+                <span>{lang === 'KR' ? '타일러 라쉬 공식 인스타그램' : "Tyler's Official Instagram"}</span>
+                <span className="text-zinc-500">@tyleroninsta</span>
+                <svg className="w-3.5 h-3.5 text-[#3897f0] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+              </div>
+              <div className="text-xl font-black text-white tracking-tight">
+                246K+ <span className="text-sm font-bold text-zinc-300">Followers {lang === 'KR' ? '(24.6만+)' : ''}</span>
+              </div>
+            </div>
+
+            {/* Chip 2: Target Power */}
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#ffc700]/40 transition-colors">
+              <div className="text-xs font-bold text-white mb-1.5 leading-snug">
+                {lang === 'KR' ? 'F 77% 중심의 트렌드·라이프스타일 소비 주도층' : '77% Female Trend & Lifestyle Consumption Core'}
+              </div>
+              <div className="text-[11px] text-zinc-400 font-mono">
+                {lang === 'KR' ? '(35-44세 중심 실질적 가계 구매력 코어)' : '(Ages 35-44 Primary Household Purchasing Power)'}
+              </div>
+            </div>
+
+            {/* Chip 3: Multi-Channel Synergy */}
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#00be61]/40 transition-colors">
+              <div className="text-xs font-bold text-white mb-1.5 leading-snug">
+                {lang === 'KR' ? '1BWS & Really Tyler 숏폼 크로스 바이럴' : '1BWS & Really Tyler Short-Form Cross-Viral'}
+              </div>
+              <div className="text-[11px] text-zinc-400 font-mono">
+                {lang === 'KR' ? '(유튜브 Shorts, 인스타그램 Reels, 틱톡 통합 신디케이션)' : '(Integrated Syndication: YouTube Shorts, Reels, TikTok)'}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Summary Copy */}
+          <p className="text-zinc-300 text-xs md:text-sm leading-relaxed border-t border-white/5 pt-4 break-keep">
+            {lang === 'KR'
+              ? "유튜브 롱폼의 지적 담론과 라이프스타일 메시지를 24.6만 공식 인스타그램(@tyleroninsta) 및 멀티 숏폼 네트워크로 크로스 확산하여 브랜드 파급력을 극대화합니다."
+              : "Cross-amplifying intellectual discourse and lifestyle narratives from YouTube long-form to 246K+ official Instagram (@tyleroninsta) and multi-platform short-form networks to maximize brand impact."}
+          </p>
+        </div>
 
       </div>
 
@@ -1776,44 +1823,61 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           {/* Column 2: One Big World Show */}
           <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#00be61]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
             <div className="absolute top-0 left-0 w-full h-1 bg-[#00be61]" />
-            <div>
-              <div className="flex items-center justify-between mb-4 h-6">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#00be61] bg-[#00be61]/10 px-2.5 py-0.5 rounded-full border border-[#00be61]/30">
-                  Global & Tech IP
-                </span>
-                <span className="text-xs text-zinc-500 font-mono">3 Channels</span>
-              </div>
-              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
-                {t.ecosystem.channel_title}
-              </h4>
-              <div className="space-y-2.5">
-                {t.ecosystem.platforms.filter(p => p.category === '1bws' || (!p.category && p.isChannel)).map((p, i) => (
-                  <motion.a
-                    key={i}
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: 4 }}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#00be61]/40 transition-all group/item"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <span className="text-zinc-400 group-hover/item:text-[#00be61] transition-colors scale-110 flex-shrink-0">
-                        <SocialIcon name={p.icon} />
-                      </span>
-                      <div className="min-w-0">
-                        <div className="text-xs font-bold text-white group-hover/item:text-[#00be61] transition-colors truncate">
-                          {p.name}
-                        </div>
-                        <div className="text-[10px] text-zinc-500 font-mono truncate">
-                          {p.handle}
+            <div className="flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center justify-between mb-4 h-6">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-white bg-[#00be61] px-2.5 py-0.5 rounded-full border border-[#00be61]/40 shadow-sm">
+                    Global & Tech IP
+                  </span>
+                  <span className="text-xs text-zinc-500 font-mono">3 Channels</span>
+                </div>
+                <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
+                  {t.ecosystem.channel_title}
+                </h4>
+                <div className="space-y-2.5">
+                  {t.ecosystem.platforms.filter(p => p.category === '1bws' || (!p.category && p.isChannel)).map((p, i) => (
+                    <motion.a
+                      key={i}
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ x: 4 }}
+                      className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#00be61]/40 transition-all group/item"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span className="text-zinc-400 group-hover/item:text-[#00be61] transition-colors scale-110 flex-shrink-0">
+                          <SocialIcon name={p.icon} />
+                        </span>
+                        <div className="min-w-0">
+                          <div className="text-xs font-bold text-white group-hover/item:text-[#00be61] transition-colors truncate">
+                            {p.name}
+                          </div>
+                          <div className="text-[10px] text-zinc-500 font-mono truncate">
+                            {p.handle}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <span className="text-zinc-600 group-hover/item:text-[#00be61] transition-colors text-xs ml-2">
-                      &rarr;
-                    </span>
-                  </motion.a>
-                ))}
+                      <span className="text-zinc-600 group-hover/item:text-[#00be61] transition-colors text-xs ml-2">
+                        &rarr;
+                      </span>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Complementary Focus Block to Balance Height */}
+              <div className="mt-6 pt-5 border-t border-white/5 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00be61]" />
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#00be61] font-bold">
+                    Global IP Focus
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed break-keep">
+                  {lang === 'KR'
+                    ? "지정학, 매크로 경제, 테크 트렌드 심층 분석을 선도하는 지적 미디어 엔진"
+                    : "Intellectual media engine deciphering global geopolitics, macroeconomics, and tech trends."}
+                </p>
               </div>
             </div>
           </div>
@@ -1821,44 +1885,61 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           {/* Column 3: Really Tyler */}
           <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#ffc700]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
             <div className="absolute top-0 left-0 w-full h-1 bg-[#ffc700]" />
-            <div>
-              <div className="flex items-center justify-between mb-4 h-6">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#ffc700] bg-[#ffc700]/10 px-2.5 py-0.5 rounded-full border border-[#ffc700]/30">
-                  Lifestyle & Culture IP
-                </span>
-                <span className="text-xs text-zinc-500 font-mono">2 Channels</span>
-              </div>
-              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
-                {t.ecosystem.really_tyler_title || "Really Tyler"}
-              </h4>
-              <div className="space-y-2.5">
-                {t.ecosystem.platforms.filter(p => p.category === 'really_tyler').map((p, i) => (
-                  <motion.a
-                    key={i}
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: 4 }}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#ffc700]/40 transition-all group/item"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <span className="text-zinc-400 group-hover/item:text-[#ffc700] transition-colors scale-110 flex-shrink-0">
-                        <SocialIcon name={p.icon} />
-                      </span>
-                      <div className="min-w-0">
-                        <div className="text-xs font-bold text-white group-hover/item:text-[#ffc700] transition-colors truncate">
-                          {p.name}
-                        </div>
-                        <div className="text-[10px] text-zinc-500 font-mono truncate">
-                          {p.handle}
+            <div className="flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center justify-between mb-4 h-6">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-black bg-[#ffc700] px-2.5 py-0.5 rounded-full border border-[#ffc700]/40 shadow-sm">
+                    Lifestyle & Culture IP
+                  </span>
+                  <span className="text-xs text-zinc-500 font-mono">2 Channels</span>
+                </div>
+                <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
+                  {t.ecosystem.really_tyler_title || "Really Tyler"}
+                </h4>
+                <div className="space-y-2.5">
+                  {t.ecosystem.platforms.filter(p => p.category === 'really_tyler').map((p, i) => (
+                    <motion.a
+                      key={i}
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ x: 4 }}
+                      className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#ffc700]/40 transition-all group/item"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span className="text-zinc-400 group-hover/item:text-[#ffc700] transition-colors scale-110 flex-shrink-0">
+                          <SocialIcon name={p.icon} />
+                        </span>
+                        <div className="min-w-0">
+                          <div className="text-xs font-bold text-white group-hover/item:text-[#ffc700] transition-colors truncate">
+                            {p.name}
+                          </div>
+                          <div className="text-[10px] text-zinc-500 font-mono truncate">
+                            {p.handle}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <span className="text-zinc-600 group-hover/item:text-[#ffc700] transition-colors text-xs ml-2">
-                      &rarr;
-                    </span>
-                  </motion.a>
-                ))}
+                      <span className="text-zinc-600 group-hover/item:text-[#ffc700] transition-colors text-xs ml-2">
+                        &rarr;
+                      </span>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Complementary Focus Block to Balance Height */}
+              <div className="mt-6 pt-5 border-t border-white/5 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#ffc700]" />
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#ffc700] font-bold">
+                    Lifestyle IP Focus
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed break-keep">
+                  {lang === 'KR'
+                    ? "영어 마인드셋, 미식과 문화 큐레이션으로 트렌드 소비층을 연결하는 라이프스타일 엔진"
+                    : "Lifestyle engine engaging trendsetters through language mindset and cultural curation."}
+                </p>
               </div>
             </div>
           </div>
@@ -2102,12 +2183,12 @@ const OriginalsSection = ({
               <div>
                 {/* Tags */}
                 {item.tags && item.tags.length > 0 && (
-                  <div className="pt-4 border-t border-white/5 mb-4 min-h-[4.25rem] flex items-start">
-                    <div className="flex flex-wrap gap-1.5">
+                  <div className="pt-3.5 border-t border-white/5 mb-4 h-9 flex items-center overflow-hidden">
+                    <div className="flex flex-wrap gap-1.5 items-center">
                       {item.tags.map((tag, tagIdx) => (
                         <span
                           key={tagIdx}
-                          className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/[0.08] border border-white/15 text-zinc-200 font-medium group-hover:border-white/30 transition-colors"
+                          className="text-[10.5px] font-mono px-2 py-0.5 rounded-lg bg-white/[0.08] border border-white/15 text-zinc-200 font-medium group-hover:border-white/30 transition-colors whitespace-nowrap"
                         >
                           {tag}
                         </span>
@@ -2183,12 +2264,24 @@ const BrandLogoWall = () => {
   );
 };
 
-export default function Home({ initialView = 'home' }: { initialView?: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog' }) {
-  const [lang, setLang] = useState<'KR' | 'EN'>('KR');
+export default function Home({
+  initialView = 'home',
+  initialLang = 'KR'
+}: {
+  initialView?: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog';
+  initialLang?: 'KR' | 'EN';
+}) {
+  const [lang, setLang] = useState<'KR' | 'EN'>(initialLang);
   const [view, setView] = useState<'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog'>(initialView);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.pathname.startsWith('/en')) {
+      setLang('EN');
+    }
+  }, []);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -2289,7 +2382,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
               {/* SWITCH: Using tyler_laughing.jpg here */}
               <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} mobilePos="object-[center_10%]" />
               <div className="relative z-10">
-                <ImpactDashboard t={t.dashboard} title={t.sidebar.impact} />
+                <ImpactDashboard t={t.dashboard} title={t.sidebar.impact} lang={lang} />
               </div>
             </section>
 
@@ -2394,7 +2487,7 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
               </div>
             </section>
 
-            <PressBlogSection />
+            <PressBlogSection lang={lang} />
 
             {/* 7. CONTACT */}
             <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
