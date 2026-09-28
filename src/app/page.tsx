@@ -57,10 +57,20 @@ type Content = {
     trust_label: string;
     platform_demography: {
       title: string;
+      synergy_badge?: string;
+      synergy_title?: string;
+      synergy_desc?: string;
+      synergy_yt_title?: string;
+      synergy_yt_stat?: string;
+      synergy_yt_target?: string;
+      synergy_ig_title?: string;
+      synergy_ig_stat?: string;
+      synergy_ig_target?: string;
       tabs: {
         youtube: {
           label: string;
           tagline: string;
+          audience_type?: string;
           gender_label: string;
           gender: { male: number; female: number };
           age_label: string;
@@ -71,6 +81,7 @@ type Content = {
         instagram: {
           label: string;
           tagline: string;
+          audience_type?: string;
           gender_label: string;
           gender: { male: number; female: number };
           age_label: string;
@@ -190,28 +201,39 @@ const contentData: Record<'KR' | 'EN', Content> = {
       label: "REAL-TIME IMPACT",
       views: "9,900만+",
       views_label: "누적 유튜브 조회수",
-      reach: "150만+",
-      reach_label: "월간 평균 도달수",
+      reach: "180만+",
+      reach_label: "월간 누적 도달수",
       engagement: "80만+",
       engagement_label: "채널 구독자 수",
       trust: "TOP 1%",
       trust_label: "브랜드 신뢰도 지수",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
+        synergy_badge: "DUAL ENGINE REACH & SYNERGY",
+        synergy_title: "남성 비즈니스 의사결정권자 × 여성 트렌드 라이프스타일 소비층의 완전한 결합",
+        synergy_desc: "원빅월드쇼 유튜브(남성 73%, 35-64세 핵심 의사결정권자)와 타일러 인스타그램(여성 77%, 35-44세 트렌드 리더)의 상호보완적 결합으로, 비즈니스 리더십부터 고관여 라이프스타일 소비재까지 전 세대와 성별을 아우르는 독보적인 포괄적 미디어 도달력을 완성합니다.",
+        synergy_yt_title: "원빅월드쇼 유튜브 엔진",
+        synergy_yt_stat: "남성 73% · 35-64세 (45-64세 중심 54.1%)",
+        synergy_yt_target: "B2B · 금융 · 테크 · 핵심 비즈니스 의사결정권자",
+        synergy_ig_title: "타일러 인스타그램 엔진",
+        synergy_ig_stat: "여성 77% · 35-44세 중심",
+        synergy_ig_target: "뷰티 · 패션 · 리빙 · 트렌드 라이프스타일 소비층",
         tabs: {
           youtube: {
             label: "YOUTUBE",
             tagline: "지적 의사결정권자",
-            gender_label: "Gender: 남성 53% / 여성 47%",
-            gender: { male: 53, female: 47 },
-            age_label: "Core Age: 25 - 44세 (70%)",
+            audience_type: "B2B & 비즈니스 의사결정권자",
+            gender_label: "Gender: 남성 73% / 여성 27%",
+            gender: { male: 73, female: 27 },
+            age_label: "Core Age: 35 - 64세 (70%) / 45 - 64세 중심 (54.1%)",
             age_value: "70%",
-            insight: "경제 활동이 가장 활발한 '구매 핵심층'으로, 테크, 금융, 자동차 등 고관여 제품군에 즉각 반응합니다.",
-            summary: "경제 활동이 가장 활발한 '구매 핵심층'"
+            insight: "사회·경제적 실권을 쥐고 있는 핵심 의사결정권자 및 고소득 비즈니스 리더층으로, B2B 솔루션, 금융, 프리미엄 소비재 등 고관여 의사결정을 주도합니다.",
+            summary: "사회·경제적 실권을 쥐고 있는 핵심 의사결정권자 및 고소득 비즈니스 리더층"
           },
           instagram: {
             label: "INSTAGRAM",
             tagline: "트렌드 리더",
+            audience_type: "트렌드 & 라이프스타일 소비층",
             gender_label: "Gender: 여성 77% / 남성 23%",
             gender: { male: 23, female: 77 },
             age_label: "Core Age: 35 - 44세 (Dominant)",
@@ -695,28 +717,39 @@ const contentData: Record<'KR' | 'EN', Content> = {
       label: "REAL-TIME IMPACT",
       views: "99M+",
       views_label: "Total YouTube Views",
-      reach: "1.5M+",
-      reach_label: "Avg. Monthly Reach",
+      reach: "1.8M+",
+      reach_label: "Monthly Cumulative Reach",
       engagement: "800K+",
       engagement_label: "YouTube Subscribers",
       trust: "TOP 1%",
       trust_label: "Brand Trust Index",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
+        synergy_badge: "DUAL ENGINE REACH & SYNERGY",
+        synergy_title: "Comprehensive Coverage: Business Leaders (M) × Trend Drivers (F)",
+        synergy_desc: "By uniting 1BWS YouTube (73% Male, 35-64 Senior Decision-Makers) with Tyler's Instagram (77% Female, 35-44 Cultural Drivers), Tyler Media delivers an unprecedented cross-platform reach—connecting both high-income corporate decision-makers and high-engagement lifestyle consumers.",
+        synergy_yt_title: "1BWS YouTube Engine",
+        synergy_yt_stat: "Male 73% · Age 35-64 (45-64 Core 54.1%)",
+        synergy_yt_target: "B2B · Tech · Finance · Senior Decision-Makers",
+        synergy_ig_title: "Tyler Instagram Engine",
+        synergy_ig_stat: "Female 77% · Age 35-44 Dominant",
+        synergy_ig_target: "Beauty · Fashion · Living · Trend & Lifestyle Consumers",
         tabs: {
           youtube: {
             label: "YOUTUBE",
-            tagline: "Intellectual Core",
-            gender_label: "Gender: Male 53% / Female 47%",
-            gender: { male: 53, female: 47 },
-            age_label: "Core Age: 25 - 44 (70%)",
+            tagline: "Intellectual & Decision-Making Core",
+            audience_type: "B2B & Corporate Decision-Makers",
+            gender_label: "Gender: Male 73% / Female 27%",
+            gender: { male: 73, female: 27 },
+            age_label: "Core Age: 35 - 64 (70%) / 45 - 64 Dominant (54.1%)",
             age_value: "70%",
-            insight: "Core purchasing power. Creates immediate reaction to high-involvement products (Tech, Finance, Automotive).",
-            summary: "A core consumer segment with peak economic activity."
+            insight: "Senior decision-makers, executives, and high-income leaders with substantial purchasing power, driving high-involvement B2B, tech, and premium brand decisions.",
+            summary: "Senior decision-makers, executives, and high-income leaders with substantial purchasing power."
           },
           instagram: {
             label: "INSTAGRAM",
             tagline: "Cultural Drivers",
+            audience_type: "Trend & Lifestyle Drivers",
             gender_label: "Gender: Female 77% / Male 23%",
             gender: { male: 23, female: 77 },
             age_label: "Core Age: 35 - 44 (Dominant)",
@@ -1488,8 +1521,8 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
             <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-50">{item.tag}</span>
             <div className="text-5xl font-black text-white mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
               {typeof item.val === 'string' ? (
-                item.val.split(/(만|\+|%)/).map((part, index) =>
-                  ['만', '+', '%'].includes(part) ? (
+                item.val.split(/(만|M|K|\+|%)/).map((part, index) =>
+                  ['만', 'M', 'K', '+', '%'].includes(part) ? (
                     <span key={index} className="text-3xl font-bold mx-0.5">{part}</span>
                   ) : part
                 )
@@ -1516,30 +1549,56 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4">
 
         {/* YouTube Intelligence */}
-        <div className="lg:col-span-6 glass p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
+        <div className="lg:col-span-6 glass p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-red-500/30 transition-colors">
           <div className="absolute top-0 left-0 w-full h-1 bg-[#FF0000]" />
-          <div className="flex justify-between items-center mb-10">
+          <div className="flex justify-between items-center mb-8">
             <div>
+              {t.platform_demography.tabs.youtube.audience_type && (
+                <div className="mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-red-400 bg-red-500/10 px-2.5 py-0.5 rounded-full border border-red-500/20">
+                    {t.platform_demography.tabs.youtube.audience_type}
+                  </span>
+                </div>
+              )}
               <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.youtube.label}</h4>
-              <p className="text-zinc-500 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.youtube.tagline}</p>
+              <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.youtube.tagline}</p>
             </div>
-            <div className="scale-125"><SocialIcon name="youtube" /></div>
+            <div className="scale-125 text-red-500"><SocialIcon name="youtube" /></div>
           </div>
 
-          {/* Age Group only */}
-          <div className="mb-10">
-            <div className="text-xl font-black text-white">{t.platform_demography.tabs.youtube.age_label}</div>
+          {/* Age Group */}
+          <div className="mb-8">
+            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Target Age Demographics</div>
+            <div className="text-xl font-black text-white flex flex-wrap items-center gap-2">
+              <span>{t.platform_demography.tabs.youtube.age_label.split(' / ')[0]}</span>
+              {t.platform_demography.tabs.youtube.age_label.includes(' / ') && (
+                <span className="text-xs font-bold text-red-400 px-2.5 py-0.5 rounded-full bg-red-500/10 border border-red-500/20">
+                  {t.platform_demography.tabs.youtube.age_label.split(' / ')[1]}
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Gender Bar */}
           <div>
+            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Distribution</div>
             <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.gender_label}</div>
-            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex mb-6">
-              <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}>M</div>
-              <div className="h-full bg-red-600 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}>F</div>
+            <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-6 p-0.5">
+              <div
+                className="h-full bg-red-600 rounded-l-full flex items-center justify-center text-[10px] font-black text-white shadow-sm transition-all duration-500"
+                style={{ width: `${t.platform_demography.tabs.youtube.gender.male}%` }}
+              >
+                M {t.platform_demography.tabs.youtube.gender.male}%
+              </div>
+              <div
+                className="h-full bg-zinc-700/80 rounded-r-full flex items-center justify-center text-[10px] font-bold text-zinc-300 transition-all duration-500"
+                style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}
+              >
+                F {t.platform_demography.tabs.youtube.gender.female}%
+              </div>
             </div>
             <div className="border-t border-white/5 pt-4">
-              <div className="text-white text-sm font-bold tracking-wide border-l-2 border-red-600 pl-4">
+              <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-red-600 pl-4 leading-relaxed">
                 {t.platform_demography.tabs.youtube.summary}
               </div>
             </div>
@@ -1547,35 +1606,122 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
         </div>
 
         {/* Instagram Intelligence */}
-        <div className="lg:col-span-6 glass p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-accent/20 transition-colors">
+        <div className="lg:col-span-6 glass p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-pink-500/30 transition-colors">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500" />
-          <div className="flex justify-between items-center mb-10">
+          <div className="flex justify-between items-center mb-8">
             <div>
+              {t.platform_demography.tabs.instagram.audience_type && (
+                <div className="mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-pink-400 bg-pink-500/10 px-2.5 py-0.5 rounded-full border border-pink-500/20">
+                    {t.platform_demography.tabs.instagram.audience_type}
+                  </span>
+                </div>
+              )}
               <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.instagram.label}</h4>
-              <p className="text-zinc-500 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.instagram.tagline}</p>
+              <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.instagram.tagline}</p>
             </div>
-            <div className="scale-125"><SocialIcon name="instagram" /></div>
+            <div className="scale-125 text-pink-500"><SocialIcon name="instagram" /></div>
           </div>
 
-          {/* Age Group only */}
-          <div className="mb-10">
-            <div className="text-xl font-black text-white">{t.platform_demography.tabs.instagram.age_label}</div>
+          {/* Age Group */}
+          <div className="mb-8">
+            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Target Age Demographics</div>
+            <div className="text-xl font-black text-white flex flex-wrap items-center gap-2">
+              <span>{t.platform_demography.tabs.instagram.age_label.split(' / ')[0]}</span>
+              {t.platform_demography.tabs.instagram.age_label.includes(' / ') && (
+                <span className="text-xs font-bold text-pink-400 px-2.5 py-0.5 rounded-full bg-pink-500/10 border border-pink-500/20">
+                  {t.platform_demography.tabs.instagram.age_label.split(' / ')[1]}
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Gender Bar */}
           <div>
+            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Distribution</div>
             <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.instagram.gender_label}</div>
-            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden flex mb-6">
-              <div className="h-full bg-zinc-600 flex items-center justify-center text-[9px] font-bold text-white/50" style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}>M</div>
-              <div className="h-full bg-pink-500 flex items-center justify-center text-[9px] font-bold text-white/90" style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}>F</div>
+            <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-6 p-0.5">
+              <div
+                className="h-full bg-zinc-700/80 rounded-l-full flex items-center justify-center text-[10px] font-bold text-zinc-300 transition-all duration-500"
+                style={{ width: `${t.platform_demography.tabs.instagram.gender.male}%` }}
+              >
+                M {t.platform_demography.tabs.instagram.gender.male}%
+              </div>
+              <div
+                className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-r-full flex items-center justify-center text-[10px] font-black text-white shadow-sm transition-all duration-500"
+                style={{ width: `${t.platform_demography.tabs.instagram.gender.female}%` }}
+              >
+                F {t.platform_demography.tabs.instagram.gender.female}%
+              </div>
             </div>
             <div className="border-t border-white/5 pt-4">
-              <div className="text-white text-sm font-bold tracking-wide border-l-2 border-pink-500 pl-4">
+              <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-pink-500 pl-4 leading-relaxed">
                 {t.platform_demography.tabs.instagram.summary}
               </div>
             </div>
           </div>
         </div>
+
+        {/* Cross-Platform Demographic Synergy Banner */}
+        {t.platform_demography.synergy_title && (
+          <div className="lg:col-span-12 glass p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden bg-gradient-to-br from-red-950/20 via-zinc-950/40 to-pink-950/20 hover:border-white/20 transition-all">
+            <div className="relative z-10 space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <span className="text-accent text-[11px] font-black tracking-[0.25em] uppercase">
+                      {t.platform_demography.synergy_badge}
+                    </span>
+                  </div>
+                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight">
+                    {t.platform_demography.synergy_title}
+                  </h4>
+                </div>
+                <div className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-zinc-300 self-start md:self-auto">
+                  360° Total Audience Coverage
+                </div>
+              </div>
+
+              <p className="text-zinc-300 text-sm md:text-base leading-relaxed max-w-4xl">
+                {t.platform_demography.synergy_desc}
+              </p>
+
+              {/* Visual Contrast Engine Comparison */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                <div className="p-5 rounded-2xl bg-black/40 border border-red-500/20 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-red-600" />
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-black text-red-400 uppercase tracking-wider flex items-center gap-2">
+                      <SocialIcon name="youtube" />
+                      {t.platform_demography.synergy_yt_title}
+                    </span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/10 text-red-300 border border-red-500/20">
+                      M 73% Dominant
+                    </span>
+                  </div>
+                  <div className="text-white text-sm font-bold mb-1">{t.platform_demography.synergy_yt_stat}</div>
+                  <div className="text-xs text-zinc-400">{t.platform_demography.synergy_yt_target}</div>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-black/40 border border-pink-500/20 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-purple-500 to-pink-500" />
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-black text-pink-400 uppercase tracking-wider flex items-center gap-2">
+                      <SocialIcon name="instagram" />
+                      {t.platform_demography.synergy_ig_title}
+                    </span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-pink-500/10 text-pink-300 border border-pink-500/20">
+                      F 77% Dominant
+                    </span>
+                  </div>
+                  <div className="text-white text-sm font-bold mb-1">{t.platform_demography.synergy_ig_stat}</div>
+                  <div className="text-xs text-zinc-400">{t.platform_demography.synergy_ig_target}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* 3. Social Media Ecosystem Grid */}
