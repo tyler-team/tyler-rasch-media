@@ -154,7 +154,7 @@ type Content = {
   };
   contact: {
     heading: React.ReactNode;
-    intro: string;
+    intro?: string;
     tallyFormId?: string;
   };
   careers?: {
@@ -231,7 +231,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         synergy_ig_target: "F&B · 뷰티 · 패션 · 리빙 · 감각적 라이프스타일 소비재",
         tabs: {
           youtube: {
-            label: "YOUTUBE",
+            label: "ONE BIG WORLD SHOW (YouTube Core)",
             tagline: "프리미엄 지적 오디언스 & 의사결정권자",
             audience_type: "25-54 핵심 경제활동 인구 (6:4 밸런스)",
             gender_label: "Gender: 남성 63% / 여성 37%",
@@ -242,7 +242,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             summary: "가계 소비와 비즈니스 투자를 주도하는 25-54 고소득 전문직 및 핵심 경제활동 인구 (남성 63% · 여성 37%의 탄탄한 균형)"
           },
           instagram: {
-            label: "INSTAGRAM",
+            label: "REALLY TYLER & LIFESTYLE (Instagram & Multi)",
             tagline: "트렌드 리더 & 라이프스타일 소비층",
             audience_type: "트렌드 & F&B · 라이프스타일 소비층",
             gender_label: "Gender: 여성 77% / 남성 23%",
@@ -286,7 +286,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "1bws",
             channelLabel: "ONE BIG WORLD SHOW",
             desc: "글로벌 경제, 첨단 테크, 지정학적 패권 경쟁과 국제 이슈의 거대한 판을 읽어내는 타일러의 심층 인사이트",
-            thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/maxresdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=FNkI37iEbt0",
             tags: ["#지정학", "#세계이슈", "#거시경제", "#테크트렌드", "#국제질서", "#미래전망"]
           },
@@ -296,7 +296,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "1bws",
             channelLabel: "ONE BIG WORLD SHOW",
             desc: "멀게만 느껴지는 거대한 글로벌 이슈, 경제, 테크 변화가 우리의 일상과 지갑에 어떤 영향을 미치는지 편안하고 솔직하게 풀어내는 캐주얼 토크",
-            thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/maxresdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=egCLFB75zkM",
             tags: ["#세계이슈", "#일상과경제", "#테크", "#지정학", "#캐주얼토크", "#삶의맥락"]
           },
@@ -306,7 +306,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "really_tyler",
             channelLabel: "REALLY TYLER",
             desc: "단순 암기식 영어를 넘어, 다국어 구사자 타일러가 제안하는 진짜 소통을 위한 언어 접근법과 영어 마인드셋",
-            thumbnail: "https://i.ytimg.com/vi/U2lzr4lgkC8/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/U2lzr4lgkC8/maxresdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=U2lzr4lgkC8",
             tags: ["#외국어공부", "#영어회화", "#다국어", "#언어학습", "#타일러영어", "#소통의기술"]
           },
@@ -316,7 +316,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "really_tyler",
             channelLabel: "REALLY TYLER",
             desc: "소소한 일상 브이로그부터 요리와 미식 탐방, 새로운 경험과 취향의 발견, 그리고 국내외 여행까지. 타일러의 삶과 다채로운 이야기들을 솔직하고 풍성하게 담아내는 라이프스타일 콘텐츠",
-            thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/maxresdefault.jpg",
             videoUrl: "https://youtu.be/n_kYQr50cEE",
             tags: ["#타일러일상", "#데일리로그", "#라이프스타일", "#미식과요리", "#국내외여행", "#다채로운경험", "#일상생각"]
           }
@@ -758,7 +758,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         synergy_ig_target: "F&B, Beauty, Fashion, Living & High-Engagement Lifestyle",
         tabs: {
           youtube: {
-            label: "YOUTUBE",
+            label: "ONE BIG WORLD SHOW (YouTube Core)",
             tagline: "Premium Intellectual Core & Decision-Makers",
             audience_type: "Prime Economic Demographics (6:4 Balance)",
             gender_label: "Gender: Male 63% / Female 37%",
@@ -769,7 +769,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             summary: "High-earning decision-makers, executives, and professionals with peak purchasing power."
           },
           instagram: {
-            label: "INSTAGRAM",
+            label: "REALLY TYLER & LIFESTYLE (Instagram & Multi)",
             tagline: "Cultural Trendsetters & Lifestyle Drivers",
             audience_type: "Trend & Lifestyle Drivers",
             gender_label: "Gender: Female 77% / Male 23%",
@@ -813,7 +813,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "1bws",
             channelLabel: "ONE BIG WORLD SHOW",
             desc: "Deep-dive analytical perspectives by Tyler deciphering the intersection of global affairs, macroeconomics, tech disruption, and shifting geopolitics.",
-            thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/maxresdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=FNkI37iEbt0",
             tags: ["#Geopolitics", "#GlobalIssues", "#MacroEconomics", "#TechTrends", "#WorldOrder", "#FutureOutlook"]
           },
@@ -823,7 +823,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "1bws",
             channelLabel: "ONE BIG WORLD SHOW",
             desc: "Candid, relatable conversations breaking down how massive global shifts, geopolitics, and emerging technologies directly impact our daily lives and personal decisions.",
-            thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/maxresdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=egCLFB75zkM",
             tags: ["#GlobalAffairs", "#EverydayImpact", "#Tech", "#MacroEconomics", "#CasualTalk", "#RealLifeContext"]
           },
@@ -833,7 +833,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "really_tyler",
             channelLabel: "REALLY TYLER",
             desc: "Breaking beyond rote memorization: practical philosophies, English mastery, and cultural communication insights from polyglot Tyler.",
-            thumbnail: "https://i.ytimg.com/vi/U2lzr4lgkC8/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/U2lzr4lgkC8/maxresdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=U2lzr4lgkC8",
             tags: ["#LanguageLearning", "#EnglishSpeaking", "#Polyglot", "#Communication", "#LanguageHacks", "#Mindset"]
           },
@@ -843,7 +843,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             channel: "really_tyler",
             channelLabel: "REALLY TYLER",
             desc: "An authentic and multifaceted journey into Tyler's world: spanning daily life vlogs, culinary adventures, personal curiosities, and travel experiences around the globe.",
-            thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/hqdefault.jpg",
+            thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/maxresdefault.jpg",
             videoUrl: "https://youtu.be/n_kYQr50cEE",
             tags: ["#DailyLife", "#LifestyleVlog", "#Culinary", "#TravelStories", "#DiverseExperiences", "#PersonalJourney"]
           }
@@ -1617,10 +1617,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
 
           {/* Gender Bar */}
           <div>
-            <div className="flex justify-between items-center mb-1.5">
-              <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">Gender Demographics</span>
-              <span className="text-[10px] font-bold text-accent px-2 py-0.5 rounded bg-accent/10 border border-accent/20">6:4 Balanced Ratio</span>
-            </div>
+            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Demographics</div>
             <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.gender_label}</div>
             <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-6 p-0.5">
               <div
@@ -1701,152 +1698,150 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           </div>
         </div>
 
-        {/* Cross-Platform Demographic Synergy Banner */}
-        {t.platform_demography.synergy_title && (
-          <div className="lg:col-span-12 glass p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden bg-gradient-to-br from-red-950/20 via-zinc-950/40 to-pink-950/20 hover:border-white/20 transition-all">
-            <div className="relative z-10 space-y-6">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                    <span className="text-accent text-[11px] font-black tracking-[0.25em] uppercase">
-                      {t.platform_demography.synergy_badge}
-                    </span>
-                  </div>
-                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight">
-                    {t.platform_demography.synergy_title}
-                  </h4>
-                </div>
-                <div className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-zinc-300 self-start md:self-auto">
-                  360° Total Audience Coverage
-                </div>
-              </div>
-
-              <p className="text-zinc-300 text-sm md:text-base leading-relaxed max-w-4xl">
-                {t.platform_demography.synergy_desc}
-              </p>
-
-              {/* Visual Contrast Engine Comparison */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                <div className="p-5 rounded-2xl bg-black/40 border border-red-500/20 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-red-600" />
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-black text-red-400 uppercase tracking-wider flex items-center gap-2">
-                      <SocialIcon name="youtube" />
-                      {t.platform_demography.synergy_yt_title}
-                    </span>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/10 text-red-300 border border-red-500/20">
-                      6:4 Balanced Ratio
-                    </span>
-                  </div>
-                  <div className="text-white text-sm font-bold mb-1">{t.platform_demography.synergy_yt_stat}</div>
-                  <div className="text-xs text-zinc-400">{t.platform_demography.synergy_yt_target}</div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-black/40 border border-pink-500/20 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-purple-500 to-pink-500" />
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-black text-pink-400 uppercase tracking-wider flex items-center gap-2">
-                      <SocialIcon name="instagram" />
-                      {t.platform_demography.synergy_ig_title}
-                    </span>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-pink-500/10 text-pink-300 border border-pink-500/20">
-                      F 77% Dominant
-                    </span>
-                  </div>
-                  <div className="text-white text-sm font-bold mb-1">{t.platform_demography.synergy_ig_stat}</div>
-                  <div className="text-xs text-zinc-400">{t.platform_demography.synergy_ig_target}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
-      {/* 3. Social Media Ecosystem Grid */}
-      <div className="px-4 space-y-12">
+      {/* 3. Social Media Ecosystem (Compact 3-Column Grid) */}
+      <div className="px-4 space-y-10">
         <div className="text-center">
           <h3 className="text-sm font-black text-zinc-500 uppercase tracking-[0.5em] mb-4">SOCIAL MEDIA ECOSYSTEM</h3>
           <div className="h-[1px] w-20 bg-accent mx-auto" />
         </div>
 
-        <div className="flex flex-col items-center gap-24">
-          {/* Personal Group */}
-          <div className="space-y-8 w-full max-w-5xl">
-            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.personal_title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center">
-              {t.ecosystem.platforms.filter(p => p.category === 'personal' || (!p.category && !p.isChannel)).map((p, i) => (
-                <motion.a
-                  key={i}
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="p-4 aspect-square w-full max-w-[160px] glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-2"
-                >
-                  <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
-                    <SocialIcon name={p.icon} />
-                  </div>
-                  <div className="w-full">
-                    <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
-                    <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.handle}</div>
-                  </div>
-                </motion.a>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto w-full">
+          {/* Column 1: Tyler Rasch */}
+          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-accent" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-black uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
+                  Personal Official
+                </span>
+                <span className="text-xs text-zinc-500 font-mono">5 Channels</span>
+              </div>
+              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6">
+                {t.ecosystem.personal_title}
+              </h4>
+              <div className="space-y-2">
+                {t.ecosystem.platforms.filter(p => p.category === 'personal' || (!p.category && !p.isChannel)).map((p, i) => (
+                  <motion.a
+                    key={i}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 4 }}
+                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-accent/30 transition-all group/item"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="text-zinc-400 group-hover/item:text-accent transition-colors scale-110 flex-shrink-0">
+                        <SocialIcon name={p.icon} />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-white group-hover/item:text-accent transition-colors truncate">
+                          {p.name}
+                        </div>
+                        <div className="text-[10px] text-zinc-500 font-mono truncate">
+                          {p.handle}
+                        </div>
+                      </div>
+                    </div>
+                    <span className="text-zinc-600 group-hover/item:text-accent transition-colors text-xs ml-2">
+                      &rarr;
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Channel Brand Group */}
-          <div className="space-y-8 w-full max-w-3xl">
-            <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.channel_title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
-              {t.ecosystem.platforms.filter(p => p.category === '1bws' || (!p.category && p.isChannel)).map((p, i) => (
-                <motion.a
-                  key={i}
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="p-4 aspect-square w-full max-w-[160px] glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-2"
-                >
-                  <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
-                    <SocialIcon name={p.icon} />
-                  </div>
-                  <div className="w-full">
-                    <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
-                    <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.handle}</div>
-                  </div>
-                </motion.a>
-              ))}
+          {/* Column 2: One Big World Show */}
+          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#ff7f23]/30 transition-all flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#ff7f23]" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#ff7f23] bg-[#ff7f23]/10 px-2.5 py-0.5 rounded-full border border-[#ff7f23]/20">
+                  Global & Tech IP
+                </span>
+                <span className="text-xs text-zinc-500 font-mono">3 Channels</span>
+              </div>
+              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6">
+                {t.ecosystem.channel_title}
+              </h4>
+              <div className="space-y-2">
+                {t.ecosystem.platforms.filter(p => p.category === '1bws' || (!p.category && p.isChannel)).map((p, i) => (
+                  <motion.a
+                    key={i}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 4 }}
+                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#ff7f23]/40 transition-all group/item"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="text-zinc-400 group-hover/item:text-[#ff7f23] transition-colors scale-110 flex-shrink-0">
+                        <SocialIcon name={p.icon} />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-white group-hover/item:text-[#ff7f23] transition-colors truncate">
+                          {p.name}
+                        </div>
+                        <div className="text-[10px] text-zinc-500 font-mono truncate">
+                          {p.handle}
+                        </div>
+                      </div>
+                    </div>
+                    <span className="text-zinc-600 group-hover/item:text-[#ff7f23] transition-colors text-xs ml-2">
+                      &rarr;
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Really Tyler Group */}
-          {t.ecosystem.really_tyler_title && (
-            <div className="space-y-8 w-full max-w-xl">
-              <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.really_tyler_title}</h4>
-              <div className="grid grid-cols-2 gap-4 justify-items-center">
+          {/* Column 3: Really Tyler */}
+          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-pink-500/30 transition-all flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-black uppercase tracking-widest text-pink-400 bg-pink-500/10 px-2.5 py-0.5 rounded-full border border-pink-500/20">
+                  Lifestyle & Culture IP
+                </span>
+                <span className="text-xs text-zinc-500 font-mono">2 Channels</span>
+              </div>
+              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6">
+                {t.ecosystem.really_tyler_title || "Really Tyler"}
+              </h4>
+              <div className="space-y-2">
                 {t.ecosystem.platforms.filter(p => p.category === 'really_tyler').map((p, i) => (
                   <motion.a
                     key={i}
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -5 }}
-                    className="p-4 aspect-square w-full max-w-[160px] glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-2"
+                    whileHover={{ x: 4 }}
+                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-pink-500/40 transition-all group/item"
                   >
-                    <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
-                      <SocialIcon name={p.icon} />
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="text-zinc-400 group-hover/item:text-pink-400 transition-colors scale-110 flex-shrink-0">
+                        <SocialIcon name={p.icon} />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-white group-hover/item:text-pink-400 transition-colors truncate">
+                          {p.name}
+                        </div>
+                        <div className="text-[10px] text-zinc-500 font-mono truncate">
+                          {p.handle}
+                        </div>
+                      </div>
                     </div>
-                    <div className="w-full">
-                      <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
-                      <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.handle}</div>
-                    </div>
+                    <span className="text-zinc-600 group-hover/item:text-pink-400 transition-colors text-xs ml-2">
+                      &rarr;
+                    </span>
                   </motion.a>
                 ))}
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
@@ -2002,11 +1997,11 @@ const OriginalsSection = ({
           onClick={() => setFilter('1bws')}
           className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
             filter === '1bws'
-              ? 'bg-red-600 text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]'
+              ? 'bg-[#ff7f23] text-white shadow-[0_0_20px_rgba(255,127,35,0.3)]'
               : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
           }`}
         >
-          <span className="w-2 h-2 rounded-full bg-red-400" />
+          <span className="w-2 h-2 rounded-full bg-[#ff7f23]" />
           <span>{t.filter_1bws || '1BWS (2)'}</span>
         </button>
         <button
@@ -2036,7 +2031,7 @@ const OriginalsSection = ({
             <div
               className={`h-1 w-full ${
                 item.channel === '1bws'
-                  ? 'bg-red-600'
+                  ? 'bg-[#ff7f23]'
                   : 'bg-gradient-to-r from-purple-500 to-pink-500'
               }`}
             />
@@ -2058,18 +2053,12 @@ const OriginalsSection = ({
                   <span
                     className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase backdrop-blur-md shadow-md ${
                       item.channel === '1bws'
-                        ? 'bg-red-600/90 text-white border border-red-500/30'
+                        ? 'bg-[#ff7f23] text-white border border-[#ff7f23]/40'
                         : 'bg-gradient-to-r from-purple-600/90 to-pink-600/90 text-white border border-pink-500/30'
                     }`}
                   >
                     {item.channelLabel || (item.channel === '1bws' ? '1BWS' : 'REALLY TYLER')}
                   </span>
-                </div>
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                  <span className="w-12 h-12 rounded-full bg-accent/90 text-black flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform">
-                    ▶
-                  </span>
-                  <span className="text-white font-bold text-xs tracking-wider uppercase">WATCH PREVIEW</span>
                 </div>
               </div>
 
@@ -2093,7 +2082,7 @@ const OriginalsSection = ({
                     {item.tags.map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
-                        className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-zinc-300 group-hover:border-white/20 transition-colors"
+                        className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/[0.08] border border-white/15 text-zinc-200 font-medium group-hover:border-white/30 transition-colors"
                       >
                         {tag}
                       </span>
@@ -2392,11 +2381,6 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
                     <div className="animate-bounce text-accent text-2xl">↓</div>
                   </div>
                   <div className="w-20 h-1 bg-accent/30" />
-                  {t.contact.intro && (
-                    <p className="mt-8 text-lg md:text-xl text-zinc-300 max-w-3xl leading-relaxed break-keep font-medium">
-                      {t.contact.intro}
-                    </p>
-                  )}
                 </div>
 
                 <TallyEmbed lang={lang} formId={t.contact.tallyFormId} />
