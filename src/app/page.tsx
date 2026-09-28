@@ -336,26 +336,26 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "파트너십 패키지",
-      subheading: "브랜드의 격을 높이는 전략적 솔루션",
+      heading: "엔터프라이즈 미디어 솔루션",
+      subheading: "대기업 및 글로벌 엔터프라이즈를 위한 전략적 미디어 솔루션",
       items: [
         {
-          title: "브랜디드 콘텐츠 (프리미엄)",
-          subtitle: "Signature Storytelling Content",
-          desc: "단순 광고가 아닌, 하나의 완성된 지적 콘텐츠",
-          detail: "10분 내외의 본편 영상을 통해 브랜드의 핵심 메시지를 타일러의 시각으로 깊이 있게 분석하고 전달합니다. 시청자가 자발적으로 찾아보고 공유하는 고품격 스토리텔링을 제공합니다."
+          title: "브랜디드 콘텐츠",
+          subtitle: "Branded Series & Editorial Specials",
+          desc: "브랜드 철학과 기술적 가치를 타일러 미디어의 지적 서사로 재해석하는 단독 기획 영상 및 현장 로케이션 다큐멘터리 포맷",
+          detail: "단순 광고를 넘어 하나의 완성된 프리미엄 지적 IP로 제작됩니다. 10~15분 내외의 본편 영상을 통해 기업의 핵심 기술, 철학, 지속가능성 비전을 타일러의 깊이 있는 시각으로 풀어내며 시청자가 자발적으로 몰입하고 신뢰하는 고품격 서사를 전달합니다."
         },
         {
-          title: "PPL (Product Placement)",
-          subtitle: "자연스러운 노출 (Seamless Integration)",
-          desc: "콘텐츠의 흐름을 방해하지 않는 최적화된 브랜드 노출",
-          detail: "콘텐츠의 흐름을 방해하지 않는 최적화된 위치에 광고를 배치합니다. 시청자의 몰입을 유지하면서도, 필요한 순간에 브랜드가 자연스럽게 노출되어 광고 피로도를 최소화합니다. (약 90초 내외 노출)"
+          title: "C-Suite & 글로벌 리더십 대담",
+          subtitle: "Thought Leadership Dialogue",
+          desc: "글로벌 기업 CEO, 창업가, 오피니언 리더와의 1:1 인터뷰 및 어젠다 세팅. 바이링구얼 모더레이팅을 통한 국내외 공신력 확보",
+          detail: "한국어와 영어를 자유자재로 구사하는 타일러의 바이링구얼 모더레이팅을 통해 국내외 최고 수준의 공신력과 품격을 보장합니다. 글로벌 거시 트렌드, 산업 혁신, 비즈니스 철학을 심도 있게 조명하여 리더십의 전문성과 브랜드 권위를 극대화합니다."
         },
         {
-          title: "SNS & 숏폼",
-          subtitle: "Viral Impact",
-          desc: "즉각적인 확산과 도달을 위한 숏폼 전략",
-          detail: "인스타그램 릴스와 유튜브 쇼츠를 통해 핵심 메시지를 강렬하게 전달합니다. 2544 핵심 타겟층에게 빠르고 감각적으로 소구하는 고효율 바이럴 솔루션입니다."
+          title: "멀티플랫폼 신디케이션 & 숏폼",
+          subtitle: "Multi-Platform Syndication",
+          desc: "유튜브 롱폼과 더불어 Shorts, Instagram Reels, TikTok을 아우르는 숏폼 자동화 확산 패키지",
+          detail: "본편의 핵심 인사이트를 숏폼 문법에 최적화하여 유튜브 Shorts, 인스타그램 Reels, 틱톡 채널로 동시 확산합니다. 25-54 핵심 경제활동 인구와 트렌드 소비층에게 높은 빈도와 강렬한 흡인력으로 다가가는 크로스플랫폼 바이럴 솔루션입니다."
         }
       ]
     },
@@ -722,7 +722,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
       subtitle: "The Intellectual Icon • Modern Media Authority",
-      description: "Tyler Rasch is more than a broadcaster. He is Korea's most trusted foreign intellectual—a unique media solution that imbues your brand message with undeniable authority and depth.",
+      description: "Bridging Global Perspectives and Korean Culture. Tyler Media delivers intellectual authority, high-impact storytelling, and multi-platform reach for world-class brands.",
       cta: "Inquire Now",
       media_kit_cta: "Download Media Kit"
     },
@@ -765,8 +765,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
             gender: { male: 63, female: 37 },
             age_label: "Core Age: 25 - 54 Prime Core (60%) / 35 - 64 Leaders (66.5%)",
             age_value: "60%",
-            insight: "Prime economic demographics leading household spending and corporate decisions (Balanced 63% Male / 37% Female distribution).",
-            summary: "Prime economic demographics leading household spending and corporate decisions (Balanced 63% Male / 37% Female distribution)."
+            insight: "High-earning decision-makers, executives, and professionals with peak purchasing power.",
+            summary: "High-earning decision-makers, executives, and professionals with peak purchasing power."
           },
           instagram: {
             label: "INSTAGRAM",
@@ -863,26 +863,26 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "PARTNERSHIP",
-      subheading: "Strategic Integration for Industry Leaders",
+      heading: "ENTERPRISE MEDIA SOLUTIONS",
+      subheading: "Strategic Media Solutions for Global Enterprises & Industry Leaders",
       items: [
         {
-          title: "Branded Contents (Premium)",
-          subtitle: "Signature Storytelling Content",
-          desc: "Not an Ad, but Intellectual Property.",
-          detail: "A dedicated ~10m episode where Tyler deconstructs your brand message through his analytical lens. We create content that viewers actively seek out, ensuring deep engagement and high retention."
+          title: "Branded Series & Editorial Specials",
+          subtitle: "Bespoke Intellectual Storytelling",
+          desc: "Custom planned long-form series and on-location documentary formats interpreting brand philosophy and technological innovation through Tyler Media's analytical narrative.",
+          detail: "Crafted not merely as advertising, but as enduring, authoritative intellectual property. Through ~10-15 minute flagship episodes, Tyler deconstructs corporate mission, breakthrough technologies, and sustainability visions into compelling stories that global audiences actively seek out and deeply trust."
         },
         {
-          title: "PPL (Product Placement)",
-          subtitle: "Seamless Integration",
-          desc: "Strategic Exposure that respects the viewer’s focus",
-          detail: "Seamless Integration that respects the viewer’s focus. By placing your brand within high-engagement segments, we minimize ad fatigue while maintaining maximum impact. (~90s exposure)"
+          title: "C-Suite & Thought Leadership Dialogue",
+          subtitle: "Bilingual Agenda-Setting & Interviews",
+          desc: "1:1 high-level interviews and strategic agenda-setting with global CEOs, visionary founders, and industry opinion leaders with bilingual moderating.",
+          detail: "Conducted seamlessly in both English and Korean by Tyler, ensuring international prestige, editorial depth, and cross-border credibility. We spotlight macroeconomic shifts, industry-defining innovations, and corporate leadership philosophy, establishing your executive voice as a global authority."
         },
         {
-          title: "Social Network & Short-Form",
-          subtitle: "Viral Impact",
-          desc: "High-Frequency Visual Communication",
-          detail: "Leveraging Instagram Reels and YouTube Shorts for immediate viral reach. Targeting the 25-44 demographic with punchy, visually sophisticated narratives."
+          title: "High-Impact Multi-Platform Syndication (Shorts, Reels, TikTok)",
+          subtitle: "Multi-Platform Syndication",
+          desc: "Omnichannel short-form syndication package amplifying key narratives across YouTube Shorts, Instagram Reels, and TikTok.",
+          detail: "Translates core insights and brand moments from long-form content into high-velocity short-form assets optimized for algorithmic resonance. Maximizes cross-platform frequency and virality across the 25-54 demographic and lifestyle trendsetters with unmatched visual and intellectual engagement."
         }
       ]
     },
