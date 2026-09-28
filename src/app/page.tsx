@@ -147,10 +147,14 @@ type Content = {
     heading: string;
     subheading: string;
     guide?: string;
+    includesLabel?: string;
+    recommendedLabel?: string;
     items: {
       title: string;
       subtitle: string;
       desc: React.ReactNode;
+      includes?: string;
+      recommendedFor?: string;
       detail?: string;
       tags?: string[];
     }[];
@@ -340,27 +344,35 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "브랜드 파트너십 솔루션 (BRAND PARTNERSHIP SOLUTIONS)",
-      subheading: "글로벌 엔터프라이즈부터 혁신 브랜드까지, 캠페인 목적과 규모에 최적화된 전략적 미디어 파트너십",
+      heading: "파트너십 솔루션 (PARTNERSHIP SOLUTIONS)",
+      subheading: "단순 노출을 넘어선 설득과 전환. 브랜드의 마케팅·PR 목표에 최적화된 협업 방식을 제안합니다.",
       guide: "캠페인 일정 및 마케팅 목표에 맞춘 포맷별 번들링(단독 기획, 팟캐스트 호스트 리드, 에피소드 분할 집행 등)이 가능합니다. 프로젝트의 목적에 맞는 최적의 파트너십 구조를 제안해 드립니다.",
+      includesLabel: "포함 구성",
+      recommendedLabel: "추천 목적",
       items: [
         {
-          title: "브랜디드 스토리텔링 (Branded Storytelling)",
-          subtitle: "BRANDED SERIES & EDITORIAL SPECIALS",
-          desc: "단순 노출을 넘어 브랜드의 핵심 철학, 기술, 미래 비전을 타일러 미디어의 지적 서사로 완성하는 단독 기획 콘텐츠입니다. 10~15분 내외의 에디토리얼 전체가 브랜드의 아젠다를 깊이 있게 조명하여, 높은 시청 지속시간과 신뢰를 바탕으로 오디언스를 설득합니다.",
-          tags: ["브랜드 아젠다 세팅", "신제품/서비스 런칭", "기업 철학 브랜딩"]
+          title: "브랜디드 스토리텔링",
+          subtitle: "BRANDED SERIES & SPECIALS",
+          desc: "설명이 필요한 복잡한 기술, 브랜드의 진짜 가치와 기업 비전을 타일러의 언어로 쉽고 명확하게 풀어냅니다.\n10~15분 본편 전체가 브랜드의 핵심 아젠다를 깊이 있게 조명하여, 신제품 런칭은 물론 기업 홍보(PR)와 IR 브랜딩에서 높은 신뢰와 오디언스 몰입을 이끌어냅니다.",
+          includes: "본편 1편 단독 기획 + 쇼츠(Shorts) 재가공 클립 번들 + 커뮤니티 홍보 탭 포스팅 지원",
+          recommendedFor: "기업 홍보 및 IR/PR, 신제품/신기술 런칭, B2B·테크 솔루션, 브랜드 철학 전달",
+          tags: ["기업홍보및IR", "신제품신기술런칭", "B2B테크솔루션"]
         },
         {
-          title: "맥락형 PPL & 스폰서십 (Contextual Placement & Sponsorship)",
-          subtitle: "SEAMLESS INTEGRATION & SPONSORSHIP",
-          desc: "콘텐츠의 자연스러운 대화 맥락 속에 브랜드의 가치를 직관적이고 설득력 있게 녹여내는 네이티브 PPL 포맷입니다. 토크의 몰입을 방해하지 않는 브레이크 구간 집중 소구와 실물 노출을 통해, 명확한 메시지 전달과 실질적인 클릭 전환을 이끌어냅니다.",
-          tags: ["제품/앱 서비스 소구", "스마트 PPL", "명확한 타깃 전환"]
+          title: "맥락형 PPL & 스폰서십",
+          subtitle: "SEAMLESS PPL & SPONSORSHIP",
+          desc: "광고의 거부감을 없애고, 콘텐츠의 대화 흐름 속에 제품을 가장 자연스럽게 녹여냅니다.\n타일러의 공신력 있는 구두 추천과 스튜디오 실물 노출, 고정 댓글 링크를 통해 실질적인 유입과 구매 전환을 만듭니다.",
+          includes: "30~90초 호스트 리드 세그먼트 + 스튜디오 실물 노출 + 유튜브 타임라인 챕터 표기 & 고정 댓글 공식 링크",
+          recommendedFor: "앱 서비스 및 플랫폼, 라이프스타일/F&B 소비재, 프로모션 링크 유입",
+          tags: ["제품앱서비스", "타깃클릭전환", "합리적스폰서십"]
         },
         {
-          title: "리더십 대담 & 멀티플랫폼 확산 (Leadership Dialogue & Syndication)",
-          subtitle: "THOUGHT LEADERSHIP & CROSS-PLATFORM VIRAL",
-          desc: "글로벌 리더, 테크 창업가, C-Suite와의 심층 1:1 대담부터 숏폼 옴니채널 바이럴까지 결합한 종합 솔루션입니다. 바이링구얼 모더레이팅을 통한 국내외 공신력 확보는 물론, 유튜브 롱폼의 임팩트를 인스타그램 Reels, 유튜브 Shorts, TikTok으로 크로스 확장하여 파급력을 극대화합니다.",
-          tags: ["C-Suite/리더십 인터뷰", "글로벌 파트너십", "숏폼 옴니채널 신디케이션"]
+          title: "스페셜 인터뷰 & 멀티 확산",
+          subtitle: "SPECIAL INTERVIEW & VIRAL",
+          desc: "글로벌 기업가부터 세계적인 베스트셀러 작가, 저널리스트, 오피니언 리더, 크리에이터, 셀럽과의 1:1 심층 대담을 진행합니다.\n한국어·영어 바이링구얼 모더레이팅으로 인터뷰이와 브랜드의 공신력을 극대화하고, 핵심 하이라이트를 릴스·쇼츠·틱톡으로 크로스 바이럴합니다.",
+          includes: "1:1 바이링구얼 대담 본편 + 유튜브 Shorts · 인스타 Reels · 틱톡 멀티플랫폼 숏폼 확산",
+          recommendedFor: "글로벌 명사/셀럽 협업, 브랜드 아젠다 선점, CEO/인물 브랜딩, 숏폼 도달 극대화",
+          tags: ["글로벌명사인터뷰", "바이링구얼대담", "숏폼옴니채널"]
         }
       ]
     },
@@ -868,27 +880,35 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "BRAND PARTNERSHIP SOLUTIONS",
-      subheading: "Strategic media partnerships tailored to campaign objectives and scale—from global enterprises to high-growth brands.",
+      heading: "PARTNERSHIP SOLUTIONS",
+      subheading: "Beyond mere exposure—driving persuasion and conversion. Strategic collaboration tailored to your marketing & PR objectives.",
       guide: "Custom bundling (bespoke editorial specials, podcast host lead-ins, split episode campaigns, etc.) is fully available based on campaign timelines and marketing objectives. We design the optimal partnership architecture tailored to your strategic goals.",
+      includesLabel: "Includes",
+      recommendedLabel: "Recommended For",
       items: [
         {
           title: "Branded Storytelling",
-          subtitle: "BRANDED SERIES & EDITORIAL SPECIALS",
-          desc: "Custom-planned editorial series and bespoke documentary formats that translate core philosophy, technology, and future vision into compelling intellectual narratives. Dedicated 10–15 minute features deep-dive into brand agendas, driving high watch time and lasting audience trust.",
-          tags: ["Brand Agenda Setting", "Product & Service Launch", "Corporate Mission & ESG"]
+          subtitle: "BRANDED SERIES & SPECIALS",
+          desc: "Deconstructing complex technologies, true brand value, and corporate vision into clear, compelling narratives in Tyler's voice.\nDedicated 10–15 minute flagship episodes spotlight brand agendas in depth, driving authoritative trust and deep audience engagement for product launches, corporate PR, and IR branding.",
+          includes: "1 Dedicated Flagship Episode + Repurposed Shorts Clips Bundle + YouTube Community Tab Promotion",
+          recommendedFor: "Corporate PR & IR, New Product/Tech Launches, B2B & Tech Solutions, Brand Philosophy",
+          tags: ["CorporatePR_IR", "ProductLaunch", "B2BTechSolutions"]
         },
         {
-          title: "Contextual Placement & Sponsorship",
-          subtitle: "SEAMLESS INTEGRATION & SPONSORSHIP",
-          desc: "Native product integration that weaves brand value organically into natural conversational contexts. Through focused mid-roll callouts and live product demonstrations that preserve narrative immersion, we deliver clear messaging and high-intent audience conversion.",
-          tags: ["Product & App Discovery", "Smart PPL Integration", "Direct Target Conversion"]
+          title: "Seamless PPL & Sponsorship",
+          subtitle: "SEAMLESS PPL & SPONSORSHIP",
+          desc: "Eliminating ad friction by naturally integrating your product into the conversational flow of the episode.\nWith Tyler's trusted verbal endorsement, in-studio physical placement, and pinned comment links, we drive qualified traffic and tangible purchasing conversions.",
+          includes: "30–90s Host-Read Segment + In-Studio Physical Placement + Timeline Chapters & Official Pinned Link",
+          recommendedFor: "Apps & Digital Platforms, Lifestyle & F&B Consumer Goods, Promotional Campaign Traffic",
+          tags: ["AppsAndServices", "TargetConversion", "SmartSponsorship"]
         },
         {
-          title: "Leadership Dialogue & Syndication",
-          subtitle: "THOUGHT LEADERSHIP & CROSS-PLATFORM VIRAL",
-          desc: "An integrated media solution combining in-depth 1:1 dialogues with global CEOs, tech innovators, and C-Suite leaders with multi-platform short-form viral syndication. Tyler's bilingual moderating establishes global credibility while amplifying long-form impact across Instagram Reels, YouTube Shorts, and TikTok.",
-          tags: ["C-Suite & Leadership Dialogue", "Global Strategic Partnership", "Omnichannel Short-Form Syndication"]
+          title: "Special Interview & Viral Syndication",
+          subtitle: "SPECIAL INTERVIEW & VIRAL",
+          desc: "In-depth 1:1 dialogues with global entrepreneurs, bestselling authors, journalists, opinion leaders, creators, and celebrities.\nTyler's Korean & English bilingual moderation maximizes authority for both guest and brand, while key highlights are cross-amplified across Reels, Shorts, and TikTok.",
+          includes: "Full 1:1 Bilingual Dialogue Episode + Cross-Platform Shorts, Reels & TikTok Viral Syndication",
+          recommendedFor: "Global Dignitary & Celebrity Features, Brand Agenda Setting, CEO/Personal Branding, Short-Form Reach",
+          tags: ["GlobalGuestDialogue", "BilingualInterview", "OmnichannelShorts"]
         }
       ]
     },
@@ -2482,10 +2502,36 @@ export default function Home({
                         <p className="text-accent text-xs md:text-sm font-mono font-bold uppercase tracking-wider">{item.subtitle}</p>
                       </div>
                       <div className="lg:col-span-8 space-y-6">
-                        <p className="text-lg md:text-xl text-zinc-200 font-normal leading-relaxed word-keep-all">{item.desc}</p>
+                        <p className="text-lg md:text-xl text-zinc-200 font-light leading-relaxed word-keep-all whitespace-pre-line">{item.desc}</p>
+                        
+                        {(item.includes || item.recommendedFor) && (
+                          <div className="p-5 md:p-6 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+                            {item.includes && (
+                              <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 text-sm">
+                                <span className="shrink-0 text-accent font-mono font-semibold text-xs uppercase tracking-wider">
+                                  • {t.packages.includesLabel || "포함 구성"}:
+                                </span>
+                                <span className="text-zinc-200 font-light leading-relaxed break-keep">
+                                  {item.includes}
+                                </span>
+                              </div>
+                            )}
+                            {item.recommendedFor && (
+                              <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 text-sm">
+                                <span className="shrink-0 text-zinc-400 font-mono font-semibold text-xs uppercase tracking-wider">
+                                  • {t.packages.recommendedLabel || "추천 목적"}:
+                                </span>
+                                <span className="text-zinc-300 font-light leading-relaxed break-keep">
+                                  {item.recommendedFor}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
                         {item.detail && <p className="text-zinc-400 text-sm leading-relaxed word-keep-all">{item.detail}</p>}
                         {item.tags && item.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-2 pt-2">
+                          <div className="flex flex-wrap gap-2 pt-1">
                             {item.tags.map((tag, tIdx) => (
                               <span
                                 key={tIdx}
