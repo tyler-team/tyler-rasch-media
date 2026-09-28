@@ -53,6 +53,8 @@ type Content = {
     reach_label: string;
     engagement: string;
     engagement_label: string;
+    growth?: string;
+    growth_label?: string;
     trust: string;
     trust_label: string;
     platform_demography: {
@@ -209,44 +211,46 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views: "9,900만+",
       views_label: "누적 유튜브 조회수",
       reach: "180만+",
-      reach_label: "월간 누적 도달수",
+      reach_label: "월간 오디언스 도달 (1.8M)",
       engagement: "80만+",
       engagement_label: "채널 구독자 수",
+      growth: "+32만+",
+      growth_label: "연간 순증 +32만 명 (319.5K+)",
       trust: "TOP 1%",
       trust_label: "브랜드 신뢰도 지수",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
-        synergy_badge: "DUAL ENGINE REACH & SYNERGY",
-        synergy_title: "남성 비즈니스 의사결정권자 × 여성 트렌드 라이프스타일 소비층의 완전한 결합",
-        synergy_desc: "원빅월드쇼 유튜브(남성 73%, 35-64세 핵심 의사결정권자)와 타일러 인스타그램(여성 77%, 35-44세 트렌드 리더)의 상호보완적 결합으로, 비즈니스 리더십부터 고관여 라이프스타일 소비재까지 전 세대와 성별을 아우르는 독보적인 포괄적 미디어 도달력을 완성합니다.",
+        synergy_badge: "360° TOTAL AUDIENCE SYNERGY",
+        synergy_title: "거시경제·비즈니스 리더(6:4 균형) × 트렌드 라이프스타일(여성 77%)의 전방위 통합 마켓 장악력",
+        synergy_desc: "원빅월드쇼 유튜브(남성 63% · 여성 37%의 균형 잡힌 25-54 핵심 경제활동 인구)와 타일러 인스타그램(여성 77%, 35-44 트렌드 리더)의 상호보완적 결합으로, 테크·금융·비즈니스 의사결정권자부터 프리미엄 F&B, 뷰티, 라이프스타일 소비 주도층까지 성별과 세대의 장벽 없이 전방위로 타겟팅할 수 있는 독보적인 미디어 생태계를 구축합니다.",
         synergy_yt_title: "원빅월드쇼 유튜브 엔진",
-        synergy_yt_stat: "남성 73% · 35-64세 (45-64세 중심 54.1%)",
-        synergy_yt_target: "B2B · 금융 · 테크 · 핵심 비즈니스 의사결정권자",
+        synergy_yt_stat: "25-54 핵심 경제인구 60% · 남녀 6:4 균형 (남성 63% / 여성 37%)",
+        synergy_yt_target: "가계 소비 & 기업 투자 의사결정권자 · 테크/금융/B2B/비즈니스",
         synergy_ig_title: "타일러 인스타그램 엔진",
-        synergy_ig_stat: "여성 77% · 35-44세 중심",
-        synergy_ig_target: "뷰티 · 패션 · 리빙 · 트렌드 라이프스타일 소비층",
+        synergy_ig_stat: "여성 77% · 35-44세 트렌드 리더층",
+        synergy_ig_target: "F&B · 뷰티 · 패션 · 리빙 · 감각적 라이프스타일 소비재",
         tabs: {
           youtube: {
             label: "YOUTUBE",
-            tagline: "지적 의사결정권자",
-            audience_type: "B2B & 비즈니스 의사결정권자",
-            gender_label: "Gender: 남성 73% / 여성 27%",
-            gender: { male: 73, female: 27 },
-            age_label: "Core Age: 35 - 64세 (70%) / 45 - 64세 중심 (54.1%)",
-            age_value: "70%",
-            insight: "사회·경제적 실권을 쥐고 있는 핵심 의사결정권자 및 고소득 비즈니스 리더층으로, B2B 솔루션, 금융, 프리미엄 소비재 등 고관여 의사결정을 주도합니다.",
-            summary: "사회·경제적 실권을 쥐고 있는 핵심 의사결정권자 및 고소득 비즈니스 리더층"
+            tagline: "프리미엄 지적 오디언스 & 의사결정권자",
+            audience_type: "25-54 핵심 경제활동 인구 (6:4 밸런스)",
+            gender_label: "Gender: 남성 63% / 여성 37%",
+            gender: { male: 63, female: 37 },
+            age_label: "Core Age: 25 - 54세 중심 (60%) / 35 - 64세 리더층 (66.5%)",
+            age_value: "60%",
+            insight: "가계 소비와 비즈니스 투자를 주도하는 25-54 고소득 전문직 및 핵심 경제활동 인구 (남성 63% · 여성 37%의 탄탄한 균형)로, 금융, 테크, B2B부터 프리미엄 소비재까지 실질적인 구매·투자 의사결정을 주도합니다.",
+            summary: "가계 소비와 비즈니스 투자를 주도하는 25-54 고소득 전문직 및 핵심 경제활동 인구 (남성 63% · 여성 37%의 탄탄한 균형)"
           },
           instagram: {
             label: "INSTAGRAM",
-            tagline: "트렌드 리더",
-            audience_type: "트렌드 & 라이프스타일 소비층",
+            tagline: "트렌드 리더 & 라이프스타일 소비층",
+            audience_type: "트렌드 & F&B · 라이프스타일 소비층",
             gender_label: "Gender: 여성 77% / 남성 23%",
             gender: { male: 23, female: 77 },
             age_label: "Core Age: 35 - 44세 (Dominant)",
             age_value: "Dominant",
-            insight: "트렌드와 라이프스타일 소비를 주도하는 핵심 연령층으로, 뷰티, 패션, 리빙 등 비주얼 중심 소비재에 높은 반응률을 보입니다.",
-            summary: "트렌드와 라이프스타일 소비를 주도하는 데모그래픽"
+            insight: "트렌드와 라이프스타일 소비를 주도하는 핵심 연령층으로, 뷰티, 패션, F&B, 리빙 등 비주얼 중심 소비재에 높은 반응률을 보입니다.",
+            summary: "트렌드와 라이프스타일 소비를 주도하는 핵심 소비층"
           }
         }
       },
@@ -734,37 +738,39 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views: "99M+",
       views_label: "Total YouTube Views",
       reach: "1.8M+",
-      reach_label: "Monthly Cumulative Reach",
+      reach_label: "Monthly Audience Reach (1.8M)",
       engagement: "800K+",
       engagement_label: "YouTube Subscribers",
+      growth: "+320K+",
+      growth_label: "Annual Subscriber Growth (+319.5K)",
       trust: "TOP 1%",
       trust_label: "Brand Trust Index",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
-        synergy_badge: "DUAL ENGINE REACH & SYNERGY",
-        synergy_title: "Comprehensive Coverage: Business Leaders (M) × Trend Drivers (F)",
-        synergy_desc: "By uniting 1BWS YouTube (73% Male, 35-64 Senior Decision-Makers) with Tyler's Instagram (77% Female, 35-44 Cultural Drivers), Tyler Media delivers an unprecedented cross-platform reach—connecting both high-income corporate decision-makers and high-engagement lifestyle consumers.",
+        synergy_badge: "360° TOTAL AUDIENCE SYNERGY",
+        synergy_title: "All-Inclusive Market Reach: Macro & Business Core (6:4 Balance) × Trend & Lifestyle (77% Female)",
+        synergy_desc: "By uniting 1BWS YouTube (balanced 63% Male / 37% Female prime 25-54 economic drivers) with Tyler's Instagram (77% Female, 35-44 cultural trendsetters), Tyler Media eliminates gender and category barriers—enabling seamless, authoritative targeting from high-stakes tech and corporate decision-makers to trend-leading F&B and lifestyle consumer markets.",
         synergy_yt_title: "1BWS YouTube Engine",
-        synergy_yt_stat: "Male 73% · Age 35-64 (45-64 Core 54.1%)",
-        synergy_yt_target: "B2B · Tech · Finance · Senior Decision-Makers",
+        synergy_yt_stat: "25-54 Core Economic Class 60% · 6:4 Balance (M 63% / F 37%)",
+        synergy_yt_target: "Household & Corporate Decision-Makers · Tech, Finance & B2B",
         synergy_ig_title: "Tyler Instagram Engine",
-        synergy_ig_stat: "Female 77% · Age 35-44 Dominant",
-        synergy_ig_target: "Beauty · Fashion · Living · Trend & Lifestyle Consumers",
+        synergy_ig_stat: "Female 77% · Age 35-44 Cultural Trendsetters",
+        synergy_ig_target: "F&B, Beauty, Fashion, Living & High-Engagement Lifestyle",
         tabs: {
           youtube: {
             label: "YOUTUBE",
-            tagline: "Intellectual & Decision-Making Core",
-            audience_type: "B2B & Corporate Decision-Makers",
-            gender_label: "Gender: Male 73% / Female 27%",
-            gender: { male: 73, female: 27 },
-            age_label: "Core Age: 35 - 64 (70%) / 45 - 64 Dominant (54.1%)",
-            age_value: "70%",
-            insight: "Senior decision-makers, executives, and high-income leaders with substantial purchasing power, driving high-involvement B2B, tech, and premium brand decisions.",
-            summary: "Senior decision-makers, executives, and high-income leaders with substantial purchasing power."
+            tagline: "Premium Intellectual Core & Decision-Makers",
+            audience_type: "Prime Economic Demographics (6:4 Balance)",
+            gender_label: "Gender: Male 63% / Female 37%",
+            gender: { male: 63, female: 37 },
+            age_label: "Core Age: 25 - 54 Prime Core (60%) / 35 - 64 Leaders (66.5%)",
+            age_value: "60%",
+            insight: "Prime economic demographics leading household spending and corporate decisions (Balanced 63% Male / 37% Female distribution).",
+            summary: "Prime economic demographics leading household spending and corporate decisions (Balanced 63% Male / 37% Female distribution)."
           },
           instagram: {
             label: "INSTAGRAM",
-            tagline: "Cultural Drivers",
+            tagline: "Cultural Trendsetters & Lifestyle Drivers",
             audience_type: "Trend & Lifestyle Drivers",
             gender_label: "Gender: Female 77% / Male 23%",
             gender: { male: 23, female: 77 },
@@ -1532,8 +1538,8 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
         {[
           { label: t.views_label, val: t.views, tag: t.label },
-          { label: t.reach_label, val: t.reach, tag: "MONTHLY REACH" },
-          { label: t.engagement_label, val: t.engagement, tag: "ENGAGEMENT" },
+          { label: t.reach_label, val: t.reach, tag: "MONTHLY AUDIENCE / REACH" },
+          { label: t.engagement_label, val: t.engagement, tag: "ENGAGEMENT", sub: t.growth_label },
           { label: t.trust_label, val: t.trust, tag: "RELIABILITY" }
         ].map((item, i) => (
           <motion.div
@@ -1543,7 +1549,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
             transition={{ delay: i * 0.1 }}
             className=" glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center hover:border-accent/30 transition-all group"
           >
-            <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-50">{item.tag}</span>
+            <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-60">{item.tag}</span>
             <div className="text-5xl font-black text-white mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
               {typeof item.val === 'string' ? (
                 item.val.split(/(만|M|K|\+|%)/).map((part, index) =>
@@ -1553,7 +1559,12 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                 )
               ) : item.val}
             </div>
-            <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">{item.label}</p>
+            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest">{item.label}</p>
+            {item.sub && (
+              <span className="mt-3 text-[10px] font-extrabold text-accent px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20">
+                {item.sub}
+              </span>
+            )}
           </motion.div>
         ))}
       </div>
@@ -1606,7 +1617,10 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
 
           {/* Gender Bar */}
           <div>
-            <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1.5">Gender Distribution</div>
+            <div className="flex justify-between items-center mb-1.5">
+              <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">Gender Demographics</span>
+              <span className="text-[10px] font-bold text-accent px-2 py-0.5 rounded bg-accent/10 border border-accent/20">6:4 Balanced Ratio</span>
+            </div>
             <div className="text-xl font-black text-white mb-2">{t.platform_demography.tabs.youtube.gender_label}</div>
             <div className="h-5 w-full bg-white/5 rounded-full overflow-hidden flex mb-6 p-0.5">
               <div
@@ -1616,14 +1630,14 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                 M {t.platform_demography.tabs.youtube.gender.male}%
               </div>
               <div
-                className="h-full bg-zinc-700/80 rounded-r-full flex items-center justify-center text-[10px] font-bold text-zinc-300 transition-all duration-500"
+                className="h-full bg-rose-500/80 rounded-r-full flex items-center justify-center text-[10px] font-black text-white transition-all duration-500"
                 style={{ width: `${t.platform_demography.tabs.youtube.gender.female}%` }}
               >
                 F {t.platform_demography.tabs.youtube.gender.female}%
               </div>
             </div>
             <div className="border-t border-white/5 pt-4">
-              <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-red-600 pl-4 leading-relaxed">
+              <div className="text-zinc-200 text-sm font-semibold tracking-wide border-l-2 border-red-600 pl-4 leading-relaxed break-keep">
                 {t.platform_demography.tabs.youtube.summary}
               </div>
             </div>
@@ -1722,7 +1736,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                       {t.platform_demography.synergy_yt_title}
                     </span>
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/10 text-red-300 border border-red-500/20">
-                      M 73% Dominant
+                      6:4 Balanced Ratio
                     </span>
                   </div>
                   <div className="text-white text-sm font-bold mb-1">{t.platform_demography.synergy_yt_stat}</div>
