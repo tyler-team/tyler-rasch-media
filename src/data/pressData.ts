@@ -31,53 +31,6 @@ export interface DownloadableAsset {
 
 export const pressReleases: PressRelease[] = [
   {
-    slug: "tyler-rasch-wkf-steven-levy-dialogue",
-    date: "2026-06-15",
-    lang: "ko",
-    title: "[PRESS] 타일러 라쉬, 세계지식포럼(WKF)서 美 테크 사상가 스티븐 레비와 단독 지적 대담 진행",
-    subtitle: "와이어드(WIRED) 수석 라이터이자 거장 스티븐 레비와 함께 인공지능, 테크의 진화, 그리고 오픈 테크놀로지의 미래를 논하다.",
-    byline: "타일러 미디어 PR팀 (2026년 06월 15일, 서울)",
-    intro5W1H: "타일러 미디어(2026년 06월 15일, 서울) -- 타일러 라쉬 대표가 세계 최대 비즈니스 지식 포럼인 세계지식포럼(WKF)에서 와이어드(WIRED) 수석 라이터이자 실리콘밸리 테크 거장 스티븐 레비(Steven Levy)와 단독 지적 대담을 성공적으로 진행했다.",
-    body: [
-      "와이어드(WIRED) 수석 라이터이자 거장 스티븐 레비와 함께 인공지능, 테크의 진화, 그리고 오픈 테크놀로지의 미래를 논하다.",
-      "본 대담에서는 급변하는 글로벌 인공지능 생태계와 빅테크 권력의 지형 변화, 그리고 오픈 테크놀로지가 가져올 차세대 사회적 임팩트를 집중 조명했다."
-    ]
-  },
-  {
-    slug: "tyler-media-sme-program-completion",
-    date: "2026-06-08",
-    lang: "ko",
-    title: "타일러 미디어, 소상공인·스타트업 성장을 위한 상생 지원 프로젝트 성료",
-    subtitle: "국내 유망 스타트업 및 소상공인 브랜드의 시장 안착을 돕는 타일러 미디어 상생 프로그램 운영 결과.",
-    byline: "타일러 미디어 PR팀 (2026년 06월 08일, 서울)",
-    intro5W1H: "타일러 미디어(2026년 06월 08일, 서울) -- 타일러 미디어가 국내 유망 스타트업 및 소상공인 브랜드의 시장 안착을 지원하기 위해 운영한 상생 프로젝트를 성황리에 마무리했다.",
-    body: [
-      "국내 유망 스타트업 및 소상공인 브랜드의 시장 안착을 돕는 타일러 미디어 상생 프로그램 운영 결과.",
-      "참여 기업들은 1BWS 및 패밀리 채널과의 협업을 통해 실질적인 브랜드 인지도 제고와 매출 성장 모멘텀을 확보했다."
-    ]
-  },
-  {
-    slug: "tyler-rasch-wkf-steven-levy-dialogue-en",
-    date: "2026-06-15",
-    lang: "en",
-    title: "[PRESS] Tyler Rasch leads exclusive intellectual dialogue with tech author Steven Levy at World Knowledge Forum",
-    subtitle: "Discussing AI disruption, the evolution of technology, and the future of open ecosystems with WIRED editor-at-large Steven Levy.",
-    body: [
-      "SEOUL, South Korea — June 15, 2026 — At the World Knowledge Forum, Tyler Rasch moderated an exclusive intellectual dialogue with WIRED editor-at-large and legendary technology chronicler Steven Levy.",
-      "The session explored the seismic shifts in global artificial intelligence, big tech dynamics, and the democratization of open technology ecosystems."
-    ]
-  },
-  {
-    slug: "tyler-media-sme-program-completion-en",
-    date: "2026-06-08",
-    lang: "en",
-    title: "Tyler Media successfully concludes ESG impact initiative supporting SME & startup growth",
-    subtitle: "Outcomes and strategic milestones from Tyler Media's enterprise ESG program accelerating independent Korean startups.",
-    body: [
-      "SEOUL, South Korea — June 8, 2026 — Tyler Media has successfully concluded its inaugural ESG initiative aimed at empowering promising startups and independent enterprises, delivering tangible audience reach and market visibility."
-    ]
-  },
-  {
     slug: "tyler-media-sme-program-launch",
     date: "2026-06-07",
     lang: "ko",
