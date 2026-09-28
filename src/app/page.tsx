@@ -109,12 +109,19 @@ type Content = {
   portfolio: {
     originals: {
       heading: string;
+      subheading?: string;
+      filter_all?: string;
+      filter_1bws?: string;
+      filter_really_tyler?: string;
       items: {
         title: string;
         subtitle: string;
+        channel?: '1bws' | 'really_tyler';
+        channelLabel?: string;
         desc: React.ReactNode;
         thumbnail: string;
         videoUrl?: string;
+        tags?: string[];
         guests?: Guest[];
         features?: Guest[];
         featureLabel?: string;
@@ -264,41 +271,50 @@ const contentData: Record<'KR' | 'EN', Content> = {
     portfolio: {
       originals: {
         heading: "오리지널 시리즈",
+        subheading: "지적 담론(1BWS)부터 라이프스타일 & 언어(Really Tyler)까지 아우르는 4대 오리지널 라인업",
+        filter_all: "전체 보기 (4)",
+        filter_1bws: "원빅월드쇼 (2)",
+        filter_really_tyler: "리얼리 타일러 (2)",
         items: [
           {
             title: "1BWS Talking Head",
-            subtitle: "One Big World Show",
-            desc: "세상을 보는 새로운 관점",
+            subtitle: "지정학 · 거시경제 · 테크 심층 분석",
+            channel: "1bws",
+            channelLabel: "ONE BIG WORLD SHOW",
+            desc: "글로벌 경제, 첨단 테크, 지정학적 패권 경쟁과 국제 이슈의 거대한 판을 읽어내는 타일러의 심층 인사이트",
             thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=FNkI37iEbt0",
-            features: [
-              { name: "세상과 이슈", topic: "글로벌 트렌드와 시사 이슈의 본질", tag: "#GlobalIssues" },
-              { name: "관점과 생각", topic: "현상을 읽는 새로운 프레임워크", tag: "#Perspective" },
-              { name: "문화와 삶", topic: "다양성 속에서 발견하는 보편적 가치", tag: "#Culture" },
-              { name: "언어와 학습", topic: "사고를 확장하는 도구로서의 언어", tag: "#Learning" }
-            ],
-            featureLabel: "다양한 주제"
+            tags: ["#지정학", "#세계이슈", "#거시경제", "#테크트렌드", "#국제질서", "#미래전망"]
           },
           {
             title: "1BWS Podcast",
-            subtitle: "One Big World Show",
-            desc: "김지윤 박사, 이수지 등 다양한 분야의 전문가/셀럽과 나누는 진솔한 대화",
+            subtitle: "세계 이슈와 일상의 대화",
+            channel: "1bws",
+            channelLabel: "ONE BIG WORLD SHOW",
+            desc: "멀게만 느껴지는 거대한 글로벌 이슈, 경제, 테크 변화가 우리의 일상과 지갑에 어떤 영향을 미치는지 편안하고 솔직하게 풀어내는 캐주얼 토크",
             thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=egCLFB75zkM",
-            guests: [
-              { name: "김지윤 박사", topic: "국제 정세 전문가와 나누는 영어 토크", tag: "#GlobalRelations" },
-              { name: "이수지", topic: "풍자와 해학, 그리고 시대의 언어", tag: "#Satire" },
-              { name: "딘딘", topic: "솔직하고 담백한 인생 철학 대담", tag: "#1BWS" },
-              { name: "스텔라장", topic: "음악과 언어 사이의 지적 교감", tag: "#MusicAndMind" }
-            ]
+            tags: ["#세계이슈", "#일상과경제", "#테크", "#지정학", "#캐주얼토크", "#삶의맥락"]
           },
           {
-            title: "Walk with Tyler",
-            subtitle: "타일러와 걷기 (Travel VLOG)",
-            desc: "보스턴, 런던, 브뤼셀. 타일러의 시선으로 담아낸 세계 도시의 정취",
-            thumbnail: "https://i.ytimg.com/vi/CSy63AkYl-A/hqdefault.jpg",
-            videoUrl: "https://www.youtube.com/watch?v=CSy63AkYl-A",
-            locations: ["Boston", "Vancouver", "Brussels", "London", "Munich", "Istanbul"]
+            title: "Really Tyler: Language",
+            subtitle: "언어 & 영어 마인드셋",
+            channel: "really_tyler",
+            channelLabel: "REALLY TYLER",
+            desc: "단순 암기식 영어를 넘어, 다국어 구사자 타일러가 제안하는 진짜 소통을 위한 언어 접근법과 영어 마인드셋",
+            thumbnail: "https://i.ytimg.com/vi/U2lzr4lgkC8/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=U2lzr4lgkC8",
+            tags: ["#외국어공부", "#영어회화", "#다국어", "#언어학습", "#타일러영어", "#소통의기술"]
+          },
+          {
+            title: "Really Tyler: Life & Stories",
+            subtitle: "일상, 라이프스타일 & 다양한 이야기",
+            channel: "really_tyler",
+            channelLabel: "REALLY TYLER",
+            desc: "소소한 일상 브이로그부터 요리와 미식 탐방, 새로운 경험과 취향의 발견, 그리고 국내외 여행까지. 타일러의 삶과 다채로운 이야기들을 솔직하고 풍성하게 담아내는 라이프스타일 콘텐츠",
+            thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/hqdefault.jpg",
+            videoUrl: "https://youtu.be/n_kYQr50cEE",
+            tags: ["#타일러일상", "#데일리로그", "#라이프스타일", "#미식과요리", "#국내외여행", "#다채로운경험", "#일상생각"]
           }
         ]
       },
@@ -780,41 +796,50 @@ const contentData: Record<'KR' | 'EN', Content> = {
     portfolio: {
       originals: {
         heading: "ORIGINAL SERIES",
+        subheading: "Four flagship series spanning deep intellectual discourse (1BWS) to lifestyle and language (Really Tyler)",
+        filter_all: "All Series (4)",
+        filter_1bws: "One Big World Show (2)",
+        filter_really_tyler: "Really Tyler (2)",
         items: [
           {
             title: "1BWS Talking Head",
-            subtitle: "One Big World Show",
-            desc: "A new perspective on the world",
+            subtitle: "Geopolitics · Macroeconomics · Tech Deep Dive",
+            channel: "1bws",
+            channelLabel: "ONE BIG WORLD SHOW",
+            desc: "Deep-dive analytical perspectives by Tyler deciphering the intersection of global affairs, macroeconomics, tech disruption, and shifting geopolitics.",
             thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=FNkI37iEbt0",
-            features: [
-              { name: "World & Issues", topic: "Deep dive into global trends", tag: "#GlobalIssues" },
-              { name: "Perspectives", topic: "New frameworks for thinking", tag: "#Perspective" },
-              { name: "Culture & Life", topic: "Universal values in diversity", tag: "#Culture" },
-              { name: "Language", topic: "Tools for expanding thought", tag: "#Learning" }
-            ],
-            featureLabel: "Topics"
+            tags: ["#Geopolitics", "#GlobalIssues", "#MacroEconomics", "#TechTrends", "#WorldOrder", "#FutureOutlook"]
           },
           {
             title: "1BWS Podcast",
-            subtitle: "One Big World Show",
-            desc: "Sincere, unscripted conversations with various intellectuals and celebrities.",
+            subtitle: "Global Affairs & Everyday Conversations",
+            channel: "1bws",
+            channelLabel: "ONE BIG WORLD SHOW",
+            desc: "Candid, relatable conversations breaking down how massive global shifts, geopolitics, and emerging technologies directly impact our daily lives and personal decisions.",
             thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/hqdefault.jpg",
             videoUrl: "https://www.youtube.com/watch?v=egCLFB75zkM",
-            guests: [
-              { name: "Dr. Jiyoon Kim", topic: "English Talk with Int'l Relations Expert", tag: "#GlobalRelations" },
-              { name: "Lee Su-ji", topic: "The Aesthetics of Satire and Humor", tag: "#Humor" },
-              { name: "DinDin", topic: "Honest Life Philosophy Sessions", tag: "#1BWS" },
-              { name: "Stella Jang", topic: "Intellectual Connection in Music", tag: "#MusicAndMind" }
-            ]
+            tags: ["#GlobalAffairs", "#EverydayImpact", "#Tech", "#MacroEconomics", "#CasualTalk", "#RealLifeContext"]
           },
           {
-            title: "Walk with Tyler",
-            subtitle: "Travel VLOG Series",
-            desc: "Experiencing global cities and cultures through Tyler's intellectual lens.",
-            thumbnail: "https://i.ytimg.com/vi/CSy63AkYl-A/hqdefault.jpg",
-            videoUrl: "https://www.youtube.com/watch?v=CSy63AkYl-A",
-            locations: ["Boston", "Vancouver", "Brussels", "London", "Munich", "Istanbul"]
+            title: "Really Tyler: Language",
+            subtitle: "Language & Global Mindset",
+            channel: "really_tyler",
+            channelLabel: "REALLY TYLER",
+            desc: "Breaking beyond rote memorization: practical philosophies, English mastery, and cultural communication insights from polyglot Tyler.",
+            thumbnail: "https://i.ytimg.com/vi/U2lzr4lgkC8/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=U2lzr4lgkC8",
+            tags: ["#LanguageLearning", "#EnglishSpeaking", "#Polyglot", "#Communication", "#LanguageHacks", "#Mindset"]
+          },
+          {
+            title: "Really Tyler: Life & Stories",
+            subtitle: "Lifestyle, Daily Vlogs & Stories",
+            channel: "really_tyler",
+            channelLabel: "REALLY TYLER",
+            desc: "An authentic and multifaceted journey into Tyler's world: spanning daily life vlogs, culinary adventures, personal curiosities, and travel experiences around the globe.",
+            thumbnail: "https://i.ytimg.com/vi/n_kYQr50cEE/hqdefault.jpg",
+            videoUrl: "https://youtu.be/n_kYQr50cEE",
+            tags: ["#DailyLife", "#LifestyleVlog", "#Culinary", "#TravelStories", "#DiverseExperiences", "#PersonalJourney"]
           }
         ]
       },
@@ -1931,6 +1956,157 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
   );
 };
 
+const OriginalsSection = ({
+  t,
+  onSelectVideo
+}: {
+  t: Content['portfolio']['originals'];
+  onSelectVideo: (url: string) => void;
+}) => {
+  const [filter, setFilter] = useState<'all' | '1bws' | 'really_tyler'>('all');
+
+  const filteredItems = t.items.filter(item => {
+    if (filter === 'all') return true;
+    return item.channel === filter;
+  });
+
+  return (
+    <div className="relative z-10 space-y-12">
+      {/* Channel Filter Tabs */}
+      <div className="flex flex-wrap items-center gap-3">
+        <button
+          onClick={() => setFilter('all')}
+          className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
+            filter === 'all'
+              ? 'bg-accent text-black shadow-[0_0_20px_rgba(0,209,160,0.3)]'
+              : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          <span>{t.filter_all || 'ALL (4)'}</span>
+        </button>
+        <button
+          onClick={() => setFilter('1bws')}
+          className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
+            filter === '1bws'
+              ? 'bg-red-600 text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]'
+              : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          <span className="w-2 h-2 rounded-full bg-red-400" />
+          <span>{t.filter_1bws || '1BWS (2)'}</span>
+        </button>
+        <button
+          onClick={() => setFilter('really_tyler')}
+          className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
+            filter === 'really_tyler'
+              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-[0_0_20px_rgba(236,72,153,0.3)]'
+              : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          <span className="w-2 h-2 rounded-full bg-pink-400" />
+          <span>{t.filter_really_tyler || 'REALLY TYLER (2)'}</span>
+        </button>
+      </div>
+
+      {/* 2x2 Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        {filteredItems.map((item, i) => (
+          <motion.div
+            key={item.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            className="glass rounded-3xl border border-white/10 hover:border-accent/40 transition-all flex flex-col justify-between overflow-hidden group relative"
+          >
+            {/* Top Channel Accent Bar */}
+            <div
+              className={`h-1 w-full ${
+                item.channel === '1bws'
+                  ? 'bg-red-600'
+                  : 'bg-gradient-to-r from-purple-500 to-pink-500'
+              }`}
+            />
+
+            <div className="p-6 md:p-8 flex flex-col flex-1 justify-between gap-6">
+              {/* Thumbnail Container */}
+              <div
+                onClick={() => item.videoUrl && onSelectVideo(item.videoUrl)}
+                className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all shadow-xl cursor-pointer bg-black/50"
+              >
+                <Image
+                  src={item.thumbnail}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  unoptimized={item.thumbnail.startsWith('http')}
+                />
+                <div className="absolute top-4 left-4 z-10">
+                  <span
+                    className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase backdrop-blur-md shadow-md ${
+                      item.channel === '1bws'
+                        ? 'bg-red-600/90 text-white border border-red-500/30'
+                        : 'bg-gradient-to-r from-purple-600/90 to-pink-600/90 text-white border border-pink-500/30'
+                    }`}
+                  >
+                    {item.channelLabel || (item.channel === '1bws' ? '1BWS' : 'REALLY TYLER')}
+                  </span>
+                </div>
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                  <span className="w-12 h-12 rounded-full bg-accent/90 text-black flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform">
+                    ▶
+                  </span>
+                  <span className="text-white font-bold text-xs tracking-wider uppercase">WATCH PREVIEW</span>
+                </div>
+              </div>
+
+              {/* Title & Desc */}
+              <div className="space-y-3">
+                <span className="text-accent text-xs font-bold tracking-[0.25em] uppercase block">
+                  {item.subtitle}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-black text-white italic tracking-tight leading-tight">
+                  {item.title}
+                </h3>
+                <p className="text-zinc-300 text-sm md:text-base leading-relaxed break-keep">
+                  {item.desc}
+                </p>
+              </div>
+
+              {/* Tags */}
+              {item.tags && item.tags.length > 0 && (
+                <div className="pt-4 border-t border-white/5 space-y-2.5">
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-zinc-300 group-hover:border-white/20 transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Card Footer Button */}
+              <div
+                onClick={() => item.videoUrl && onSelectVideo(item.videoUrl)}
+                className="pt-2 flex items-center justify-between text-xs font-bold text-zinc-400 group-hover:text-accent cursor-pointer transition-colors"
+              >
+                <span className="tracking-widest uppercase flex items-center gap-2">
+                  <span>Watch Episode</span>
+                  <span>&rarr;</span>
+                </span>
+                <span className="text-zinc-600 group-hover:text-accent transition-colors font-mono">16:9 HD</span>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const BrandLogoWall = () => {
   const partners = [
     { name: "SK Telecom", logo: "/partners/sk_telecom_new.png", scale: 1.3 },
@@ -2092,55 +2268,15 @@ export default function Home({ initialView = 'home' }: { initialView?: 'home' | 
             <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
               {/* SWITCH: Using tyler_prayer_hands.jpg here */}
               <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_5%]" />
-              <div className="mb-20 relative z-10">
+              <div className="mb-16 relative z-10">
                 <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.originals.heading}</h2>
+                {t.portfolio.originals.subheading && (
+                  <p className="text-accent text-sm font-bold uppercase tracking-widest mt-4">{t.portfolio.originals.subheading}</p>
+                )}
                 <div className="w-20 h-1 bg-accent/30 mt-8" />
               </div>
 
-              <div className="grid grid-cols-1 gap-24 relative z-10">
-                {t.portfolio.originals.items.map((item, i) => (
-                  <div key={i} className="grid grid-cols-1 xl:grid-cols-[0.8fr_1.2fr] gap-12 xl:gap-20 items-start">
-                    <motion.div
-                      onClick={() => item.videoUrl && setSelectedVideo(item.videoUrl)}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl block cursor-pointer"
-                    >
-                      <Image src={item.thumbnail} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" unoptimized={item.thumbnail.startsWith('http')} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                        <span className="text-white font-bold text-sm">&rarr; WATCH PREVIEW</span>
-                      </div>
-                    </motion.div>
-
-                    <div className="space-y-8">
-                      <div>
-                        <span className="text-accent text-sm font-bold tracking-[0.3em] uppercase block mb-4">{item.subtitle}</span>
-                        <h3 className="text-5xl md:text-7xl font-black text-white leading-none mb-6 italic">{item.title}</h3>
-                        <p className="text-zinc-400 text-xl leading-relaxed max-w-xl">{item.desc}</p>
-                      </div>
-
-                      {(item.guests || item.features) && (
-                        <div className="space-y-4">
-                          <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
-                            {item.featureLabel || "Featured Guests & Topics"}
-                          </p>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {(item.guests || item.features)?.map((feature: any, idx: number) => (
-                              <div key={idx} className="p-4 glass rounded-xl border border-white/5 hover:border-accent/30 transition-colors">
-                                <div className="flex justify-between items-start mb-1">
-                                  <span className="text-white font-bold">{feature?.name}</span>
-                                  <span className="text-xs text-accent font-mono">{feature?.tag}</span>
-                                </div>
-                                <p className="text-xs text-zinc-500">{feature?.topic}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <OriginalsSection t={t.portfolio.originals} onSelectVideo={(url) => setSelectedVideo(url)} />
             </section>
 
             {/* 5. BRAND COLLABORATIONS */}
