@@ -218,11 +218,11 @@ const contentData: Record<'KR' | 'EN', Content> = {
         }
       },
       ecosystem: {
-        channel_title: "Tylerbolkkayo Channel",
+        channel_title: "1BWS / One Big World Show",
         personal_title: "Tyler Rasch",
         platforms: [
-          { name: "YouTube", handle: "@tylerbolkkayo", count: "165K", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tylerbolkkayo", count: "70K+", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "YouTube", handle: "@원빅월드쇼", count: "165K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", isChannel: true },
+          { name: "Instagram", handle: "@1bigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", isChannel: true },
           { name: "TikTok", handle: "@tylerbolkkayo", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
           { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
@@ -237,11 +237,11 @@ const contentData: Record<'KR' | 'EN', Content> = {
         heading: "오리지널 시리즈",
         items: [
           {
-            title: "타일러볼까요 본편",
-            subtitle: "Tylerbolkkayo",
+            title: "1BWS Talking Head",
+            subtitle: "One Big World Show",
             desc: "세상을 보는 새로운 관점",
-            thumbnail: "https://i.ytimg.com/vi/IwmgFdMuoW0/hqdefault.jpg",
-            videoUrl: "https://www.youtube.com/watch?v=IwmgFdMuoW0",
+            thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=FNkI37iEbt0",
             features: [
               { name: "세상과 이슈", topic: "글로벌 트렌드와 시사 이슈의 본질", tag: "#GlobalIssues" },
               { name: "관점과 생각", topic: "현상을 읽는 새로운 프레임워크", tag: "#Perspective" },
@@ -251,15 +251,15 @@ const contentData: Record<'KR' | 'EN', Content> = {
             featureLabel: "다양한 주제"
           },
           {
-            title: "Candid Couch",
-            subtitle: "캔디드 카우치",
+            title: "1BWS Podcast",
+            subtitle: "One Big World Show",
             desc: "김지윤 박사, 이수지 등 다양한 분야의 전문가/셀럽과 나누는 진솔한 대화",
-            thumbnail: "https://i.ytimg.com/vi/G1jeMQCh3MI/hqdefault.jpg",
-            videoUrl: "https://www.youtube.com/watch?v=G1jeMQCh3MI",
+            thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=egCLFB75zkM",
             guests: [
               { name: "김지윤 박사", topic: "국제 정세 전문가와 나누는 영어 토크", tag: "#GlobalRelations" },
               { name: "이수지", topic: "풍자와 해학, 그리고 시대의 언어", tag: "#Satire" },
-              { name: "딘딘", topic: "솔직하고 담백한 인생 철학 대담", tag: "#CandidTalk" },
+              { name: "딘딘", topic: "솔직하고 담백한 인생 철학 대담", tag: "#1BWS" },
               { name: "스텔라장", topic: "음악과 언어 사이의 지적 교감", tag: "#MusicAndMind" }
             ]
           },
@@ -335,7 +335,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             "responsibilities": {
               "label": "주요 업무",
               "items": [
-                "<타일러볼까요> 채널의 롱폼/숏폼 등 모든 콘텐츠 기획 및 제작 파이프라인 총괄",
+                "<1BWS / One Big World Show> 채널의 롱폼/숏폼 등 모든 콘텐츠 기획 및 제작 파이프라인 총괄",
                 "유튜브 업로드 전략 수립 (제목/카피라이팅 기획, 썸네일 콘셉트 도출, 메타데이터 및 SEO 최적화)",
                 "내/외부 인력(편집팀 등)의 스케줄링 관리 및 타일러 브랜드 톤앤매너(\"Deep, yet Fun\")에 맞춘 최종 퀄리티 컨트롤(QC)",
                 "AI 툴(Gemini, ChatGPT 등)을 적극 활용한 스크립트 작성, 기획안 도출 및 업무 효율화",
@@ -570,7 +570,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             "preferred": {
               "label": "우대 사항",
               "items": [
-                "[핵심 우대] 평소 타일러의 콘텐츠를 즐겨 소비하며, <타일러볼까요> 브랜드 철학과 세계관에 대한 이해도가 매우 높으신 분",
+                "[핵심 우대] 평소 타일러의 콘텐츠를 즐겨 소비하며, <1BWS / One Big World Show> 브랜드 철학과 세계관에 대한 이해도가 매우 높으신 분",
                 "지식형 콘텐츠, 인터뷰, 다큐멘터리 포맷 제작 경험자",
                 "감각적인 모션 그래픽, 자막 템플릿, 시각 디자인 포트폴리오를 보유하신 분"
               ]
@@ -718,11 +718,11 @@ const contentData: Record<'KR' | 'EN', Content> = {
         }
       },
       ecosystem: {
-        channel_title: "Tylerbolkkayo Channel",
+        channel_title: "1BWS / One Big World Show",
         personal_title: "Tyler Rasch",
         platforms: [
-          { name: "YouTube", handle: "@tylerbolkkayo", count: "", icon: "youtube", url: "https://www.youtube.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tylerbolkkayo", count: "", icon: "instagram", url: "https://www.instagram.com/tylerbolkkayo", isChannel: true },
+          { name: "YouTube", handle: "@원빅월드쇼", count: "", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", isChannel: true },
+          { name: "Instagram", handle: "@1bigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", isChannel: true },
           { name: "TikTok", handle: "@tylerbolkkayo", count: "", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
           { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
           { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
@@ -737,11 +737,11 @@ const contentData: Record<'KR' | 'EN', Content> = {
         heading: "ORIGINAL SERIES",
         items: [
           {
-            title: "Tylerbolkkayo Main Series",
-            subtitle: "Tylerbolkkayo",
+            title: "1BWS Talking Head",
+            subtitle: "One Big World Show",
             desc: "A new perspective on the world",
-            thumbnail: "https://i.ytimg.com/vi/IwmgFdMuoW0/hqdefault.jpg",
-            videoUrl: "https://www.youtube.com/watch?v=IwmgFdMuoW0",
+            thumbnail: "https://i.ytimg.com/vi/FNkI37iEbt0/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=FNkI37iEbt0",
             features: [
               { name: "World & Issues", topic: "Deep dive into global trends", tag: "#GlobalIssues" },
               { name: "Perspectives", topic: "New frameworks for thinking", tag: "#Perspective" },
@@ -751,15 +751,15 @@ const contentData: Record<'KR' | 'EN', Content> = {
             featureLabel: "Topics"
           },
           {
-            title: "Candid Couch",
-            subtitle: "Guest Talk Show",
+            title: "1BWS Podcast",
+            subtitle: "One Big World Show",
             desc: "Sincere, unscripted conversations with various intellectuals and celebrities.",
-            thumbnail: "https://i.ytimg.com/vi/G1jeMQCh3MI/hqdefault.jpg",
-            videoUrl: "https://www.youtube.com/watch?v=G1jeMQCh3MI",
+            thumbnail: "https://i.ytimg.com/vi/egCLFB75zkM/hqdefault.jpg",
+            videoUrl: "https://www.youtube.com/watch?v=egCLFB75zkM",
             guests: [
               { name: "Dr. Jiyoon Kim", topic: "English Talk with Int'l Relations Expert", tag: "#GlobalRelations" },
               { name: "Lee Su-ji", topic: "The Aesthetics of Satire and Humor", tag: "#Humor" },
-              { name: "DinDin", topic: "Honest Life Philosophy Sessions", tag: "#CandidTalk" },
+              { name: "DinDin", topic: "Honest Life Philosophy Sessions", tag: "#1BWS" },
               { name: "Stella Jang", topic: "Intellectual Connection in Music", tag: "#MusicAndMind" }
             ]
           },
@@ -844,7 +844,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             "responsibilities": {
               "label": "Key Responsibilities",
               "items": [
-                "Oversee the entire planning and production pipeline for all content (Long-form/Short-form) on the <Tylerbolkkayo> channel.",
+                "Oversee the entire planning and production pipeline for all content (Long-form/Short-form) on the <1BWS / One Big World Show> channel.",
                 "Establish YouTube upload strategies (Title/Copywriting planning, thumbnail concepts, metadata, and SEO optimization).",
                 "Manage scheduling for internal/external staff (editing teams, etc.) and perform final Quality Control (QC) aligned with the brand tone: \"Deep, yet Fun.\"",
                 "Actively utilize AI tools (Gemini, ChatGPT, etc.) for scriptwriting, proposal generation, and workflow efficiency.",
@@ -1079,7 +1079,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             "preferred": {
               "label": "Preferred Qualifications",
               "items": [
-                "[Core Preference]: Deep understanding of the <Tylerbolkkayo> brand philosophy and worldview as an active consumer of the content.",
+                "[Core Preference]: Deep understanding of the <1BWS / One Big World Show> brand philosophy and worldview as an active consumer of the content.",
                 "Experience in producing knowledge-based content, interviews, or documentary formats.",
                 "Possess a portfolio showcasing trendy motion graphics, subtitle templates, and visual design."
               ]

@@ -34,8 +34,10 @@
    - A highly specific, elegant B2B corporate footer is implemented at the bottom of the Main page, Careers view, and Policy page.
    - **Styling details:** It uses `justify-between` to spread items evenly across the width. It does NOT use pipe (`|`) separators. The corporate registration info color identically matches the copyright text color (`text-zinc-600`).
    - A link to the `Privacy & AI Policy` (`/policy`) is specifically placed next to the copyright text.
-4. **Original Series Text (Tylerbolkkayo):**
-   - The description for the "Tylerbolkkayo Main Series" must strictly read: "세상을 보는 새로운 관점" (Korean) and "A new perspective on the world" (English). 
+4. **Original Series Text (1BWS Talking Head & 1BWS Podcast):**
+   - The channel name has been rebranded from Tylerbolkkayo to "1BWS/One Big World Show".
+   - The description for the "1BWS Talking Head" (formerly Tylerbolkkayo Main Series) must strictly read: "세상을 보는 새로운 관점" (Korean) and "A new perspective on the world" (English).
+   - "Candid Couch" has been rebranded to "1BWS Podcast".
    - **HISTORY:** A previous bug accidentally pasted recruitment text here. Ensure this remains unchanged.
 
 ## 4. Analytics & Tracking
