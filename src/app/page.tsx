@@ -83,12 +83,14 @@ type Content = {
     ecosystem: {
       channel_title: string;
       personal_title: string;
+      really_tyler_title?: string;
       platforms: {
         name: string;
         handle: string;
         count: string;
         icon: string;
         url: string;
+        category?: 'personal' | '1bws' | 'really_tyler';
         isChannel?: boolean;
       }[];
     };
@@ -222,15 +224,18 @@ const contentData: Record<'KR' | 'EN', Content> = {
       ecosystem: {
         channel_title: "1BWS / One Big World Show",
         personal_title: "Tyler Rasch",
+        really_tyler_title: "Really Tyler",
         platforms: [
-          { name: "YouTube", handle: "@원빅월드쇼", count: "165K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", isChannel: true },
-          { name: "Instagram", handle: "@1bigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", isChannel: true },
-          { name: "TikTok", handle: "@tylerbolkkayo", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
-          { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
+          { name: "YouTube", handle: "@원빅월드쇼", count: "165K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
+          { name: "Instagram", handle: "@1bigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", category: "1bws", isChannel: true },
+          { name: "TikTok", handle: "@onebigworldshow", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
+          { name: "YouTube", handle: "@reallytylerofficial", count: "", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
+          { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
+          { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
+          { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
+          { name: "X", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch", category: "personal" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/", category: "personal" }
         ]
       }
     },
@@ -724,15 +729,18 @@ const contentData: Record<'KR' | 'EN', Content> = {
       ecosystem: {
         channel_title: "1BWS / One Big World Show",
         personal_title: "Tyler Rasch",
+        really_tyler_title: "Really Tyler",
         platforms: [
-          { name: "YouTube", handle: "@원빅월드쇼", count: "", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", isChannel: true },
-          { name: "Instagram", handle: "@1bigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", isChannel: true },
-          { name: "TikTok", handle: "@tylerbolkkayo", count: "", icon: "tiktok", url: "https://www.tiktok.com/@tylerbolkkayo", isChannel: true },
-          { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/" },
-          { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/" },
-          { name: "X", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/" }
+          { name: "YouTube", handle: "@원빅월드쇼", count: "", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
+          { name: "Instagram", handle: "@1bigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", category: "1bws", isChannel: true },
+          { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
+          { name: "YouTube", handle: "@reallytylerofficial", count: "", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
+          { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
+          { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
+          { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
+          { name: "X", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch", category: "personal" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/", category: "personal" }
         ]
       }
     },
@@ -1582,7 +1590,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           <div className="space-y-8 w-full max-w-5xl">
             <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.personal_title}</h4>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center">
-              {t.ecosystem.platforms.filter(p => !p.isChannel).map((p, i) => (
+              {t.ecosystem.platforms.filter(p => p.category === 'personal' || (!p.category && !p.isChannel)).map((p, i) => (
                 <motion.a
                   key={i}
                   href={p.url}
@@ -1607,7 +1615,7 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
           <div className="space-y-8 w-full max-w-3xl">
             <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.channel_title}</h4>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
-              {t.ecosystem.platforms.filter(p => p.isChannel).map((p, i) => (
+              {t.ecosystem.platforms.filter(p => p.category === '1bws' || (!p.category && p.isChannel)).map((p, i) => (
                 <motion.a
                   key={i}
                   href={p.url}
@@ -1621,12 +1629,39 @@ const ImpactDashboard = ({ t, title }: { t: Content['dashboard'], title: string 
                   </div>
                   <div className="w-full">
                     <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
-                    <div className="text-[10px] text-zinc-500 group-hover:text-accent font-bold truncate w-full">{p.handle}</div>
+                    <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.handle}</div>
                   </div>
                 </motion.a>
               ))}
             </div>
           </div>
+
+          {/* Really Tyler Group */}
+          {t.ecosystem.really_tyler_title && (
+            <div className="space-y-8 w-full max-w-xl">
+              <h4 className="text-xl font-black text-white italic tracking-tight border-b border-white/5 pb-4 text-center">{t.ecosystem.really_tyler_title}</h4>
+              <div className="grid grid-cols-2 gap-4 justify-items-center">
+                {t.ecosystem.platforms.filter(p => p.category === 'really_tyler').map((p, i) => (
+                  <motion.a
+                    key={i}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -5 }}
+                    className="p-4 aspect-square w-full max-w-[160px] glass rounded-2xl border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center group gap-2"
+                  >
+                    <div className="text-zinc-400 group-hover:text-accent transition-colors scale-125">
+                      <SocialIcon name={p.icon} />
+                    </div>
+                    <div className="w-full">
+                      <div className="text-xs font-black text-white mb-1 uppercase tracking-tighter truncate w-full">{p.name}</div>
+                      <div className="text-[10px] text-zinc-500 group-hover:text-accent transition-colors font-bold truncate w-full">{p.handle}</div>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
