@@ -146,11 +146,13 @@ type Content = {
   packages: {
     heading: string;
     subheading: string;
+    guide?: string;
     items: {
       title: string;
       subtitle: string;
       desc: React.ReactNode;
-      detail: string;
+      detail?: string;
+      tags?: string[];
     }[];
   };
   contact: {
@@ -338,26 +340,27 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "엔터프라이즈 미디어 솔루션",
-      subheading: "대기업 및 글로벌 엔터프라이즈를 위한 전략적 미디어 솔루션",
+      heading: "브랜드 파트너십 솔루션 (BRAND PARTNERSHIP SOLUTIONS)",
+      subheading: "글로벌 엔터프라이즈부터 혁신 브랜드까지, 캠페인 목적과 규모에 최적화된 전략적 미디어 파트너십",
+      guide: "캠페인 일정 및 마케팅 목표에 맞춘 포맷별 번들링(단독 기획, 팟캐스트 호스트 리드, 에피소드 분할 집행 등)이 가능합니다. 프로젝트의 목적에 맞는 최적의 파트너십 구조를 제안해 드립니다.",
       items: [
         {
-          title: "브랜디드 콘텐츠",
-          subtitle: "Branded Series & Editorial Specials",
-          desc: "브랜드 철학과 기술적 가치를 타일러 미디어의 지적 서사로 재해석하는 단독 기획 영상 및 현장 로케이션 다큐멘터리 포맷",
-          detail: "단순 광고를 넘어 하나의 완성된 프리미엄 지적 IP로 제작됩니다. 10~15분 내외의 본편 영상을 통해 기업의 핵심 기술, 철학, 지속가능성 비전을 타일러의 깊이 있는 시각으로 풀어내며 시청자가 자발적으로 몰입하고 신뢰하는 고품격 서사를 전달합니다."
+          title: "브랜디드 스토리텔링 (Branded Storytelling)",
+          subtitle: "BRANDED SERIES & EDITORIAL SPECIALS",
+          desc: "단순 노출을 넘어 브랜드의 핵심 철학, 기술, 미래 비전을 타일러 미디어의 지적 서사로 완성하는 단독 기획 콘텐츠입니다. 10~15분 내외의 에디토리얼 전체가 브랜드의 아젠다를 깊이 있게 조명하여, 높은 시청 지속시간과 신뢰를 바탕으로 오디언스를 설득합니다.",
+          tags: ["브랜드 아젠다 세팅", "신제품/서비스 런칭", "기업 철학 브랜딩"]
         },
         {
-          title: "C-Suite & 글로벌 리더십 대담",
-          subtitle: "Thought Leadership Dialogue",
-          desc: "글로벌 기업 CEO, 창업가, 오피니언 리더와의 1:1 인터뷰 및 어젠다 세팅. 바이링구얼 모더레이팅을 통한 국내외 공신력 확보",
-          detail: "한국어와 영어를 자유자재로 구사하는 타일러의 바이링구얼 모더레이팅을 통해 국내외 최고 수준의 공신력과 품격을 보장합니다. 글로벌 거시 트렌드, 산업 혁신, 비즈니스 철학을 심도 있게 조명하여 리더십의 전문성과 브랜드 권위를 극대화합니다."
+          title: "맥락형 PPL & 스폰서십 (Contextual Placement & Sponsorship)",
+          subtitle: "SEAMLESS INTEGRATION & SPONSORSHIP",
+          desc: "콘텐츠의 자연스러운 대화 맥락 속에 브랜드의 가치를 직관적이고 설득력 있게 녹여내는 네이티브 PPL 포맷입니다. 토크의 몰입을 방해하지 않는 브레이크 구간 집중 소구와 실물 노출을 통해, 명확한 메시지 전달과 실질적인 클릭 전환을 이끌어냅니다.",
+          tags: ["제품/앱 서비스 소구", "스마트 PPL", "명확한 타깃 전환"]
         },
         {
-          title: "멀티플랫폼 신디케이션 & 숏폼",
-          subtitle: "Multi-Platform Syndication",
-          desc: "유튜브 롱폼과 더불어 Shorts, Instagram Reels, TikTok을 아우르는 숏폼 자동화 확산 패키지",
-          detail: "본편의 핵심 인사이트를 숏폼 문법에 최적화하여 유튜브 Shorts, 인스타그램 Reels, 틱톡 채널로 동시 확산합니다. 25-54 핵심 경제활동 인구와 트렌드 소비층에게 높은 빈도와 강렬한 흡인력으로 다가가는 크로스플랫폼 바이럴 솔루션입니다."
+          title: "리더십 대담 & 멀티플랫폼 확산 (Leadership Dialogue & Syndication)",
+          subtitle: "THOUGHT LEADERSHIP & CROSS-PLATFORM VIRAL",
+          desc: "글로벌 리더, 테크 창업가, C-Suite와의 심층 1:1 대담부터 숏폼 옴니채널 바이럴까지 결합한 종합 솔루션입니다. 바이링구얼 모더레이팅을 통한 국내외 공신력 확보는 물론, 유튜브 롱폼의 임팩트를 인스타그램 Reels, 유튜브 Shorts, TikTok으로 크로스 확장하여 파급력을 극대화합니다.",
+          tags: ["C-Suite/리더십 인터뷰", "글로벌 파트너십", "숏폼 옴니채널 신디케이션"]
         }
       ]
     },
@@ -865,26 +868,27 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "ENTERPRISE MEDIA SOLUTIONS",
-      subheading: "Strategic Media Solutions for Global Enterprises & Industry Leaders",
+      heading: "BRAND PARTNERSHIP SOLUTIONS",
+      subheading: "Strategic media partnerships tailored to campaign objectives and scale—from global enterprises to high-growth brands.",
+      guide: "Custom bundling (bespoke editorial specials, podcast host lead-ins, split episode campaigns, etc.) is fully available based on campaign timelines and marketing objectives. We design the optimal partnership architecture tailored to your strategic goals.",
       items: [
         {
-          title: "Branded Series & Editorial Specials",
-          subtitle: "Bespoke Intellectual Storytelling",
-          desc: "Custom planned long-form series and on-location documentary formats interpreting brand philosophy and technological innovation through Tyler Media's analytical narrative.",
-          detail: "Crafted not merely as advertising, but as enduring, authoritative intellectual property. Through ~10-15 minute flagship episodes, Tyler deconstructs corporate mission, breakthrough technologies, and sustainability visions into compelling stories that global audiences actively seek out and deeply trust."
+          title: "Branded Storytelling",
+          subtitle: "BRANDED SERIES & EDITORIAL SPECIALS",
+          desc: "Custom-planned editorial series and bespoke documentary formats that translate core philosophy, technology, and future vision into compelling intellectual narratives. Dedicated 10–15 minute features deep-dive into brand agendas, driving high watch time and lasting audience trust.",
+          tags: ["Brand Agenda Setting", "Product & Service Launch", "Corporate Mission & ESG"]
         },
         {
-          title: "C-Suite & Thought Leadership Dialogue",
-          subtitle: "Bilingual Agenda-Setting & Interviews",
-          desc: "1:1 high-level interviews and strategic agenda-setting with global CEOs, visionary founders, and industry opinion leaders with bilingual moderating.",
-          detail: "Conducted seamlessly in both English and Korean by Tyler, ensuring international prestige, editorial depth, and cross-border credibility. We spotlight macroeconomic shifts, industry-defining innovations, and corporate leadership philosophy, establishing your executive voice as a global authority."
+          title: "Contextual Placement & Sponsorship",
+          subtitle: "SEAMLESS INTEGRATION & SPONSORSHIP",
+          desc: "Native product integration that weaves brand value organically into natural conversational contexts. Through focused mid-roll callouts and live product demonstrations that preserve narrative immersion, we deliver clear messaging and high-intent audience conversion.",
+          tags: ["Product & App Discovery", "Smart PPL Integration", "Direct Target Conversion"]
         },
         {
-          title: "High-Impact Multi-Platform Syndication (Shorts, Reels, TikTok)",
-          subtitle: "Multi-Platform Syndication",
-          desc: "Omnichannel short-form syndication package amplifying key narratives across YouTube Shorts, Instagram Reels, and TikTok.",
-          detail: "Translates core insights and brand moments from long-form content into high-velocity short-form assets optimized for algorithmic resonance. Maximizes cross-platform frequency and virality across the 25-54 demographic and lifestyle trendsetters with unmatched visual and intellectual engagement."
+          title: "Leadership Dialogue & Syndication",
+          subtitle: "THOUGHT LEADERSHIP & CROSS-PLATFORM VIRAL",
+          desc: "An integrated media solution combining in-depth 1:1 dialogues with global CEOs, tech innovators, and C-Suite leaders with multi-platform short-form viral syndication. Tyler's bilingual moderating establishes global credibility while amplifying long-form impact across Instagram Reels, YouTube Shorts, and TikTok.",
+          tags: ["C-Suite & Leadership Dialogue", "Global Strategic Partnership", "Omnichannel Short-Form Syndication"]
         }
       ]
     },
@@ -2474,13 +2478,25 @@ export default function Home({
                     <div key={i} className="group grid grid-cols-1 lg:grid-cols-12 gap-12 border-l-2 border-white/5 pl-8 hover:border-accent transition-colors duration-500">
                       <div className="lg:col-span-4">
                         <span className="text-8xl font-black text-white/15 -ml-4 block -mt-10 mb-4 select-none">0{i + 1}</span>
-                        <h3 className="text-3xl font-bold text-white mb-2">{item.title}</h3>
-                        <p className="text-accent text-sm font-bold uppercase tracking-wider">{item.subtitle}</p>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 break-keep">{item.title}</h3>
+                        <p className="text-accent text-xs md:text-sm font-mono font-bold uppercase tracking-wider">{item.subtitle}</p>
                       </div>
                       <div className="lg:col-span-8 space-y-6">
-                        <p className="text-xl text-white font-medium word-keep-all">{item.desc}</p>
-                        <p className="text-zinc-400 leading-relaxed word-keep-all">{item.detail}</p>
-                        <div className="pt-4">
+                        <p className="text-lg md:text-xl text-zinc-200 font-normal leading-relaxed word-keep-all">{item.desc}</p>
+                        {item.detail && <p className="text-zinc-400 text-sm leading-relaxed word-keep-all">{item.detail}</p>}
+                        {item.tags && item.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {item.tags.map((tag, tIdx) => (
+                              <span
+                                key={tIdx}
+                                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono tracking-tight text-zinc-300 bg-white/[0.04] border border-white/10 group-hover:border-accent/40 transition-colors"
+                              >
+                                <span className="text-accent/80 font-bold mr-1">#</span>{tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        <div className="pt-2">
                           <a href="#contact" className="inline-block border-b border-white/20 pb-1 text-xs font-bold uppercase tracking-widest hover:text-accent hover:border-accent transition-all">
                             {t.sidebar.contact} &rarr;
                           </a>
@@ -2489,6 +2505,29 @@ export default function Home({
                     </div>
                   ))}
                 </div>
+
+                {t.packages.guide && (
+                  <div className="mt-24 p-8 md:p-10 rounded-2xl bg-gradient-to-r from-white/[0.03] to-white/[0.01] border border-white/10 relative overflow-hidden backdrop-blur-sm">
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-accent" />
+                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                      <div className="space-y-2 max-w-3xl">
+                        <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-accent uppercase">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                          Tailored Media Architecture
+                        </div>
+                        <p className="text-zinc-300 text-sm md:text-base leading-relaxed word-keep-all font-light">
+                          {t.packages.guide}
+                        </p>
+                      </div>
+                      <a
+                        href="#contact"
+                        className="shrink-0 px-6 py-3.5 bg-white text-black hover:bg-accent font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-sm shadow-lg hover:shadow-accent/20"
+                      >
+                        {t.sidebar.contact} &rarr;
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
             </section>
 
