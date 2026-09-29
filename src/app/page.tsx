@@ -344,7 +344,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "파트너십 솔루션 (PARTNERSHIP SOLUTIONS)",
+      heading: "파트너십 (PARTNERSHIP)",
       subheading: "단순 노출을 넘어선 설득과 전환. 브랜드의 마케팅·PR 목표에 최적화된 협업 방식을 제안합니다.",
       guide: "캠페인 일정 및 마케팅 목표에 맞춘 포맷별 번들링(단독 기획, 팟캐스트 호스트 리드, 에피소드 분할 집행 등)이 가능합니다. 프로젝트의 목적에 맞는 최적의 파트너십 구조를 제안해 드립니다.",
       includesLabel: "포함 구성",
@@ -369,10 +369,10 @@ const contentData: Record<'KR' | 'EN', Content> = {
         {
           title: "스페셜 인터뷰 & 멀티 확산",
           subtitle: "SPECIAL INTERVIEW & VIRAL",
-          desc: "글로벌 기업가부터 세계적인 베스트셀러 작가, 저널리스트, 오피니언 리더, 크리에이터, 셀럽과의 1:1 심층 대담을 진행합니다.\n한국어·영어 바이링구얼 모더레이팅으로 인터뷰이와 브랜드의 공신력을 극대화하고, 핵심 하이라이트를 릴스·쇼츠·틱톡으로 크로스 바이럴합니다.",
-          includes: "1:1 바이링구얼 대담 본편 + 유튜브 Shorts · 인스타 Reels · 틱톡 멀티플랫폼 숏폼 확산",
+          desc: "글로벌 기업가부터 세계적인 베스트셀러 작가, 저널리스트, 오피니언 리더, 크리에이터, 셀럽과의 1:1 심층 대담을 진행합니다.\n한국어·영어 Bilingual 모더레이팅으로 인터뷰 게스트와 브랜드의 공신력을 극대화하고, 핵심 하이라이트를 릴스·쇼츠·틱톡으로 크로스 바이럴합니다.",
+          includes: "1:1 Bilingual 대담 본편 + 유튜브 Shorts · 인스타 Reels · 틱톡 멀티플랫폼 숏폼 확산",
           recommendedFor: "글로벌 명사/셀럽 협업, 브랜드 아젠다 선점, CEO/인물 브랜딩, 숏폼 도달 극대화",
-          tags: ["글로벌명사인터뷰", "바이링구얼대담", "숏폼옴니채널"]
+          tags: ["글로벌명사인터뷰", "Bilingual대담", "숏폼옴니채널"]
         }
       ]
     },
@@ -880,7 +880,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "PARTNERSHIP SOLUTIONS",
+      heading: "PARTNERSHIP",
       subheading: "Beyond mere exposure—driving persuasion and conversion. Strategic collaboration tailored to your marketing & PR objectives.",
       guide: "Custom bundling (bespoke editorial specials, podcast host lead-ins, split episode campaigns, etc.) is fully available based on campaign timelines and marketing objectives. We design the optimal partnership architecture tailored to your strategic goals.",
       includesLabel: "Includes",
@@ -2235,7 +2235,6 @@ const OriginalsSection = ({
                     <span>Watch Episode</span>
                     <span>&rarr;</span>
                   </span>
-                  <span className="text-zinc-600 group-hover:text-accent transition-colors font-mono">16:9 HD</span>
                 </div>
               </div>
             </div>
