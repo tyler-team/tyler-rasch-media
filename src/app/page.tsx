@@ -34,7 +34,7 @@ type Content = {
     label: string;
     title_span: string;
     subtitle: string;
-    description: string;
+    description: React.ReactNode;
     cta: string;
     media_kit_cta: string;
   };
@@ -202,7 +202,13 @@ const contentData: Record<'KR' | 'EN', Content> = {
       label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
       subtitle: "지적 아이콘 • 브랜드에 지성을 더하는 목소리",
-      description: "타일러 라쉬는 단순한 방송인이 아닙니다. 대한민국에서 가장 신뢰받는 외국인 지식인이자, 브랜드의 메시지에 '지적 권위'를 부여하는 독보적인 미디어 솔루션입니다.",
+      description: (
+        <>
+          타일러 라쉬는 단순한 방송인이 아닙니다. 대한민국에서 가장 신뢰받는 외국인 지식인이자,
+          <br />
+          브랜드의 메시지에 &apos;지적 권위&apos;를 부여하는 독보적인 미디어 솔루션입니다.
+        </>
+      ),
       cta: "협업 문의하기",
       media_kit_cta: "미디어 키트 다운로드"
     },
@@ -268,10 +274,11 @@ const contentData: Record<'KR' | 'EN', Content> = {
         really_tyler_title: "Really Tyler",
         platforms: [
           { name: "YouTube", handle: "@원빅월드쇼", count: "165K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
-          { name: "Instagram", handle: "@1bigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", category: "1bws", isChannel: true },
+          { name: "Instagram", handle: "@onebigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
           { name: "TikTok", handle: "@onebigworldshow", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
+          { name: "TikTok", handle: "@reallytylerofficial", count: "", icon: "tiktok", url: "https://www.tiktok.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
           { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
@@ -804,10 +811,11 @@ const contentData: Record<'KR' | 'EN', Content> = {
         really_tyler_title: "Really Tyler",
         platforms: [
           { name: "YouTube", handle: "@원빅월드쇼", count: "", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
-          { name: "Instagram", handle: "@1bigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/1bigworldshow", category: "1bws", isChannel: true },
+          { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
           { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
+          { name: "TikTok", handle: "@reallytylerofficial", count: "", icon: "tiktok", url: "https://www.tiktok.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
           { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
@@ -1768,7 +1776,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
             {/* Chip 2: Target Power */}
             <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E1306C]/60 hover:bg-white/[0.05] transition-all">
               <div className="text-xs font-bold text-white mb-1.5 leading-snug">
-                {lang === 'KR' ? 'F 77% 중심의 트렌드·라이프스타일 소비 주도층' : '77% Female Trend & Lifestyle Consumption Core'}
+                {lang === 'KR' ? '여성 77% 중심의 트렌드·라이프스타일 소비 주도층' : '77% Female Trend & Lifestyle Consumption Core'}
               </div>
               <div className="text-[11px] text-zinc-400 font-mono">
                 {lang === 'KR' ? '(35-44세 중심 실질적 가계 구매력 코어)' : '(Ages 35-44 Primary Household Purchasing Power)'}
@@ -1920,7 +1928,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                   <span className="text-[10px] font-black uppercase tracking-widest text-black bg-[#ffc700] px-2.5 py-0.5 rounded-full border border-[#ffc700]/40 shadow-sm">
                     Lifestyle & Culture IP
                   </span>
-                  <span className="text-xs text-zinc-500 font-mono">2 Channels</span>
+                  <span className="text-xs text-zinc-500 font-mono">3 Channels</span>
                 </div>
                 <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
                   {t.ecosystem.really_tyler_title || "Really Tyler"}
