@@ -61,14 +61,12 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tight leading-[1.1] break-keep">
             타일러 미디어와 함께할 <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-100 to-zinc-400">
-              기업 협업 &amp; PR 인턴
-            </span>을 모십니다.
+            기업 협업 &amp; PR 인턴을 모십니다
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-zinc-300 max-w-3xl leading-relaxed break-keep font-light">
-            &ldquo;글로벌 지식 채널 &apos;원빅월드쇼(1BWS)&apos;와 라이프스타일 채널 &apos;리얼리 타일러(Really Tyler)&apos;를 제작하는 타일러 미디어에서 비즈니스 파트너십과 PR 실무를 함께 만들어갈 인재를 찾습니다.&rdquo;
+            글로벌 지식 채널 원빅월드쇼(1BWS)와 라이프스타일 채널 리얼리 타일러(Really Tyler)를 제작하는 타일러 미디어에서 비즈니스 파트너십과 PR 실무를 함께 만들어갈 인재를 찾습니다.
           </p>
 
           {/* 3 Key Summary Chips */}
