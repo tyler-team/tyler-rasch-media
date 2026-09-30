@@ -452,8 +452,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             </div>
 
             {/* Step 4 */}
-            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-zinc-400 border-x border-b border-white/10 space-y-2">
-              <div className="text-xs font-mono font-bold text-zinc-400 tracking-wider uppercase">
+            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-[#ffc700] border-x border-b border-white/10 space-y-2">
+              <div className="text-xs font-mono font-bold text-[#ffc700] tracking-wider uppercase">
                 STEP 04
               </div>
               <div className="text-base font-bold text-white">사전 실무 교육</div>
@@ -466,8 +466,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             </div>
 
             {/* Step 5 */}
-            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-white border-x border-b border-white/10 space-y-2">
-              <div className="text-xs font-mono font-bold text-white tracking-wider uppercase">
+            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-[#00be61] border-x border-b border-white/10 space-y-2">
+              <div className="text-xs font-mono font-bold text-[#00be61] tracking-wider uppercase">
                 STEP 05
               </div>
               <div className="text-base font-bold text-white">정식 근무 시작</div>
