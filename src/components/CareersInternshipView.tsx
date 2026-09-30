@@ -41,8 +41,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
   return (
     <article className="relative min-h-screen py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-[#0a0c10] text-zinc-100 overflow-hidden font-sans">
       {/* Background Decorative Gradients */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#00be61]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-[#ffc700]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/3 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto space-y-24 md:space-y-32">
@@ -51,8 +51,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
            ======================================================== */}
         <header className="space-y-8 pt-4 md:pt-8">
           {/* Top Label Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#00be61]/10 border border-[#00be61] shadow-[0_0_20px_rgba(0,190,97,0.25)]">
-            <span className="w-2 h-2 rounded-full bg-[#00be61] animate-pulse" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent/10 border border-accent shadow-[0_0_20px_rgba(0,229,255,0.25)]">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             <span className="text-xs md:text-sm font-bold text-white tracking-wide uppercase">
               2026 하반기 인턴십 모집
             </span>
@@ -73,9 +73,9 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
           {/* 3 Key Summary Chips */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-            <div className="p-5 rounded-2xl bg-[#161616] border border-white/10 hover:border-[#00be61]/50 transition-colors">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#00be61] uppercase tracking-wider mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00be61]" />
+            <div className="p-5 rounded-2xl bg-[#161616] border border-white/10 hover:border-accent/50 transition-colors">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                 Schedule
               </div>
               <div className="text-base font-bold text-white mb-1 break-keep">
@@ -86,9 +86,9 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#161616] border border-white/10 hover:border-[#ffc700]/50 transition-colors">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#ffc700] uppercase tracking-wider mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ffc700]" />
+            <div className="p-5 rounded-2xl bg-[#161616] border border-white/10 hover:border-accent/50 transition-colors">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                 Flexibility
               </div>
               <div className="text-base font-bold text-white mb-1 break-keep">
@@ -131,8 +131,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
            ======================================================== */}
         <section className="space-y-8">
           <div className="border-b border-white/10 pb-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#00be61] uppercase tracking-widest mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00be61]" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-widest mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               Section 01
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
@@ -144,10 +144,10 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* 모집 인원 */}
             <div className="p-6 rounded-2xl bg-[#161616] border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00be61] font-semibold uppercase tracking-wider">
+              <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
                 모집 인원
               </div>
-              <div className="text-xl font-bold text-white">2~3명</div>
+              <div className="text-xl font-bold text-white">2명</div>
               <p className="text-xs text-zinc-400 break-keep">
                 채용 즉시 실무에 투입되어 팀과 긴밀하게 협업합니다.
               </p>
@@ -155,7 +155,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
             {/* 지원 대상 */}
             <div className="p-6 rounded-2xl bg-[#161616] border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00be61] font-semibold uppercase tracking-wider">
+              <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
                 지원 대상
               </div>
               <div className="text-xl font-bold text-white break-keep">
@@ -168,20 +168,17 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
             {/* 근무 기간 */}
             <div className="p-6 rounded-2xl bg-[#161616] border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00be61] font-semibold uppercase tracking-wider">
+              <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
                 근무 기간
               </div>
               <div className="text-xl font-bold text-white break-keep">
                 2026년 10월 26일(월) ~ 12월 11일(금) (총 7주)
               </div>
-              <p className="text-xs text-[#ffc700] break-keep font-medium">
-                * 사전 오리엔테이션 및 실무 교육: 10월 19일(월) 주간 중 조율
-              </p>
             </div>
 
             {/* 근무 형태 */}
             <div className="p-6 rounded-2xl bg-[#161616] border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00be61] font-semibold uppercase tracking-wider">
+              <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
                 근무 형태
               </div>
               <div className="text-xl font-bold text-white break-keep">
@@ -194,17 +191,17 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
             {/* 근무 장소 */}
             <div className="p-6 rounded-2xl bg-[#161616] border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00be61] font-semibold uppercase tracking-wider">
+              <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
                 근무 장소
               </div>
               <div className="text-xl font-bold text-white break-keep">
-                서울 영등포구 오피스 근무 및 온·오프라인 병행
+                온·오프라인 (영등포구) 병행
               </div>
             </div>
 
             {/* 급여 조건 */}
             <div className="p-6 rounded-2xl bg-[#161616] border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00be61] font-semibold uppercase tracking-wider">
+              <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
                 급여 조건
               </div>
               <div className="text-xl font-bold text-white">
@@ -219,8 +216,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
            ======================================================== */}
         <section className="space-y-8">
           <div className="border-b border-white/10 pb-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#ffc700] uppercase tracking-widest mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffc700]" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-widest mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               Section 02
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
@@ -233,10 +230,10 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Task 01 */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-[#00be61]/40 transition-all duration-300 space-y-4">
+            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-all duration-300 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black text-white/20 font-mono">01</span>
-                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-[#00be61]/10 text-[#00be61] border border-[#00be61]/30">
+                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-accent/10 text-accent border border-accent/30">
                   Partnership
                 </span>
               </div>
@@ -245,21 +242,21 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               </h3>
               <ul className="space-y-2 text-sm text-zinc-300 font-light leading-relaxed break-keep">
                 <li className="flex items-start gap-2">
-                  <span className="text-[#00be61] mt-1 shrink-0">•</span>
+                  <span className="text-accent mt-1 shrink-0">•</span>
                   <span>타일러 미디어와 협업할 만한 국내외 기업, 브랜드, 대형 광고대행사 발굴 및 리스트업</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#00be61] mt-1 shrink-0">•</span>
+                  <span className="text-accent mt-1 shrink-0">•</span>
                   <span>파트너십 안내서(미디어킷) 전달 및 비즈니스 협업 제안 이메일 발송</span>
                 </li>
               </ul>
             </div>
 
             {/* Task 02 */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-[#ffc700]/40 transition-all duration-300 space-y-4">
+            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-all duration-300 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black text-white/20 font-mono">02</span>
-                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-[#ffc700]/10 text-[#ffc700] border border-[#ffc700]/30">
+                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-accent/10 text-accent border border-accent/30">
                   Press &amp; PR
                 </span>
               </div>
@@ -268,11 +265,11 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               </h3>
               <ul className="space-y-2 text-sm text-zinc-300 font-light leading-relaxed break-keep">
                 <li className="flex items-start gap-2">
-                  <span className="text-[#ffc700] mt-1 shrink-0">•</span>
+                  <span className="text-accent mt-1 shrink-0">•</span>
                   <span>신규 프로젝트 및 채널 주요 소식 보도자료 작성</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#ffc700] mt-1 shrink-0">•</span>
+                  <span className="text-accent mt-1 shrink-0">•</span>
                   <span>주요 언론사(방송·신문·IT·경제지) 기자 연락처 최신화 및 보도자료 배포</span>
                 </li>
               </ul>
@@ -302,10 +299,10 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             </div>
 
             {/* Task 04 */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-[#00be61]/40 transition-all duration-300 space-y-4">
+            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-all duration-300 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-black text-white/20 font-mono">04</span>
-                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-[#00be61]/10 text-[#00be61] border border-[#00be61]/30">
+                <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-accent/10 text-accent border border-accent/30">
                   Operations
                 </span>
               </div>
@@ -314,15 +311,15 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               </h3>
               <ul className="space-y-2 text-sm text-zinc-300 font-light leading-relaxed break-keep">
                 <li className="flex items-start gap-2">
-                  <span className="text-[#00be61] mt-1 shrink-0">•</span>
+                  <span className="text-accent mt-1 shrink-0">•</span>
                   <span>제안 미팅 일정 조율 및 기본 대외 커뮤니케이션 지원</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#00be61] mt-1 shrink-0">•</span>
+                  <span className="text-accent mt-1 shrink-0">•</span>
                   <span>주요 유튜브 채널들의 브랜드 협찬 및 광고 트렌드 모니터링</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#00be61] mt-1 shrink-0">•</span>
+                  <span className="text-accent mt-1 shrink-0">•</span>
                   <span>프로젝트 진행 및 팀 운영에 필요한 전반적인 미디어 오퍼레이션 지원</span>
                 </li>
               </ul>
@@ -347,24 +344,24 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* 지원 자격 */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-[#00be61]/40 transition-colors flex flex-col justify-between">
+            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-colors flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#00be61] uppercase tracking-wider mb-4">
-                  <span className="w-2 h-2 rounded-full bg-[#00be61]" />
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-4">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
                   지원 자격
                 </div>
                 <h3 className="text-xl font-bold text-white mb-6">Must Have</h3>
                 <ul className="space-y-4 text-sm text-zinc-300 font-light leading-relaxed break-keep">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#00be61] font-bold shrink-0">✓</span>
+                    <span className="text-accent font-bold shrink-0">✓</span>
                     <span>기본적인 비즈니스 이메일 작성과 꼼꼼한 정보 검색이 가능하신 분</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#00be61] font-bold shrink-0">✓</span>
+                    <span className="text-accent font-bold shrink-0">✓</span>
                     <span>사람들과 소통하는 것을 좋아하고 예의 바른 커뮤니케이션 태도를 갖추신 분</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#00be61] font-bold shrink-0">✓</span>
+                    <span className="text-accent font-bold shrink-0">✓</span>
                     <span>주 3일 오전 근무(09:00~12:00)에 집중할 수 있는 분</span>
                   </li>
                 </ul>
@@ -372,24 +369,24 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             </div>
 
             {/* 우대 사항 */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-[#ffc700]/40 transition-colors flex flex-col justify-between">
+            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-colors flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#ffc700] uppercase tracking-wider mb-4">
-                  <span className="w-2 h-2 rounded-full bg-[#ffc700]" />
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-4">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
                   우대 사항
                 </div>
                 <h3 className="text-xl font-bold text-white mb-6">Preferred</h3>
                 <ul className="space-y-4 text-sm text-zinc-300 font-light leading-relaxed break-keep">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#ffc700] font-bold shrink-0">★</span>
+                    <span className="text-accent font-bold shrink-0">★</span>
                     <span>영문 이메일 작성이나 해외 기업 리서치가 가능하신 분 <strong className="text-white font-semibold">(영어 능통자)</strong></span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#ffc700] font-bold shrink-0">★</span>
+                    <span className="text-accent font-bold shrink-0">★</span>
                     <span>슬랙(Slack), 노션(Notion), 구글 문서 활용이 익숙하신 분</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#ffc700] font-bold shrink-0">★</span>
+                    <span className="text-accent font-bold shrink-0">★</span>
                     <span>미디어, 광고, 홍보, 비즈니스 협업에 관심이 많으신 분</span>
                   </li>
                 </ul>
@@ -403,8 +400,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
            ======================================================== */}
         <section className="space-y-8">
           <div className="border-b border-white/10 pb-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#00be61] uppercase tracking-widest mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00be61]" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-widest mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               Section 04
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
@@ -415,8 +412,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {/* Step 1 */}
-            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-[#00be61] border-x border-b border-white/10 space-y-2 relative">
-              <div className="text-xs font-mono font-bold text-[#00be61] tracking-wider uppercase">
+            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-accent border-x border-b border-white/10 space-y-2 relative">
+              <div className="text-xs font-mono font-bold text-accent tracking-wider uppercase">
                 STEP 01
               </div>
               <div className="text-base font-bold text-white">서류 접수</div>
@@ -429,8 +426,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             </div>
 
             {/* Step 2 */}
-            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-[#ffc700] border-x border-b border-white/10 space-y-2">
-              <div className="text-xs font-mono font-bold text-[#ffc700] tracking-wider uppercase">
+            <div className="p-6 rounded-2xl bg-[#161616] border-t-2 border-t-accent border-x border-b border-white/10 space-y-2">
+              <div className="text-xs font-mono font-bold text-accent tracking-wider uppercase">
                 STEP 02
               </div>
               <div className="text-base font-bold text-white">화상 면접</div>
@@ -491,15 +488,15 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
            ======================================================== */}
         <section id="apply" className="scroll-mt-24 space-y-8">
           <div className="border-b border-white/10 pb-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#00be61] uppercase tracking-widest mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00be61] animate-pulse" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-widest mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               Application Form
             </div>
             <h2 className="text-2xl md:text-5xl font-black text-white tracking-tight">
               인턴십 지원하기 <span className="text-zinc-500 text-xl md:text-3xl font-normal">(Apply Now)</span>
             </h2>
             <p className="text-base text-zinc-300 mt-2 font-light">
-              &ldquo;아래 지원 폼을 작성해 제출해 주시면 서류 검토 후 순차적으로 연락드립니다.&rdquo;
+              아래 지원 폼을 작성해 제출해 주시면 서류 검토 후 순차적으로 연락드립니다.
             </p>
           </div>
 
