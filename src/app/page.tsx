@@ -7,6 +7,7 @@ import SMEStartupProgramView from "../components/SMEStartupProgramView";
 import PressBlogSection from "../components/PressBlogSection";
 import PressView from "../components/PressView";
 import BlogView from "../components/BlogView";
+import CareersInternshipView from "../components/CareersInternshipView";
 
 // --- TYPES & CONTENT DICTIONARY ---
 
@@ -1371,6 +1372,15 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
                     {t.press}
                   </a>
                 )}
+                {t.careers && (
+                  <a
+                    href="/careers"
+                    onClick={(e) => { e.preventDefault(); setView('careers'); setMobileMenuOpen(false); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
+                    className={`flex items-center gap-4 transition-colors text-left uppercase font-bold tracking-widest ${view === 'careers' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
+                  >
+                    {t.careers}
+                  </a>
+                )}
                 {t.contact && (
                   <a
                     href="/#contact"
@@ -1438,6 +1448,16 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             >
               <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'press' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.press}</span>
+            </a>
+          )}
+          {t.careers && (
+            <a
+              href="/careers"
+              onClick={(e) => { e.preventDefault(); setView('careers'); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
+              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+            >
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'careers' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
+              <span>{t.careers}</span>
             </a>
           )}
           {t.contact && (
@@ -2615,6 +2635,8 @@ export default function Home({
                       <div className="flex flex-wrap items-center gap-4 mt-2">
                         <span>© 2026 Tyler Rasch Media</span>
                         <span className="text-zinc-800">•</span>
+                        <a href="/careers" onClick={(e) => { e.preventDefault(); setView('careers'); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }} className="hover:text-white transition-colors">{lang === 'KR' ? '채용' : 'Careers'}</a>
+                        <span className="text-zinc-800">•</span>
                         <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
                       </div>
                     </div>
@@ -2625,123 +2647,8 @@ export default function Home({
             </section>
           </>
         ) : view === 'careers' ? (
-          /* CAREERS VIEW (BILINGUAL) */
-          t.careers && (
-            <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
-              <SectionBackground src="/headshots/tyler_suit_thinking.jpg" y={yHero} priority={true} mobilePos="object-[center_10%]" />
-              <div className="relative z-10 max-w-6xl mx-auto">
-                <div className="mb-20">
-                  <h2 className="text-5xl md:text-8xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.careers.heading}</h2>
-                  <div className="w-20 h-1 bg-accent/30 mt-8" />
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
-                  <div>
-                    <h3 className="text-[25px] md:text-[41px] font-bold text-white mb-6 break-keep tracking-tight">{t.careers.subheading}</h3>
-                    <p className="text-xl text-zinc-400 break-keep leading-relaxed">{t.careers.desc}</p>
-                  </div>
-                </div>
-
-                {/* Core Values */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
-                  {t.careers.values.map((value: any, i: number) => (
-                    <div key={i} className="p-8 border border-white/10 bg-white/5 rounded-3xl hover:border-accent/30 transition-all hover:-translate-y-1 duration-300">
-                      <h4 className="text-xl font-bold text-white mb-4">{value.title}</h4>
-                      <p className="text-sm text-zinc-400 leading-relaxed break-keep">{value.desc}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Open Positions */}
-                <div className="space-y-8">
-                  {t.careers.positions.map((pos: any, i: number) => (
-                    <details key={i} className="group border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-all overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-                      <summary className="p-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer list-none focus:outline-none">
-                        <div>
-                          <div className="flex items-center gap-4 mb-2">
-                            <h4 className="text-2xl font-bold text-white transition-colors group-hover:text-accent">{pos.title}</h4>
-                            <span className="text-zinc-500 transition-transform duration-300 group-open:rotate-180">▼</span>
-                          </div>
-                          <p className="text-zinc-400 max-w-2xl break-keep">{pos.desc}</p>
-                        </div>
-                        <a
-                          href="https://form.typeform.com/to/BurZwq4x"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-accent transition-colors whitespace-nowrap self-start md:self-center"
-                        >
-                          {pos.action}
-                        </a>
-                      </summary>
-                      {pos.details && (
-                        <div className="px-10 pb-10 pt-4 border-t border-white/5 space-y-8 animate-in slide-in-from-top-4 fade-in duration-300">
-                          <div>
-                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[{pos.details.responsibilities.label}]</h5>
-                            <ul className="list-disc pl-5 space-y-2 text-zinc-300">
-                              {pos.details.responsibilities.items.map((req: string, idx: number) => (
-                                <li key={idx} className="break-keep">{req}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[{pos.details.qualifications.label}]</h5>
-                            <ul className="list-disc pl-5 space-y-2 text-zinc-300">
-                              {pos.details.qualifications.items.map((req: string, idx: number) => (
-                                <li key={idx} className="break-keep">{req}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[{pos.details.preferred.label}]</h5>
-                            <ul className="list-disc pl-5 space-y-2 text-zinc-300">
-                              {pos.details.preferred.items.map((req: string, idx: number) => (
-                                <li key={idx} className="break-keep">{req}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          {pos.details.workInfo && (
-                            <div>
-                              <h5 className="text-accent font-bold mb-4 uppercase tracking-widest text-sm">[{pos.details.workInfo.label}]</h5>
-                              <div className="space-y-3 text-zinc-300 text-sm">
-                                {pos.details.workInfo.items.map((item: any, idx: number) => (
-                                  <div key={idx} className="flex flex-col md:flex-row gap-1 md:gap-4 break-keep">
-                                    <span className="text-white min-w-[150px] inline-block">• {item.label}:</span>
-                                    <span className="flex-1 opacity-80">{item.value}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </details>
-                  ))}
-                </div>
-
-                <div className="mt-32 pt-12 border-t border-white/5 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-                        <span className="font-bold">주식회사 큰미르(Knmir Inc.)</span>
-                        <span className="hidden md:inline text-zinc-800">|</span>
-                        <span>대표자: RASCH TYLER JOSEF</span>
-                        <span className="hidden md:inline text-zinc-800">|</span>
-                        <span>사업자등록번호: 116-81-96227</span>
-                      </div>
-                      <div>주소: 서울특별시 영등포구 영중로29길 2, B1</div>
-                      <div className="flex flex-wrap items-center gap-4 mt-2">
-                        <span>© 2026 Tyler Rasch Media</span>
-                        <span className="text-zinc-800">•</span>
-                        <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
-                      </div>
-                    </div>
-                    <a href="mailto:request@tylerrasch.com" className="hover:text-white transition-colors lowercase">request@tylerrasch.com</a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )
+          /* CAREERS VIEW (INTERNSHIP RECRUITMENT) */
+          <CareersInternshipView lang={lang} onNavigateHome={() => { setView('home'); window.scrollTo(0, 0); window.history.pushState(null, '', '/'); }} />
         ) : view === 'sme-startup-program' ? (
           /* SME/STARTUP PROGRAM VIEW */
           <SMEStartupProgramView setSelectedVideo={setSelectedVideo} />
