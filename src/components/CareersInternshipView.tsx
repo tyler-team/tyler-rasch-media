@@ -95,7 +95,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
                 학업·취업 준비 병행 최적화
               </div>
               <div className="text-xs text-zinc-400">
-                휴게시간 없는 3시간 압축 근무
+                주 3일 오전 집중 근무
               </div>
             </div>
 
@@ -188,7 +188,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
                 주 3일 / 오전 09:00 ~ 12:00
               </div>
               <p className="text-xs text-zinc-400">
-                하루 3시간 / 주 9시간 (휴게시간 없는 압축 근무)
+                하루 3시간 / 주 9시간
               </p>
             </div>
 
@@ -200,9 +200,6 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               <div className="text-xl font-bold text-white break-keep">
                 서울 영등포구 오피스 근무 및 온·오프라인 병행
               </div>
-              <p className="text-xs text-zinc-400">
-                (서울특별시 영등포구 영중로29길 2)
-              </p>
             </div>
 
             {/* 급여 조건 */}
@@ -213,9 +210,6 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               <div className="text-xl font-bold text-white">
                 시급 11,000원 <span className="text-sm font-normal text-zinc-400">(산재보험 적용)</span>
               </div>
-              <p className="text-xs text-zinc-400 break-keep">
-                법정 최저임금을 상회하는 합리적 급여 보장
-              </p>
             </div>
           </div>
         </section>
@@ -337,7 +331,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
         </section>
 
         {/* ========================================================
-            4. SECTION 3: 지원 자격 및 근무 혜택 (Qualifications & Perks)
+            4. SECTION 3: 지원 자격 (Qualifications)
            ======================================================== */}
         <section className="space-y-8">
           <div className="border-b border-white/10 pb-6">
@@ -346,12 +340,12 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               Section 03
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
-              지원 자격 및 근무 혜택
+              지원 자격
             </h2>
-            <p className="text-sm text-zinc-400 mt-1">Qualifications &amp; Perks</p>
+            <p className="text-sm text-zinc-400 mt-1">Qualifications</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* 지원 자격 */}
             <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-[#00be61]/40 transition-colors flex flex-col justify-between">
               <div>
@@ -397,43 +391,6 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
                   <li className="flex items-start gap-2">
                     <span className="text-[#ffc700] font-bold shrink-0">★</span>
                     <span>미디어, 광고, 홍보, 비즈니스 협업에 관심이 많으신 분</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* 근무 혜택 */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-colors flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-4">
-                  <span className="w-2 h-2 rounded-full bg-accent" />
-                  근무 혜택
-                </div>
-                <h3 className="text-xl font-bold text-white mb-6">Perks &amp; Benefits</h3>
-                <ul className="space-y-4 text-sm text-zinc-300 font-light leading-relaxed break-keep">
-                  <li className="space-y-1">
-                    <div className="text-white font-bold flex items-center gap-1.5">
-                      <span className="text-accent">•</span> 3시간 집중 스케줄
-                    </div>
-                    <p className="text-xs text-zinc-400 pl-3.5">
-                      09:00 출근, 12:00 정시 퇴근으로 오후 시간 온전한 개인 활동 및 학업 보장
-                    </p>
-                  </li>
-                  <li className="space-y-1">
-                    <div className="text-white font-bold flex items-center gap-1.5">
-                      <span className="text-accent">•</span> 공식 수료증 &amp; 추천서
-                    </div>
-                    <p className="text-xs text-zinc-400 pl-3.5">
-                      타일러 미디어 공식 인턴십 수료증 발급 및 우수 수료자 대상 공식 추천서·취업 멘토링 제공
-                    </p>
-                  </li>
-                  <li className="space-y-1">
-                    <div className="text-white font-bold flex items-center gap-1.5">
-                      <span className="text-accent">•</span> 취업 면접 일정 배려
-                    </div>
-                    <p className="text-xs text-zinc-400 pl-3.5">
-                      근무 기간 중 기업 공채 면접 참석 시 근무 일정 사전 조정 지원
-                    </p>
                   </li>
                 </ul>
               </div>
