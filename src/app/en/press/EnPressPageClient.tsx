@@ -7,6 +7,17 @@ import BioMatrix from "../../../components/BioMatrix";
 import DataCheatSheet from "../../../components/DataCheatSheet";
 import AssetVault from "../../../components/AssetVault";
 
+const getSnippet = (release: PressRelease) => {
+  if (release.intro5W1H) return release.intro5W1H;
+  const first = release.body?.[0];
+  if (!first) return "";
+  if (typeof first === "string") return first;
+  if (first._type === "textBlock") return first.text;
+  if (first._type === "image" && first.caption) return first.caption;
+  if (first._type === "videoEmbed" && first.caption) return first.caption;
+  return "";
+};
+
 export default function EnPressPageClient({ initialReleases }: { initialReleases: PressRelease[] }) {
   const [lang, setLang] = useState<"KR" | "EN">("EN");
   const [showEPK, setShowEPK] = useState(false);
@@ -120,7 +131,7 @@ export default function EnPressPageClient({ initialReleases }: { initialReleases
                 )}
 
                 <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                  {release.intro5W1H || (typeof release.body[0] === 'string' ? release.body[0] : '')}
+                  {getSnippet(release)}
                 </p>
 
                 <a

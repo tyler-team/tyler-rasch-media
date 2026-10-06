@@ -17,6 +17,10 @@ export function urlFor(source: any) {
 export type SanityContentBlock =
   | string
   | {
+      _type: 'textBlock';
+      text: string;
+    }
+  | {
       _type: 'image';
       asset: { _ref: string; _type: string };
       caption?: string;

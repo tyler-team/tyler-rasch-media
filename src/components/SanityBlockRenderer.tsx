@@ -13,12 +13,17 @@ const getYouTubeEmbedId = (url: string) => {
 export default function SanityBlockRenderer({ block }: { block: SanityContentBlock }) {
   if (!block) return null;
 
-  // 1. Plain Text Paragraph
+  // 1. Plain Text Paragraph (Legacy strings)
   if (typeof block === "string") {
     return <p className="leading-relaxed whitespace-pre-line break-keep text-zinc-300">{block}</p>;
   }
 
-  // 2. Image Block
+  // 2. Structured Text Block
+  if (block._type === "textBlock") {
+    return <p className="leading-relaxed whitespace-pre-line break-keep text-zinc-300">{block.text}</p>;
+  }
+
+  // 3. Image Block
   if (block._type === "image" && block.asset) {
     try {
       const imageUrl = urlFor(block).width(1200).auto("format").fit("max").url();
@@ -45,7 +50,7 @@ export default function SanityBlockRenderer({ block }: { block: SanityContentBlo
     }
   }
 
-  // 3. YouTube / Video Embed Block
+  // 4. YouTube / Video Embed Block
   if (block._type === "videoEmbed" && block.url) {
     const videoId = getYouTubeEmbedId(block.url);
     return (

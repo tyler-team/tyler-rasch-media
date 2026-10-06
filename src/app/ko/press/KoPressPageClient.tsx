@@ -4,6 +4,16 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PressRelease } from "../../../lib/sanity";
 
+const getSnippet = (release: PressRelease) => {
+  if (release.intro5W1H) return release.intro5W1H;
+  const first = release.body?.[0];
+  if (!first) return "";
+  if (typeof first === "string") return first;
+  if (first._type === "textBlock") return first.text;
+  if ("caption" in first && first.caption) return first.caption;
+  return "";
+};
+
 export default function KoPressPageClient({ initialReleases }: { initialReleases: PressRelease[] }) {
   const [lang, setLang] = useState<"KR" | "EN">("KR");
   const koReleases = initialReleases.filter((pr) => pr.lang === "ko");
@@ -72,7 +82,7 @@ export default function KoPressPageClient({ initialReleases }: { initialReleases
               )}
 
               <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                {release.intro5W1H || (typeof release.body[0] === 'string' ? release.body[0] : '')}
+                {getSnippet(release)}
               </p>
 
               <a

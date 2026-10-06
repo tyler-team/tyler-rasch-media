@@ -2,9 +2,28 @@ import { defineField, defineType, defineArrayMember } from 'sanity';
 
 const contentBlockMembers = [
   defineArrayMember({
-    type: 'text',
+    type: 'object',
+    name: 'textBlock',
     title: 'Text Paragraph (텍스트 문단)',
-    rows: 4,
+    fields: [
+      {
+        name: 'text',
+        type: 'text',
+        title: 'Paragraph Content (문단 내용)',
+        rows: 4,
+        validation: (Rule) => Rule.required(),
+      },
+    ],
+    preview: {
+      select: {
+        text: 'text',
+      },
+      prepare({ text }) {
+        return {
+          title: text ? (text.length > 60 ? text.slice(0, 60) + '...' : text) : 'Text paragraph',
+        };
+      },
+    },
   }),
   defineArrayMember({
     type: 'image',
