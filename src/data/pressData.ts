@@ -73,7 +73,7 @@ export const epkBios: EPKBios = {
 
 export const operationalMetrics: OperationalMetric[] = [
   { label: "YouTube Subscribers (1BWS / One Big World Show)", value: "877K+", category: "reach" },
-  { label: "YouTube Subscribers (Really Tyler)", value: "8.2K+", category: "reach" },
+  { label: "YouTube Subscribers (Really Tyler)", value: "NEW", category: "reach" },
   { label: "Total Network Audience & Reach", value: "1.3M+", category: "reach" },
   { label: "Total YouTube Channel Views", value: "99M+", category: "reach" },
   { label: "SME & Startup PR Support Program", value: "Ecosystem integration with partners like D.CAMP", category: "logistics" },
