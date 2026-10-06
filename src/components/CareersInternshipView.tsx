@@ -95,10 +95,11 @@ const content = {
         },
         {
           no: '03',
-          tag: 'Editorial',
-          title: '공식 웹사이트 블로그 운영',
+          tag: 'Editorial & SNS',
+          title: '공식 웹사이트 블로그 및 SNS 콘텐츠 운영',
           bullets: [
             'tylerrasch.com 공식 웹사이트 자체 블로그 콘텐츠 기획 및 글 작성',
+            '카드뉴스 등 주요 SNS 포스트 콘텐츠 기획·제작 및 발행',
             '에피소드 인사이트, 글로벌 트렌드 분석 아티클 에디토리얼 지원',
           ],
         },
@@ -292,10 +293,11 @@ const content = {
         },
         {
           no: '03',
-          tag: 'Editorial',
-          title: 'Official Website Blog Editorial Management',
+          tag: 'Editorial & SNS',
+          title: 'Official Website Blog & Social Media Management',
           bullets: [
             'Plan and write original editorial blog content for the official tylerrasch.com platform',
+            'Design, create, and publish social media content including carousel card news and channel posts',
             'Support editorial write-ups on episode insights and global trend analyses',
           ],
         },
