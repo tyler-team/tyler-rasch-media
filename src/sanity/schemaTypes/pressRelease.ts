@@ -148,7 +148,9 @@ export const pressRelease = defineType({
       name: 'boilerplate',
       title: 'Boilerplate (기업 소개 보일러플레이트)',
       type: 'text',
-      rows: 4,
+      rows: 6,
+      description: '보도자료 하단 공식 기업 소개문 및 미디어 연락처 (자동 서식)',
+      initialValue: `About Tyler Media\nTyler Media is an independent digital media venture based in Seoul, operating the premium knowledge entertainment platform 1BWS/One Big World Show. The company was founded by entrepreneur and broadcaster Tyler Rasch, a University of Chicago and Seoul National University alumnus recognized for his analysis of geopolitics, macroeconomics, and global cultural trends. Tyler Media produces high-production, data-driven content connecting complex global agendas with localized market insights.\n\nMedia Contact\nTyler Media PR\npr@tylerrasch.com\ntylerrasch.com`,
     }),
   ],
 });
