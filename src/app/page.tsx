@@ -250,7 +250,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         cross_amplifier: "타일러 라쉬 공식 인스타그램(@tylerrasch, 여성 77% 중심의 강력한 문화 소비력)과 각 채널별 숏폼 네트워크가 1BWS와 리얼리 타일러의 콘텐츠를 소셜 전반에 크로스 증폭시킵니다.",
         tabs: {
           youtube: {
-            label: "ONE BIG WORLD SHOW (YouTube Core)",
+            label: "ONE BIG WORLD SHOW",
             tagline: "글로벌 지정학, 매크로 경제 & 테크 인사이트",
             audience_type: "지적 오디언스 & 비즈니스 리더십",
             gender_label: "Gender: 남성 63% / 여성 37%",
@@ -261,7 +261,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             summary: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 25-54 핵심 경제활동 인구"
           },
           instagram: {
-            label: "REALLY TYLER (Lifestyle & Culture)",
+            label: "REALLY TYLER",
             tagline: "글로벌 라이프스타일, 언어 마인드셋 & 컬처 큐레이션",
             audience_type: "라이프스타일, 언어 & 트렌드 소비층",
             gender_label: "Gender: 여성 중심 (라이프스타일 소비 타깃)",
@@ -279,8 +279,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
         really_tyler_title: "Really Tyler",
         platforms: [
           { name: "YouTube", handle: "@원빅월드쇼", count: "877K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
-          { name: "Instagram", handle: "@onebigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
-          { name: "TikTok", handle: "@onebigworldshow", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
+          { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
+          { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "8.2K", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
           { name: "TikTok", handle: "@reallytylerofficial", count: "", icon: "tiktok", url: "https://www.tiktok.com/@reallytylerofficial", category: "really_tyler" },
@@ -789,7 +789,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         cross_amplifier: "Tyler Rasch's official Instagram (@tylerrasch, powerful cultural consumption driven by 77% female audience) and multi-channel short-form networks cross-amplify 1BWS and Really Tyler content across global social media.",
         tabs: {
           youtube: {
-            label: "ONE BIG WORLD SHOW (YouTube Core)",
+            label: "ONE BIG WORLD SHOW",
             tagline: "Global Geopolitics, Macroeconomics & Tech Insights",
             audience_type: "Intellectual Audience & Business Leadership",
             gender_label: "Gender: Male 63% / Female 37%",
@@ -800,7 +800,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             summary: "Senior decision-makers leading household consumption and corporate investments (Ages 25-54)."
           },
           instagram: {
-            label: "REALLY TYLER (Lifestyle & Culture)",
+            label: "REALLY TYLER",
             tagline: "Global Lifestyle, Language Mindset & Cultural Curation",
             audience_type: "Lifestyle, Language & Cultural Trendsetters",
             gender_label: "Gender: Female-Driven (Lifestyle Consumption Core)",
@@ -818,8 +818,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
         really_tyler_title: "Really Tyler",
         platforms: [
           { name: "YouTube", handle: "@원빅월드쇼", count: "877K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
-          { name: "Instagram", handle: "@onebigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
-          { name: "TikTok", handle: "@onebigworldshow", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
+          { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
+          { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "8.2K", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
           { name: "TikTok", handle: "@reallytylerofficial", count: "", icon: "tiktok", url: "https://www.tiktok.com/@reallytylerofficial", category: "really_tyler" },
@@ -2018,11 +2018,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                           <span className="text-[10px] font-mono font-bold text-amber-300 group-hover/item:text-white px-2 py-0.5 rounded-full bg-[#ffc700]/10 border border-[#ffc700]/30 transition-colors">
                             {p.count}
                           </span>
-                        ) : (
-                          <span className="text-[9px] font-mono font-bold text-amber-400 px-2 py-0.5 rounded-full bg-[#ffc700]/10 border border-[#ffc700]/30 tracking-wider">
-                            NEW
-                          </span>
-                        )}
+                        ) : null}
                         <span className="text-zinc-600 group-hover/item:text-[#ffc700] transition-colors text-xs">
                           &rarr;
                         </span>
