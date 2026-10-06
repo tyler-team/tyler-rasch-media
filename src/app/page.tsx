@@ -2130,19 +2130,42 @@ const MediaKitModal = ({ isOpen, onClose, title }: { isOpen: boolean, onClose: (
   );
 };
 
-const getYouTubeId = (url: string) => {
-  if (!url) return null;
+const getYouTubeData = (url: string) => {
+  if (!url) return { videoId: null, start: null };
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
-  return (match && match[2].length === 11) ? match[2] : null;
+  const videoId = (match && match[2].length === 11) ? match[2] : null;
+
+  // Extract start time if present (e.g. t=353, t=353s, start=353)
+  const timeMatch = url.match(/[?&](?:t|start)=(\d+)/);
+  const start = timeMatch ? timeMatch[1] : null;
+
+  return { videoId, start };
 };
 
 const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: () => void, videoUrl: string | null }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen || !videoUrl) return null;
-  const videoId = getYouTubeId(videoUrl);
+  const { videoId, start } = getYouTubeData(videoUrl);
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/90 backdrop-blur-md" onClick={onClose}>
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Video Player"
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/90 backdrop-blur-md"
+      onClick={onClose}
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -2150,12 +2173,16 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
         className="relative w-full max-w-6xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
         onClick={(e) => e.stopPropagation()}
       >
-        <button onClick={onClose} className="absolute top-4 right-4 z-10 text-white/50 hover:text-white transition-colors bg-black/50 p-2 rounded-full hover:bg-black/80 backdrop-blur-sm">
+        <button
+          onClick={onClose}
+          aria-label="Close video player"
+          className="absolute top-4 right-4 z-10 text-white/50 hover:text-white transition-colors bg-black/50 p-2 rounded-full hover:bg-black/80 backdrop-blur-sm"
+        >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         {videoId && (
           <iframe
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${start ? `&start=${start}` : ''}`}
             title="YouTube video player"
             className="w-full h-full"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

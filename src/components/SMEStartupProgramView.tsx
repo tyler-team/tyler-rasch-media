@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 // SVGs for high-end icons
@@ -125,10 +126,12 @@ export default function SMEStartupProgramView({ setSelectedVideo }: { setSelecte
                 viewport={{ once: true }}
                 className="w-full h-full relative cursor-pointer"
               >
-                <img
+                <Image
                   src="https://img.youtube.com/vi/UMwyIpVEGSY/maxresdefault.jpg"
                   alt="SME Support Program Intro Video"
-                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 opacity-80"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover group-hover:scale-102 transition-transform duration-700 opacity-80"
                 />
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
