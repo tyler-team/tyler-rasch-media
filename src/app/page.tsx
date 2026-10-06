@@ -1511,7 +1511,10 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
 };
 
 const TallyEmbed = ({ lang = 'KR', formId = 'A7qA7W' }: { lang?: 'KR' | 'EN'; formId?: string }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
+    setIsLoaded(false);
     // If Tally widget script has already loaded, re-initialize the embed on mount or language/form switch
     if (typeof (window as any).Tally !== "undefined") {
       try {
@@ -1525,7 +1528,21 @@ const TallyEmbed = ({ lang = 'KR', formId = 'A7qA7W' }: { lang?: 'KR' | 'EN'; fo
   const tallyUrl = `https://tally.so/embed/${formId}?alignLeft=1&hideTitle=1&dynamicHeight=1&lang=${lang.toLowerCase()}&locale=${lang.toLowerCase()}`;
 
   return (
-    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/10 transition-all duration-500">
+    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-[#070d17] shadow-2xl border border-white/10 transition-all duration-500 relative">
+      {!isLoaded && (
+        <div className="absolute inset-0 z-10 bg-[#070d17] p-8 md:p-12 flex flex-col justify-between animate-pulse">
+          <div className="space-y-6 max-w-xl">
+            <div className="h-6 w-48 bg-white/10 rounded-md" />
+            <div className="h-4 w-72 bg-white/5 rounded-md" />
+            <div className="space-y-4 pt-6">
+              <div className="h-12 w-full bg-white/[0.04] rounded-xl border border-white/5" />
+              <div className="h-12 w-full bg-white/[0.04] rounded-xl border border-white/5" />
+              <div className="h-28 w-full bg-white/[0.04] rounded-xl border border-white/5" />
+            </div>
+          </div>
+          <div className="h-12 w-36 bg-white/10 rounded-xl" />
+        </div>
+      )}
       <iframe
         key={`${formId}-${lang}`}
         data-tally-src={tallyUrl}
@@ -1535,8 +1552,9 @@ const TallyEmbed = ({ lang = 'KR', formId = 'A7qA7W' }: { lang?: 'KR' | 'EN'; fo
         height="100%"
         frameBorder="0"
         title={lang === 'EN' ? "Tyler Rasch Partnership Inquiry" : "타일러 라쉬 비즈니스 제휴 문의"}
-        className="min-h-[900px] md:min-h-[1100px]"
-      ></iframe>
+        className={`min-h-[900px] md:min-h-[1100px] transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        onLoad={() => setIsLoaded(true)}
+      />
     </div>
   );
 };
@@ -1620,14 +1638,14 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
-              className=" glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center hover:border-accent/30 transition-all group"
+              className="glass p-6 sm:p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center hover:border-accent/30 transition-all group"
             >
               <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-70">{item.tag}</span>
-              <div className="text-5xl font-black text-white text-[#ffffff] mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
+              <div className="text-4xl sm:text-5xl font-black text-white text-[#ffffff] mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
                 {typeof item.val === 'string' ? (
                   item.val.split(/(만|M|K|\+|%)/).map((part, index) =>
                     ['만', 'M', 'K', '+', '%'].includes(part) ? (
-                      <span key={index} className="text-3xl font-bold mx-0.5 text-white text-[#ffffff]">{part}</span>
+                      <span key={index} className="text-2xl sm:text-3xl font-bold mx-0.5 text-white text-[#ffffff]">{part}</span>
                     ) : (
                       <span key={index} className="text-white text-[#ffffff]">{part}</span>
                     )
@@ -1856,7 +1874,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto w-full items-stretch">
           {/* Column 1: Tyler Rasch */}
-          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
+          <div className="glass p-5 sm:p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
             <div className="absolute top-0 left-0 w-full h-1 bg-accent" />
             <div>
               <div className="flex items-center justify-between mb-4 h-6">
@@ -1908,7 +1926,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           </div>
 
           {/* Column 2: One Big World Show */}
-          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#00be61]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
+          <div className="glass p-5 sm:p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#00be61]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
             <div className="absolute top-0 left-0 w-full h-1 bg-[#00be61]" />
             <div className="flex flex-col justify-between h-full">
               <div>
@@ -1977,7 +1995,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           </div>
 
           {/* Column 3: Really Tyler */}
-          <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#ffc700]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
+          <div className="glass p-5 sm:p-6 md:p-8 rounded-3xl border border-white/10 hover:border-[#ffc700]/40 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
             <div className="absolute top-0 left-0 w-full h-1 bg-[#ffc700]" />
             <div className="flex flex-col justify-between h-full">
               <div>
@@ -2100,18 +2118,38 @@ const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'car
 };
 
 const MediaKitModal = ({ isOpen, onClose, title }: { isOpen: boolean, onClose: () => void, title: string }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={title || "Media Kit"}
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+    >
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="relative bg-[#0a0f18] border border-white/10 rounded-2xl w-full max-w-4xl h-[80vh] shadow-2xl overflow-hidden"
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative bg-[#0a0f18] border border-white/10 rounded-2xl w-full max-w-4xl h-[80vh] shadow-2xl overflow-hidden z-10"
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute top-4 right-4 z-20">
-          <button onClick={onClose} className="bg-black/20 backdrop-blur-md p-2 rounded-full text-zinc-400 hover:text-white transition-colors border border-white/10">
+          <button
+            onClick={onClose}
+            aria-label="Close modal"
+            className="bg-black/40 backdrop-blur-md p-2 rounded-full text-zinc-400 hover:text-white transition-colors border border-white/10"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
