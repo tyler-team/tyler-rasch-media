@@ -58,6 +58,8 @@ type Content = {
     growth_label?: string;
     trust: string;
     trust_label: string;
+    trust_tag?: string;
+    source_note?: string;
     platform_demography: {
       title: string;
       synergy_badge?: string;
@@ -221,21 +223,23 @@ const contentData: Record<'KR' | 'EN', Content> = {
       manifesto: <><span className="block mb-2">단순한 노출을 넘어, 브랜드에 <span className="text-accent">깊이</span>를 더하세요</span>타일러의 목소리는 곧 <span className="text-accent">신뢰</span>가 됩니다</>
     },
     dashboard: {
-      label: "REAL-TIME IMPACT",
+      label: "핵심 지표 (2026 기준)",
       views: "9,900만+",
       views_label: "누적 유튜브 조회수",
       reach: "180만+",
-      reach_label: "월간 오디언스 도달 (1.8M)",
+      reach_label: "월간 오디언스 도달",
       engagement: "80만+",
-      engagement_label: "채널 구독자 수",
+      engagement_label: "통합 네트워크 구독자 수",
       growth: "+32만+",
-      growth_label: "연간 순증 +32만 명 (319.5K+)",
-      trust: "TOP 1%",
-      trust_label: "브랜드 신뢰도 지수",
+      growth_label: "최근 12개월 순증 +32만",
+      trust: "60%",
+      trust_label: "25–54세 핵심 경제활동층",
+      trust_tag: "핵심 타깃",
+      source_note: "* 데이터 출처: YouTube Studio · Instagram Insights (2026년 기준)",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
         synergy_badge: "360° TOTAL AUDIENCE SYNERGY",
-        synergy_title: "거시경제·비즈니스 리더(6:4 균형) × 트렌드 라이프스타일(여성 77%)의 전방위 통합 마켓 장악력",
+        synergy_title: "경제 의사결정층과 라이프스타일 소비층, 한 번에 도달합니다.",
         synergy_desc: "원빅월드쇼 유튜브(남성 63% · 여성 37%의 균형 잡힌 25-54 핵심 경제활동 인구)와 타일러 인스타그램(여성 77%, 35-44 트렌드 리더)의 상호보완적 결합으로, 테크·금융·비즈니스 의사결정권자부터 프리미엄 F&B, 뷰티, 라이프스타일 소비 주도층까지 성별과 세대의 장벽 없이 전방위로 타겟팅할 수 있는 독보적인 미디어 생태계를 구축합니다.",
         synergy_yt_title: "원빅월드쇼 유튜브 엔진",
         synergy_yt_stat: "25-54 핵심 경제인구 60% · 남녀 6:4 균형 (남성 63% / 여성 37%)",
@@ -257,7 +261,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             summary: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 25-54 핵심 경제활동 인구"
           },
           instagram: {
-            label: "REALLY TYLER (YouTube & Multi)",
+            label: "REALLY TYLER (Lifestyle & Culture)",
             tagline: "글로벌 라이프스타일, 언어 마인드셋 & 컬처 큐레이션",
             audience_type: "라이프스타일, 언어 & 트렌드 소비층",
             gender_label: "Gender: 여성 중심 (라이프스타일 소비 타깃)",
@@ -758,21 +762,23 @@ const contentData: Record<'KR' | 'EN', Content> = {
       manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives</span>Lend <span className="text-accent">Intellectual Authority</span> to Your Brand</>
     },
     dashboard: {
-      label: "REAL-TIME IMPACT",
+      label: "KEY METRICS (2026)",
       views: "99M+",
       views_label: "Total YouTube Views",
       reach: "1.8M+",
-      reach_label: "Monthly Audience Reach (1.8M)",
+      reach_label: "Monthly Audience Reach",
       engagement: "800K+",
-      engagement_label: "YouTube Subscribers",
+      engagement_label: "Total Network Subscribers & Audience",
       growth: "+320K+",
-      growth_label: "Annual Subscriber Growth (+319.5K)",
-      trust: "TOP 1%",
-      trust_label: "Brand Trust Index",
+      growth_label: "12-Month Net Growth +320K",
+      trust: "60%",
+      trust_label: "Ages 25–54 Core Economic Class",
+      trust_tag: "CORE DEMOGRAPHIC",
+      source_note: "* Data Source: YouTube Studio · Instagram Insights (As of 2026)",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
         synergy_badge: "360° TOTAL AUDIENCE SYNERGY",
-        synergy_title: "All-Inclusive Market Reach: Macro & Business Core (6:4 Balance) × Trend & Lifestyle (77% Female)",
+        synergy_title: "Reach economic decision-makers and lifestyle consumers in one campaign.",
         synergy_desc: "By uniting 1BWS YouTube (balanced 63% Male / 37% Female prime 25-54 economic drivers) with Tyler's Instagram (77% Female, 35-44 cultural trendsetters), Tyler Media eliminates gender and category barriers—enabling seamless, authoritative targeting from high-stakes tech and corporate decision-makers to trend-leading F&B and lifestyle consumer markets.",
         synergy_yt_title: "1BWS YouTube Engine",
         synergy_yt_stat: "25-54 Core Economic Class 60% · 6:4 Balance (M 63% / F 37%)",
@@ -794,7 +800,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
             summary: "Senior decision-makers leading household consumption and corporate investments (Ages 25-54)."
           },
           instagram: {
-            label: "REALLY TYLER (YouTube & Multi)",
+            label: "REALLY TYLER (Lifestyle & Culture)",
             tagline: "Global Lifestyle, Language Mindset & Cultural Curation",
             audience_type: "Lifestyle, Language & Cultural Trendsetters",
             gender_label: "Gender: Female-Driven (Lifestyle Consumption Core)",
@@ -811,17 +817,17 @@ const contentData: Record<'KR' | 'EN', Content> = {
         personal_title: "Tyler Rasch",
         really_tyler_title: "Really Tyler",
         platforms: [
-          { name: "YouTube", handle: "@원빅월드쇼", count: "", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
-          { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
-          { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
+          { name: "YouTube", handle: "@원빅월드쇼", count: "165K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
+          { name: "Instagram", handle: "@onebigworldshow", count: "70K+", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
+          { name: "TikTok", handle: "@onebigworldshow", count: "50K+", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
           { name: "TikTok", handle: "@reallytylerofficial", count: "", icon: "tiktok", url: "https://www.tiktok.com/@reallytylerofficial", category: "really_tyler" },
-          { name: "Instagram", handle: "@tyleroninsta", count: "", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
+          { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
           { name: "Threads", handle: "@tyleroninsta", count: "", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
-          { name: "LinkedIn", handle: "Tyler Rasch", count: "", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
-          { name: "X", handle: "@tylerrasch", count: "", icon: "twitter", url: "https://x.com/tylerrasch", category: "personal" },
-          { name: "Facebook", handle: "Tyler Rasch", count: "", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/", category: "personal" }
+          { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
+          { name: "X", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch", category: "personal" },
+          { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/", category: "personal" }
         ]
       }
     },
@@ -1585,50 +1591,13 @@ const SocialIcon = ({ name }: { name: string }) => {
 
 const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], title: string, lang?: 'KR' | 'EN' }) => {
   return (
-    <div className="w-full relative z-20 space-y-32">
+    <div className="w-full relative z-20 space-y-24">
 
-      {/* 1. Main Statistics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
-        {[
-          { label: t.views_label, val: t.views, tag: t.label },
-          { label: t.reach_label, val: t.reach, tag: "MONTHLY AUDIENCE / REACH" },
-          { label: t.engagement_label, val: t.engagement, tag: "ENGAGEMENT", sub: t.growth_label },
-          { label: t.trust_label, val: t.trust, tag: "RELIABILITY" }
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.1 }}
-            className=" glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center hover:border-accent/30 transition-all group"
-          >
-            <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-60">{item.tag}</span>
-            <div className="text-5xl font-black text-white text-[#ffffff] mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
-              {typeof item.val === 'string' ? (
-                item.val.split(/(만|M|K|\+|%)/).map((part, index) =>
-                  ['만', 'M', 'K', '+', '%'].includes(part) ? (
-                    <span key={index} className="text-3xl font-bold mx-0.5 text-white text-[#ffffff]">{part}</span>
-                  ) : (
-                    <span key={index} className="text-white text-[#ffffff]">{part}</span>
-                  )
-                )
-              ) : item.val}
-            </div>
-            <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest">{item.label}</p>
-            {item.sub && (
-              <span className="mt-3 text-[10px] font-extrabold text-accent px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20">
-                {item.sub}
-              </span>
-            )}
-          </motion.div>
-        ))}
-      </div>
-
-      {/* 2. Platform Demography */}
-
-      {/* Title Block */}
-      <div className="mb-20">
-        <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">{t.platform_demography.title}</span>
+      {/* 1. Section Header Block */}
+      <div className="mb-14">
+        <span className="text-accent text-sm font-bold tracking-[0.4em] uppercase block mb-4">
+          {lang === 'KR' ? '핵심 성과 지표' : 'KEY PERFORMANCE METRICS'}
+        </span>
         <div>
           <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">
             {title}
@@ -1636,6 +1605,59 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           <div className="w-20 h-1 bg-accent/30 mt-8" />
         </div>
       </div>
+
+      {/* 2. Main Statistics Grid */}
+      <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          {[
+            { label: t.views_label, val: t.views, tag: t.label },
+            { label: t.reach_label, val: t.reach, tag: lang === 'KR' ? "월간 도달" : "MONTHLY REACH" },
+            { label: t.engagement_label, val: t.engagement, tag: lang === 'KR' ? "네트워크 규모" : "NETWORK SCALE", sub: t.growth_label },
+            { label: t.trust_label, val: t.trust, tag: t.trust_tag || (lang === 'KR' ? "핵심 타깃" : "CORE DEMOGRAPHIC") }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1 }}
+              className=" glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center hover:border-accent/30 transition-all group"
+            >
+              <span className="text-accent text-[10px] font-black tracking-[0.3em] mb-4 opacity-70">{item.tag}</span>
+              <div className="text-5xl font-black text-white text-[#ffffff] mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">
+                {typeof item.val === 'string' ? (
+                  item.val.split(/(만|M|K|\+|%)/).map((part, index) =>
+                    ['만', 'M', 'K', '+', '%'].includes(part) ? (
+                      <span key={index} className="text-3xl font-bold mx-0.5 text-white text-[#ffffff]">{part}</span>
+                    ) : (
+                      <span key={index} className="text-white text-[#ffffff]">{part}</span>
+                    )
+                  )
+                ) : item.val}
+              </div>
+              <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest">{item.label}</p>
+              {item.sub && (
+                <span className="mt-3 text-[10px] font-extrabold text-accent px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20">
+                  {item.sub}
+                </span>
+              )}
+            </motion.div>
+          ))}
+        </div>
+        {t.source_note && (
+          <p className="text-right text-[11px] font-mono text-zinc-500 px-6">
+            {t.source_note}
+          </p>
+        )}
+      </div>
+
+      {/* 3. Platform Demography Subsection */}
+      <div className="space-y-10">
+        <div className="px-4">
+          <span className="text-accent text-xs font-mono font-bold tracking-[0.3em] uppercase block mb-3">{t.platform_demography.title}</span>
+          <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight break-keep">
+            {t.platform_demography.synergy_title}
+          </h3>
+        </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4 items-stretch">
 
@@ -1823,6 +1845,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
         </div>
 
       </div>
+      </div>
 
       {/* 3. Social Media Ecosystem (Compact 3-Column Grid) */}
       <div className="px-4 space-y-10">
@@ -1868,9 +1891,16 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                         </div>
                       </div>
                     </div>
-                    <span className="text-zinc-600 group-hover/item:text-accent transition-colors text-xs ml-2">
-                      &rarr;
-                    </span>
+                    <div className="flex items-center gap-2.5 flex-shrink-0 ml-2">
+                      {p.count ? (
+                        <span className="text-[10px] font-mono font-bold text-zinc-300 group-hover/item:text-accent px-2 py-0.5 rounded-full bg-white/5 border border-white/10 transition-colors">
+                          {p.count}
+                        </span>
+                      ) : null}
+                      <span className="text-zinc-600 group-hover/item:text-accent transition-colors text-xs">
+                        &rarr;
+                      </span>
+                    </div>
                   </motion.a>
                 ))}
               </div>
@@ -1914,9 +1944,16 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                           </div>
                         </div>
                       </div>
-                      <span className="text-zinc-600 group-hover/item:text-[#00be61] transition-colors text-xs ml-2">
-                        &rarr;
-                      </span>
+                      <div className="flex items-center gap-2.5 flex-shrink-0 ml-2">
+                        {p.count ? (
+                          <span className="text-[10px] font-mono font-bold text-emerald-400 group-hover/item:text-white px-2 py-0.5 rounded-full bg-[#00be61]/10 border border-[#00be61]/30 transition-colors">
+                            {p.count}
+                          </span>
+                        ) : null}
+                        <span className="text-zinc-600 group-hover/item:text-[#00be61] transition-colors text-xs">
+                          &rarr;
+                        </span>
+                      </div>
                     </motion.a>
                   ))}
                 </div>
@@ -1976,9 +2013,20 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                           </div>
                         </div>
                       </div>
-                      <span className="text-zinc-600 group-hover/item:text-[#ffc700] transition-colors text-xs ml-2">
-                        &rarr;
-                      </span>
+                      <div className="flex items-center gap-2.5 flex-shrink-0 ml-2">
+                        {p.count ? (
+                          <span className="text-[10px] font-mono font-bold text-amber-300 group-hover/item:text-white px-2 py-0.5 rounded-full bg-[#ffc700]/10 border border-[#ffc700]/30 transition-colors">
+                            {p.count}
+                          </span>
+                        ) : (
+                          <span className="text-[9px] font-mono font-bold text-amber-400 px-2 py-0.5 rounded-full bg-[#ffc700]/10 border border-[#ffc700]/30 tracking-wider">
+                            NEW
+                          </span>
+                        )}
+                        <span className="text-zinc-600 group-hover/item:text-[#ffc700] transition-colors text-xs">
+                          &rarr;
+                        </span>
+                      </div>
                     </motion.a>
                   ))}
                 </div>

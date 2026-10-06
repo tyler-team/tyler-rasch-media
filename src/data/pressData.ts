@@ -72,7 +72,8 @@ export const epkBios: EPKBios = {
 };
 
 export const operationalMetrics: OperationalMetric[] = [
-  { label: "YouTube Subscribers (1BWS / One Big World Show)", value: "800K+", category: "reach" },
+  { label: "Total Network Audience & Subscribers", value: "800K+", category: "reach" },
+  { label: "1BWS YouTube Subscribers", value: "165K", category: "reach" },
   { label: "Total YouTube Channel Views", value: "99M+", category: "reach" },
   { label: "SME & Startup PR Support Program", value: "Ecosystem integration with partners like D.CAMP", category: "logistics" },
   { label: "Operational HQ", value: "Seoul, South Korea", category: "logistics" },
