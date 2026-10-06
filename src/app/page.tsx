@@ -45,6 +45,7 @@ type Content = {
     p2: React.ReactNode;
     quote: string;
     manifesto: React.ReactNode;
+    credentials?: string;
   };
   dashboard: {
     label: string;
@@ -189,7 +190,7 @@ type Content = {
 const contentData: Record<'KR' | 'EN', Content> = {
   KR: {
     sidebar: {
-      vision: "비전",
+      vision: "왜 타일러인가",
       impact: "미디어 영향력",
       originals: "오리지널 시리즈",
       brands: "브랜드 파트너십",
@@ -204,23 +205,24 @@ const contentData: Record<'KR' | 'EN', Content> = {
     hero: {
       label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
-      subtitle: "지적 아이콘 • 브랜드에 지성을 더하는 목소리",
+      subtitle: "신뢰받는 설명자, 타일러 라쉬",
       description: (
         <>
-          타일러 라쉬는 단순한 방송인이 아닙니다. 대한민국에서 가장 신뢰받는 외국인 지식인이자,
+          복잡한 이슈를 가장 쉽고 정확하게 풀어내는 목소리.
           <br />
-          브랜드의 메시지에 &apos;지적 권위&apos;를 부여하는 독보적인 미디어 솔루션입니다.
+          타일러 라쉬와 함께하면 브랜드의 메시지는 광고가 아니라, 끝까지 듣고 싶은 이야기가 됩니다.
         </>
       ),
-      cta: "협업 문의하기",
+      cta: "캠페인 상담 신청",
       media_kit_cta: "미디어 키트 다운로드"
     },
     philosophy: {
-      heading: "비전",
-      p1: <>타일러 라쉬는 <span className="text-accent font-bold">국민적 인지도</span>와 <span className="text-accent font-bold">높은 신뢰도</span>를 동시에 보유한 유일한 인물입니다. 단순한 인플루언서를 넘어, 기후 변화, 인문학, 세계 경제를 논하는 '시대의 지성'으로서 브랜드에 깊이 있는 가치를 더합니다.</>,
-      p2: <>단순한 노출을 제안하지 않습니다. 귀사의 브랜드 철학이 타일러의 언어를 통해 대중에게 <span className="text-accent font-bold">논리적이고 설득력 있게</span> 전달되는 '전략적 커뮤니케이션'을 약속합니다.</>,
+      heading: "왜 타일러인가",
+      p1: <>타일러 라쉬는 <span className="text-accent font-bold">국민적 인지도</span>와 <span className="text-accent font-bold">높은 신뢰도</span>를 함께 갖춘 드문 인물입니다. 단순한 인플루언서를 넘어, 글로벌 지정학, 매크로 경제, 기후 위기부터 라이프스타일까지 — 브랜드에 깊이와 설득력을 더합니다.</>,
+      p2: <>브랜드의 철학과 메시지가 타일러의 언어를 통해 대중에게 <span className="text-accent font-bold">논리적이고 설득력 있게</span> 전달되는 '전략적 커뮤니케이션'을 약속합니다.</>,
       quote: "진정성 있는 메시지만이 세상을 움직입니다.",
-      manifesto: <><span className="block mb-2">단순한 노출을 넘어, 브랜드에 <span className="text-accent">깊이</span>를 더하세요</span>타일러의 목소리는 곧 <span className="text-accent">신뢰</span>가 됩니다</>
+      manifesto: <><span className="block mb-2">단순한 노출을 넘어, 브랜드에 <span className="text-accent">깊이</span>를 더하세요</span>타일러의 목소리는 곧 <span className="text-accent">신뢰</span>가 됩니다</>,
+      credentials: "시카고대 학사 · 서울대 석사 · 10년+ 방송 경력 · 베스트셀러 작가"
     },
     dashboard: {
       label: "핵심 지표 (2026 기준)",
@@ -356,8 +358,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       }
     },
     packages: {
-      heading: "파트너십 (PARTNERSHIP)",
-      subheading: "단순 노출을 넘어선 설득과 전환. 브랜드의 마케팅·PR 목표에 최적화된 협업 방식을 제안합니다.",
+      heading: "파트너십",
+      subheading: "브랜드 목표에 맞춰 설계하는 세 가지 협업 솔루션",
       guide: "캠페인 일정 및 마케팅 목표에 맞춘 포맷별 번들링(단독 기획, 팟캐스트 호스트 리드, 에피소드 분할 집행 등)이 가능합니다. 프로젝트의 목적에 맞는 최적의 파트너십 구조를 제안해 드립니다.",
       includesLabel: "포함 구성",
       recommendedLabel: "추천 목적",
@@ -368,7 +370,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           desc: "설명이 필요한 복잡한 기술, 브랜드의 진짜 가치와 기업 비전을 타일러의 언어로 쉽고 명확하게 풀어냅니다.\n10~15분 본편 전체가 브랜드의 핵심 아젠다를 깊이 있게 조명하여, 신제품 런칭은 물론 기업 홍보(PR)와 IR 브랜딩에서 높은 신뢰와 오디언스 몰입을 이끌어냅니다.",
           includes: "본편 1편 단독 기획 + 쇼츠(Shorts) 재가공 클립 번들 + 커뮤니티 홍보 탭 포스팅 지원",
           recommendedFor: "기업 홍보 및 IR/PR, 신제품/신기술 런칭, B2B·테크 솔루션, 브랜드 철학 전달",
-          tags: ["기업홍보및IR", "신제품신기술런칭", "B2B테크솔루션"]
+          tags: ["기업 홍보 & IR", "신제품·신기술 런칭", "B2B 테크 솔루션"]
         },
         {
           title: "맥락형 PPL & 스폰서십",
@@ -376,7 +378,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           desc: "광고의 거부감을 없애고, 콘텐츠의 대화 흐름 속에 제품을 가장 자연스럽게 녹여냅니다.\n타일러의 공신력 있는 구두 추천과 스튜디오 실물 노출, 고정 댓글 링크를 통해 실질적인 유입과 구매 전환을 만듭니다.",
           includes: "30~90초 호스트 리드 세그먼트 + 스튜디오 실물 노출 + 유튜브 타임라인 챕터 표기 & 고정 댓글 공식 링크",
           recommendedFor: "앱 서비스 및 플랫폼, 라이프스타일/F&B 소비재, 프로모션 링크 유입",
-          tags: ["제품앱서비스", "타깃클릭전환", "합리적스폰서십"]
+          tags: ["제품 & 앱 서비스", "타깃 클릭 전환", "합리적 스폰서십"]
         },
         {
           title: "스페셜 인터뷰 & 멀티 확산",
@@ -384,7 +386,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           desc: "글로벌 기업가부터 세계적인 베스트셀러 작가, 저널리스트, 오피니언 리더, 크리에이터, 셀럽과의 1:1 심층 대담을 진행합니다.\n한국어·영어 Bilingual 모더레이팅으로 인터뷰 게스트와 브랜드의 공신력을 극대화하고, 핵심 하이라이트를 릴스·쇼츠·틱톡으로 크로스 바이럴합니다.",
           includes: "1:1 Bilingual 대담 본편 + 유튜브 Shorts · 인스타 Reels · 틱톡 멀티플랫폼 숏폼 확산",
           recommendedFor: "글로벌 명사/셀럽 협업, 브랜드 아젠다 선점, CEO/인물 브랜딩, 숏폼 도달 극대화",
-          tags: ["글로벌명사인터뷰", "Bilingual대담", "숏폼옴니채널"]
+          tags: ["글로벌 명사 인터뷰", "Bilingual 대담", "숏폼 옴니채널"]
         }
       ]
     },
@@ -734,7 +736,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
   },
   EN: {
     sidebar: {
-      vision: "Vision",
+      vision: "Why Tyler",
       impact: "Media Influence",
       originals: "Original Series",
       brands: "Brand Partnership",
@@ -749,17 +751,18 @@ const contentData: Record<'KR' | 'EN', Content> = {
     hero: {
       label: "STRATEGIC PARTNERSHIP",
       title_span: "RASCH",
-      subtitle: "The Intellectual Icon • Modern Media Authority",
-      description: "Bridging Global Perspectives and Korean Culture. Tyler Media delivers intellectual authority, high-impact storytelling, and multi-platform reach for world-class brands.",
-      cta: "Inquire Now",
+      subtitle: "Korea's Most Trusted Explainer",
+      description: "Korea's most trusted explainer. Tyler Rasch makes complex ideas clear, bringing intellectual authority and genuine credibility to your brand through long-form storytelling, host-read integrations, and bilingual interviews.",
+      cta: "Start a Campaign Inquiry",
       media_kit_cta: "Download Media Kit"
     },
     philosophy: {
-      heading: "VISION",
-      p1: <>Tyler holds a unique position in the Korean market, combining <span className="text-accent font-bold">National Recognition</span> with <span className="text-accent font-bold">Unwavering Trust</span>. As a thought leader on Global Affairs, Macroeconomics, and Technology Security, he elevates brands beyond simple promotion.</>,
-      p2: <>We don't just offer exposure. We promise <span className="text-accent font-bold">Strategic Communication</span> where your brand philosophy is translated into Tyler's logical, persuasive language, resonating deeply with the "Active Economic Class".</>,
+      heading: "WHY TYLER",
+      p1: <>One of the few public figures in South Korea who pair nationwide recognition with authentic intellectual trust. Translating complex global geopolitics, macroeconomics, and modern culture into clear, compelling narratives.</>,
+      p2: <>We align your brand's core purpose with rigorous storytelling, delivering <span className="text-accent font-bold">Strategic Communication</span> that commands audience attention and engagement.</>,
       quote: "Authenticity is the only currency that matters.",
-      manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives</span>Lend <span className="text-accent">Intellectual Authority</span> to Your Brand</>
+      manifesto: <><span className="block mb-2">Turn Complex Messages into <br className="hidden md:block" />Compelling Narratives</span>Lend <span className="text-accent">Intellectual Authority</span> to Your Brand</>,
+      credentials: "B.A. Univ. of Chicago · M.A. Seoul National Univ. · 10+ Years On-Air · Bestselling Author"
     },
     dashboard: {
       label: "KEY METRICS (2026)",
@@ -896,7 +899,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     packages: {
       heading: "PARTNERSHIP",
-      subheading: "Beyond mere exposure—driving persuasion and conversion. Strategic collaboration tailored to your marketing & PR objectives.",
+      subheading: "Three tailored media solutions designed for your strategic brand objectives.",
       guide: "Custom bundling (bespoke editorial specials, podcast host lead-ins, split episode campaigns, etc.) is fully available based on campaign timelines and marketing objectives. We design the optimal partnership architecture tailored to your strategic goals.",
       includesLabel: "Includes",
       recommendedLabel: "Recommended For",
@@ -907,15 +910,15 @@ const contentData: Record<'KR' | 'EN', Content> = {
           desc: "Deconstructing complex technologies, true brand value, and corporate vision into clear, compelling narratives in Tyler's voice.\nDedicated 10–15 minute flagship episodes spotlight brand agendas in depth, driving authoritative trust and deep audience engagement for product launches, corporate PR, and IR branding.",
           includes: "1 Dedicated Flagship Episode + Repurposed Shorts Clips Bundle + YouTube Community Tab Promotion",
           recommendedFor: "Corporate PR & IR, New Product/Tech Launches, B2B & Tech Solutions, Brand Philosophy",
-          tags: ["CorporatePR_IR", "ProductLaunch", "B2BTechSolutions"]
+          tags: ["Corporate PR & IR", "Product Launch", "B2B Tech Solutions"]
         },
         {
-          title: "Seamless PPL & Sponsorship",
-          subtitle: "SEAMLESS PPL & SPONSORSHIP",
+          title: "Integrated PPL",
+          subtitle: "SEAMLESS SPONSORSHIP",
           desc: "Eliminating ad friction by naturally integrating your product into the conversational flow of the episode.\nWith Tyler's trusted verbal endorsement, in-studio physical placement, and pinned comment links, we drive qualified traffic and tangible purchasing conversions.",
           includes: "30–90s Host-Read Segment + In-Studio Physical Placement + Timeline Chapters & Official Pinned Link",
           recommendedFor: "Apps & Digital Platforms, Lifestyle & F&B Consumer Goods, Promotional Campaign Traffic",
-          tags: ["AppsAndServices", "TargetConversion", "SmartSponsorship"]
+          tags: ["Apps & Services", "Target Conversion", "Smart Sponsorship"]
         },
         {
           title: "Special Interview & Viral Syndication",
@@ -923,7 +926,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           desc: "In-depth 1:1 dialogues with global entrepreneurs, bestselling authors, journalists, opinion leaders, creators, and celebrities.\nTyler's Korean & English bilingual moderation maximizes authority for both guest and brand, while key highlights are cross-amplified across Reels, Shorts, and TikTok.",
           includes: "Full 1:1 Bilingual Dialogue Episode + Cross-Platform Shorts, Reels & TikTok Viral Syndication",
           recommendedFor: "Global Dignitary & Celebrity Features, Brand Agenda Setting, CEO/Personal Branding, Short-Form Reach",
-          tags: ["GlobalGuestDialogue", "BilingualInterview", "OmnichannelShorts"]
+          tags: ["Global Guest Dialogue", "Bilingual Interview", "Omnichannel Shorts"]
         }
       ]
     },
@@ -2444,10 +2447,18 @@ export default function Home({
                 <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl word-keep-all mb-12">
                   {t.hero.description}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <a href="#contact" className="px-8 py-4 bg-accent text-black font-bold text-sm tracking-widest hover:bg-white transition-colors text-center">
                     {t.hero.cta} &rarr;
                   </a>
+                </div>
+                {/* Proof strip */}
+                <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-zinc-400 font-mono">
+                  <span>{lang === 'KR' ? '누적 조회수 9,900만+' : '99M+ Total Views'}</span>
+                  <span className="text-zinc-600 hidden sm:inline">·</span>
+                  <span>{lang === 'KR' ? '1BWS 유튜브 87.7만+' : '877K+ YouTube Subscribers'}</span>
+                  <span className="text-zinc-600 hidden sm:inline">·</span>
+                  <span>{lang === 'KR' ? '핵심 시청층 25–54세 60%' : '60% Core Demographic (25–54)'}</span>
                 </div>
               </motion.div>
 
@@ -2468,6 +2479,12 @@ export default function Home({
                   <p className="word-keep-all">{t.philosophy.p1}</p>
                   <p className="word-keep-all">{t.philosophy.p2}</p>
                 </div>
+                {t.philosophy.credentials && (
+                  <div className="mt-8 pl-8 flex items-center gap-3 text-xs md:text-sm font-mono text-zinc-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    <span>{t.philosophy.credentials}</span>
+                  </div>
+                )}
                 <div className="mt-16 pt-8 border-t border-white/5">
                   <p className="text-2xl md:text-3xl font-serif italic text-white/80 mb-20 opacity-80">"{t.philosophy.quote}"</p>
                   <div className="text-3xl md:text-5xl font-black text-zinc-200 leading-tight uppercase tracking-tighter">
@@ -2560,7 +2577,7 @@ export default function Home({
               <div className="relative z-10">
                 <div className="mb-20">
                   <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.packages.heading}</h2>
-                  <p className="text-accent text-sm font-mono tracking-widest uppercase mt-4">{t.packages.subheading}</p>
+                  <p className="text-zinc-300 text-base md:text-lg font-medium mt-4 max-w-3xl break-keep">{t.packages.subheading}</p>
                   <div className="w-20 h-1 bg-accent/30 mt-8" />
                 </div>
 
@@ -2645,6 +2662,12 @@ export default function Home({
                     </div>
                   </div>
                 )}
+
+                <p className="mt-10 text-center text-xs font-mono text-zinc-500 max-w-3xl mx-auto break-keep leading-relaxed">
+                  {lang === 'KR'
+                    ? '※ 모든 협찬 콘텐츠는 관련 법령에 따라 투명하게 광고 표기됩니다. 2차 라이선스 및 활용 권한은 프로젝트별로 협의 가능합니다.'
+                    : '※ All sponsored content complies with regulatory disclosure standards. Secondary usage rights and licensing are negotiable.'}
+                </p>
               </div>
             </section>
 
@@ -2655,12 +2678,20 @@ export default function Home({
               {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
               <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} mobilePos="object-[center_10%]" />
               <div className="max-w-6xl mx-auto relative z-10">
-                <div className="mb-20">
-                  <div className="flex items-baseline gap-6 mb-8">
+                <div className="mb-14">
+                  <div className="flex items-baseline gap-6 mb-4">
                     <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.sidebar.contact}</h2>
                     <div className="animate-bounce text-accent text-2xl">↓</div>
                   </div>
-                  <div className="w-20 h-1 bg-accent/30" />
+                  <div className="w-20 h-1 bg-accent/30 mb-8" />
+                  <p className="text-2xl md:text-3xl font-bold text-white mb-3 break-keep">
+                    {t.contact.heading}
+                  </p>
+                  <p className="text-sm md:text-base text-zinc-400 max-w-2xl leading-relaxed">
+                    {lang === 'KR'
+                      ? '영업일 기준 2~3일 내에 프로젝트 담당자가 맞춤 제안서와 함께 회신드립니다. 직접 메일 문의: request@tylerrasch.com'
+                      : 'Our partnership team typically replies within 2–3 business days with a tailored proposal. Direct email: request@tylerrasch.com'}
+                  </p>
                 </div>
 
                 <TallyEmbed lang={lang} formId={t.contact.tallyFormId} />
