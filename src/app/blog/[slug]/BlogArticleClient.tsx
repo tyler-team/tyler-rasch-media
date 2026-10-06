@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { BlogPost } from "../../../lib/sanity";
+import SanityBlockRenderer from "../../../components/SanityBlockRenderer";
 
 export default function BlogArticleClient({ post }: { post: BlogPost }) {
   const [lang, setLang] = useState<"KR" | "EN">("KR");
@@ -62,8 +63,8 @@ export default function BlogArticleClient({ post }: { post: BlogPost }) {
               {lang === "KR" ? post.excerpt.KR : post.excerpt.EN}
             </p>
 
-            {(lang === "KR" ? post.body.KR : post.body.EN).map((para, idx) => (
-              <p key={idx}>{para}</p>
+            {(lang === "KR" ? post.body.KR : post.body.EN).map((block, idx) => (
+              <SanityBlockRenderer key={idx} block={block} />
             ))}
           </article>
         </div>

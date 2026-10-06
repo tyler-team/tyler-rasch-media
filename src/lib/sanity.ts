@@ -1,4 +1,5 @@
 import { createClient } from 'next-sanity';
+import { createImageUrlBuilder } from '@sanity/image-url';
 
 export const sanityClient = createClient({
   projectId: 'ix8f0bbf',
@@ -6,6 +7,26 @@ export const sanityClient = createClient({
   apiVersion: '2026-06-07',
   useCdn: false,
 });
+
+const builder = createImageUrlBuilder(sanityClient);
+
+export function urlFor(source: any) {
+  return builder.image(source);
+}
+
+export type SanityContentBlock =
+  | string
+  | {
+      _type: 'image';
+      asset: { _ref: string; _type: string };
+      caption?: string;
+      alt?: string;
+    }
+  | {
+      _type: 'videoEmbed';
+      url: string;
+      caption?: string;
+    };
 
 export interface PressRelease {
   slug: string;
@@ -15,7 +36,7 @@ export interface PressRelease {
   subtitle?: string;
   byline?: string;
   intro5W1H?: string;
-  body: string[];
+  body: SanityContentBlock[];
   boilerplate?: string;
 }
 
@@ -36,8 +57,8 @@ export interface BlogPost {
     EN: string;
   };
   body: {
-    KR: string[];
-    EN: string[];
+    KR: SanityContentBlock[];
+    EN: SanityContentBlock[];
   };
 }
 

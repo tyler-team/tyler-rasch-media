@@ -72,7 +72,7 @@ export default function KoPressPageClient({ initialReleases }: { initialReleases
               )}
 
               <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                {release.intro5W1H || release.body[0]}
+                {release.intro5W1H || (typeof release.body[0] === 'string' ? release.body[0] : '')}
               </p>
 
               <a

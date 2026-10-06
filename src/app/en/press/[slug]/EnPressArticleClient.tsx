@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PressRelease, pressReleases } from "../../../../data/pressData";
+import SanityBlockRenderer from "../../../../components/SanityBlockRenderer";
 
 export default function EnPressArticleClient({ release }: { release: PressRelease }) {
   const [lang, setLang] = useState<"KR" | "EN">("EN");
@@ -68,8 +69,8 @@ export default function EnPressArticleClient({ release }: { release: PressReleas
           {(() => {
             const aboutIndex = release.body.findIndex((p) => p === "About Tyler Media");
             if (aboutIndex === -1) {
-              return release.body.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+              return release.body.map((block, index) => (
+                <SanityBlockRenderer key={index} block={block} />
               ));
             }
 
@@ -86,8 +87,8 @@ export default function EnPressArticleClient({ release }: { release: PressReleas
 
             return (
               <>
-                {mainContent.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                {mainContent.map((block, index) => (
+                  <SanityBlockRenderer key={index} block={block} />
                 ))}
 
                 <div className="mt-16 p-8 rounded-3xl bg-white/[0.02] border border-white/5 space-y-8 glass">

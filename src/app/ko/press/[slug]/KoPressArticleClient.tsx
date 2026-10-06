@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { PressRelease, pressReleases } from "../../../../data/pressData";
+import SanityBlockRenderer from "../../../../components/SanityBlockRenderer";
 
 export default function KoPressArticleClient({ release }: { release: PressRelease }) {
   const [lang, setLang] = useState<"KR" | "EN">("KR");
@@ -81,8 +82,8 @@ export default function KoPressArticleClient({ release }: { release: PressReleas
             </p>
           )}
 
-          {release.body.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+          {release.body.map((block, index) => (
+            <SanityBlockRenderer key={index} block={block} />
           ))}
 
           {release.boilerplate && (

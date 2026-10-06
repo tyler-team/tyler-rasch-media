@@ -5,7 +5,7 @@ export interface BlogPost {
   category: { KR: string; EN: string };
   title: { KR: string; EN: string };
   excerpt: { KR: string; EN: string };
-  body: { KR: string[]; EN: string[] };
+  body: { KR: (string | any)[]; EN: (string | any)[] };
   socialExcerpts?: {
     ratio1x1: string[];
     ratio9x16: string[];

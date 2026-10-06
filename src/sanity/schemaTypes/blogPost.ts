@@ -1,4 +1,65 @@
-import { defineField, defineType } from 'sanity';
+import { defineField, defineType, defineArrayMember } from 'sanity';
+
+const contentBlockMembers = [
+  defineArrayMember({
+    type: 'text',
+    title: 'Text Paragraph (텍스트 문단)',
+    rows: 4,
+  }),
+  defineArrayMember({
+    type: 'image',
+    title: 'Image (이미지 업로드)',
+    options: {
+      hotspot: true,
+    },
+    fields: [
+      {
+        name: 'caption',
+        type: 'string',
+        title: 'Caption (이미지 설명)',
+        description: '이미지 하단에 표시될 설명문 (선택 사항)',
+      },
+      {
+        name: 'alt',
+        type: 'string',
+        title: 'Alt Text (대체 텍스트)',
+        description: '검색엔진(SEO) 및 웹 접근성을 위한 설명',
+      },
+    ],
+  }),
+  defineArrayMember({
+    type: 'object',
+    name: 'videoEmbed',
+    title: 'YouTube Video (유튜브 영상 임베드)',
+    fields: [
+      {
+        name: 'url',
+        type: 'url',
+        title: 'YouTube Video URL (유튜브 링크)',
+        description: '예: https://www.youtube.com/watch?v=... 또는 https://youtu.be/...',
+        validation: (Rule) => Rule.required(),
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        title: 'Video Caption (영상 설명)',
+        description: '영상 하단에 표시될 설명문 (선택 사항)',
+      },
+    ],
+    preview: {
+      select: {
+        url: 'url',
+        caption: 'caption',
+      },
+      prepare({ url, caption }) {
+        return {
+          title: caption || 'YouTube Video',
+          subtitle: url,
+        };
+      },
+    },
+  }),
+];
 
 export const blogPost = defineType({
   name: 'blogPost',
@@ -64,21 +125,21 @@ export const blogPost = defineType({
     }),
     defineField({
       name: 'body',
-      title: 'Body Content',
+      title: 'Body Content (Paragraphs, Images & Videos)',
       type: 'object',
       fields: [
         {
           name: 'KR',
-          title: 'Korean Paragraphs',
+          title: 'Korean Content Blocks',
           type: 'array',
-          of: [{ type: 'text', rows: 4 }],
+          of: contentBlockMembers,
           validation: (Rule) => Rule.required(),
         },
         {
           name: 'EN',
-          title: 'English Paragraphs',
+          title: 'English Content Blocks',
           type: 'array',
-          of: [{ type: 'text', rows: 4 }],
+          of: contentBlockMembers,
           validation: (Rule) => Rule.required(),
         },
       ],

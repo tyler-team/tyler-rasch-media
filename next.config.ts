@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/**',
+      },
       { protocol: 'https', hostname: 'upload.wikimedia.org', port: '', pathname: '/**' },
       { protocol: 'https', hostname: 'www.dongsuh.co.kr', port: '', pathname: '/**' },
       { protocol: 'https', hostname: 'noogifurniture.com', port: '', pathname: '/**' },

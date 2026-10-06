@@ -6,7 +6,7 @@ export interface PressRelease {
   subtitle?: string; // 소제목 (Korean domestic PR style)
   byline?: string;   // 기자 및 배포처 바이라인 (Korean domestic PR style)
   intro5W1H?: string; // 5W1H introduction paragraph (Korean domestic PR style)
-  body: string[];    // Main content paragraphs
+  body: (string | any)[]; // Main content paragraphs or rich blocks
   boilerplate?: string; // 배포 기업 보도자료 꼬리말 (Boilerplate)
 }
 
