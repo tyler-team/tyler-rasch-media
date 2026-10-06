@@ -1599,7 +1599,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           {lang === 'KR' ? '핵심 성과 지표' : 'KEY PERFORMANCE METRICS'}
         </span>
         <div>
-          <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">
+          <h2 className={`text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter ${lang === 'EN' ? 'italic' : ''}`}>
             {title}
           </h2>
           <div className="w-20 h-1 bg-accent/30 mt-8" />
@@ -1674,7 +1674,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                     </span>
                   </div>
                 )}
-                <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.youtube.label}</h4>
+                <h4 className={`text-3xl font-black text-white tracking-tighter ${lang === 'EN' ? 'italic' : ''}`}>{t.platform_demography.tabs.youtube.label}</h4>
                 <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.youtube.tagline}</p>
               </div>
               <div className="scale-125 text-[#00be61] pt-1"><SocialIcon name="youtube" /></div>
@@ -1734,7 +1734,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                     </span>
                   </div>
                 )}
-                <h4 className="text-3xl font-black text-white italic tracking-tighter">{t.platform_demography.tabs.instagram.label}</h4>
+                <h4 className={`text-3xl font-black text-white tracking-tighter ${lang === 'EN' ? 'italic' : ''}`}>{t.platform_demography.tabs.instagram.label}</h4>
                 <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mt-1">{t.platform_demography.tabs.instagram.tagline}</p>
               </div>
               <div className="scale-125 text-[#ffc700] pt-1"><SocialIcon name="youtube" /></div>
@@ -1865,7 +1865,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                 </span>
                 <span className="text-xs text-zinc-500 font-mono">5 Channels</span>
               </div>
-              <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
+              <h4 className={`text-2xl font-black text-white tracking-tight mb-6 h-10 flex items-center ${lang === 'EN' ? 'italic' : ''}`}>
                 {t.ecosystem.personal_title}
               </h4>
               <div className="space-y-2.5">
@@ -1918,7 +1918,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                   </span>
                   <span className="text-xs text-zinc-500 font-mono">3 Channels</span>
                 </div>
-                <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
+                <h4 className={`text-2xl font-black text-white tracking-tight mb-6 h-10 flex items-center ${lang === 'EN' ? 'italic' : ''}`}>
                   {t.ecosystem.channel_title}
                 </h4>
                 <div className="space-y-2.5">
@@ -1987,7 +1987,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                   </span>
                   <span className="text-xs text-zinc-500 font-mono">3 Channels</span>
                 </div>
-                <h4 className="text-2xl font-black text-white italic tracking-tight mb-6 h-10 flex items-center">
+                <h4 className={`text-2xl font-black text-white tracking-tight mb-6 h-10 flex items-center ${lang === 'EN' ? 'italic' : ''}`}>
                   {t.ecosystem.really_tyler_title || "Really Tyler"}
                 </h4>
                 <div className="space-y-2.5">
@@ -2196,10 +2196,12 @@ const VideoModal = ({ isOpen, onClose, videoUrl }: { isOpen: boolean, onClose: (
 
 const OriginalsSection = ({
   t,
-  onSelectVideo
+  onSelectVideo,
+  lang = 'KR'
 }: {
   t: Content['portfolio']['originals'];
   onSelectVideo: (url: string) => void;
+  lang?: 'KR' | 'EN';
 }) => {
   const [filter, setFilter] = useState<'all' | '1bws' | 'really_tyler'>('all');
 
@@ -2298,7 +2300,7 @@ const OriginalsSection = ({
                 </span>
 
                 {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-black text-white italic tracking-tight leading-tight mb-3 min-h-[2.5rem] md:min-h-[4.25rem] flex items-start">
+                <h3 className={`text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-3 min-h-[2.5rem] md:min-h-[4.25rem] flex items-start ${lang === 'EN' ? 'italic' : ''}`}>
                   {item.title}
                 </h3>
 
@@ -2488,7 +2490,7 @@ export default function Home({
               <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} mobilePos="object-[center_5%]" />
               <div className="max-w-5xl relative z-10">
                 <div className="mb-20">
-                  <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.sidebar.vision}</h2>
+                  <h2 className={`text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter break-keep ${lang === 'EN' ? 'italic' : ''}`}>{t.sidebar.vision}</h2>
                   <div className="w-20 h-1 bg-accent/30 mt-8" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-lg md:text-xl leading-relaxed text-zinc-400 border-l border-accent/20 pl-8">
@@ -2514,18 +2516,18 @@ export default function Home({
             </section>
 
             {/* 4. ORIGINAL CONTENTS */}
-            <section id="originals" className="relative pt-48 md:pt-56 pb-36 md:pb-40 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+            <section id="originals" className="relative py-36 md:py-40 px-8 md:px-20 border-b border-white/5 overflow-hidden">
               {/* SWITCH: Using tyler_prayer_hands.jpg here */}
               <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_5%]" />
               <div className="mb-16 relative z-10">
-                <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.originals.heading}</h2>
+                <h2 className={`text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter break-keep ${lang === 'EN' ? 'italic' : ''}`}>{t.portfolio.originals.heading}</h2>
                 {t.portfolio.originals.subheading && (
                   <p className="text-accent text-sm font-bold uppercase tracking-widest mt-4">{t.portfolio.originals.subheading}</p>
                 )}
                 <div className="w-20 h-1 bg-accent/30 mt-8" />
               </div>
 
-              <OriginalsSection t={t.portfolio.originals} onSelectVideo={(url) => setSelectedVideo(url)} />
+              <OriginalsSection t={t.portfolio.originals} onSelectVideo={(url) => setSelectedVideo(url)} lang={lang} />
             </section>
 
             {/* 5. BRAND COLLABORATIONS */}
@@ -2534,7 +2536,7 @@ export default function Home({
               <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} mobilePos="object-[center_10%]" />
               <div className="relative z-10">
                 <div className="mb-20">
-                  <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.portfolio.brands.heading}</h2>
+                  <h2 className={`text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter break-keep ${lang === 'EN' ? 'italic' : ''}`}>{t.portfolio.brands.heading}</h2>
                   <p className="text-accent text-sm font-bold uppercase tracking-widest mt-4">{t.portfolio.brands.subheading}</p>
                   <div className="w-20 h-1 bg-accent/30 mt-8" />
                 </div>
@@ -2586,7 +2588,7 @@ export default function Home({
               <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} mobilePos="object-[center_10%]" />
               <div className="relative z-10">
                 <div className="mb-20">
-                  <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic break-keep">{t.packages.heading}</h2>
+                  <h2 className={`text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter break-keep ${lang === 'EN' ? 'italic' : ''}`}>{t.packages.heading}</h2>
                   <p className="text-accent text-sm font-mono tracking-widest uppercase mt-4">{t.packages.subheading}</p>
                   <div className="w-20 h-1 bg-accent/30 mt-8" />
                 </div>
@@ -2684,7 +2686,7 @@ export default function Home({
               <div className="max-w-6xl mx-auto relative z-10">
                 <div className="mb-20">
                   <div className="flex items-baseline gap-6 mb-8">
-                    <h2 className="text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter italic">{t.sidebar.contact}</h2>
+                    <h2 className={`text-5xl md:text-7xl font-black text-white leading-none uppercase tracking-tighter ${lang === 'EN' ? 'italic' : ''}`}>{t.sidebar.contact}</h2>
                     <div className="animate-bounce text-accent text-2xl">↓</div>
                   </div>
                   <div className="w-20 h-1 bg-accent/30" />
