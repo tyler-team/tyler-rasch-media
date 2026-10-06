@@ -1519,7 +1519,7 @@ const TallyEmbed = ({ lang = 'KR', formId = 'A7qA7W' }: { lang?: 'KR' | 'EN'; fo
   const tallyUrl = `https://tally.so/embed/${formId}?alignLeft=1&hideTitle=1&dynamicHeight=1&lang=${lang.toLowerCase()}&locale=${lang.toLowerCase()}`;
 
   return (
-    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white shadow-2xl transition-all duration-500">
+    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/10 transition-all duration-500">
       <iframe
         key={`${formId}-${lang}`}
         data-tally-src={tallyUrl}
@@ -2029,8 +2029,8 @@ const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'car
   const [visible, setVisible] = useState(false);
   const { scrollY } = useScroll();
 
-  useEffect(() => { // No 'React.' prefix needed if configured correctly, but we'll use standard hook usage
-    return scrollY.onChange((latest) => {
+  useEffect(() => {
+    return scrollY.on('change', (latest) => {
       const heroHeight = window.innerHeight * 0.8;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const isPastHero = latest > heroHeight;
@@ -2040,7 +2040,7 @@ const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'car
   }, [scrollY]);
 
   return (
-    <div className={`fixed bottom-8 right-8 z-50 transition-all duration-500 transform ${visible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+    <div className={`fixed bottom-8 right-8 z-50 transition-all duration-500 transform ${visible ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
       <a
         href="#contact"
         onClick={() => setView('home')}
@@ -2300,11 +2300,11 @@ const BrandLogoWall = () => {
         {partners.map((brand, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: (brand.scale || 1) * 1.1 }}
+            whileHover={{ scale: (brand.scale || 1) * 1.08 }}
             initial={{ scale: brand.scale || 1 }}
-            className="relative w-32 h-12 opacity-30 hover:opacity-100 transition-all duration-500 cursor-default"
+            className="relative w-32 h-12 opacity-40 hover:opacity-95 transition-all duration-500 cursor-default"
             style={{
-              filter: 'brightness(0) saturate(100%) invert(64%) sepia(91%) saturate(2847%) hue-rotate(145deg) brightness(105%) contrast(102%)'
+              filter: 'brightness(0) invert(1)'
             }}
           >
             <Image
@@ -2394,7 +2394,7 @@ export default function Home({
               >
                 <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-8 text-white uppercase">
                   TYLER <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800">RASCH</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 via-zinc-500 to-zinc-600">RASCH</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-white font-medium mb-4">{t.hero.subtitle}</p>
                 <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl word-keep-all mb-12">
@@ -2412,7 +2412,7 @@ export default function Home({
             </section>
 
             {/* 2. PHILOSOPHY */}
-            <section id="vision" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+            <section id="vision" className="relative py-36 md:py-40 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
               {/* SWITCH: Using tyler_crossed_arms_front.jpg here */}
               <SectionBackground src="/headshots/tyler_crossed_arms_front.jpg" y={yPhil} mobilePos="object-[center_5%]" />
               <div className="max-w-5xl relative z-10">
@@ -2434,7 +2434,7 @@ export default function Home({
             </section>
 
             {/* 3. IMPACT DASHBOARD - SIGNIFICANT EXPANSION */}
-            <section id="impact" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+            <section id="impact" className="relative py-36 md:py-40 px-8 md:px-20 border-b border-white/5 overflow-hidden">
               {/* SWITCH: Using tyler_laughing.jpg here */}
               <SectionBackground src="/headshots/tyler_laughing.jpg" y={yImpact} mobilePos="object-[center_10%]" />
               <div className="relative z-10">
@@ -2443,7 +2443,7 @@ export default function Home({
             </section>
 
             {/* 4. ORIGINAL CONTENTS */}
-            <section id="originals" className="relative pt-72 pb-48 px-8 md:px-20 border-b border-white/5 overflow-hidden">
+            <section id="originals" className="relative pt-48 md:pt-56 pb-36 md:pb-40 px-8 md:px-20 border-b border-white/5 overflow-hidden">
               {/* SWITCH: Using tyler_prayer_hands.jpg here */}
               <SectionBackground src="/headshots/tyler_prayer_hands.jpg" y={yOriginals} mobilePos="object-[center_5%]" />
               <div className="mb-16 relative z-10">
@@ -2458,7 +2458,7 @@ export default function Home({
             </section>
 
             {/* 5. BRAND COLLABORATIONS */}
-            <section id="brands" className="relative py-48 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
+            <section id="brands" className="relative py-36 md:py-40 px-8 md:px-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
               {/* SWITCH: Using tyler_crossed_arms_side.jpg here */}
               <SectionBackground src="/headshots/tyler_crossed_arms_side.jpg" y={yBrands} mobilePos="object-[center_10%]" />
               <div className="relative z-10">
@@ -2510,7 +2510,7 @@ export default function Home({
             </section>
 
             {/* 6. PARTNERSHIP PACKAGES */}
-            <section id="packages" className="relative py-48 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.01]">
+            <section id="packages" className="relative py-36 md:py-40 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.01]">
               {/* AUDIT: Using unique '20251206_TylerRasch0425_BW.jpg' */}
               <SectionBackground src="/headshots/20251206_TylerRasch0425_BW.jpg" y={yPackages} mobilePos="object-[center_10%]" />
               <div className="relative z-10">
@@ -2607,7 +2607,7 @@ export default function Home({
             <PressBlogSection lang={lang} />
 
             {/* 7. CONTACT */}
-            <section id="contact" className="relative py-48 px-8 md:px-20 bg-[#050A10] overflow-hidden">
+            <section id="contact" className="relative py-36 md:py-40 px-8 md:px-20 bg-[#050A10] overflow-hidden">
               {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
               <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} mobilePos="object-[center_10%]" />
               <div className="max-w-6xl mx-auto relative z-10">
