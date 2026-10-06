@@ -95,11 +95,11 @@ export default function SMEStartupProgramView({ setSelectedVideo }: { setSelecte
               SME & Startup Support Program
             </div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight break-keep mb-8">
-              타일러 미디어가 중소기업·스타트업의 도약을 함께합니다.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">브랜드 상생 파트너십 프로그램</span>
+              타일러 미디어가 귀사의 성장을 응원하며,<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">&apos;무료 PPL&apos;의 기회</span>를 드립니다.
             </h1>
-            <p className="text-base md:text-xl text-zinc-400 max-w-2xl leading-relaxed mb-12 break-keep font-light">
-              대기업 중심의 미디어 광고 시장에서 실질적인 성장을 도모하는 유망 기업을 위해, 타일러 미디어의 콘텐츠 파급력과 전략적 PR 기회를 무상으로 지원합니다.
+            <p className="text-base md:text-xl text-zinc-400 max-w-2xl leading-relaxed mb-12 break-keep">
+              단 5분이면 지원 끝. 비용 없이 타일러 미디어 콘텐츠의 주인공이 되어보세요. 실질적인 성장을 원하는 대표님들을 위한 가장 쉽고 확실한 광고 기회, 지금 바로 잡으세요.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
@@ -107,7 +107,7 @@ export default function SMEStartupProgramView({ setSelectedVideo }: { setSelecte
                 onClick={scrollToApply}
                 className="w-full sm:w-auto px-8 py-4 font-bold text-accent-foreground bg-accent rounded-full hover:scale-105 hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] transition-all duration-300 cursor-pointer text-xs tracking-widest uppercase"
               >
-                지원 신청하기
+                지금 바로 지원하기
               </button>
               <a
                 href="#philosophy-section"
@@ -168,8 +168,8 @@ export default function SMEStartupProgramView({ setSelectedVideo }: { setSelecte
             
             <div className="lg:col-span-7 bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-10 backdrop-blur-sm relative overflow-hidden shadow-xl">
               <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-xl pointer-events-none" />
-              <p className="text-zinc-300 text-base md:text-lg leading-relaxed break-keep font-light">
-                대한민국 경제의 대다수는 중소기업과 스타트업이지만, 기존 미디어 광고 시장은 대기업 중심으로 흘러갑니다. 타일러 미디어는 공익적 상생의 관점에서 실질적인 브랜딩 기회를 제공하여 유망 기업의 자생적 성장을 돕고자 합니다. 건강한 파트너십을 통해 더 가치 있는 비즈니스 생태계를 함께 만들어갑니다.
+              <p className="text-zinc-300 text-base md:text-lg leading-relaxed break-keep">
+                &ldquo;대한민국 경제의 99%는 작은 사업체이지만, 마케팅 시장은 대행사부터 제작사까지 대기업 중심으로 흘러갑니다. 타일러 미디어는 실질적인 광고 기회를 제공하여 중소기업과 스타트업이 자생력을 갖출 수 있는 생태계를 만들고자 합니다. 저희 또한 이 과정을 통해 다양한 파트너사를 만나고 함께 성장하며, 더 나은 광고 콘텐츠를 제작할 수 있는 역량을 키워나가려 합니다. 우리와 함께 상생해 보세요.&rdquo;
               </p>
             </div>
           </motion.div>
@@ -238,22 +238,22 @@ export default function SMEStartupProgramView({ setSelectedVideo }: { setSelecte
                   모든 지원 기업 혜택
                 </h3>
                 
-                <p className="text-zinc-300 text-base md:text-lg break-keep leading-relaxed mb-6 font-light">
-                  선정 여부와 관계없이, 지원해 주신 모든 적격 사업체에 향후 타일러 미디어 광고 협업 시 전용 파트너 우대 혜택을 제공합니다. 다음 분기에도 자유롭게 재지원하실 수 있습니다.
+                <p className="text-zinc-300 text-base md:text-lg break-keep leading-relaxed mb-6">
+                  &ldquo;선정되지 않더라도 실망하지 마세요! 지원해주신 모든 적격 사업체는 저희 광고 서비스 이용 시 일부 할인 혜택을 제공드립니다. 그리고 다음 분기 때 응모를 언제든지 다시 하셔도 됩니다!&rdquo;
                 </p>
 
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center gap-3 text-zinc-400 text-sm">
-                    <CheckIcon /> 타일러 미디어 공식 광고 협업 시 파트너 우대 혜택 적용
+                    <CheckIcon /> 타일러 미디어 광고 서비스 이용 시 할인 혜택 적용
                   </li>
                   <li className="flex items-center gap-3 text-zinc-400 text-sm">
-                    <CheckIcon /> 분기별 신규 프로젝트 대상 상시 재지원 가능
+                    <CheckIcon /> 불합격 사유 관계없이 다음 분기 재응모 언제나 환영
                   </li>
                 </ul>
               </div>
 
               <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 text-xs text-zinc-400 leading-relaxed break-keep">
-                본 프로그램은 건강한 비즈니스 상생을 목표로 하며, 지속 가능한 성장 파트너십을 지향합니다.
+                💡 본 프로그램은 상호 성장과 협업을 목표로 하며, 중소기업을 위해 파격적인 가격 혜택도 보완해 드립니다.
               </div>
             </motion.div>
           </div>
