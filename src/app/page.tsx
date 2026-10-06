@@ -285,7 +285,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
           { name: "TikTok", handle: "@reallytylerofficial", count: "", icon: "tiktok", url: "https://www.tiktok.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
-          { name: "Threads", handle: "@tyleroninsta", count: "48K", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
+          { name: "Threads", handle: "@tyleroninsta", count: "48K+", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
           { name: "X", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch", category: "personal" },
           { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/", category: "personal" }
@@ -824,7 +824,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
           { name: "Instagram", handle: "@reallytylerofficial", count: "", icon: "instagram", url: "https://www.instagram.com/reallytylerofficial/", category: "really_tyler" },
           { name: "TikTok", handle: "@reallytylerofficial", count: "", icon: "tiktok", url: "https://www.tiktok.com/@reallytylerofficial", category: "really_tyler" },
           { name: "Instagram", handle: "@tyleroninsta", count: "247K", icon: "instagram", url: "https://www.instagram.com/tyleroninsta/", category: "personal" },
-          { name: "Threads", handle: "@tyleroninsta", count: "48K", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
+          { name: "Threads", handle: "@tyleroninsta", count: "48K+", icon: "threads", url: "https://www.threads.com/@tyleroninsta", category: "personal" },
           { name: "LinkedIn", handle: "Tyler Rasch", count: "30K+", icon: "linkedin", url: "https://www.linkedin.com/in/tylerrasch/", category: "personal" },
           { name: "X", handle: "@tylerrasch", count: "65K+", icon: "twitter", url: "https://x.com/tylerrasch", category: "personal" },
           { name: "Facebook", handle: "Tyler Rasch", count: "18K+", icon: "facebook", url: "https://www.facebook.com/people/Tyler-Rasch/100011625431145/", category: "personal" }
