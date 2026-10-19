@@ -12,25 +12,25 @@ const content = {
   KR: {
     hero: {
       badge: '2026 하반기 인턴십 모집',
-      titleLine1: '타일러 미디어와 함께할',
-      titleLine2: '기업 협업 & PR 인턴을 모십니다',
+      titleLine1: '원빅월드쇼(1BWS)와 함께할',
+      titleLine2: '국제시사 리서치팀 인턴을 모십니다',
       subtitle:
-        '글로벌 지식 채널 원빅월드쇼(1BWS)와 라이프스타일 채널 리얼리 타일러(Really Tyler)를 제작하는 타일러 미디어에서 비즈니스 파트너십과 PR 실무를 함께 만들어갈 인재를 찾습니다.',
+        '글로벌 시사·경제 지식 채널 원빅월드쇼(1BWS)를 제작하는 타일러 미디어에서 글로벌 시사 이슈를 심도 있게 탐구하고, 1차 사료와 데이터를 바탕으로 차별화된 미디어 콘텐츠를 함께 만들어갈 국제시사 리서치팀 인턴을 모집합니다.',
       chips: [
         {
           tag: 'Schedule',
           title: '주 3일 · 일 3시간 집중 근무',
-          sub: '오전 09:00 ~ 12:00',
+          sub: '화·수·금 09:00 ~ 12:00 (조율 가능)',
         },
         {
           tag: 'Flexibility',
           title: '학업·취업 준비 병행 최적화',
-          sub: '주 3일 오전 집중 근무',
+          sub: '온·오프라인 하이브리드 근무',
         },
         {
-          tag: 'Certification',
-          title: '실무 경험 & 공식 수료증 발급',
-          sub: '타일러 미디어 공식 인증 & 추천서',
+          tag: 'Certification & Perks',
+          title: '공식 수료증 & 추천서 발급',
+          sub: '공개 녹화 참관 및 멘토링',
         },
       ],
       applyBtn: '지원서 작성하기',
@@ -47,70 +47,70 @@ const content = {
         },
         {
           label: '지원 대상',
-          value: '4년제 대학교 휴학생, 졸업예정자, 또는 기졸업자',
-          desc: '학업이나 취업 준비와 병행 가능한 오전 집중 근무입니다.',
+          value: '4년제 대학교 재학생, 휴학생, 졸업예정자 또는 기졸업자',
+          desc: '학문적 열정과 국제시사 분야에 대한 높은 관심 필수 (학업 병행 가능)',
         },
         {
           label: '근무 기간',
-          value: '2026년 10월 26일(월) ~ 12월 11일(금) (총 7주)',
+          value: '2026년 11월 2일(월) ~ 12월 11일(금) (총 6주)',
         },
         {
           label: '근무 형태',
-          value: '주 3일 / 오전 09:00 ~ 12:00',
-          desc: '하루 3시간 / 주 9시간',
+          value: '주 3일 / 하루 3시간 (주 9시간)',
+          desc: '화·수·금 기본(조율 가능) / 09:00~12:00 기준(유연 조율)',
         },
         {
           label: '근무 장소',
-          value: '온·오프라인 (영등포구) 병행',
+          value: '온·오프라인 병행 (하이브리드)',
+          desc: '서울 영등포구 당산역 인근 오피스 근무 및 원격 근무',
         },
         {
           label: '급여 조건',
           value: '시급 11,000원',
           note: '(산재보험 적용)',
+          desc: '월 예상 실지급액: 약 40만~44만원 (주 9시간 × 시급 11,000원 = 주 99,000원 / 근무일수 비례 정산)',
         },
       ],
     },
     sec2: {
       tag: 'Section 02',
       title: '담당 업무 (Roles & Responsibility)',
-      sub: '타일러 미디어의 핵심 비즈니스 파트너십과 대외 PR을 주도적으로 경험합니다.',
+      sub: '정부 공식 사이트, 학술 논문, 싱크탱크 데이터를 기반으로 원빅월드쇼 콘텐츠를 기획·구체화합니다.',
       tasks: [
         {
           no: '01',
-          tag: 'Partnership',
-          title: '국내외 기업 및 광고주 협업 제안',
+          tag: 'Research & Intelligence',
+          title: '글로벌 시사 이슈 모니터링 & 1차 사료 수집',
           bullets: [
-            '타일러 미디어와 협업할 만한 국내외 기업, 브랜드, 대형 광고대행사 발굴 및 리스트업',
-            '파트너십 안내서(미디어킷) 전달 및 비즈니스 협업 제안 이메일 발송',
+            '정부 기관 웹사이트, 글로벌 싱크탱크, 학술 저널, 공식 통계 데이터 트래킹 및 핵심 정보 수집',
+            '외신 보도 및 주요 글로벌 이슈 팩트체크와 공신력 있는 1차 사료 발굴',
           ],
         },
         {
           no: '02',
-          tag: 'Press & PR',
-          title: 'PR 및 보도자료 배포',
+          tag: 'Knowledge Archiving',
+          title: '지식 데이터베이스 구축',
           bullets: [
-            '신규 프로젝트 및 채널 주요 소식 보도자료 작성',
-            '주요 언론사(방송·신문·IT·경제지) 기자 연락처 최신화 및 보도자료 배포',
+            'Google Drive 및 Gemini Notebooks 등 최신 AI·협업 툴을 활용한 이슈별 학술·사료 아카이빙',
+            '원빅월드쇼 콘텐츠 제작을 위한 영구 자산형 글로벌 시사 지식 DB 체계화',
           ],
         },
         {
           no: '03',
-          tag: 'Editorial & SNS',
-          title: '공식 웹사이트 블로그 및 SNS 콘텐츠 운영',
+          tag: 'Content Proposal',
+          title: '원빅월드쇼 콘텐츠 기획안(Proposal) 작성',
           bullets: [
-            'tylerrasch.com 공식 웹사이트 자체 블로그 콘텐츠 기획 및 글 작성',
-            '카드뉴스 등 주요 SNS 포스트 콘텐츠 기획·제작 및 발행',
-            '에피소드 인사이트, 글로벌 트렌드 분석 아티클 에디토리얼 지원',
+            '수집된 심층 리서치 자료를 바탕으로 Talking Heads, 팟캐스트, 숏콘텐츠, 블로그 등 다양한 포맷의 기획안 작성',
+            '복잡한 글로벌 시사·경제 아젠다를 대중이 이해하기 쉬운 미디어 스토리텔링으로 재가공',
           ],
         },
         {
           no: '04',
-          tag: 'Operations',
-          title: '비즈니스 파트너십 및 미디어 오퍼레이션 운영 지원',
+          tag: 'Production & Event',
+          title: '오프라인 공개 녹화 이벤트 준비 지원',
           bullets: [
-            '제안 미팅 일정 조율 및 기본 대외 커뮤니케이션 지원',
-            '주요 유튜브 채널들의 브랜드 협찬 및 광고 트렌드 모니터링',
-            '프로젝트 진행 및 팀 운영에 필요한 전반적인 미디어 오퍼레이션 지원',
+            '인턴십 후반부 진행 예정인 원빅월드쇼 오프라인 무대 공개 녹화 세션 준비 및 기획 지원',
+            '공개 녹화 세션용 리서치 브리프 작성 및 현장 미디어 오퍼레이션 협업',
           ],
         },
       ],
@@ -123,9 +123,9 @@ const content = {
         tag: '지원 자격',
         title: 'Must Have',
         bullets: [
-          '기본적인 비즈니스 이메일 작성과 꼼꼼한 정보 검색이 가능하신 분',
-          '사람들과 소통하는 것을 좋아하고 예의 바른 커뮤니케이션 태도를 갖추신 분',
-          '주 3일 오전 근무(09:00~12:00)에 집중할 수 있는 분',
+          '국제시사 및 글로벌 이슈에 대한 깊은 관심과 학문적 열정을 갖추신 분',
+          '1차 사료, 정부 공식 발표, 학술 논문, 통계 자료를 활용한 리서치에 거부감이 없으신 분',
+          '정확한 출처 표기(Citation) 및 신뢰할 수 있는 리서치 방법론에 대한 이해가 있으신 분',
         ],
       },
       preferred: {
@@ -133,14 +133,15 @@ const content = {
         title: 'Preferred',
         bullets: [
           {
-            text: '영문 이메일 작성이나 해외 기업 리서치가 가능하신 분 ',
-            highlight: '(영어 능통자)',
+            text: '국제정치학, 외교학, 정치학, 지역학, 역사학, 지리학, 경제학 등 관련 전공자 ',
+            highlight: '(전공 우대)',
           },
           {
-            text: '슬랙(Slack), 노션(Notion), 구글 문서 활용이 익숙하신 분',
+            text: '다국어(영어 및 기타 외국어) 원서 및 사료 독해가 가능하신 분 ',
+            highlight: '(어학 능력 우대)',
           },
           {
-            text: '미디어, 광고, 홍보, 비즈니스 협업에 관심이 많으신 분',
+            text: 'Slack, Notion, Google Workspace, Gemini 등 디지털 협업 툴 활용이 익숙하신 분',
           },
         ],
       },
@@ -153,40 +154,40 @@ const content = {
         {
           step: 'STEP 01',
           title: '서류 접수',
-          date: ['10월 2일(금) ~', '10월 15일(목) 자정'],
-          desc: '* 서류 접수 순 순차 검토 및 면접 진행 (적격자 채용 시 조기 마감 가능)',
+          date: ['10월 19일(월) ~', '10월 25일(일) 23:59'],
+          desc: '* 자유 양식 이력서 및 간단한 사전 리서치 과제 제출',
           borderClass: 'border-t-accent',
           textClass: 'text-accent',
         },
         {
           step: 'STEP 02',
           title: '화상 면접',
-          date: ['10월 12일(월) ~', '10월 16일(금)'],
-          desc: '온라인 구글 미트 20분 내외 진행',
+          date: ['10월 26일(월) ~', '10월 28일(수)'],
+          desc: '서류 합격자 대상 온라인 구글 미트 면접 순차 진행',
           borderClass: 'border-t-accent',
           textClass: 'text-accent',
         },
         {
           step: 'STEP 03',
-          title: '합격자 발표',
-          date: ['10월 16일(금)'],
+          title: '최종 합격 발표',
+          date: ['10월 30일(금)'],
           desc: '합격자 대상 개별 이메일 및 유선 안내',
           borderClass: 'border-t-accent',
           textClass: 'text-accent',
         },
         {
           step: 'STEP 04',
-          title: '사전 실무 교육',
-          date: ['10월 19일(월) 주간'],
-          desc: '오리엔테이션 및 실무 툴 온보딩 (일정 조율)',
+          title: '근무 시작 & 온보딩',
+          date: ['11월 2일(월) 주간'],
+          desc: '오리엔테이션, 리서치 SOP 및 시스템 온보딩 세팅',
           borderClass: 'border-t-[#ffc700]',
           textClass: 'text-[#ffc700]',
         },
         {
           step: 'STEP 05',
-          title: '정식 근무 시작',
-          date: ['10월 26일(월)'],
-          desc: '7주간 집중 근무 시작 (12월 11일까지)',
+          title: '정식 근무 & 프로젝트',
+          date: ['11월 2일(월) ~', '12월 11일(금)'],
+          desc: '총 6주간 집중 리서치, DB화 및 공개 녹화 참관',
           borderClass: 'border-t-[#00be61]',
           textClass: 'text-[#00be61]',
         },
@@ -196,8 +197,8 @@ const content = {
       tag: 'Application Form',
       title: '인턴십 지원하기',
       titleEn: '(Apply Now)',
-      subtitle: '아래 지원 폼을 작성해 제출해 주시면 서류 검토 후 순차적으로 연락드립니다.',
-      iframeTitle: '타일러 미디어 인턴십 지원서',
+      subtitle: '아래 지원 폼을 작성해 제출해 주시면 서류 검토 후 순차적으로 연락드립니다. (자유 양식 이력서 및 간단한 사전 과제 포함)',
+      iframeTitle: '원빅월드쇼 국제시사 리서치팀 인턴십 지원서',
     },
     footer: {
       company: '주식회사 큰미르(Knmir Inc.)',
@@ -210,25 +211,25 @@ const content = {
   EN: {
     hero: {
       badge: 'Fall 2026 Internship Recruitment',
-      titleLine1: 'Join Tyler Media as a',
-      titleLine2: 'Corporate Partnership & PR Intern',
+      titleLine1: 'Join One Big World Show as a',
+      titleLine2: 'Global Affairs Research Intern',
       subtitle:
-        'Tyler Media, the creator of global knowledge channel One Big World Show (1BWS) and lifestyle channel Really Tyler, is looking for talent to build business partnerships and hands-on PR together.',
+        'Tyler Media, the creator of global affairs and knowledge channel One Big World Show (1BWS), is recruiting student interns for the Global Affairs Research Team to explore critical international agendas and develop data-driven media content.',
       chips: [
         {
           tag: 'Schedule',
           title: '3 Days / 3 Hours per Day',
-          sub: '09:00 AM ~ 12:00 PM',
+          sub: 'Tue·Wed·Fri 09:00 ~ 12:00 (Flexible)',
         },
         {
           tag: 'Flexibility',
           title: 'Optimized for Studies & Job Prep',
-          sub: 'Focused 3-day morning schedule',
+          sub: 'Hybrid Onsite & Remote',
         },
         {
-          tag: 'Certification',
-          title: 'Hands-on Experience & Certificate',
-          sub: 'Official Tyler Media certificate & reference',
+          tag: 'Certification & Perks',
+          title: 'Official Certificate & Reference',
+          sub: 'Live Shoot Access & Mentorship',
         },
       ],
       applyBtn: 'Apply Now',
@@ -241,74 +242,74 @@ const content = {
         {
           label: 'Positions Available',
           value: '2 Interns',
-          desc: 'Immediately assigned to practical projects working closely with the team.',
+          desc: 'Immediately assigned to research projects working closely with the production team.',
         },
         {
           label: 'Eligibility',
-          value: 'Undergraduates on leave, prospective or recent 4-year university graduates',
-          desc: 'Morning-focused schedule compatible with academic studies or career preparation.',
+          value: 'Undergraduates, students on leave, prospective or recent 4-year university graduates',
+          desc: 'Academic curiosity and strong passion for global affairs required (compatible with academic studies).',
         },
         {
           label: 'Employment Period',
-          value: 'October 26, 2026 (Mon) ~ December 11, 2026 (Fri) (7 Weeks)',
+          value: 'November 2, 2026 (Mon) ~ December 11, 2026 (Fri) (6 Weeks)',
         },
         {
           label: 'Work Schedule',
-          value: '3 Days a Week / 09:00 AM ~ 12:00 PM',
-          desc: '3 hours/day, 9 hours/week',
+          value: '3 Days a Week / 3 Hours per Day (9 Hours/Week)',
+          desc: 'Tue·Wed·Fri standard (negotiable) / 09:00 AM ~ 12:00 PM standard (flexible adjustment).',
         },
         {
           label: 'Location',
-          value: 'Hybrid Onsite & Remote (Yeongdeungpo-gu, Seoul)',
+          value: 'Hybrid Onsite & Remote',
+          desc: 'Office near Dangsan Station (Yeongdeungpo-gu, Seoul) & remote collaboration.',
         },
         {
           label: 'Compensation',
           value: 'KRW 11,000 / hour',
           note: '(Industrial accident insurance included)',
+          desc: 'Est. KRW 400K~440K/month (9 hrs/wk × KRW 11,000 = KRW 99,000/wk, prorated by working days).',
         },
       ],
     },
     sec2: {
       tag: 'Section 02',
       title: 'Roles & Responsibility',
-      sub: 'Gain hands-on experience driving core business partnerships and external PR at Tyler Media.',
+      sub: 'Source authoritative data from think tanks, government agencies, and academic papers to develop 1BWS media content.',
       tasks: [
         {
           no: '01',
-          tag: 'Partnership',
-          title: 'Corporate Partnership & Brand Collaboration Proposals',
+          tag: 'Research & Intelligence',
+          title: 'Global Affairs Monitoring & Primary Source Research',
           bullets: [
-            'Identify and compile prospective corporate clients, brands, and major advertising agencies suitable for Tyler Media partnerships',
-            'Deliver partnership media kits and conduct outreach for business collaboration proposals',
+            'Track government portals, leading think tanks, academic journals, and statistical data to extract core insights',
+            'Fact-check international developments and uncover authoritative primary sources',
           ],
         },
         {
           no: '02',
-          tag: 'Press & PR',
-          title: 'PR & Press Release Distribution',
+          tag: 'Knowledge Archiving',
+          title: 'Knowledge Database Construction & AI Archiving',
           bullets: [
-            'Draft press releases for new productions, strategic initiatives, and major channel updates',
-            'Maintain up-to-date press contacts across major media outlets (broadcast, print, tech, business) and distribute releases',
+            'Archive topic-specific academic papers and sources using modern tools including Google Drive & Gemini Notebooks',
+            'Structure an institutionalized global knowledge base to power long-term 1BWS media productions',
           ],
         },
         {
           no: '03',
-          tag: 'Editorial & SNS',
-          title: 'Official Website Blog & Social Media Management',
+          tag: 'Content Proposal',
+          title: '1BWS Content Proposal Development',
           bullets: [
-            'Plan and write original editorial blog content for the official tylerrasch.com platform',
-            'Design, create, and publish social media content including carousel card news and channel posts',
-            'Support editorial write-ups on episode insights and global trend analyses',
+            'Develop content proposals across multiple formats (Talking Heads, podcasts, short-form video, editorial blogs)',
+            'Translate complex geopolitical & macroeconomic agendas into engaging, accessible media storytelling',
           ],
         },
         {
           no: '04',
-          tag: 'Operations',
-          title: 'Partnership Operations & Media Production Support',
+          tag: 'Production & Event',
+          title: 'Offline Live Recording Event Preparation & Support',
           bullets: [
-            'Coordinate proposal meeting schedules and support general external communications',
-            'Monitor industry sponsorship trends and brand integrations across top YouTube channels',
-            'Provide comprehensive operational support for project execution and team workflows',
+            'Support planning and preparation for the 1BWS live audience studio recording session scheduled later in the program',
+            'Draft research briefs for the live session and collaborate on onsite media operations',
           ],
         },
       ],
@@ -321,9 +322,9 @@ const content = {
         tag: 'Qualifications',
         title: 'Must Have',
         bullets: [
-          'Ability to compose professional business emails and conduct thorough information research',
-          'Enthusiastic and respectful communication style with strong interpersonal skills',
-          'Able to commit fully to 3 mornings a week (09:00 AM ~ 12:00 PM)',
+          'Deep passion, curiosity, and academic enthusiasm for international affairs and global issues',
+          'Comfortable conducting research using primary sources, official government releases, academic journals, and statistical data',
+          'Clear understanding of rigorous citation standards and credible research methodologies',
         ],
       },
       preferred: {
@@ -331,14 +332,15 @@ const content = {
         title: 'Preferred',
         bullets: [
           {
-            text: 'Fluent in English: ability to draft professional English business correspondence and conduct international corporate research ',
-            highlight: '(English Proficiency)',
+            text: 'Majors in International Relations, Political Science, Area Studies, History, Geography, Economics, or related fields ',
+            highlight: '(Relevant Majors)',
           },
           {
-            text: 'Familiarity with modern productivity tools including Slack, Notion, and Google Workspace',
+            text: 'Ability to read and synthesize foreign-language primary sources and academic texts (English & other languages) ',
+            highlight: '(Language Proficiency)',
           },
           {
-            text: 'High interest in digital media, advertising, public relations, and corporate partnerships',
+            text: 'Hands-on familiarity with modern collaborative tools including Slack, Notion, Google Workspace, and Gemini',
           },
         ],
       },
@@ -351,40 +353,40 @@ const content = {
         {
           step: 'STEP 01',
           title: 'Application Submission',
-          date: ['Oct 2 (Fri) ~', 'Oct 15 (Thu) Midnight'],
-          desc: '* Applications reviewed on a rolling basis; early closure upon hiring suitable candidates',
+          date: ['Oct 19 (Mon) ~', 'Oct 25 (Sun) 23:59 KST'],
+          desc: '* Resume & brief research assignment via application form',
           borderClass: 'border-t-accent',
           textClass: 'text-accent',
         },
         {
           step: 'STEP 02',
           title: 'Video Interview',
-          date: ['Oct 12 (Mon) ~', 'Oct 16 (Fri)'],
-          desc: 'Approx. 20-min online interview via Google Meet',
+          date: ['Oct 26 (Mon) ~', 'Oct 28 (Wed)'],
+          desc: 'Online Google Meet interview for shortlisted candidates',
           borderClass: 'border-t-accent',
           textClass: 'text-accent',
         },
         {
           step: 'STEP 03',
           title: 'Final Results',
-          date: ['Oct 16 (Fri)'],
+          date: ['Oct 30 (Fri)'],
           desc: 'Individual notification via email and phone call',
           borderClass: 'border-t-accent',
           textClass: 'text-accent',
         },
         {
           step: 'STEP 04',
-          title: 'Orientation & Training',
-          date: ['Week of Oct 19 (Mon)'],
-          desc: 'Orientation and tool onboarding (schedule coordinated)',
+          title: 'Commencement & Onboarding',
+          date: ['Week of Nov 2 (Mon)'],
+          desc: 'Orientation on channel vision, research SOP, and system setups',
           borderClass: 'border-t-[#ffc700]',
           textClass: 'text-[#ffc700]',
         },
         {
           step: 'STEP 05',
-          title: 'Internship Commences',
-          date: ['Oct 26 (Mon)'],
-          desc: '7-week intensive program begins (concludes Dec 11)',
+          title: 'Internship Program',
+          date: ['Nov 2 (Mon) ~', 'Dec 11 (Fri)'],
+          desc: '6-week intensive research, knowledge DB build & live shoot access',
           borderClass: 'border-t-[#00be61]',
           textClass: 'text-[#00be61]',
         },
@@ -395,8 +397,8 @@ const content = {
       title: 'Internship Application',
       titleEn: '(Apply Now)',
       subtitle:
-        'Please complete and submit the application form below. We will review submissions on a rolling basis and contact qualified candidates.',
-      iframeTitle: 'Tyler Media Internship Application Form',
+        'Please complete and submit the application form below. (Includes resume upload and a brief preliminary research exercise.)',
+      iframeTitle: 'One Big World Show Global Affairs Research Internship Application Form',
     },
     footer: {
       company: 'Knmir Inc.',
@@ -710,8 +712,8 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
           {/* Tally Embed Container */}
           <div className="w-full rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/20 transition-all duration-300">
             <iframe
-              data-tally-src="https://tally.so/r/BzMd9K?transparentBackground=1"
-              src="https://tally.so/r/BzMd9K?transparentBackground=1"
+              data-tally-src="https://tally.so/r/ArPK4B?transparentBackground=1"
+              src="https://tally.so/r/ArPK4B?transparentBackground=1"
               loading="lazy"
               width="100%"
               height="750"
