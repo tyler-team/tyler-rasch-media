@@ -11,7 +11,7 @@ interface CareersInternshipViewProps {
 const content = {
   KR: {
     hero: {
-      badge: '모집 마감',
+      badge: '2026 하반기 인턴십 모집',
       titleLine1: '타일러 미디어와 함께할',
       titleLine2: '기업 협업 & PR 인턴을 모십니다',
       subtitle:
@@ -33,15 +33,7 @@ const content = {
           sub: '타일러 미디어 공식 인증 & 추천서',
         },
       ],
-      applyBtn: '지원 접수 마감',
-    },
-    notice: {
-      badge: '모집 마감',
-      teaserBadge: 'COMING SOON',
-      title: '세일즈 & PR 인턴십 서류 접수가 마감되었습니다',
-      p1: '타일러 미디어 4분기 세일즈 & PR 인턴 포지션에 많은 관심과 열정으로 지원해 주신 모든 분들께 진심으로 감사드립니다. 서류 접수는 10월 15일(목) 자정부로 정상 마감되었습니다.',
-      p2: '서류 전형 결과는 검토 후 지원자분들께 순차적으로 개별 안내드릴 예정입니다.',
-      nextHighlight: '다음 주 월요일(10월 19일), 새로운 포지션 채용 공고로 다시 찾아뵙겠습니다.',
+      applyBtn: '지원서 작성하기',
     },
     sec1: {
       tag: 'Section 01',
@@ -160,11 +152,11 @@ const content = {
       steps: [
         {
           step: 'STEP 01',
-          title: '서류 접수 (마감)',
+          title: '서류 접수',
           date: ['10월 2일(금) ~', '10월 15일(목) 자정'],
-          desc: '* 10월 15일(목) 자정부로 서류 접수가 마감되었습니다.',
-          borderClass: 'border-t-zinc-600',
-          textClass: 'text-zinc-400',
+          desc: '* 서류 접수 순 순차 검토 및 면접 진행 (적격자 채용 시 조기 마감 가능)',
+          borderClass: 'border-t-accent',
+          textClass: 'text-accent',
         },
         {
           step: 'STEP 02',
@@ -201,10 +193,11 @@ const content = {
       ],
     },
     sec5: {
-      tag: 'Application Status',
-      title: '지원 접수 마감 안내',
-      titleEn: '(Applications Closed)',
-      subtitle: '세일즈 & PR 인턴십 서류 접수가 마감되었습니다. 다음 주 새로운 공고로 찾아뵙겠습니다.',
+      tag: 'Application Form',
+      title: '인턴십 지원하기',
+      titleEn: '(Apply Now)',
+      subtitle: '아래 지원 폼을 작성해 제출해 주시면 서류 검토 후 순차적으로 연락드립니다.',
+      iframeTitle: '타일러 미디어 인턴십 지원서',
     },
     footer: {
       company: '주식회사 큰미르(Knmir Inc.)',
@@ -216,7 +209,7 @@ const content = {
   },
   EN: {
     hero: {
-      badge: 'Applications Closed',
+      badge: 'Fall 2026 Internship Recruitment',
       titleLine1: 'Join Tyler Media as a',
       titleLine2: 'Corporate Partnership & PR Intern',
       subtitle:
@@ -238,15 +231,7 @@ const content = {
           sub: 'Official Tyler Media certificate & reference',
         },
       ],
-      applyBtn: 'Applications Closed',
-    },
-    notice: {
-      badge: 'Applications Closed',
-      teaserBadge: 'COMING SOON',
-      title: 'Applications for Sales & PR Intern Are Now Closed',
-      p1: 'Thank you to all candidates who expressed interest and submitted applications for the Sales & PR Intern position at Tyler Media. Applications officially closed on October 15, 2026, at midnight (KST).',
-      p2: 'All submissions are currently under review, and results will be communicated individually via email.',
-      nextHighlight: 'We will return next Monday (October 19) with an announcement for a new open position.',
+      applyBtn: 'Apply Now',
     },
     sec1: {
       tag: 'Section 01',
@@ -365,11 +350,11 @@ const content = {
       steps: [
         {
           step: 'STEP 01',
-          title: 'Application Submission (Closed)',
+          title: 'Application Submission',
           date: ['Oct 2 (Fri) ~', 'Oct 15 (Thu) Midnight'],
-          desc: '* Applications officially closed on Oct 15 at midnight (KST).',
-          borderClass: 'border-t-zinc-600',
-          textClass: 'text-zinc-400',
+          desc: '* Applications reviewed on a rolling basis; early closure upon hiring suitable candidates',
+          borderClass: 'border-t-accent',
+          textClass: 'text-accent',
         },
         {
           step: 'STEP 02',
@@ -406,11 +391,12 @@ const content = {
       ],
     },
     sec5: {
-      tag: 'Application Status',
-      title: 'Application Status & Notice',
-      titleEn: '(Applications Closed)',
+      tag: 'Application Form',
+      title: 'Internship Application',
+      titleEn: '(Apply Now)',
       subtitle:
-        'Applications for the Sales & PR Intern position have officially closed. Stay tuned for our new opening next week.',
+        'Please complete and submit the application form below. We will review submissions on a rolling basis and contact qualified candidates.',
+      iframeTitle: 'Tyler Media Internship Application Form',
     },
     footer: {
       company: 'Knmir Inc.',
@@ -466,10 +452,10 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             1. HERO SECTION
            ======================================================== */}
         <header className="space-y-8 pt-4 md:pt-8">
-          {/* Top Label Badge - Muted Gray / Slate Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-800/90 border border-zinc-700 text-zinc-300 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-zinc-400" />
-            <span className="text-xs md:text-sm font-semibold tracking-wide uppercase">
+          {/* Top Label Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent/10 border border-accent shadow-[0_0_20px_rgba(0,229,255,0.25)]">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span className="text-xs md:text-sm font-bold text-white tracking-wide uppercase">
               {t.hero.badge}
             </span>
           </div>
@@ -485,49 +471,15 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             {t.hero.subtitle}
           </p>
 
-          {/* Notice / Teaser Banner Card */}
-          <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-[#0e1411] border border-emerald-500/30 shadow-[0_0_50px_rgba(16,185,129,0.08)] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="relative z-10 space-y-4">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-zinc-800/90 text-zinc-300 border border-zinc-700">
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
-                  {t.notice.badge}
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-950/70 text-emerald-400 border border-emerald-500/30">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  {t.notice.teaserBadge}
-                </span>
-              </div>
-
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight break-keep">
-                {t.notice.title}
-              </h2>
-
-              <div className="space-y-3 text-sm md:text-base text-zinc-300 font-light leading-relaxed break-keep">
-                <p>{t.notice.p1}</p>
-                <p>{t.notice.p2}</p>
-              </div>
-
-              {/* Highlight Teaser Box */}
-              <div className="mt-4 p-4 md:p-5 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 flex items-start sm:items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 mt-1 sm:mt-0" />
-                <p className="text-sm md:text-base font-bold text-emerald-300 break-keep">
-                  {t.notice.nextHighlight}
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* 3 Key Summary Chips */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
             {t.hero.chips.map((chip, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-[#161616] border border-white/10 hover:border-zinc-500/50 transition-colors"
+                className="p-5 rounded-2xl bg-[#161616] border border-white/10 hover:border-accent/50 transition-colors"
               >
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-zinc-400 uppercase tracking-wider mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                   {chip.tag}
                 </div>
                 <div className="text-base font-bold text-white mb-1 break-keep">
@@ -540,19 +492,16 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             ))}
           </div>
 
-          {/* Disabled CTA Button */}
-          <div className="pt-2 flex flex-wrap items-center gap-4">
-            <button
-              disabled
-              aria-disabled="true"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-zinc-800/80 border border-zinc-700 text-zinc-400 font-semibold text-sm tracking-wider uppercase rounded-xl cursor-not-allowed select-none"
+          {/* Quick CTA */}
+          <div className="pt-2">
+            <a
+              href="#apply"
+              onClick={scrollToApply}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-bold text-sm tracking-wider uppercase rounded-xl hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-accent/20"
             >
-              <span className="w-2 h-2 rounded-full bg-zinc-500" />
               <span>{t.hero.applyBtn}</span>
-            </button>
-            <span className="text-xs text-zinc-400 font-mono">
-              {lang === 'KR' ? '10월 19일(월) 신규 채용 공고 오픈 예정' : 'Next Open Position: Monday, Oct 19'}
-            </span>
+              <span>&darr;</span>
+            </a>
           </div>
         </header>
 
@@ -741,12 +690,12 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
         </section>
 
         {/* ========================================================
-            6. SECTION 5: 지원 접수 마감 안내 (Applications Closed)
+            6. SECTION 5: 지원서 접수 폼 임베드 섹션 (Apply Now)
            ======================================================== */}
         <section id="apply" className="scroll-mt-24 space-y-8">
           <div className="border-b border-white/10 pb-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-zinc-400 uppercase tracking-widest mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-widest mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               {t.sec5.tag}
             </div>
             <h2 className="text-2xl md:text-5xl font-black text-white tracking-tight">
@@ -758,28 +707,20 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             </p>
           </div>
 
-          {/* Closed State Banner Card */}
-          <div className="w-full rounded-3xl p-8 md:p-12 bg-[#0e1411] border border-emerald-500/30 shadow-[0_0_50px_rgba(16,185,129,0.08)] relative overflow-hidden space-y-6">
-            <div className="space-y-4 max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-zinc-800 text-zinc-300 border border-zinc-700">
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
-                {t.notice.badge}
-              </div>
-              <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight break-keep">
-                {t.notice.title}
-              </h3>
-              <p className="text-sm md:text-base text-zinc-300 leading-relaxed font-light break-keep">
-                {t.notice.p1}
-              </p>
-              <p className="text-sm md:text-base text-zinc-300 leading-relaxed font-light break-keep">
-                {t.notice.p2}
-              </p>
-              <div className="p-5 rounded-2xl bg-emerald-950/40 border border-emerald-500/30">
-                <p className="text-sm md:text-base font-bold text-emerald-300 break-keep">
-                  {t.notice.nextHighlight}
-                </p>
-              </div>
-            </div>
+          {/* Tally Embed Container */}
+          <div className="w-full rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/20 transition-all duration-300">
+            <iframe
+              data-tally-src="https://tally.so/r/BzMd9K?transparentBackground=1"
+              src="https://tally.so/r/BzMd9K?transparentBackground=1"
+              loading="lazy"
+              width="100%"
+              height="750"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              title={t.sec5.iframeTitle}
+              className="w-full min-h-[700px] md:min-h-[780px]"
+            />
           </div>
         </section>
 

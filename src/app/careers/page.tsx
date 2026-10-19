@@ -3,10 +3,10 @@ import Home from '../page';
 
 export const metadata: Metadata = {
   title: '채용 | 타일러 미디어 (Careers | Tyler Media)',
-  description: '타일러 미디어 세일즈 & PR 인턴십 서류 접수 마감 안내 및 10월 19일 신규 채용 공고 오픈 예정',
+  description: '타일러 미디어 2026 하반기 기업 협업 & PR 대학생 인턴십 모집 (주 9시간 집중 근무)',
   openGraph: {
     title: '채용 | 타일러 미디어 (Careers | Tyler Media)',
-    description: '타일러 미디어 세일즈 & PR 인턴십 서류 접수 마감 안내 및 10월 19일 신규 채용 공고 오픈 예정',
+    description: '타일러 미디어 2026 하반기 기업 협업 & PR 대학생 인턴십 모집 (주 9시간 집중 근무)',
     type: 'website',
     url: 'https://tylerrasch.com/careers',
   },
