@@ -224,41 +224,41 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     dashboard: {
       label: "핵심 지표 (2026 기준)",
-      views: "9,900만+",
-      views_label: "누적 유튜브 조회수",
-      reach: "180만+",
-      reach_label: "월간 오디언스 도달",
-      engagement: "87.7만+",
+      views: "3,550만+",
+      views_label: "90일 유튜브 조회수",
+      reach: "130만",
+      reach_label: "월간 순 시청자 (MAU)",
+      engagement: "87.8만+",
       engagement_label: "1BWS 유튜브 채널 구독자",
       growth: "+32만+",
       growth_label: "최근 12개월 순증 +32만",
-      trust: "60%",
-      trust_label: "25–54세 핵심 경제활동층",
+      trust: "69.8%",
+      trust_label: "25–54세 핵심 실무·전문직",
       trust_tag: "핵심 타깃",
-      source_note: "* 데이터 출처: YouTube Studio · Instagram Insights (2026년 기준)",
+      source_note: "* 데이터 출처: YouTube Studio · 1BWS 미디어 파트너십 소개서 (2026년 최신 기준)",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
         synergy_badge: "360° TOTAL AUDIENCE SYNERGY",
         synergy_title: "경제 의사결정층과 라이프스타일 소비층, 한 번에 도달합니다.",
-        synergy_desc: "원빅월드쇼 유튜브(남성 63% · 여성 37%의 균형 잡힌 25-54 핵심 경제활동 인구)와 타일러 인스타그램(여성 77%, 35-44 트렌드 리더)의 상호보완적 결합으로, 테크·금융·비즈니스 의사결정권자부터 프리미엄 F&B, 뷰티, 라이프스타일 소비 주도층까지 성별과 세대의 장벽 없이 전방위로 타겟팅할 수 있는 독보적인 미디어 생태계를 구축합니다.",
+        synergy_desc: "원빅월드쇼 유튜브(남성 62% · 여성 38%의 균형 잡힌 25-54 핵심 비즈니스 실무·전문직 69.8%)와 타일러 인스타그램(여성 77%, 35-44 트렌드 리더)의 상호보완적 결합으로, 테크·금융·비즈니스 의사결정권자부터 프리미엄 F&B, 뷰티, 라이프스타일 소비 주도층까지 성별과 세대의 장벽 없이 전방위로 타겟팅할 수 있는 독보적인 미디어 생태계를 구축합니다.",
         synergy_yt_title: "원빅월드쇼 유튜브 엔진",
-        synergy_yt_stat: "25-54 핵심 경제인구 60% · 남녀 6:4 균형 (남성 63% / 여성 37%)",
+        synergy_yt_stat: "25-54 핵심 실무·전문직 69.8% (25-64세 85.3%) · 남녀 균형 (남성 62% / 여성 38%)",
         synergy_yt_target: "가계 소비 & 기업 투자 의사결정권자 · 테크/금융/B2B/비즈니스",
         synergy_ig_title: "타일러 인스타그램 엔진",
         synergy_ig_stat: "여성 77% · 35-44세 트렌드 리더층",
         synergy_ig_target: "F&B · 뷰티 · 패션 · 리빙 · 감각적 라이프스타일 소비재",
-        cross_amplifier: "타일러 라쉬 공식 인스타그램(@tylerrasch, 여성 77% 중심의 강력한 문화 소비력)과 각 채널별 숏폼 네트워크가 1BWS와 리얼리 타일러의 콘텐츠를 소셜 전반에 크로스 증폭시킵니다.",
+        cross_amplifier: "타일러 라쉬 공식 인스타그램(@tyleroninsta, 여성 77% 중심의 강력한 문화 소비력)과 각 채널별 숏폼 네트워크가 1BWS와 리얼리 타일러의 콘텐츠를 소셜 전반에 크로스 증폭시킵니다.",
         tabs: {
           youtube: {
             label: "ONE BIG WORLD SHOW",
             tagline: "글로벌 지정학, 매크로 경제 & 테크 인사이트",
             audience_type: "지적 오디언스 & 비즈니스 리더십",
-            gender_label: "Gender: 남성 63% / 여성 37%",
-            gender: { male: 63, female: 37 },
-            age_label: "Core Age: 25 - 54세 중심 (60%) / 35 - 64세 확장 (66.5%)",
-            age_value: "60%",
-            insight: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 25-54 핵심 경제활동 인구",
-            summary: "사회·경제적 실권을 쥐고 가계와 기업의 투자를 주도하는 25-54 핵심 경제활동 인구"
+            gender_label: "Gender: 남성 62% / 여성 38%",
+            gender: { male: 62, female: 38 },
+            age_label: "Core Age: 25 - 54세 중심 (69.8%) / 25 - 64세 확장 (85.3%)",
+            age_value: "69.8%",
+            insight: "전체 시청자의 93.0%가 만 25세 이상 성인이며, 25-54세 핵심 비즈니스 실무자·전문직이 69.8%를 차지하는 무결점 구매력 타깃",
+            summary: "전체 시청자의 93.0%가 만 25세 이상 성인이며, 25-54세 핵심 실무자·전문직이 69.8%를 차지하는 무결점 구매력 타깃"
           },
           instagram: {
             label: "REALLY TYLER",
@@ -278,7 +278,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         personal_title: "Tyler Rasch",
         really_tyler_title: "Really Tyler",
         platforms: [
-          { name: "YouTube", handle: "@원빅월드쇼", count: "877K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
+          { name: "YouTube", handle: "@원빅월드쇼", count: "878K+", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
           { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
           { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "NEW", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
@@ -763,41 +763,41 @@ const contentData: Record<'KR' | 'EN', Content> = {
     },
     dashboard: {
       label: "KEY METRICS (2026)",
-      views: "99M+",
-      views_label: "Total YouTube Views",
-      reach: "1.8M+",
-      reach_label: "Monthly Audience Reach",
-      engagement: "877K+",
+      views: "35.5M+",
+      views_label: "90-Day YouTube Views",
+      reach: "1.3M",
+      reach_label: "Monthly Unique Viewers (MAU)",
+      engagement: "878K+",
       engagement_label: "1BWS YouTube Subscribers",
       growth: "+320K+",
       growth_label: "12-Month Net Growth +320K",
-      trust: "60%",
-      trust_label: "Ages 25–54 Core Economic Class",
+      trust: "69.8%",
+      trust_label: "Ages 25–54 Core Professionals",
       trust_tag: "CORE DEMOGRAPHIC",
-      source_note: "* Data Source: YouTube Studio · Instagram Insights (As of 2026)",
+      source_note: "* Data Source: YouTube Studio · 1BWS Media Partnership Guide (2026 Latest)",
       platform_demography: {
         title: "PLATFORM DEMOGRAPHY",
         synergy_badge: "360° TOTAL AUDIENCE SYNERGY",
         synergy_title: "Reach economic decision-makers and lifestyle consumers in one campaign.",
-        synergy_desc: "By uniting 1BWS YouTube (balanced 63% Male / 37% Female prime 25-54 economic drivers) with Tyler's Instagram (77% Female, 35-44 cultural trendsetters), Tyler Media eliminates gender and category barriers—enabling seamless, authoritative targeting from high-stakes tech and corporate decision-makers to trend-leading F&B and lifestyle consumer markets.",
+        synergy_desc: "By uniting 1BWS YouTube (balanced 62% Male / 38% Female prime 25-54 professionals 69.8%) with Tyler's Instagram (77% Female, 35-44 cultural trendsetters), Tyler Media eliminates gender and category barriers—enabling seamless, authoritative targeting from high-stakes tech and corporate decision-makers to trend-leading F&B and lifestyle consumer markets.",
         synergy_yt_title: "1BWS YouTube Engine",
-        synergy_yt_stat: "25-54 Core Economic Class 60% · 6:4 Balance (M 63% / F 37%)",
+        synergy_yt_stat: "25-54 Core Professionals 69.8% (Ages 25-64: 85.3%) · Gender Balance (M 62% / F 38%)",
         synergy_yt_target: "Household & Corporate Decision-Makers · Tech, Finance & B2B",
         synergy_ig_title: "Tyler Instagram Engine",
         synergy_ig_stat: "Female 77% · Age 35-44 Cultural Trendsetters",
         synergy_ig_target: "F&B, Beauty, Fashion, Living & High-Engagement Lifestyle",
-        cross_amplifier: "Tyler Rasch's official Instagram (@tylerrasch, powerful cultural consumption driven by 77% female audience) and multi-channel short-form networks cross-amplify 1BWS and Really Tyler content across global social media.",
+        cross_amplifier: "Tyler Rasch's official Instagram (@tyleroninsta, powerful cultural consumption driven by 77% female audience) and multi-channel short-form networks cross-amplify 1BWS and Really Tyler content across global social media.",
         tabs: {
           youtube: {
             label: "ONE BIG WORLD SHOW",
             tagline: "Global Geopolitics, Macroeconomics & Tech Insights",
             audience_type: "Intellectual Audience & Business Leadership",
-            gender_label: "Gender: Male 63% / Female 37%",
-            gender: { male: 63, female: 37 },
-            age_label: "Core Age: 25 - 54 Core (60%) / 35 - 64 Expansion (66.5%)",
-            age_value: "60%",
-            insight: "Senior decision-makers leading household consumption and corporate investments (Ages 25-54).",
-            summary: "Senior decision-makers leading household consumption and corporate investments (Ages 25-54)."
+            gender_label: "Gender: Male 62% / Female 38%",
+            gender: { male: 62, female: 38 },
+            age_label: "Core Age: 25 - 54 Core (69.8%) / 25 - 64 Expansion (85.3%)",
+            age_value: "69.8%",
+            insight: "93.0% adult audience aged 25+, with 69.8% core business professionals and decision-makers aged 25-54.",
+            summary: "93.0% adult audience aged 25+, with 69.8% core business professionals and decision-makers aged 25-54."
           },
           instagram: {
             label: "REALLY TYLER",
@@ -817,7 +817,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         personal_title: "Tyler Rasch",
         really_tyler_title: "Really Tyler",
         platforms: [
-          { name: "YouTube", handle: "@원빅월드쇼", count: "877K", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
+          { name: "YouTube", handle: "@원빅월드쇼", count: "878K+", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
           { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
           { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "NEW", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
@@ -1730,6 +1730,39 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                 </div>
               </div>
             </div>
+
+            {/* Quick Retention & Algorithm Stats */}
+            <div className="grid grid-cols-3 gap-2 mb-6 pt-1">
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                <div className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider">
+                  {lang === 'KR' ? '비구독자 유입' : 'Non-Sub Discovery'}
+                </div>
+                <div className="text-sm md:text-base font-black text-[#00be61] mt-0.5">73.5%</div>
+                <div className="text-[9px] text-zinc-500 font-mono">
+                  {lang === 'KR' ? '알고리즘 확장' : 'Algorithm'}
+                </div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                <div className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider">
+                  {lang === 'KR' ? '90일 노출 수' : '90D Impressions'}
+                </div>
+                <div className="text-sm md:text-base font-black text-white mt-0.5">
+                  {lang === 'KR' ? '1억 420만' : '104M+'}
+                </div>
+                <div className="text-[9px] text-zinc-500 font-mono">
+                  {lang === 'KR' ? '썸네일 임팩트' : 'Total Reach'}
+                </div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                <div className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider">
+                  {lang === 'KR' ? '반복 방문율' : 'Repeat Viewers'}
+                </div>
+                <div className="text-sm md:text-base font-black text-[#00be61] mt-0.5">60.6%</div>
+                <div className="text-[9px] text-zinc-500 font-mono">
+                  {lang === 'KR' ? '다큐급 충성도' : 'Retention'}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="border-t border-white/5 pt-4 min-h-[68px] flex items-center">
@@ -1790,6 +1823,41 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                 </div>
               </div>
             </div>
+
+            {/* REALLY TYLER Highlights Grid */}
+            <div className="grid grid-cols-3 gap-2 mb-6 pt-1">
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                <div className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider">
+                  {lang === 'KR' ? '핵심 타깃' : 'Core Audience'}
+                </div>
+                <div className="text-sm md:text-base font-black text-[#ffc700] mt-0.5">
+                  {lang === 'KR' ? '여성 중심' : 'Female Lead'}
+                </div>
+                <div className="text-[9px] text-zinc-500 font-mono">
+                  {lang === 'KR' ? '라이프스타일' : 'Lifestyle'}
+                </div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                <div className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider">
+                  {lang === 'KR' ? '주요 연령대' : 'Key Age Group'}
+                </div>
+                <div className="text-sm md:text-base font-black text-white mt-0.5">20-44세</div>
+                <div className="text-[9px] text-zinc-500 font-mono">
+                  {lang === 'KR' ? '영프로페셔널' : 'Young Pro'}
+                </div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-center">
+                <div className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider">
+                  {lang === 'KR' ? '콘텐츠 포맷' : 'Format'}
+                </div>
+                <div className="text-sm md:text-base font-black text-[#ffc700] mt-0.5">
+                  {lang === 'KR' ? '팟캐스트' : 'Podcast'}
+                </div>
+                <div className="text-[9px] text-zinc-500 font-mono">
+                  {lang === 'KR' ? '비디오 토크' : 'Video Talk'}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="border-t border-white/5 pt-4 min-h-[68px] flex items-center">
@@ -1829,7 +1897,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                 </svg>
               </div>
               <div className="text-xl font-black text-white tracking-tight">
-                246K+ <span className="text-sm font-bold text-zinc-300">Followers {lang === 'KR' ? '(24.6만+)' : ''}</span>
+                247K+ <span className="text-sm font-bold text-zinc-300">Followers {lang === 'KR' ? '(24.7만+)' : ''}</span>
               </div>
             </div>
 
@@ -1857,8 +1925,8 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           {/* Bottom Summary Copy */}
           <p className="text-zinc-300 text-xs md:text-sm leading-relaxed border-t border-white/10 pt-4 break-keep">
             {lang === 'KR'
-              ? "유튜브 롱폼의 지적 담론과 라이프스타일 메시지를 24.6만 공식 인스타그램(@tyleroninsta) 및 멀티 숏폼 네트워크로 크로스 확산하여 브랜드 파급력을 극대화합니다."
-              : "Cross-amplifying intellectual discourse and lifestyle narratives from YouTube long-form to 246K+ official Instagram (@tyleroninsta) and multi-platform short-form networks to maximize brand impact."}
+              ? "유튜브 롱폼의 지적 담론과 라이프스타일 메시지를 24.7만 공식 인스타그램(@tyleroninsta) 및 멀티 숏폼 네트워크로 크로스 확산하여 브랜드 파급력을 극대화합니다."
+              : "Cross-amplifying intellectual discourse and lifestyle narratives from YouTube long-form to 247K+ official Instagram (@tyleroninsta) and multi-platform short-form networks to maximize brand impact."}
           </p>
         </div>
 
