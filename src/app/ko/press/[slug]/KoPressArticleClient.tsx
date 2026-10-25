@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { PressRelease, pressReleases } from "../../../../data/pressData";
-import SanityBlockRenderer from "../../../../components/SanityBlockRenderer";
+import { PressRelease } from "../../../../lib/sanity";
+import SanityBlockRenderer, { renderFormattedText } from "../../../../components/SanityBlockRenderer";
 
 export default function KoPressArticleClient({ release }: { release: PressRelease }) {
   const [lang, setLang] = useState<"KR" | "EN">("KR");
@@ -11,9 +11,8 @@ export default function KoPressArticleClient({ release }: { release: PressReleas
   const handleLangToggle = (targetLang: "KR" | "EN") => {
     setLang(targetLang);
     if (targetLang === "EN") {
-      const enRelease = pressReleases.find((pr) => pr.slug === release.slug && pr.lang === "en");
-      if (enRelease) {
-        window.location.href = `/en/press/${release.slug}`;
+      if (release.translationSlug) {
+        window.location.href = `/en/press/${release.translationSlug}`;
       } else {
         window.location.href = "/en/press";
       }
@@ -88,8 +87,10 @@ export default function KoPressArticleClient({ release }: { release: PressReleas
 
           {release.boilerplate && (
             <div className="mt-16 p-6 rounded-2xl bg-white/[0.01] border border-white/5 space-y-3">
-              <h4 className="text-white font-bold text-xs uppercase tracking-wider">[회사 소개 보일러플레이트]</h4>
-              <p className="text-zinc-400 text-xs leading-relaxed">{release.boilerplate}</p>
+              <h4 className="text-white font-bold text-xs uppercase tracking-wider">[회사 소개 및 미디어 연락처]</h4>
+              <div className="text-zinc-400 text-xs leading-relaxed whitespace-pre-line">
+                {renderFormattedText(release.boilerplate)}
+              </div>
             </div>
           )}
         </article>

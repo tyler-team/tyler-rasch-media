@@ -10,17 +10,56 @@ const getYouTubeEmbedId = (url: string) => {
   return match && match[2].length === 11 ? match[2] : null;
 };
 
+export function renderFormattedText(rawText: string) {
+  if (!rawText) return null;
+  // Parses inline **bold** and [link text](https://...)
+  const parts = rawText.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
+      return (
+        <strong key={index} className="font-bold text-white">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+    if (linkMatch) {
+      const [, text, url] = linkMatch;
+      return (
+        <a
+          key={index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent underline font-medium hover:text-white transition-colors"
+        >
+          {text}
+        </a>
+      );
+    }
+    return <span key={index}>{part}</span>;
+  });
+}
+
 export default function SanityBlockRenderer({ block }: { block: SanityContentBlock }) {
   if (!block) return null;
 
   // 1. Plain Text Paragraph (Legacy strings)
   if (typeof block === "string") {
-    return <p className="leading-relaxed whitespace-pre-line break-keep text-zinc-300">{block}</p>;
+    return (
+      <p className="leading-relaxed whitespace-pre-line break-keep text-zinc-300">
+        {renderFormattedText(block)}
+      </p>
+    );
   }
 
   // 2. Structured Text Block
   if (block._type === "textBlock") {
-    return <p className="leading-relaxed whitespace-pre-line break-keep text-zinc-300">{block.text}</p>;
+    return (
+      <p className="leading-relaxed whitespace-pre-line break-keep text-zinc-300">
+        {renderFormattedText(block.text)}
+      </p>
+    );
   }
 
   // 3. Image Block

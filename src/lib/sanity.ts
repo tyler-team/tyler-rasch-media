@@ -42,6 +42,7 @@ export interface PressRelease {
   intro5W1H?: string;
   body: SanityContentBlock[];
   boilerplate?: string;
+  translationSlug?: string;
 }
 
 export interface BlogPost {
@@ -66,7 +67,7 @@ export interface BlogPost {
   };
 }
 
-// Fetch all press releases
+// Fetch all press releases (with bi-directional linked translation resolution)
 export async function getPressReleases(): Promise<PressRelease[]> {
   const query = `*[_type == "pressRelease"] | order(date desc) {
     "slug": slug.current,
@@ -77,9 +78,37 @@ export async function getPressReleases(): Promise<PressRelease[]> {
     byline,
     intro5W1H,
     body,
-    boilerplate
+    boilerplate,
+    "translationSlug": coalesce(
+      translationRef->slug.current,
+      *[_type == "pressRelease" && translationRef._ref == ^._id][0].slug.current
+    )
   }`;
-  return await sanityClient.fetch(query);
+  return await sanityClient.fetch(query, {}, {
+    next: { tags: ['press'] }
+  });
+}
+
+// Fetch single press release by slug and language
+export async function getPressReleaseBySlug(slug: string, lang: 'ko' | 'en'): Promise<PressRelease | null> {
+  const query = `*[_type == "pressRelease" && slug.current == $slug && lang == $lang][0] {
+    "slug": slug.current,
+    date,
+    lang,
+    title,
+    subtitle,
+    byline,
+    intro5W1H,
+    body,
+    boilerplate,
+    "translationSlug": coalesce(
+      translationRef->slug.current,
+      *[_type == "pressRelease" && translationRef._ref == ^._id][0].slug.current
+    )
+  }`;
+  return await sanityClient.fetch(query, { slug, lang }, {
+    next: { tags: ['press'] }
+  });
 }
 
 // Fetch all blog posts
@@ -93,5 +122,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     excerpt,
     body
   }`;
-  return await sanityClient.fetch(query);
+  return await sanityClient.fetch(query, {}, {
+    next: { tags: ['blog'] }
+  });
 }

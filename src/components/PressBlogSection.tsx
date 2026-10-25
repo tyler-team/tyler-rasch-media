@@ -1,19 +1,54 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { blogPosts } from "../data/blogData";
-import { pressReleases } from "../data/pressData";
+import { blogPosts as staticBlogPosts } from "../data/blogData";
+import { pressReleases as staticPressReleases } from "../data/pressData";
+import { getPressReleases, getBlogPosts, PressRelease, BlogPost } from "../lib/sanity";
+
+function getReleaseSnippet(item: PressRelease): string {
+  if (item.intro5W1H) return item.intro5W1H;
+  if (item.subtitle) return item.subtitle;
+  const first = item.body?.[0];
+  if (!first) return "";
+  if (typeof first === "string") return first;
+  if (first._type === "textBlock") return first.text;
+  if ("caption" in first && first.caption) return first.caption;
+  return "";
+}
 
 export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }) {
+  const [pressList, setPressList] = useState<PressRelease[]>(staticPressReleases);
+  const [blogList, setBlogList] = useState<BlogPost[]>(staticBlogPosts);
+
+  useEffect(() => {
+    async function loadCMSData() {
+      try {
+        const [cmsPress, cmsBlogs] = await Promise.allSettled([
+          getPressReleases(),
+          getBlogPosts(),
+        ]);
+        if (cmsPress.status === "fulfilled" && cmsPress.value && cmsPress.value.length > 0) {
+          setPressList(cmsPress.value);
+        }
+        if (cmsBlogs.status === "fulfilled" && cmsBlogs.value && cmsBlogs.value.length > 0) {
+          setBlogList(cmsBlogs.value);
+        }
+      } catch (err) {
+        console.error("Failed to load live CMS data in PressBlogSection:", err);
+      }
+    }
+    loadCMSData();
+  }, []);
+
   const targetLang = (lang === "EN" ? "en" : "ko") as "en" | "ko";
-  const latestPress = pressReleases.filter(pr => pr.lang === targetLang).slice(0, 2);
-  const latestBlogs = blogPosts.slice(0, 2);
+  const latestPress = pressList.filter((pr) => pr.lang === targetLang).slice(0, 2);
+  const latestBlogs = blogList.slice(0, 2);
 
   return (
     <section className="relative py-32 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.005]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[300px] bg-accent/2 rounded-full blur-[120px] pointer-events-none" />
-      
+
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-6">
           <div>
@@ -21,14 +56,15 @@ export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }
               Newsroom & Insights
             </h2>
             <p className="text-accent text-sm font-mono tracking-widest uppercase mt-4">
-              {lang === "KR" ? "최신 공식 보도자료 및 글로벌 지적 에세이" : "Latest Press Releases & Analytical Essays"}
+              {lang === "KR"
+                ? "최신 공식 보도자료 및 글로벌 지적 에세이"
+                : "Latest Press Releases & Analytical Essays"}
             </p>
           </div>
           <div className="w-20 h-1 bg-accent/30 hidden md:block" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
           {/* Column 1: Press Release Portal */}
           <div className="space-y-8">
             <div className="flex justify-between items-baseline border-b border-white/10 pb-4">
@@ -37,7 +73,10 @@ export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }
                 {lang === "KR" ? "보도자료 (PRESS RELEASE)" : "PRESS RELEASE"}
               </h3>
               <div className="flex gap-4 text-xs font-bold font-mono">
-                <a href={lang === "KR" ? "/press" : "/en/press"} className="text-zinc-500 hover:text-accent transition-colors">
+                <a
+                  href={lang === "KR" ? "/ko/press" : "/en/press"}
+                  className="text-zinc-500 hover:text-accent transition-colors"
+                >
                   {lang === "KR" ? "뉴스룸 바로가기 →" : "VIEW NEWSROOM →"}
                 </a>
               </div>
@@ -46,7 +85,7 @@ export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }
             <div className="space-y-6">
               {latestPress.map((item, idx) => (
                 <motion.div
-                  key={idx}
+                  key={item.slug || idx}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
@@ -67,7 +106,7 @@ export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }
                       {item.title}
                     </a>
                     <p className="text-zinc-500 text-xs leading-relaxed line-clamp-2 break-keep">
-                      {item.subtitle || item.body[0]}
+                      {getReleaseSnippet(item)}
                     </p>
                   </div>
 
@@ -89,7 +128,10 @@ export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }
                 <span className="w-2 h-2 bg-accent/60 rounded-full" />
                 {lang === "KR" ? "인사이트 & 에세이" : "COMMENTARY & ESSAYS"}
               </h3>
-              <a href="/blog" className="text-xs font-bold font-mono text-zinc-500 hover:text-accent transition-colors">
+              <a
+                href="/blog"
+                className="text-xs font-bold font-mono text-zinc-500 hover:text-accent transition-colors"
+              >
                 {lang === "KR" ? "에세이 바로가기 →" : "VIEW ESSAYS →"}
               </a>
             </div>
@@ -97,7 +139,7 @@ export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }
             <div className="space-y-6">
               {latestBlogs.map((item, idx) => (
                 <motion.div
-                  key={idx}
+                  key={item.slug || idx}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
@@ -132,7 +174,6 @@ export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

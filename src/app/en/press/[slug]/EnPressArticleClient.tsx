@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { PressRelease, pressReleases } from "../../../../data/pressData";
-import SanityBlockRenderer from "../../../../components/SanityBlockRenderer";
+import { PressRelease } from "../../../../lib/sanity";
+import SanityBlockRenderer, { renderFormattedText } from "../../../../components/SanityBlockRenderer";
 
 export default function EnPressArticleClient({ release }: { release: PressRelease }) {
   const [lang, setLang] = useState<"KR" | "EN">("EN");
@@ -11,14 +11,25 @@ export default function EnPressArticleClient({ release }: { release: PressReleas
   const handleLangToggle = (targetLang: "KR" | "EN") => {
     setLang(targetLang);
     if (targetLang === "KR") {
-      const koRelease = pressReleases.find((pr) => pr.slug === release.slug && pr.lang === "ko");
-      if (koRelease) {
-        window.location.href = `/ko/press/${release.slug}`;
+      if (release.translationSlug) {
+        window.location.href = `/ko/press/${release.translationSlug}`;
       } else {
         window.location.href = "/ko/press";
       }
     }
   };
+
+  // Determine main body blocks and boilerplate
+  const legacyAboutIndex = release.body.findIndex((p) => p === "About Tyler Media");
+  const mainContent = legacyAboutIndex !== -1 ? release.body.slice(0, legacyAboutIndex) : release.body;
+
+  // Boilerplate fallback from legacy array if not in top-level field
+  let fallbackBoilerplate = "";
+  if (legacyAboutIndex !== -1) {
+    const section = release.body.slice(legacyAboutIndex);
+    fallbackBoilerplate = section.map((item) => (typeof item === "string" ? item : "")).join("\n\n");
+  }
+  const effectiveBoilerplate = release.boilerplate || fallbackBoilerplate;
 
   return (
     <div className="min-h-screen bg-[#02060C] text-zinc-300 font-sans selection:bg-accent selection:text-black word-keep-all">
@@ -62,61 +73,41 @@ export default function EnPressArticleClient({ release }: { release: PressReleas
           <h1 className="text-2xl md:text-4xl font-black text-white leading-tight tracking-tight">
             {release.title}
           </h1>
+          {release.subtitle && (
+            <h2 className="text-lg text-zinc-400 font-semibold leading-relaxed">
+              - {release.subtitle}
+            </h2>
+          )}
+          {release.byline && (
+            <div className="text-xs text-zinc-500 italic font-mono pt-2">
+              {release.byline}
+            </div>
+          )}
         </header>
 
         {/* Article content */}
-        <article className="space-y-6 text-zinc-300 text-base leading-relaxed">
-          {(() => {
-            const aboutIndex = release.body.findIndex((p) => p === "About Tyler Media");
-            if (aboutIndex === -1) {
-              return release.body.map((block, index) => (
-                <SanityBlockRenderer key={index} block={block} />
-              ));
-            }
+        <article className="space-y-8 text-zinc-300 text-base leading-relaxed">
+          {release.intro5W1H && (
+            <p className="font-bold text-white text-lg leading-relaxed bg-white/[0.01] border-l-2 border-accent p-4 rounded-r-xl">
+              {release.intro5W1H}
+            </p>
+          )}
 
-            const mainContent = release.body.slice(0, aboutIndex);
-            const boilerplateSection = release.body.slice(aboutIndex);
-            
-            // Expected indices in boilerplateSection:
-            // 0: "About Tyler Media"
-            // 1: Body text of About Tyler Media
-            // 2: "Media Contact:"
-            // 3+: Contact info lines
-            const aboutText = boilerplateSection[1] || "";
-            const contactLines = boilerplateSection.slice(3);
+          {mainContent.map((block, index) => (
+            <SanityBlockRenderer key={index} block={block} />
+          ))}
 
-            return (
-              <>
-                {mainContent.map((block, index) => (
-                  <SanityBlockRenderer key={index} block={block} />
-                ))}
-
-                <div className="mt-16 p-8 rounded-3xl bg-white/[0.02] border border-white/5 space-y-8 glass">
-                  <div>
-                    <h4 className="text-accent font-black text-sm uppercase tracking-widest mb-3">
-                      About Tyler Media
-                    </h4>
-                    <p className="text-zinc-400 text-sm leading-relaxed">
-                      {aboutText}
-                    </p>
-                  </div>
-
-                  {contactLines.length > 0 && (
-                    <div className="pt-6 border-t border-white/5">
-                      <h4 className="text-accent font-black text-sm uppercase tracking-widest mb-3">
-                        Media Contact
-                      </h4>
-                      <div className="text-zinc-400 text-sm space-y-1 font-mono">
-                        {contactLines.map((line, idx) => (
-                          <p key={idx}>{line}</p>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </>
-            );
-          })()}
+          {/* Boilerplate Section */}
+          {effectiveBoilerplate && (
+            <div className="mt-16 p-8 rounded-3xl bg-white/[0.02] border border-white/5 space-y-6 glass">
+              <h4 className="text-accent font-black text-xs uppercase tracking-widest">
+                [About Tyler Media & Media Contact]
+              </h4>
+              <div className="text-zinc-400 text-xs leading-relaxed whitespace-pre-line font-sans space-y-2">
+                {renderFormattedText(effectiveBoilerplate)}
+              </div>
+            </div>
+          )}
         </article>
       </main>
     </div>
