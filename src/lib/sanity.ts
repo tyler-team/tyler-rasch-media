@@ -1,49 +1,36 @@
-import { createClient } from 'next-sanity';
-import { createImageUrlBuilder } from '@sanity/image-url';
+import { createClient } from "next-sanity";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import { pressReleases as staticPressReleases, PressRelease } from "@/data/pressData";
+
+export { type PressRelease } from "@/data/pressData";
 
 export const sanityClient = createClient({
-  projectId: 'ix8f0bbf',
-  dataset: 'production',
-  apiVersion: '2026-06-07',
+  projectId: "ix8f0bbf",
+  dataset: "production",
+  apiVersion: "2026-06-07",
   useCdn: false,
 });
 
 const builder = createImageUrlBuilder(sanityClient);
-
-export function urlFor(source: any) {
-  return builder.image(source);
-}
+export const urlFor = (source: any) => builder.image(source);
 
 export type SanityContentBlock =
   | string
   | {
-      _type: 'textBlock';
+      _type: "textBlock";
       text: string;
     }
   | {
-      _type: 'image';
+      _type: "image";
       asset: { _ref: string; _type: string };
       caption?: string;
       alt?: string;
     }
   | {
-      _type: 'videoEmbed';
+      _type: "videoEmbed";
       url: string;
       caption?: string;
     };
-
-export interface PressRelease {
-  slug: string;
-  date: string;
-  lang: 'ko' | 'en';
-  title: string;
-  subtitle?: string;
-  byline?: string;
-  intro5W1H?: string;
-  body: SanityContentBlock[];
-  boilerplate?: string;
-  translationSlug?: string;
-}
 
 export interface BlogPost {
   slug: string;
@@ -67,9 +54,10 @@ export interface BlogPost {
   };
 }
 
-// Fetch all press releases (with bi-directional linked translation resolution)
-export async function getPressReleases(): Promise<PressRelease[]> {
-  const query = `*[_type == "pressRelease"] | order(date desc) {
+const PRESS_RELEASE_GROQ = `
+  *[_type == "pressRelease" && defined(slug.current)] | order(date desc) {
+    _id,
+    _updatedAt,
     "slug": slug.current,
     date,
     lang,
@@ -79,36 +67,62 @@ export async function getPressReleases(): Promise<PressRelease[]> {
     intro5W1H,
     body,
     boilerplate,
+    "translatedSlug": coalesce(
+      translationRef->slug.current,
+      *[_type == "pressRelease" && translationRef._ref == ^._id][0].slug.current
+    ),
     "translationSlug": coalesce(
       translationRef->slug.current,
       *[_type == "pressRelease" && translationRef._ref == ^._id][0].slug.current
-    )
-  }`;
-  return await sanityClient.fetch(query, {}, {
-    next: { tags: ['press'] }
-  });
+    ),
+    "translatedLang": coalesce(
+      translationRef->lang,
+      *[_type == "pressRelease" && translationRef._ref == ^._id][0].lang
+    ),
+    "ogImageUrl": body[_type == "image"][0].asset->url
+  }
+`;
+
+export async function getPressReleases(): Promise<PressRelease[]> {
+  try {
+    const cmsReleases = await sanityClient.fetch<PressRelease[]>(
+      PRESS_RELEASE_GROQ,
+      {},
+      {
+        next: {
+          tags: ["press"],
+        },
+      }
+    );
+
+    if (!cmsReleases || cmsReleases.length === 0) {
+      return staticPressReleases;
+    }
+
+    const cmsSlugs = new Set(cmsReleases.map((r) => `${r.lang}:${r.slug}`));
+    const mergedStatic = staticPressReleases.filter(
+      (sr) => !cmsSlugs.has(`${sr.lang}:${sr.slug}`)
+    );
+
+    return [...cmsReleases, ...mergedStatic].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  } catch (error) {
+    console.error("[Sanity Fetch Error] Falling back to staticPressReleases:", error);
+    return staticPressReleases;
+  }
 }
 
-// Fetch single press release by slug and language
-export async function getPressReleaseBySlug(slug: string, lang: 'ko' | 'en'): Promise<PressRelease | null> {
-  const query = `*[_type == "pressRelease" && slug.current == $slug && lang == $lang][0] {
-    "slug": slug.current,
-    date,
-    lang,
-    title,
-    subtitle,
-    byline,
-    intro5W1H,
-    body,
-    boilerplate,
-    "translationSlug": coalesce(
-      translationRef->slug.current,
-      *[_type == "pressRelease" && translationRef._ref == ^._id][0].slug.current
-    )
-  }`;
-  return await sanityClient.fetch(query, { slug, lang }, {
-    next: { tags: ['press'] }
-  });
+export async function getPressReleaseBySlug(
+  slug: string,
+  lang: "ko" | "en"
+): Promise<PressRelease | null> {
+  const allReleases = await getPressReleases();
+  return (
+    allReleases.find((r) => r.slug === slug && r.lang === lang) ||
+    allReleases.find((r) => r.slug === slug) ||
+    null
+  );
 }
 
 // Fetch all blog posts
@@ -123,6 +137,6 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     body
   }`;
   return await sanityClient.fetch(query, {}, {
-    next: { tags: ['blog'] }
+    next: { tags: ["blog"] },
   });
 }

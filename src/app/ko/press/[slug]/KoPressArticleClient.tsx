@@ -11,8 +11,9 @@ export default function KoPressArticleClient({ release }: { release: PressReleas
   const handleLangToggle = (targetLang: "KR" | "EN") => {
     setLang(targetLang);
     if (targetLang === "EN") {
-      if (release.translationSlug) {
-        window.location.href = `/en/press/${release.translationSlug}`;
+      const targetSlug = release.translatedSlug || release.translationSlug;
+      if (targetSlug) {
+        window.location.href = `/en/press/${targetSlug}`;
       } else {
         window.location.href = "/en/press";
       }

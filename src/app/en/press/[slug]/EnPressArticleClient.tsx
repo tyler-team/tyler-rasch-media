@@ -11,8 +11,9 @@ export default function EnPressArticleClient({ release }: { release: PressReleas
   const handleLangToggle = (targetLang: "KR" | "EN") => {
     setLang(targetLang);
     if (targetLang === "KR") {
-      if (release.translationSlug) {
-        window.location.href = `/ko/press/${release.translationSlug}`;
+      const targetSlug = release.translatedSlug || release.translationSlug;
+      if (targetSlug) {
+        window.location.href = `/ko/press/${targetSlug}`;
       } else {
         window.location.href = "/ko/press";
       }

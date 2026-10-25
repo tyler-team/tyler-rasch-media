@@ -1,17 +1,11 @@
 import React from "react";
 import { Metadata } from "next";
-import { getPressReleases } from "../../../../lib/sanity";
-import { pressReleases as staticPressReleases } from "../../../../data/pressData";
+import { getPressReleases, getPressReleaseBySlug } from "../../../../lib/sanity";
 import { notFound } from "next/navigation";
 import KoPressArticleClient from "./KoPressArticleClient";
 
-async function getReleases() {
-  const releases = await getPressReleases();
-  return releases && releases.length > 0 ? releases : staticPressReleases;
-}
-
 export async function generateStaticParams() {
-  const releases = await getReleases();
+  const releases = await getPressReleases();
   return releases
     .filter((pr) => pr.lang === "ko")
     .map((release) => ({
@@ -25,8 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const releases = await getReleases();
-  const release = releases.find((pr) => pr.slug === slug && pr.lang === "ko");
+  const release = await getPressReleaseBySlug(slug, "ko");
 
   if (!release) {
     return {
@@ -38,15 +31,17 @@ export async function generateMetadata({
   const description =
     release.intro5W1H || release.subtitle || "타일러 미디어 공식 보도자료 및 공지사항입니다.";
   const canonicalUrl = `https://www.tylerrasch.com/ko/press/${release.slug}`;
+  const targetSlug = release.translatedSlug || release.translationSlug;
+  const ogImage = release.ogImageUrl || "https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg";
 
   return {
     title,
     description,
     alternates: {
       canonical: canonicalUrl,
-      languages: release.translationSlug
+      languages: targetSlug
         ? {
-            "en-US": `https://www.tylerrasch.com/en/press/${release.translationSlug}`,
+            "en-US": `https://www.tylerrasch.com/en/press/${targetSlug}`,
           }
         : undefined,
     },
@@ -61,7 +56,7 @@ export async function generateMetadata({
       authors: [release.byline || "Tyler Media PR"],
       images: [
         {
-          url: "https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg",
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: release.title,
@@ -72,7 +67,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg"],
+      images: [ogImage],
     },
   };
 }
@@ -83,9 +78,10 @@ export default async function KoPressArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const releases = await getReleases();
-  const release = releases.find((pr) => pr.slug === slug && pr.lang === "ko");
+  const release = await getPressReleaseBySlug(slug, "ko");
   if (!release) notFound();
+
+  const ogImage = release.ogImageUrl || "https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg";
 
   // Google News compliant NewsArticle JSON-LD Structured Data
   const jsonLd = {
@@ -94,7 +90,7 @@ export default async function KoPressArticlePage({
     headline: release.title,
     description: release.intro5W1H || release.subtitle || release.title,
     datePublished: release.date,
-    dateModified: release.date,
+    dateModified: release._updatedAt || release.date,
     inLanguage: "ko-KR",
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -114,7 +110,7 @@ export default async function KoPressArticlePage({
         url: "https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg",
       },
     },
-    image: ["https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg"],
+    image: [ogImage],
   };
 
   return (

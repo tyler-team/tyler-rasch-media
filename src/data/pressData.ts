@@ -1,4 +1,6 @@
 export interface PressRelease {
+  _id?: string;
+  _updatedAt?: string;
   slug: string;
   date: string;
   lang: "ko" | "en";
@@ -9,6 +11,9 @@ export interface PressRelease {
   body: (string | any)[]; // Main content paragraphs or rich blocks
   boilerplate?: string; // 배포 기업 보도자료 꼬리말 (Boilerplate)
   translationSlug?: string; // 대응 언어 보도자료 슬러그
+  translatedSlug?: string;
+  translatedLang?: string;
+  ogImageUrl?: string;
 }
 
 export interface EPKBios {
@@ -36,6 +41,8 @@ export const pressReleases: PressRelease[] = [
     date: "2026-06-07",
     lang: "ko",
     translationSlug: "tyler-media-sme-program-launch-en",
+    translatedSlug: "tyler-media-sme-program-launch-en",
+    translatedLang: "en",
     title: "타일러 미디어, 소상공인·스타트업 성장을 위한 ‘무료 PPL 지원 프로그램’ 전격 가동",
     subtitle: "사업가 및 방송인 타일러 라쉬, 서울푸드 박람회서 상생 플랫폼 비전 제시 예고",
     byline: "이현지(Hyunji Lee) Lead (2026년 06월 07일, 서울)",
@@ -52,6 +59,8 @@ export const pressReleases: PressRelease[] = [
     date: "2026-06-07",
     lang: "en",
     translationSlug: "tyler-media-sme-program-launch",
+    translatedSlug: "tyler-media-sme-program-launch",
+    translatedLang: "ko",
     title: "Tyler Media launches zero-cost product placement program for SMEs to counter corporate marketing concentration",
     body: [
       "SEOUL, South Korea — June 7, 2026 — Tyler Media initiated the SME & Startup Support Program on June 1 to provide independent businesses with free product placement (PPL) on the digital media platform 1BWS/One Big World Show. The company will detail the initiative to industry stakeholders at the Seoul Food exhibition from June 9 to 12.",
