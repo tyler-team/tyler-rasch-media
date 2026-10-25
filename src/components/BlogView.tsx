@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { BlogPost, blogPosts as staticBlogPosts } from "../data/blogData";
 import { getBlogPosts } from "../lib/sanity";
 
@@ -54,7 +55,7 @@ export default function BlogView({ lang }: BlogViewProps) {
               </div>
               
               <h2 className="text-xl md:text-2xl font-bold text-white mb-3 hover:text-accent transition-colors leading-snug">
-                <a href={`/blog/${post.slug}`}>{post.title[lang]}</a>
+                <Link href={`/blog/${post.slug}`}>{post.title[lang]}</Link>
               </h2>
 
               {post.excerpt[lang] && (
@@ -63,12 +64,12 @@ export default function BlogView({ lang }: BlogViewProps) {
                 </p>
               )}
 
-              <a
+              <Link
                 href={`/blog/${post.slug}`}
                 className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
               >
                 {lang === "KR" ? "에세이 전문 읽기" : "Read Full Essay"} &rarr;
-              </a>
+              </Link>
             </article>
           ))}
         </div>

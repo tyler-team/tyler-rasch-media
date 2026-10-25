@@ -1,8 +1,10 @@
 import { createClient } from "next-sanity";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { pressReleases as staticPressReleases, PressRelease } from "@/data/pressData";
+import { blogPosts as staticBlogPosts, BlogPost } from "@/data/blogData";
 
 export { type PressRelease } from "@/data/pressData";
+export { type BlogPost } from "@/data/blogData";
 
 export const sanityClient = createClient({
   projectId: "ix8f0bbf",
@@ -33,28 +35,6 @@ export type SanityContentBlock =
       caption?: string;
     };
 
-export interface BlogPost {
-  slug: string;
-  date: string;
-  author: string;
-  category: {
-    KR: string;
-    EN: string;
-  };
-  title: {
-    KR: string;
-    EN: string;
-  };
-  excerpt: {
-    KR: string;
-    EN: string;
-  };
-  body: {
-    KR: SanityContentBlock[];
-    EN: SanityContentBlock[];
-  };
-}
-
 const PRESS_RELEASE_GROQ = `
   *[_type == "pressRelease" && defined(slug.current) && !(_id in path("drafts.**"))] | order(date desc) {
     _id,
@@ -82,6 +62,22 @@ const PRESS_RELEASE_GROQ = `
     ),
     "ogImageSource": body[_type == "image"][0],
     "ogImageUrl": body[_type == "image"][0].asset->url
+  }
+`;
+
+const BLOG_POST_GROQ = `
+  *[_type == "blogPost" && defined(slug.current) && !(_id in path("drafts.**"))] | order(date desc) {
+    _id,
+    _updatedAt,
+    "slug": slug.current,
+    date,
+    author,
+    category,
+    "title": blogTitle,
+    excerpt,
+    body,
+    "ogImageSource": coalesce(body.KR[_type == "image"][0], body.EN[_type == "image"][0]),
+    "ogImageUrl": coalesce(body.KR[_type == "image"][0].asset->url, body.EN[_type == "image"][0].asset->url)
   }
 `;
 
@@ -127,18 +123,34 @@ export async function getPressReleaseBySlug(
   );
 }
 
-// Fetch all blog posts
+// Fetch all blog posts with draft filtering, deduplication, and fallback
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  const query = `*[_type == "blogPost"] | order(date desc) {
-    "slug": slug.current,
-    date,
-    author,
-    category,
-    "title": blogTitle,
-    excerpt,
-    body
-  }`;
-  return await sanityClient.fetch(query, {}, {
-    next: { tags: ["blog"] },
-  });
+  try {
+    const cmsPosts = await sanityClient.fetch<BlogPost[]>(
+      BLOG_POST_GROQ,
+      {},
+      {
+        next: { tags: ["blog"] },
+      }
+    );
+
+    if (!cmsPosts || cmsPosts.length === 0) {
+      return staticBlogPosts;
+    }
+
+    const cmsSlugs = new Set(cmsPosts.map((p) => p.slug));
+    const mergedStatic = staticBlogPosts.filter((sp) => !cmsSlugs.has(sp.slug));
+
+    return [...cmsPosts, ...mergedStatic].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  } catch (error) {
+    console.error("[Sanity Fetch Error] Falling back to staticBlogPosts:", error);
+    return staticBlogPosts;
+  }
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  const allPosts = await getBlogPosts();
+  return allPosts.find((p) => p.slug === slug) || null;
 }

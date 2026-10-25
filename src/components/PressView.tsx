@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PressRelease, pressReleases as staticPressReleases } from "../data/pressData";
 import { getPressReleases } from "../lib/sanity";
@@ -8,6 +9,16 @@ import AssetVault from "./AssetVault";
 
 interface PressViewProps {
   lang: "KR" | "EN";
+}
+
+function getSnippet(release: PressRelease): string {
+  if (release.intro5W1H) return release.intro5W1H;
+  const first = release.body?.[0];
+  if (!first) return "";
+  if (typeof first === "string") return first;
+  if (first._type === "textBlock") return first.text;
+  if ("caption" in first && first.caption) return first.caption;
+  return "";
 }
 
 export default function PressView({ lang }: PressViewProps) {
@@ -52,7 +63,7 @@ export default function PressView({ lang }: PressViewProps) {
                 </time>
                 
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-3 hover:text-accent transition-colors leading-snug">
-                  <a href={`/ko/press/${release.slug}`}>{release.title}</a>
+                  <Link href={`/ko/press/${release.slug}`}>{release.title}</Link>
                 </h2>
 
                 {release.subtitle && (
@@ -62,15 +73,15 @@ export default function PressView({ lang }: PressViewProps) {
                 )}
 
                 <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                  {release.intro5W1H}
+                  {getSnippet(release)}
                 </p>
 
-                <a
+                <Link
                   href={`/ko/press/${release.slug}`}
                   className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
                 >
                   보도자료 전문 읽기 &rarr;
-                </a>
+                </Link>
               </article>
             ))}
           </div>
@@ -143,7 +154,7 @@ export default function PressView({ lang }: PressViewProps) {
                 </time>
                 
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-3 hover:text-accent transition-colors leading-snug">
-                  <a href={`/en/press/${release.slug}`}>{release.title}</a>
+                  <Link href={`/en/press/${release.slug}`}>{release.title}</Link>
                 </h2>
 
                 {release.subtitle && (
@@ -153,15 +164,15 @@ export default function PressView({ lang }: PressViewProps) {
                 )}
 
                 <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                  {release.intro5W1H || release.body[0]}
+                  {getSnippet(release)}
                 </p>
 
-                <a
+                <Link
                   href={`/en/press/${release.slug}`}
                   className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
                 >
                   View Announcement &rarr;
-                </a>
+                </Link>
               </article>
             ))
           ) : (

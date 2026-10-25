@@ -33,6 +33,20 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'logos-world.net', port: '', pathname: '/**' },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/pres',
+        destination: '/ko/press',
+        permanent: true,
+      },
+      {
+        source: '/ssmeprogram',
+        destination: '/sme-startup-program',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

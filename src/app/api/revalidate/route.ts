@@ -26,18 +26,22 @@ export async function POST(req: NextRequest) {
 
     try {
       revalidateTag("press", "default");
+      revalidateTag("blog", "default");
     } catch {
       (revalidateTag as any)("press");
+      (revalidateTag as any)("blog");
     }
     revalidatePath("/");
     revalidatePath("/en");
     revalidatePath("/ko/press");
     revalidatePath("/en/press");
+    revalidatePath("/blog");
     revalidatePath("/sitemap.xml");
 
     if (body.slug?.current) {
       revalidatePath(`/ko/press/${body.slug.current}`);
       revalidatePath(`/en/press/${body.slug.current}`);
+      revalidatePath(`/blog/${body.slug.current}`);
     }
     if (body.translatedSlug) {
       revalidatePath(`/ko/press/${body.translatedSlug}`);

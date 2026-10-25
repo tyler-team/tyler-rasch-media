@@ -2147,6 +2147,7 @@ const SectionBackground = ({ src, y, pos = "object-[center_10%]", mobilePos = "o
       src={src}
       alt="Background Tyler"
       fill
+      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, 55vw"
       className={`object-cover ${mobilePos} md:${pos}`}
       priority={priority}
     />
@@ -2210,16 +2211,36 @@ const MediaKitModal = ({ isOpen, onClose, title }: { isOpen: boolean, onClose: (
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="relative bg-[#0a0f18] border border-white/10 rounded-2xl w-full max-w-4xl h-[80vh] shadow-2xl overflow-hidden z-10"
+        className="relative bg-[#0a0f18] border border-white/10 rounded-2xl w-full max-w-4xl h-[85vh] shadow-2xl overflow-hidden z-10 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="absolute top-4 right-4 z-20">
+        {/* Direct 2026 Partnership Guide PDF Download Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-3.5 bg-[#02060C]/90 border-b border-white/10 z-20">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 mr-1">
+              2026 Media Partnership Guide:
+            </span>
+            <a
+              href="/assets/docs/TylerRasch_MediaKit_2026_KR.pdf"
+              download
+              className="px-3 py-1.5 rounded-lg bg-accent/15 border border-accent/40 text-accent hover:bg-accent hover:text-black text-xs font-bold transition-all"
+            >
+              국문 PDF 다운로드 &darr;
+            </a>
+            <a
+              href="/assets/docs/TylerRasch_MediaKit_2026_EN.pdf"
+              download
+              className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/15 text-zinc-200 hover:bg-white hover:text-black text-xs font-bold transition-all"
+            >
+              EN PDF Download &darr;
+            </a>
+          </div>
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="bg-black/40 backdrop-blur-md p-2 rounded-full text-zinc-400 hover:text-white transition-colors border border-white/10"
+            className="bg-white/5 hover:bg-white/15 p-1.5 rounded-full text-zinc-400 hover:text-white transition-colors border border-white/10"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
 
@@ -2229,7 +2250,7 @@ const MediaKitModal = ({ isOpen, onClose, title }: { isOpen: boolean, onClose: (
           height="100%"
           frameBorder="0"
           allow="camera; microphone; autoplay; encrypted-media;"
-          className="rounded-2xl"
+          className="flex-1 w-full"
           title={title}
         ></iframe>
       </motion.div>
@@ -2385,6 +2406,7 @@ const OriginalsSection = ({
                     src={item.thumbnail}
                     alt={item.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     unoptimized={item.thumbnail.startsWith('http')}
                   />
@@ -2491,6 +2513,7 @@ const BrandLogoWall = () => {
               src={brand.logo}
               alt={brand.name}
               fill
+              sizes="128px"
               className="object-contain"
             />
           </motion.div>
@@ -2684,6 +2707,7 @@ export default function Home({
                               src={item.thumbnail}
                               alt={item.title}
                               fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                               className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                           ) : (

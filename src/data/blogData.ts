@@ -1,4 +1,6 @@
 export interface BlogPost {
+  _id?: string;
+  _updatedAt?: string;
   slug: string;
   date: string;
   author: string;
@@ -6,6 +8,8 @@ export interface BlogPost {
   title: { KR: string; EN: string };
   excerpt: { KR: string; EN: string };
   body: { KR: (string | any)[]; EN: (string | any)[] };
+  ogImageSource?: any;
+  ogImageUrl?: string;
   socialExcerpts?: {
     ratio1x1: string[];
     ratio9x16: string[];

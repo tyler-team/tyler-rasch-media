@@ -102,10 +102,16 @@ export const operationalMetrics: OperationalMetric[] = [
 
 export const downloadableAssets: DownloadableAsset[] = [
   {
-    name: "Vector Logo Package",
-    type: "ZIP (SVG / EPS)",
-    url: "/assets/tyler-media-logos.zip",
-    description: "High-contrast brand assets including official primary and secondary vector logos."
+    name: "2026 Media Partnership Guide (EN)",
+    type: "PDF (Official Deck)",
+    url: "/assets/docs/TylerRasch_MediaKit_2026_EN.pdf",
+    description: "Complete 2026 1BWS & Tyler Media partnership deck including verified audience analytics, 5-tier product lineup, and strategic omnichannel packages."
+  },
+  {
+    name: "2026 미디어 파트너십 소개서 (KR)",
+    type: "PDF (공식 소개서)",
+    url: "/assets/docs/TylerRasch_MediaKit_2026_KR.pdf",
+    description: "원빅월드쇼(1BWS) 채널 오디언스 지표, 5단계 광고 상품 라인업 및 3대 전략 옴니채널 패키지 공식 국문 소개서."
   },
   {
     name: "Standard Press Headshot",
@@ -114,15 +120,9 @@ export const downloadableAssets: DownloadableAsset[] = [
     description: "Official publication headshot in professional attire (high-resolution landscape orientation)."
   },
   {
-    name: "Social Media Headshot",
+    name: "Editorial Portrait Headshot",
     type: "JPG (9:16 / Portrait)",
     url: "/headshots/tyler_crossed_arms_front.jpg",
-    description: "Official publication headshot optimized for portrait mobile screens and bio sidebars."
-  },
-  {
-    name: "B-Roll Video Footage Package",
-    type: "ZIP (1080p MP4)",
-    url: "/assets/tyler-media-broll.zip",
-    description: "Self-serve clean B-roll footage including corporate walk-throughs, speaking segments, and natural overlays."
+    description: "Official publication headshot optimized for portrait mobile screens, speaker profiles, and press features."
   }
 ];
