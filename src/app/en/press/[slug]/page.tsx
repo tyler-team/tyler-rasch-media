@@ -1,132 +1,74 @@
-import React from "react";
 import { Metadata } from "next";
-import { getPressReleases, getPressReleaseBySlug } from "../../../../lib/sanity";
 import { notFound } from "next/navigation";
-import EnPressArticleClient from "./EnPressArticleClient";
+import { getPressReleases, getPressReleaseBySlug } from "@/lib/sanity";
+import EnPressArticleClient from "@/components/EnPressArticleClient";
+
+type PageProps = { params: Promise<{ slug: string }> };
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const releases = await getPressReleases();
-  return releases
-    .filter((pr) => pr.lang === "en")
-    .map((release) => ({
-      slug: release.slug,
-    }));
+  return releases.filter((r) => r.lang === "en").map((r) => ({ slug: r.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const release = await getPressReleaseBySlug(slug, "en");
+  if (!release) return { title: "Press Release Not Found | Tyler Media" };
 
-  if (!release) {
-    return {
-      title: "Press Release Not Found | Tyler Media",
-    };
+  const description = release.intro5W1H || release.subtitle || `${release.title} - Official Press Release from Tyler Media`;
+  const canonicalUrl = `https://www.tylerrasch.com/en/press/${release.slug}`;
+  const ogImage = release.ogImageUrl || "https://www.tylerrasch.com/og-press-default.jpg";
+  const alternatesLanguages: Record<string, string> = { "en-US": canonicalUrl };
+  if (release.translatedSlug) {
+    alternatesLanguages["ko-KR"] = `https://www.tylerrasch.com/ko/press/${release.translatedSlug}`;
   }
 
-  const title = `${release.title} | Tyler Media Press Room`;
-  const description =
-    release.intro5W1H ||
-    release.subtitle ||
-    (typeof release.body?.[0] === "string"
-      ? release.body[0]
-      : "Official press release and announcement from Tyler Media.");
-  const canonicalUrl = `https://www.tylerrasch.com/en/press/${release.slug}`;
-  const targetSlug = release.translatedSlug || release.translationSlug;
-  const ogImage = release.ogImageUrl || "https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg";
-
   return {
-    title,
-    description,
-    alternates: {
-      canonical: canonicalUrl,
-      languages: targetSlug
-        ? {
-            "ko-KR": `https://www.tylerrasch.com/ko/press/${targetSlug}`,
-          }
-        : undefined,
-    },
+    title: `${release.title} | Tyler Media Pressroom`,
+    description: description.slice(0, 160),
+    alternates: { canonical: canonicalUrl, languages: alternatesLanguages },
     openGraph: {
-      title,
-      description,
+      type: "article",
+      locale: "en_US",
       url: canonicalUrl,
       siteName: "Tyler Media",
-      locale: "en_US",
-      type: "article",
-      publishedTime: release.date,
-      authors: [release.byline || "Tyler Media PR"],
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: release.title,
-        },
-      ],
+      title: release.title,
+      description: description.slice(0, 160),
+      publishedTime: new Date(release.date).toISOString(),
+      modifiedTime: release._updatedAt || new Date(release.date).toISOString(),
+      authors: ["Tyler Rasch", "Tyler Media Communications"],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: release.title }],
     },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
+    twitter: { card: "summary_large_image", title: release.title, description: description.slice(0, 160), images: [ogImage] },
   };
 }
 
-export default async function EnPressArticlePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function EnPressArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const release = await getPressReleaseBySlug(slug, "en");
+  const allReleases = await getPressReleases();
+  const release = allReleases.find((r) => r.slug === slug && r.lang === "en") || allReleases.find((r) => r.slug === slug);
   if (!release) notFound();
 
-  const ogImage = release.ogImageUrl || "https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg";
-
-  // Google News compliant NewsArticle JSON-LD Structured Data
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: release.title,
-    description:
-      release.intro5W1H ||
-      release.subtitle ||
-      (typeof release.body?.[0] === "string" ? release.body[0] : release.title),
-    datePublished: release.date,
-    dateModified: release._updatedAt || release.date,
+    alternativeHeadline: release.subtitle || undefined,
+    description: release.intro5W1H || release.subtitle || release.title,
+    datePublished: new Date(release.date).toISOString(),
+    dateModified: release._updatedAt || new Date(release.date).toISOString(),
     inLanguage: "en-US",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://www.tylerrasch.com/en/press/${release.slug}`,
-    },
-    author: [
-      {
-        "@type": "Person",
-        name: release.byline || "Tyler Media PR",
-      },
-    ],
-    publisher: {
-      "@type": "Organization",
-      name: "Tyler Media (KNMIR INC)",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.tylerrasch.com/headshots/tyler_suit_thinking.jpg",
-      },
-    },
-    image: [ogImage],
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.tylerrasch.com/en/press/${release.slug}` },
+    image: release.ogImageUrl ? [release.ogImageUrl] : ["https://www.tylerrasch.com/og-press-default.jpg"],
+    author: { "@type": "Person", name: "Tyler Rasch", url: "https://www.tylerrasch.com" },
+    publisher: { "@type": "Organization", name: "Tyler Media (KNMIR INC)", url: "https://www.tylerrasch.com", logo: { "@type": "ImageObject", url: "https://www.tylerrasch.com/logo.png" } },
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <EnPressArticleClient release={release} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <EnPressArticleClient allReleases={allReleases} release={release} />
     </>
   );
 }

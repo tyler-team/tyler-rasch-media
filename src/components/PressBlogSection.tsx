@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { blogPosts as staticBlogPosts } from "../data/blogData";
-import { pressReleases as staticPressReleases } from "../data/pressData";
-import { getPressReleases, getBlogPosts, PressRelease, BlogPost } from "../lib/sanity";
+import { pressReleases as staticPressReleases, PressRelease } from "../data/pressData";
+import { getPressReleases, getBlogPosts, BlogPost } from "../lib/sanity";
 
 function getReleaseSnippet(item: PressRelease): string {
   if (item.intro5W1H) return item.intro5W1H;
@@ -17,32 +17,46 @@ function getReleaseSnippet(item: PressRelease): string {
   return "";
 }
 
-export default function PressBlogSection({ lang = "KR" }: { lang?: "KR" | "EN" }) {
-  const [pressList, setPressList] = useState<PressRelease[]>(staticPressReleases);
+interface PressBlogSectionProps {
+  lang?: "KR" | "EN";
+  releases?: PressRelease[];
+}
+
+export default function PressBlogSection({ lang = "KR", releases }: PressBlogSectionProps) {
+  const [internalPress, setInternalPress] = useState<PressRelease[]>([]);
   const [blogList, setBlogList] = useState<BlogPost[]>(staticBlogPosts);
 
   useEffect(() => {
     async function loadCMSData() {
       try {
-        const [cmsPress, cmsBlogs] = await Promise.allSettled([
-          getPressReleases(),
-          getBlogPosts(),
-        ]);
-        if (cmsPress.status === "fulfilled" && cmsPress.value && cmsPress.value.length > 0) {
-          setPressList(cmsPress.value);
+        if (!releases || releases.length === 0) {
+          const cmsPress = await getPressReleases();
+          if (cmsPress && cmsPress.length > 0) {
+            setInternalPress(cmsPress);
+          }
         }
-        if (cmsBlogs.status === "fulfilled" && cmsBlogs.value && cmsBlogs.value.length > 0) {
-          setBlogList(cmsBlogs.value);
+        const cmsBlogs = await getBlogPosts();
+        if (cmsBlogs && cmsBlogs.length > 0) {
+          setBlogList(cmsBlogs);
         }
       } catch (err) {
         console.error("Failed to load live CMS data in PressBlogSection:", err);
       }
     }
     loadCMSData();
-  }, []);
+  }, [releases]);
+
+  const sourceReleases =
+    releases && releases.length > 0
+      ? releases
+      : internalPress.length > 0
+      ? internalPress
+      : staticPressReleases;
 
   const targetLang = (lang === "EN" ? "en" : "ko") as "en" | "ko";
-  const latestPress = pressList.filter((pr) => pr.lang === targetLang).slice(0, 2);
+  const latestPress = sourceReleases
+    .filter((item) => item.lang === targetLang)
+    .slice(0, 4);
   const latestBlogs = blogList.slice(0, 2);
 
   return (

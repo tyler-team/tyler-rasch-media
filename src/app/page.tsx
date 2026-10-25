@@ -8,6 +8,7 @@ import PressBlogSection from "../components/PressBlogSection";
 import PressView from "../components/PressView";
 import BlogView from "../components/BlogView";
 import CareersInternshipView from "../components/CareersInternshipView";
+import { getPressReleases, PressRelease } from "../lib/sanity";
 
 // --- TYPES & CONTENT DICTIONARY ---
 
@@ -2501,16 +2502,27 @@ const BrandLogoWall = () => {
 
 export default function Home({
   initialView = 'home',
-  initialLang = 'KR'
+  initialLang = 'KR',
+  releases: initialReleases = []
 }: {
   initialView?: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog';
   initialLang?: 'KR' | 'EN';
+  releases?: PressRelease[];
 }) {
   const [lang, setLang] = useState<'KR' | 'EN'>(initialLang);
   const [view, setView] = useState<'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog'>(initialView);
+  const [releases, setReleases] = useState<PressRelease[]>(initialReleases);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
+
+  useEffect(() => {
+    if (!initialReleases || initialReleases.length === 0) {
+      getPressReleases().then((res) => {
+        if (res && res.length > 0) setReleases(res);
+      }).catch(console.error);
+    }
+  }, [initialReleases]);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.location.pathname.startsWith('/en')) {
@@ -2783,7 +2795,7 @@ export default function Home({
               </div>
             </section>
 
-            <PressBlogSection lang={lang} />
+            <PressBlogSection lang={lang} releases={releases} />
 
             {/* 7. CONTACT */}
             <section id="contact" className="relative py-36 md:py-40 px-8 md:px-20 bg-[#050A10] overflow-hidden">

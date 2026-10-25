@@ -41,7 +41,23 @@ export function renderFormattedText(rawText: string) {
   });
 }
 
-export default function SanityBlockRenderer({ block }: { block: SanityContentBlock }) {
+export default function SanityBlockRenderer({
+  block,
+  blocks,
+}: {
+  block?: SanityContentBlock;
+  blocks?: SanityContentBlock[];
+}) {
+  if (blocks && Array.isArray(blocks)) {
+    return (
+      <>
+        {blocks.map((item, index) => (
+          <SanityBlockRenderer key={index} block={item} />
+        ))}
+      </>
+    );
+  }
+
   if (!block) return null;
 
   // 1. Plain Text Paragraph (Legacy strings)
