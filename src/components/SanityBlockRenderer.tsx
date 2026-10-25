@@ -11,33 +11,32 @@ const getYouTubeEmbedId = (url: string) => {
 };
 
 export function renderFormattedText(rawText: string) {
-  if (!rawText) return null;
-  // Parses inline **bold** and [link text](https://...)
-  const parts = rawText.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
-  return parts.map((part, index) => {
-    if (part.startsWith("**") && part.endsWith("**") && part.length >= 4) {
+  const tokenRegex = /(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\*\*[^*]+\*\*)/g;
+  const parts = rawText.split(tokenRegex);
+
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={index} className="font-bold text-white">
+        <strong key={i} className="font-semibold text-neutral-900 dark:text-white">
           {part.slice(2, -2)}
         </strong>
       );
     }
-    const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+    const linkMatch = part.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
     if (linkMatch) {
-      const [, text, url] = linkMatch;
       return (
         <a
-          key={index}
-          href={url}
+          key={i}
+          href={linkMatch[2]}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-accent underline font-medium hover:text-white transition-colors"
+          className="underline underline-offset-4 decoration-neutral-400 hover:decoration-neutral-900 dark:hover:decoration-white transition-colors"
         >
-          {text}
+          {linkMatch[1]}
         </a>
       );
     }
-    return <span key={index}>{part}</span>;
+    return part;
   });
 }
 

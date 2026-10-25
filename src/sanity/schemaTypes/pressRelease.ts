@@ -150,7 +150,7 @@ export const pressRelease = defineType({
       title: "Boilerplate & Media Contact (기업 소개 및 연락처)",
       type: "text",
       rows: 6,
-      initialValue: `About Tyler Media\nTyler Media (KNMIR INC) is a Seoul-based digital media production studio and global IP venture led by media personality and creator Tyler Rasch. Operating flagship intellectual properties including One Big World Show and Really Tyler, the studio produces premium non-fiction content bridging global structural shifts and Korean industries.\n\nMedia Contact: team@tylerrasch.com | [https://www.tylerrasch.com](https://www.tylerrasch.com)`,
+      initialValue: `About Tyler Media\nTyler Media (KNMIR INC) is a Seoul-based digital media production studio and global IP venture led by media personality and creator Tyler Rasch. Operating flagship intellectual properties including One Big World Show (talking head video series & podcast) and Really Tyler, the studio produces premium non-fiction content grounded in geopolitics, international political economy (IPE), and global supply chain analysis.\n\nMedia Contact: team@tylerrasch.com | https://www.tylerrasch.com/ko/press`,
     }),
   ],
 });

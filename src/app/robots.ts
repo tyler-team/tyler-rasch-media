@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin/", "/api/"],
     },
-    sitemap: "https://tylerrasch.com/sitemap.xml",
+    sitemap: "https://www.tylerrasch.com/sitemap.xml",
   };
 }

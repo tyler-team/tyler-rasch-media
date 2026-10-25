@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { PressRelease } from "../../../lib/sanity";
 
@@ -72,7 +73,7 @@ export default function KoPressPageClient({ initialReleases }: { initialReleases
               </time>
               
               <h2 className="text-xl md:text-2xl font-bold text-white mb-3 hover:text-accent transition-colors leading-snug">
-                <a href={`/ko/press/${release.slug}`}>{release.title}</a>
+                <Link href={`/ko/press/${release.slug}`}>{release.title}</Link>
               </h2>
 
               {release.subtitle && (
@@ -85,12 +86,12 @@ export default function KoPressPageClient({ initialReleases }: { initialReleases
                 {getSnippet(release)}
               </p>
 
-              <a
+              <Link
                 href={`/ko/press/${release.slug}`}
                 className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
               >
                 보도자료 전문 읽기 &rarr;
-              </a>
+              </Link>
             </article>
           ))}
         </div>

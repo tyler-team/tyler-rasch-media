@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PressRelease } from "../../../lib/sanity";
 import BioMatrix from "../../../components/BioMatrix";
@@ -121,7 +122,7 @@ export default function EnPressPageClient({ initialReleases }: { initialReleases
                 </time>
                 
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-3 hover:text-accent transition-colors leading-snug">
-                  <a href={`/en/press/${release.slug}`}>{release.title}</a>
+                  <Link href={`/en/press/${release.slug}`}>{release.title}</Link>
                 </h2>
 
                 {release.subtitle && (
@@ -134,12 +135,12 @@ export default function EnPressPageClient({ initialReleases }: { initialReleases
                   {getSnippet(release)}
                 </p>
 
-                <a
+                <Link
                   href={`/en/press/${release.slug}`}
                   className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
                 >
                   View Announcement &rarr;
-                </a>
+                </Link>
               </article>
             ))
           ) : (

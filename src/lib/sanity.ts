@@ -9,6 +9,7 @@ export const sanityClient = createClient({
   dataset: "production",
   apiVersion: "2026-06-07",
   useCdn: false,
+  perspective: "published",
 });
 
 const builder = createImageUrlBuilder(sanityClient);
@@ -55,7 +56,7 @@ export interface BlogPost {
 }
 
 const PRESS_RELEASE_GROQ = `
-  *[_type == "pressRelease" && defined(slug.current)] | order(date desc) {
+  *[_type == "pressRelease" && defined(slug.current) && !(_id in path("drafts.**"))] | order(date desc) {
     _id,
     _updatedAt,
     "slug": slug.current,
@@ -69,16 +70,17 @@ const PRESS_RELEASE_GROQ = `
     boilerplate,
     "translatedSlug": coalesce(
       translationRef->slug.current,
-      *[_type == "pressRelease" && translationRef._ref == ^._id][0].slug.current
+      *[_type == "pressRelease" && !(_id in path("drafts.**")) && translationRef._ref == ^._id][0].slug.current
     ),
     "translationSlug": coalesce(
       translationRef->slug.current,
-      *[_type == "pressRelease" && translationRef._ref == ^._id][0].slug.current
+      *[_type == "pressRelease" && !(_id in path("drafts.**")) && translationRef._ref == ^._id][0].slug.current
     ),
     "translatedLang": coalesce(
       translationRef->lang,
-      *[_type == "pressRelease" && translationRef._ref == ^._id][0].lang
+      *[_type == "pressRelease" && !(_id in path("drafts.**")) && translationRef._ref == ^._id][0].lang
     ),
+    "ogImageSource": body[_type == "image"][0],
     "ogImageUrl": body[_type == "image"][0].asset->url
   }
 `;
