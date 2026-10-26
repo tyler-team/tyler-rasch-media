@@ -2523,10 +2523,12 @@ const BrandLogoWall = () => {
   );
 };
 
+const EMPTY_RELEASES: PressRelease[] = [];
+
 export default function Home({
   initialView = 'home',
   initialLang = 'KR',
-  releases: initialReleases = []
+  releases: initialReleases = EMPTY_RELEASES
 }: {
   initialView?: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog';
   initialLang?: 'KR' | 'EN';
@@ -2540,11 +2542,17 @@ export default function Home({
   const t = contentData[lang];
 
   useEffect(() => {
-    if (!initialReleases || initialReleases.length === 0) {
-      getPressReleases().then((res) => {
-        if (res && res.length > 0) setReleases(res);
-      }).catch(console.error);
+    if (initialReleases && initialReleases.length > 0) {
+      setReleases(initialReleases);
+      return;
     }
+    let mounted = true;
+    getPressReleases().then((res) => {
+      if (mounted && res && res.length > 0) setReleases(res);
+    }).catch(console.error);
+    return () => {
+      mounted = false;
+    };
   }, [initialReleases]);
 
   useEffect(() => {

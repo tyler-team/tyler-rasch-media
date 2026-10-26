@@ -10,7 +10,7 @@ export const sanityClient = createClient({
   projectId: "ix8f0bbf",
   dataset: "production",
   apiVersion: "2026-06-07",
-  useCdn: false,
+  useCdn: typeof window !== "undefined",
   perspective: "published",
 });
 
@@ -81,34 +81,65 @@ const BLOG_POST_GROQ = `
   }
 `;
 
+// In-memory client-side deduplication cache (60s TTL) to prevent redundant browser API calls
+let clientPressCache: { data: PressRelease[]; expiresAt: number } | null = null;
+let clientPressInFlight: Promise<PressRelease[]> | null = null;
+let clientBlogCache: { data: BlogPost[]; expiresAt: number } | null = null;
+let clientBlogInFlight: Promise<BlogPost[]> | null = null;
+const CLIENT_CACHE_TTL_MS = 60_000;
+
 export async function getPressReleases(): Promise<PressRelease[]> {
-  try {
-    const cmsReleases = await sanityClient.fetch<PressRelease[]>(
-      PRESS_RELEASE_GROQ,
-      {},
-      {
-        next: {
-          tags: ["press"],
-        },
-      }
-    );
-
-    if (!cmsReleases || cmsReleases.length === 0) {
-      return staticPressReleases;
+  if (typeof window !== "undefined") {
+    if (clientPressCache && Date.now() < clientPressCache.expiresAt) {
+      return clientPressCache.data;
     }
-
-    const cmsSlugs = new Set(cmsReleases.map((r) => `${r.lang}:${r.slug}`));
-    const mergedStatic = staticPressReleases.filter(
-      (sr) => !cmsSlugs.has(`${sr.lang}:${sr.slug}`)
-    );
-
-    return [...cmsReleases, ...mergedStatic].sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-  } catch (error) {
-    console.error("[Sanity Fetch Error] Falling back to staticPressReleases:", error);
-    return staticPressReleases;
+    if (clientPressInFlight) {
+      return clientPressInFlight;
+    }
   }
+
+  const fetchPromise = (async () => {
+    try {
+      const cmsReleases = await sanityClient.fetch<PressRelease[]>(
+        PRESS_RELEASE_GROQ,
+        {},
+        {
+          next: {
+            tags: ["press"],
+          },
+        }
+      );
+
+      if (!cmsReleases || cmsReleases.length === 0) {
+        return staticPressReleases;
+      }
+
+      const cmsSlugs = new Set(cmsReleases.map((r) => `${r.lang}:${r.slug}`));
+      const mergedStatic = staticPressReleases.filter(
+        (sr) => !cmsSlugs.has(`${sr.lang}:${sr.slug}`)
+      );
+
+      const result = [...cmsReleases, ...mergedStatic].sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+      if (typeof window !== "undefined") {
+        clientPressCache = { data: result, expiresAt: Date.now() + CLIENT_CACHE_TTL_MS };
+      }
+      return result;
+    } catch (error) {
+      console.error("[Sanity Fetch Error] Falling back to staticPressReleases:", error);
+      return staticPressReleases;
+    } finally {
+      if (typeof window !== "undefined") {
+        clientPressInFlight = null;
+      }
+    }
+  })();
+
+  if (typeof window !== "undefined") {
+    clientPressInFlight = fetchPromise;
+  }
+  return fetchPromise;
 }
 
 export async function getPressReleaseBySlug(
@@ -125,29 +156,53 @@ export async function getPressReleaseBySlug(
 
 // Fetch all blog posts with draft filtering, deduplication, and fallback
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  try {
-    const cmsPosts = await sanityClient.fetch<BlogPost[]>(
-      BLOG_POST_GROQ,
-      {},
-      {
-        next: { tags: ["blog"] },
-      }
-    );
-
-    if (!cmsPosts || cmsPosts.length === 0) {
-      return staticBlogPosts;
+  if (typeof window !== "undefined") {
+    if (clientBlogCache && Date.now() < clientBlogCache.expiresAt) {
+      return clientBlogCache.data;
     }
-
-    const cmsSlugs = new Set(cmsPosts.map((p) => p.slug));
-    const mergedStatic = staticBlogPosts.filter((sp) => !cmsSlugs.has(sp.slug));
-
-    return [...cmsPosts, ...mergedStatic].sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-  } catch (error) {
-    console.error("[Sanity Fetch Error] Falling back to staticBlogPosts:", error);
-    return staticBlogPosts;
+    if (clientBlogInFlight) {
+      return clientBlogInFlight;
+    }
   }
+
+  const fetchPromise = (async () => {
+    try {
+      const cmsPosts = await sanityClient.fetch<BlogPost[]>(
+        BLOG_POST_GROQ,
+        {},
+        {
+          next: { tags: ["blog"] },
+        }
+      );
+
+      if (!cmsPosts || cmsPosts.length === 0) {
+        return staticBlogPosts;
+      }
+
+      const cmsSlugs = new Set(cmsPosts.map((p) => p.slug));
+      const mergedStatic = staticBlogPosts.filter((sp) => !cmsSlugs.has(sp.slug));
+
+      const result = [...cmsPosts, ...mergedStatic].sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+      if (typeof window !== "undefined") {
+        clientBlogCache = { data: result, expiresAt: Date.now() + CLIENT_CACHE_TTL_MS };
+      }
+      return result;
+    } catch (error) {
+      console.error("[Sanity Fetch Error] Falling back to staticBlogPosts:", error);
+      return staticBlogPosts;
+    } finally {
+      if (typeof window !== "undefined") {
+        clientBlogInFlight = null;
+      }
+    }
+  })();
+
+  if (typeof window !== "undefined") {
+    clientBlogInFlight = fetchPromise;
+  }
+  return fetchPromise;
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {

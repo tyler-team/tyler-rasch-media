@@ -25,26 +25,44 @@ interface PressBlogSectionProps {
 export default function PressBlogSection({ lang = "KR", releases }: PressBlogSectionProps) {
   const [internalPress, setInternalPress] = useState<PressRelease[]>([]);
   const [blogList, setBlogList] = useState<BlogPost[]>(staticBlogPosts);
+  const hasExternalReleases = Boolean(releases && releases.length > 0);
 
   useEffect(() => {
-    async function loadCMSData() {
+    let mounted = true;
+    async function loadBlogs() {
       try {
-        if (!releases || releases.length === 0) {
-          const cmsPress = await getPressReleases();
-          if (cmsPress && cmsPress.length > 0) {
-            setInternalPress(cmsPress);
-          }
-        }
         const cmsBlogs = await getBlogPosts();
-        if (cmsBlogs && cmsBlogs.length > 0) {
+        if (mounted && cmsBlogs && cmsBlogs.length > 0) {
           setBlogList(cmsBlogs);
         }
       } catch (err) {
-        console.error("Failed to load live CMS data in PressBlogSection:", err);
+        console.error("Failed to load live blog data in PressBlogSection:", err);
       }
     }
-    loadCMSData();
-  }, [releases]);
+    loadBlogs();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (hasExternalReleases) return;
+    let mounted = true;
+    async function loadPress() {
+      try {
+        const cmsPress = await getPressReleases();
+        if (mounted && cmsPress && cmsPress.length > 0) {
+          setInternalPress(cmsPress);
+        }
+      } catch (err) {
+        console.error("Failed to load live press data in PressBlogSection:", err);
+      }
+    }
+    loadPress();
+    return () => {
+      mounted = false;
+    };
+  }, [hasExternalReleases]);
 
   const sourceReleases =
     releases && releases.length > 0
