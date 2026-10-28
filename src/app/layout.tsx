@@ -114,7 +114,7 @@ const jsonLd = {
         },
         {
           "@type": "ContactPoint",
-          email: "team@tylerrasch.com",
+          email: "press@tylerrasch.com",
           contactType: "public relations",
           url: "https://www.tylerrasch.com/ko/press",
           availableLanguage: ["Korean", "English"],

@@ -51,9 +51,9 @@ export const pressReleases: PressRelease[] = [
     body: [
       "본 프로그램은 마케팅 예산 부족으로 성장에 제약을 겪는 독립 브랜드를 발굴해 미디어 플랫폼 ‘원빅월드쇼(1BWS)’ 내 무료 PPL 노출 및 광고 단가 할인, 분기별 네트워킹 참여 기회를 제공하는 상생 프로젝트다. 대기업 중심으로 편향된 마케팅 생태계에서 중소기업의 진입 문턱을 낮추겠다는 취지다.",
       "타일러 미디어는 오는 6월 9일부터 12일까지 진행되는 ‘서울푸드 박람회’ 현장에서 본 프로그램을 공식 소개하고 유망 파트너사 발굴에 나선다.",
-      "사업가 및 방송인 타일러 라쉬가 이끄는 타일러 미디어는 뉴미디어 플랫폼 원빅월드쇼(1BWS)를 통해 고품격 지식 엔터테인먼트를 제공하고 있으며, 상세 내용은 공식 홈페이지(tylerrasch.com) 및 문의처(pr@tylerrasch.com)에서 확인 가능하다."
+      "사업가 및 방송인 타일러 라쉬가 이끄는 타일러 미디어는 뉴미디어 플랫폼 원빅월드쇼(1BWS)를 통해 고품격 지식 엔터테인먼트를 제공하고 있으며, 상세 내용은 공식 홈페이지(tylerrasch.com) 및 문의처(press@tylerrasch.com)에서 확인 가능하다."
     ],
-    boilerplate: "About Tyler Media\nTyler Media (KNMIR INC) is a Seoul-based digital media production studio and global IP venture led by media personality and creator Tyler Rasch. Operating flagship intellectual properties including One Big World Show (talking head video series & podcast) and Really Tyler, the studio produces premium non-fiction content grounded in geopolitics, international political economy (IPE), and global supply chain analysis.\n\nMedia Contact: team@tylerrasch.com | https://www.tylerrasch.com/ko/press"
+    boilerplate: "About Tyler Media\nTyler Media (KNMIR INC) is a Seoul-based digital media production studio and global IP venture led by media personality and creator Tyler Rasch. Operating flagship intellectual properties including One Big World Show (talking head video series & podcast) and Really Tyler, the studio produces premium non-fiction content grounded in geopolitics, international political economy (IPE), and global supply chain analysis.\n\nMedia Contact: press@tylerrasch.com | https://www.tylerrasch.com/ko/press"
   },
   {
     slug: "tyler-media-sme-program-launch-en",
@@ -69,7 +69,7 @@ export const pressReleases: PressRelease[] = [
       "To build a sustainable business ecosystem, Tyler Media integrates quarterly networking events for participating companies. Eligibility is strictly limited to independent entities; franchises and subsidiaries of large corporations are excluded. This framework guarantees that media resources are allocated directly to small and medium enterprises (SMEs) that require operational leverage to scale. Applications are accepted on a rolling basis throughout the year, with centralized reviews conducted quarterly.",
       "The current macroeconomic environment, characterized by sustained high interest rates and operational costs, presents high customer acquisition hurdles for emerging brands. Tyler Media's program mitigates these marketing expenses, allowing founders to direct capital toward product development and core operations. Market data indicates that direct media partnerships offering content integration without upfront fees provide critical structural support for startups navigating restrictive funding environments."
     ],
-    boilerplate: "About Tyler Media\nTyler Media (KNMIR INC) is a Seoul-based digital media production studio and global IP venture led by media personality and creator Tyler Rasch. Operating flagship intellectual properties including One Big World Show (talking head video series & podcast) and Really Tyler, the studio produces premium non-fiction content grounded in geopolitics, international political economy (IPE), and global supply chain analysis.\n\nMedia Contact: team@tylerrasch.com | https://www.tylerrasch.com/ko/press"
+    boilerplate: "About Tyler Media\nTyler Media (KNMIR INC) is a Seoul-based digital media production studio and global IP venture led by media personality and creator Tyler Rasch. Operating flagship intellectual properties including One Big World Show (talking head video series & podcast) and Really Tyler, the studio produces premium non-fiction content grounded in geopolitics, international political economy (IPE), and global supply chain analysis.\n\nMedia Contact: press@tylerrasch.com | https://www.tylerrasch.com/ko/press"
   }
 ];
 
