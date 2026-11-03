@@ -7,6 +7,7 @@ import SanityBlockRenderer, { renderFormattedText } from "./SanityBlockRenderer"
 
 const CATEGORY_LABELS_EN: Record<string, string> = {
   episode: "1BWS Episode Premiere",
+  "1BWS Episode": "1BWS Episode Premiere",
   interview: "Exclusive Interview",
   partnership: "Corporate & Partnership",
   sme: "SME Co-Prosperity Program",
@@ -140,9 +141,15 @@ export default function EnPressArticleClient({
 
         {/* Article content */}
         <article className="space-y-8 text-zinc-300 text-base leading-relaxed">
-          {release.heroImage?.asset && (
-            <SanityBlockRenderer block={{ ...release.heroImage, _type: "image" }} />
-          )}
+          {release.heroImage?.asset &&
+            !mainBodyBlocks?.some(
+              (b: any) =>
+                b?._type === "image" &&
+                b?.asset?._ref &&
+                b?.asset?._ref === release.heroImage?.asset?._ref
+            ) && (
+              <SanityBlockRenderer block={{ ...release.heroImage, _type: "image" }} />
+            )}
 
           {release.intro5W1H && (
             <p className="font-bold text-white text-lg leading-relaxed bg-white/[0.01] border-l-2 border-accent p-4 rounded-r-xl">

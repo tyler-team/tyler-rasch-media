@@ -7,6 +7,7 @@ import SanityBlockRenderer, { renderFormattedText } from "./SanityBlockRenderer"
 
 const CATEGORY_LABELS_KR: Record<string, string> = {
   episode: "1BWS 에피소드",
+  "1BWS Episode": "1BWS 에피소드",
   interview: "독점 인터뷰",
   partnership: "기업·파트너십",
   sme: "중소기업·스타트업 상생",
@@ -122,9 +123,15 @@ export default function KoPressArticleClient({
 
         {/* Article content */}
         <article className="space-y-8 text-zinc-300 text-base leading-relaxed">
-          {release.heroImage?.asset && (
-            <SanityBlockRenderer block={{ ...release.heroImage, _type: "image" }} />
-          )}
+          {release.heroImage?.asset &&
+            !release.body?.some(
+              (b: any) =>
+                b?._type === "image" &&
+                b?.asset?._ref &&
+                b?.asset?._ref === release.heroImage?.asset?._ref
+            ) && (
+              <SanityBlockRenderer block={{ ...release.heroImage, _type: "image" }} />
+            )}
 
           {release.intro5W1H && (
             <p className="font-bold text-white text-lg leading-relaxed bg-white/[0.01] border-l-2 border-accent p-4 rounded-r-xl">
