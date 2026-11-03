@@ -1,28 +1,53 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { PressRelease } from "../../../lib/sanity";
+import { PressRelease, getPressReleases, isEnglishPressRelease } from "../../../lib/sanity";
 import BioMatrix from "../../../components/BioMatrix";
 import DataCheatSheet from "../../../components/DataCheatSheet";
 import AssetVault from "../../../components/AssetVault";
 
+const CATEGORY_LABELS_EN: Record<string, string> = {
+  episode: "1BWS Episode Premiere",
+  interview: "Exclusive Interview",
+  partnership: "Corporate & Partnership",
+  sme: "SME Co-Prosperity Program",
+};
+
 const getSnippet = (release: PressRelease) => {
   if (release.intro5W1H) return release.intro5W1H;
-  const first = release.body?.[0];
-  if (!first) return "";
-  if (typeof first === "string") return first;
-  if (first._type === "textBlock") return first.text;
-  if (first._type === "image" && first.caption) return first.caption;
-  if (first._type === "videoEmbed" && first.caption) return first.caption;
+  if (release.highlights && release.highlights.length > 0) return release.highlights.join(" · ");
+  if (release.subtitle) return release.subtitle;
+  const firstText = release.body?.find(
+    (b: any) => typeof b === "string" || b?._type === "textBlock"
+  );
+  if (!firstText) return "";
+  if (typeof firstText === "string") return firstText;
+  if (firstText._type === "textBlock") return firstText.text;
   return "";
 };
 
 export default function EnPressPageClient({ initialReleases }: { initialReleases: PressRelease[] }) {
   const [lang, setLang] = useState<"KR" | "EN">("EN");
   const [showEPK, setShowEPK] = useState(false);
-  const enReleases = initialReleases.filter((pr) => pr.lang === "en");
+  const [releases, setReleases] = useState<PressRelease[]>(initialReleases);
+
+  useEffect(() => {
+    let mounted = true;
+    getPressReleases()
+      .then((fresh) => {
+        if (mounted && fresh && fresh.length > 0) {
+          setReleases(fresh);
+        }
+      })
+      .catch(console.error);
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const enReleases = releases.filter((pr) => isEnglishPressRelease(pr));
 
   const handleLangToggle = (targetLang: "KR" | "EN") => {
     setLang(targetLang);
@@ -117,9 +142,16 @@ export default function EnPressPageClient({ initialReleases }: { initialReleases
           {enReleases.length > 0 ? (
             enReleases.map((release) => (
               <article key={release.slug} className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-300">
-                <time className="text-zinc-600 font-mono text-xs block mb-3" dateTime={release.date}>
-                  {release.date}
-                </time>
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <time className="text-zinc-600 font-mono text-xs block" dateTime={release.date}>
+                    {release.date}
+                  </time>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent border border-accent/25 px-2.5 py-0.5 rounded-full">
+                    {release.category && CATEGORY_LABELS_EN[release.category]
+                      ? CATEGORY_LABELS_EN[release.category]
+                      : "Official Release"}
+                  </span>
+                </div>
                 
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-3 hover:text-accent transition-colors leading-snug">
                   <Link href={`/en/press/${release.slug}`}>{release.title}</Link>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { PressRelease, pressReleases as staticPressReleases } from "../data/pressData";
-import { getPressReleases } from "../lib/sanity";
+import { getPressReleases, isEnglishPressRelease, isKoreanPressRelease } from "../lib/sanity";
 import BioMatrix from "./BioMatrix";
 import DataCheatSheet from "./DataCheatSheet";
 import AssetVault from "./AssetVault";
@@ -13,11 +13,14 @@ interface PressViewProps {
 
 function getSnippet(release: PressRelease): string {
   if (release.intro5W1H) return release.intro5W1H;
-  const first = release.body?.[0];
-  if (!first) return "";
-  if (typeof first === "string") return first;
-  if (first._type === "textBlock") return first.text;
-  if ("caption" in first && first.caption) return first.caption;
+  if (release.highlights && release.highlights.length > 0) return release.highlights.join(" · ");
+  if (release.subtitle) return release.subtitle;
+  const firstText = release.body?.find(
+    (b: any) => typeof b === "string" || b?._type === "textBlock"
+  );
+  if (!firstText) return "";
+  if (typeof firstText === "string") return firstText;
+  if (firstText._type === "textBlock") return firstText.text;
   return "";
 }
 
@@ -39,8 +42,8 @@ export default function PressView({ lang }: PressViewProps) {
     loadReleases();
   }, []);
 
-  const koReleases = releases.filter((pr) => pr.lang === "ko");
-  const enReleases = releases.filter((pr) => pr.lang === "en");
+  const koReleases = releases.filter((pr) => isKoreanPressRelease(pr));
+  const enReleases = releases.filter((pr) => isEnglishPressRelease(pr));
 
   if (lang === "KR") {
     return (

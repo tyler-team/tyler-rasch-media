@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Home from "../page";
 import { getPressReleases } from "@/lib/sanity";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Press Room & EPK | Tyler Rasch (타일러 라쉬)",
   description:

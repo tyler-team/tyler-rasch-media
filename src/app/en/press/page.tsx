@@ -4,6 +4,8 @@ import { getPressReleases } from "../../../lib/sanity";
 import { pressReleases as staticPressReleases } from "../../../data/pressData";
 import EnPressPageClient from "./EnPressPageClient";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Press Room & Media Kit | Tyler Media",
   description:

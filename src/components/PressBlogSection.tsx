@@ -4,16 +4,18 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { blogPosts as staticBlogPosts } from "../data/blogData";
 import { pressReleases as staticPressReleases, PressRelease } from "../data/pressData";
-import { getPressReleases, getBlogPosts, BlogPost } from "../lib/sanity";
+import { getPressReleases, getBlogPosts, BlogPost, isEnglishPressRelease, isKoreanPressRelease } from "../lib/sanity";
 
 function getReleaseSnippet(item: PressRelease): string {
   if (item.intro5W1H) return item.intro5W1H;
+  if (item.highlights && item.highlights.length > 0) return item.highlights.join(" · ");
   if (item.subtitle) return item.subtitle;
-  const first = item.body?.[0];
-  if (!first) return "";
-  if (typeof first === "string") return first;
-  if (first._type === "textBlock") return first.text;
-  if ("caption" in first && first.caption) return first.caption;
+  const firstText = item.body?.find(
+    (b: any) => typeof b === "string" || b?._type === "textBlock"
+  );
+  if (!firstText) return "";
+  if (typeof firstText === "string") return firstText;
+  if (firstText._type === "textBlock") return firstText.text;
   return "";
 }
 
@@ -71,9 +73,8 @@ export default function PressBlogSection({ lang = "KR", releases }: PressBlogSec
       ? internalPress
       : staticPressReleases;
 
-  const targetLang = (lang === "EN" ? "en" : "ko") as "en" | "ko";
   const latestPress = sourceReleases
-    .filter((item) => item.lang === targetLang)
+    .filter((item) => (lang === "EN" ? isEnglishPressRelease(item) : isKoreanPressRelease(item)))
     .slice(0, 4);
   const latestBlogs = blogList.slice(0, 2);
 

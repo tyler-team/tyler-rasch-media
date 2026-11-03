@@ -5,6 +5,7 @@ import EnPressArticleClient from "@/components/EnPressArticleClient";
 
 type PageProps = { params: Promise<{ slug: string }> };
 export const dynamicParams = true;
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const releases = await getPressReleases();
@@ -56,12 +57,19 @@ export default async function EnPressArticlePage({ params }: PageProps) {
   const release = allReleases.find((r) => r.slug === slug && r.lang === "en") || allReleases.find((r) => r.slug === slug);
   if (!release) notFound();
 
-  const plainTextBody = Array.isArray(release.body)
-    ? release.body
-        .map((b: any) => (typeof b === "string" ? b : b._type === "textBlock" ? b.text : ""))
-        .filter(Boolean)
-        .join("\n\n")
-    : "";
+  const highlightsText =
+    release.highlights && release.highlights.length > 0
+      ? release.highlights.map((h) => `• ${h}`).join("\n") + "\n\n"
+      : "";
+
+  const plainTextBody =
+    highlightsText +
+    (Array.isArray(release.body)
+      ? release.body
+          .map((b: any) => (typeof b === "string" ? b : b._type === "textBlock" ? b.text : ""))
+          .filter(Boolean)
+          .join("\n\n")
+      : "");
 
   const ogImage = release.ogImageSource
     ? urlFor(release.ogImageSource).width(1200).height(630).fit("crop").auto("format").url()

@@ -4,6 +4,8 @@ import { getPressReleases } from "../../../lib/sanity";
 import { pressReleases as staticPressReleases } from "../../../data/pressData";
 import KoPressPageClient from "./KoPressPageClient";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "보도자료 (Press Releases) | Tyler Media",
   description: "타일러 미디어의 국내 공식 발표 자료 및 미디어 보도 인덱스 피드입니다.",

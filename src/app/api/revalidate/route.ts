@@ -33,9 +33,13 @@ export async function POST(req: NextRequest) {
     }
     revalidatePath("/");
     revalidatePath("/en");
+    revalidatePath("/press");
     revalidatePath("/ko/press");
     revalidatePath("/en/press");
+    revalidatePath("/ko/press/[slug]", "page");
+    revalidatePath("/en/press/[slug]", "page");
     revalidatePath("/blog");
+    revalidatePath("/blog/[slug]", "page");
     revalidatePath("/sitemap.xml");
 
     if (body.slug?.current) {

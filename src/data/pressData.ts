@@ -1,13 +1,27 @@
+export type PressCategory = "episode" | "interview" | "partnership" | "sme";
+
 export interface PressRelease {
   _id?: string;
+  _createdAt?: string;
   _updatedAt?: string;
   slug: string;
   date: string;
   lang: "ko" | "en";
+  category?: PressCategory;
   title: string;
   subtitle?: string; // 소제목 (Korean domestic PR style)
+  highlights?: string[]; // Key Highlights / 핵심 요약 3줄
   byline?: string;   // 기자 및 배포처 바이라인 (Korean domestic PR style)
   intro5W1H?: string; // 5W1H introduction paragraph (Korean domestic PR style)
+  heroImage?: {
+    _type?: string;
+    asset: { _ref: string; _type: string };
+    caption?: string;
+    alt?: string;
+  };
+  heroImageUrl?: string;
+  youtubeUrl?: string;
+  youtubeCaption?: string;
   body: (string | any)[]; // Main content paragraphs or rich blocks
   boilerplate?: string; // 배포 기업 보도자료 꼬리말 (Boilerplate)
   translationSlug?: string; // 대응 언어 보도자료 슬러그

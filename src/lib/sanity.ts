@@ -35,33 +35,56 @@ export type SanityContentBlock =
       caption?: string;
     };
 
+export function isEnglishPressRelease(pr: PressRelease): boolean {
+  if (pr.lang === "en") return true;
+  if (pr.slug && pr.slug.endsWith("-en")) return true;
+  // Auto-fallback if an English-only ASCII title was accidentally left as lang: "ko"
+  const title = pr.title || "";
+  const hasHangul = /[가-힣]/.test(title);
+  if (!hasHangul && /[a-zA-Z]{4,}/.test(title) && title.trim().length > 10) {
+    return true;
+  }
+  return false;
+}
+
+export function isKoreanPressRelease(pr: PressRelease): boolean {
+  return !isEnglishPressRelease(pr);
+}
+
 const PRESS_RELEASE_GROQ = `
-  *[_type == "pressRelease" && defined(slug.current) && !(_id in path("drafts.**"))] | order(date desc) {
+  *[_type == "pressRelease" && defined(slug.current) && !(_id in path("drafts.**"))] | order(coalesce(date, _createdAt) desc) {
     _id,
+    _createdAt,
     _updatedAt,
     "slug": slug.current,
-    date,
+    "date": coalesce(date, string::split(_createdAt, "T")[0]),
     lang,
+    category,
     title,
     subtitle,
+    highlights,
     byline,
     intro5W1H,
+    heroImage,
+    "heroImageUrl": heroImage.asset->url,
+    youtubeUrl,
+    youtubeCaption,
     body,
     boilerplate,
     "translatedSlug": coalesce(
       translationRef->slug.current,
-      *[_type == "pressRelease" && !(_id in path("drafts.**")) && translationRef._ref == ^._id][0].slug.current
+      *[_type == "pressRelease" && !(_id in path("drafts.**")) && (translationRef._ref == ^._id || translationRef._ref == "drafts." + ^._id)][0].slug.current
     ),
     "translationSlug": coalesce(
       translationRef->slug.current,
-      *[_type == "pressRelease" && !(_id in path("drafts.**")) && translationRef._ref == ^._id][0].slug.current
+      *[_type == "pressRelease" && !(_id in path("drafts.**")) && (translationRef._ref == ^._id || translationRef._ref == "drafts." + ^._id)][0].slug.current
     ),
     "translatedLang": coalesce(
       translationRef->lang,
-      *[_type == "pressRelease" && !(_id in path("drafts.**")) && translationRef._ref == ^._id][0].lang
+      *[_type == "pressRelease" && !(_id in path("drafts.**")) && (translationRef._ref == ^._id || translationRef._ref == "drafts." + ^._id)][0].lang
     ),
-    "ogImageSource": body[_type == "image"][0],
-    "ogImageUrl": body[_type == "image"][0].asset->url
+    "ogImageSource": coalesce(heroImage, body[_type == "image"][0]),
+    "ogImageUrl": coalesce(heroImage.asset->url, body[_type == "image"][0].asset->url)
   }
 `;
 
@@ -105,6 +128,7 @@ export async function getPressReleases(): Promise<PressRelease[]> {
         {},
         {
           next: {
+            revalidate: 60,
             tags: ["press"],
           },
         }
@@ -114,14 +138,21 @@ export async function getPressReleases(): Promise<PressRelease[]> {
         return staticPressReleases;
       }
 
-      const cmsSlugs = new Set(cmsReleases.map((r) => `${r.lang}:${r.slug}`));
+      const normalizedCms = cmsReleases.map((r) => ({
+        ...r,
+        lang: (isEnglishPressRelease(r) ? "en" : "ko") as "ko" | "en",
+      }));
+
+      const cmsSlugs = new Set(normalizedCms.map((r) => `${r.lang}:${r.slug}`));
       const mergedStatic = staticPressReleases.filter(
         (sr) => !cmsSlugs.has(`${sr.lang}:${sr.slug}`)
       );
 
-      const result = [...cmsReleases, ...mergedStatic].sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
+      const result = [...normalizedCms, ...mergedStatic].sort((a, b) => {
+        const timeA = new Date(a.date || a._createdAt || 0).getTime() || 0;
+        const timeB = new Date(b.date || b._createdAt || 0).getTime() || 0;
+        return timeB - timeA;
+      });
       if (typeof window !== "undefined") {
         clientPressCache = { data: result, expiresAt: Date.now() + CLIENT_CACHE_TTL_MS };
       }

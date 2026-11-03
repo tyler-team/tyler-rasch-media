@@ -5,6 +5,13 @@ import { motion } from "framer-motion";
 import { PressRelease } from "@/data/pressData";
 import SanityBlockRenderer, { renderFormattedText } from "./SanityBlockRenderer";
 
+const CATEGORY_LABELS_KR: Record<string, string> = {
+  episode: "1BWS 에피소드",
+  interview: "독점 인터뷰",
+  partnership: "기업·파트너십",
+  sme: "중소기업·스타트업 상생",
+};
+
 export default function KoPressArticleClient({
   release,
   allReleases,
@@ -73,9 +80,16 @@ export default function KoPressArticleClient({
 
         {/* Article header */}
         <header className="space-y-6 mb-12 pb-8 border-b border-white/10">
-          <time className="text-zinc-500 font-mono text-xs block" dateTime={release.date}>
-            배포일시: {release.date}
-          </time>
+          <div className="flex flex-wrap items-center gap-3">
+            <time className="text-zinc-500 font-mono text-xs block" dateTime={release.date}>
+              배포일시: {release.date}
+            </time>
+            {release.category && CATEGORY_LABELS_KR[release.category] && (
+              <span className="text-[10px] font-mono uppercase tracking-widest text-accent border border-accent/30 px-2.5 py-0.5 rounded-full">
+                {CATEGORY_LABELS_KR[release.category]}
+              </span>
+            )}
+          </div>
           <h1 className="text-2xl md:text-4xl font-black text-white leading-tight tracking-tight">
             {release.title}
           </h1>
@@ -83,6 +97,21 @@ export default function KoPressArticleClient({
             <h2 className="text-lg text-zinc-400 font-semibold leading-relaxed">
               - {release.subtitle}
             </h2>
+          )}
+          {release.highlights && release.highlights.length > 0 && (
+            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2.5">
+              <div className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold">
+                핵심 요약 (Executive Highlights)
+              </div>
+              <ul className="space-y-2 text-sm text-zinc-200 font-medium leading-relaxed">
+                {release.highlights.map((h, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <span className="text-accent font-bold mt-0.5">•</span>
+                    <span>{renderFormattedText(h)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
           {release.byline && (
             <div className="text-xs text-zinc-500 italic font-mono pt-2">
@@ -93,6 +122,10 @@ export default function KoPressArticleClient({
 
         {/* Article content */}
         <article className="space-y-8 text-zinc-300 text-base leading-relaxed">
+          {release.heroImage?.asset && (
+            <SanityBlockRenderer block={{ ...release.heroImage, _type: "image" }} />
+          )}
+
           {release.intro5W1H && (
             <p className="font-bold text-white text-lg leading-relaxed bg-white/[0.01] border-l-2 border-accent p-4 rounded-r-xl">
               {release.intro5W1H}
@@ -100,6 +133,19 @@ export default function KoPressArticleClient({
           )}
 
           <SanityBlockRenderer blocks={release.body} />
+
+          {release.youtubeUrl &&
+            !release.body?.some(
+              (b: any) => b?._type === "videoEmbed" && b?.url === release.youtubeUrl
+            ) && (
+              <SanityBlockRenderer
+                block={{
+                  _type: "videoEmbed",
+                  url: release.youtubeUrl,
+                  caption: release.youtubeCaption,
+                }}
+              />
+            )}
 
           {release.boilerplate && (
             <div className="mt-16 p-6 rounded-2xl bg-white/[0.01] border border-white/5 space-y-3">
