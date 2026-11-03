@@ -2492,7 +2492,8 @@ const BrandLogoWall = () => {
     { name: "Toss", logo: "/partners/toss_final_v2.png", scale: 1.2 },
     { name: "29CM", logo: "/partners/29cm.png", scale: 1.3 },
     { name: "FSC", logo: "/partners/fsc_final_v2.png", scale: 1.1 },
-    { name: "LAR", logo: "/partners/lar_final.png", scale: 1.4 }
+    { name: "LAR", logo: "/partners/lar_final.png", scale: 1.4 },
+    { name: "Cheese Flo", logo: "/partners/cheeseflo_final.png", scale: 1.35 }
   ];
 
   return (
