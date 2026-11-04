@@ -1,9 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { operationalMetrics } from "../data/pressData";
 
 export default function DataCheatSheet() {
+  const [live1bwsSubsEn, setLive1bwsSubsEn] = useState<string>("880K+");
+
+  useEffect(() => {
+    let mounted = true;
+    fetch("/api/1bws-stats")
+      .then((res) => res.json())
+      .then((data) => {
+        if (mounted && data?.subscribers?.en) {
+          setLive1bwsSubsEn(data.subscribers.en);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   const categories = {
     reach: "Platform Reach & Scale",
     demographic: "Audience Demographics",
@@ -48,7 +65,9 @@ export default function DataCheatSheet() {
                         {metric.label}
                       </td>
                       <td className="px-6 py-4.5 text-right text-white font-mono font-bold text-sm">
-                        {metric.value}
+                        {metric.label === "YouTube Subscribers (1BWS / One Big World Show)"
+                          ? live1bwsSubsEn
+                          : metric.value}
                       </td>
                     </tr>
                   ))}

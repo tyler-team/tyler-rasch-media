@@ -94,7 +94,7 @@ export const epkBios: EPKBios = {
 };
 
 export const operationalMetrics: OperationalMetric[] = [
-  { label: "YouTube Subscribers (1BWS / One Big World Show)", value: "878K+", category: "reach" },
+  { label: "YouTube Subscribers (1BWS / One Big World Show)", value: "880K+", category: "reach" },
   { label: "YouTube Subscribers (Really Tyler)", value: "NEW", category: "reach" },
   { label: "Monthly Unique Viewers (1BWS MAU)", value: "1.3M", category: "reach" },
   { label: "90-Day YouTube Views (1BWS)", value: "35.5M+", category: "reach" },

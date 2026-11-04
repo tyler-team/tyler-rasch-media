@@ -229,7 +229,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views_label: "90일 유튜브 조회수",
       reach: "130만",
       reach_label: "월간 순 시청자 (MAU)",
-      engagement: "87.8만+",
+      engagement: "88만+",
       engagement_label: "1BWS 유튜브 채널 구독자",
       growth: "+32만+",
       growth_label: "최근 12개월 순증 +32만",
@@ -279,7 +279,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         personal_title: "Tyler Rasch",
         really_tyler_title: "Really Tyler",
         platforms: [
-          { name: "YouTube", handle: "@원빅월드쇼", count: "878K+", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
+          { name: "YouTube", handle: "@원빅월드쇼", count: "880K+", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
           { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
           { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "NEW", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
@@ -768,7 +768,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
       views_label: "90-Day YouTube Views",
       reach: "1.3M",
       reach_label: "Monthly Unique Viewers (MAU)",
-      engagement: "878K+",
+      engagement: "880K+",
       engagement_label: "1BWS YouTube Subscribers",
       growth: "+320K+",
       growth_label: "12-Month Net Growth +320K",
@@ -818,7 +818,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         personal_title: "Tyler Rasch",
         really_tyler_title: "Really Tyler",
         platforms: [
-          { name: "YouTube", handle: "@원빅월드쇼", count: "878K+", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
+          { name: "YouTube", handle: "@원빅월드쇼", count: "880K+", icon: "youtube", url: "https://www.youtube.com/@원빅월드쇼", category: "1bws", isChannel: true },
           { name: "Instagram", handle: "@onebigworldshow", count: "", icon: "instagram", url: "https://www.instagram.com/onebigworldshow", category: "1bws", isChannel: true },
           { name: "TikTok", handle: "@onebigworldshow", count: "", icon: "tiktok", url: "https://www.tiktok.com/@onebigworldshow", category: "1bws", isChannel: true },
           { name: "YouTube", handle: "@reallytylerofficial", count: "NEW", icon: "youtube", url: "https://www.youtube.com/@reallytylerofficial", category: "really_tyler" },
@@ -1609,6 +1609,31 @@ const SocialIcon = ({ name }: { name: string }) => {
 };
 
 const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], title: string, lang?: 'KR' | 'EN' }) => {
+  const [live1bwsSubs, setLive1bwsSubs] = useState<{ ko: string; en: string }>({
+    ko: '88만+',
+    en: '880K+',
+  });
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/1bws-stats')
+      .then((res) => res.json())
+      .then((data) => {
+        if (mounted && data?.subscribers) {
+          setLive1bwsSubs({
+            ko: data.subscribers.ko || '88만+',
+            en: data.subscribers.en || '880K+',
+          });
+        }
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const engagementDisplay = lang === 'KR' ? live1bwsSubs.ko : live1bwsSubs.en;
+
   return (
     <div className="w-full relative z-20 space-y-24">
 
@@ -1631,7 +1656,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           {[
             { label: t.views_label, val: t.views, tag: t.label },
             { label: t.reach_label, val: t.reach, tag: lang === 'KR' ? "월간 도달" : "MONTHLY REACH" },
-            { label: t.engagement_label, val: t.engagement, tag: lang === 'KR' ? "네트워크 규모" : "NETWORK SCALE", sub: t.growth_label },
+            { label: t.engagement_label, val: engagementDisplay, tag: lang === 'KR' ? "네트워크 규모" : "NETWORK SCALE", sub: t.growth_label },
             { label: t.trust_label, val: t.trust, tag: t.trust_tag || (lang === 'KR' ? "핵심 타깃" : "CORE DEMOGRAPHIC") }
           ].map((item, i) => (
             <motion.div
@@ -2034,7 +2059,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                       <div className="flex items-center gap-2.5 flex-shrink-0 ml-2">
                         {p.count ? (
                           <span className="text-[10px] font-mono font-bold text-emerald-400 group-hover/item:text-white px-2 py-0.5 rounded-full bg-[#00be61]/10 border border-[#00be61]/30 transition-colors">
-                            {p.count}
+                            {p.icon === 'youtube' ? live1bwsSubs.en : p.count}
                           </span>
                         ) : null}
                         <span className="text-zinc-600 group-hover/item:text-[#00be61] transition-colors text-xs">
