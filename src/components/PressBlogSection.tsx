@@ -73,10 +73,12 @@ export default function PressBlogSection({ lang = "KR", releases }: PressBlogSec
       ? internalPress
       : staticPressReleases;
 
-  const latestPress = sourceReleases
-    .filter((item) => (lang === "EN" ? isEnglishPressRelease(item) : isKoreanPressRelease(item)))
-    .slice(0, 4);
-  const latestBlogs = blogList.slice(0, 2);
+  const filteredPress = sourceReleases.filter((item) =>
+    lang === "EN" ? isEnglishPressRelease(item) : isKoreanPressRelease(item)
+  );
+  const latestPress = filteredPress.slice(0, 3);
+  const latestBlogs = blogList.slice(0, 3);
+  const pressPageHref = lang === "KR" ? "/ko/press" : "/en/press";
 
   return (
     <section className="relative py-32 px-8 md:px-20 border-b border-white/5 overflow-hidden bg-white/[0.005]">
@@ -107,10 +109,10 @@ export default function PressBlogSection({ lang = "KR", releases }: PressBlogSec
               </h3>
               <div className="flex gap-4 text-xs font-bold font-mono">
                 <a
-                  href={lang === "KR" ? "/ko/press" : "/en/press"}
+                  href={pressPageHref}
                   className="text-zinc-500 hover:text-accent transition-colors"
                 >
-                  {lang === "KR" ? "뉴스룸 바로가기 →" : "VIEW NEWSROOM →"}
+                  {lang === "KR" ? "뉴스룸 전체보기 →" : "VIEW ALL NEWSROOM →"}
                 </a>
               </div>
             </div>
@@ -152,6 +154,19 @@ export default function PressBlogSection({ lang = "KR", releases }: PressBlogSec
                 </motion.div>
               ))}
             </div>
+
+            <div className="pt-2">
+              <a
+                href={pressPageHref}
+                className="w-full py-3.5 px-6 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/10 hover:border-accent/40 text-xs font-bold font-mono tracking-wider text-zinc-300 hover:text-accent transition-all flex items-center justify-center gap-2"
+              >
+                <span>
+                  {lang === "KR"
+                    ? `보도자료 전체보기 (${filteredPress.length}) →`
+                    : `VIEW ALL PRESS RELEASES (${filteredPress.length}) →`}
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* Column 2: Blog Commentary Portal */}
@@ -165,7 +180,7 @@ export default function PressBlogSection({ lang = "KR", releases }: PressBlogSec
                 href="/blog"
                 className="text-xs font-bold font-mono text-zinc-500 hover:text-accent transition-colors"
               >
-                {lang === "KR" ? "에세이 바로가기 →" : "VIEW ESSAYS →"}
+                {lang === "KR" ? "에세이 전체보기 →" : "VIEW ALL ESSAYS →"}
               </a>
             </div>
 
@@ -205,6 +220,19 @@ export default function PressBlogSection({ lang = "KR", releases }: PressBlogSec
                   </a>
                 </motion.div>
               ))}
+            </div>
+
+            <div className="pt-2">
+              <a
+                href="/blog"
+                className="w-full py-3.5 px-6 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/10 hover:border-accent/40 text-xs font-bold font-mono tracking-wider text-zinc-300 hover:text-accent transition-all flex items-center justify-center gap-2"
+              >
+                <span>
+                  {lang === "KR"
+                    ? `인사이트 & 에세이 전체보기 (${blogList.length}) →`
+                    : `VIEW ALL ESSAYS (${blogList.length}) →`}
+                </span>
+              </a>
             </div>
           </div>
         </div>
