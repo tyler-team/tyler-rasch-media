@@ -53,8 +53,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function KoPressArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const allReleases = await getPressReleases();
-  const release = allReleases.find((r) => r.slug === slug && r.lang === "ko") || allReleases.find((r) => r.slug === slug);
+  const [allReleases, release] = await Promise.all([
+    getPressReleases(),
+    getPressReleaseBySlug(slug, "ko"),
+  ]);
   if (!release) notFound();
 
   const highlightsText =

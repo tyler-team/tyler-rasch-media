@@ -45,6 +45,16 @@ const nextConfig: NextConfig = {
         destination: '/sme-startup-program',
         permanent: true,
       },
+      {
+        source: '/ko/press/press-release-261103',
+        destination: '/ko/press/1bws-sammy-rashad-middle-east-capital-exodus-261026',
+        permanent: true,
+      },
+      {
+        source: '/en/press/why-the-uae-injected-35-billion-dollars-into-egyptian-land',
+        destination: '/en/press/1bws-sammy-rashad-middle-east-capital-exodus-261026-en',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

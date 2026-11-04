@@ -173,14 +173,21 @@ export async function getPressReleases(): Promise<PressRelease[]> {
   return fetchPromise;
 }
 
+const LEGACY_PRESS_SLUG_MAP: Record<string, string> = {
+  "press-release-261103": "1bws-sammy-rashad-middle-east-capital-exodus-261026",
+  "why-the-uae-injected-35-billion-dollars-into-egyptian-land":
+    "1bws-sammy-rashad-middle-east-capital-exodus-261026-en",
+};
+
 export async function getPressReleaseBySlug(
   slug: string,
   lang: "ko" | "en"
 ): Promise<PressRelease | null> {
+  const resolvedSlug = LEGACY_PRESS_SLUG_MAP[slug] || slug;
   const allReleases = await getPressReleases();
   return (
-    allReleases.find((r) => r.slug === slug && r.lang === lang) ||
-    allReleases.find((r) => r.slug === slug) ||
+    allReleases.find((r) => r.slug === resolvedSlug && r.lang === lang) ||
+    allReleases.find((r) => r.slug === resolvedSlug) ||
     null
   );
 }

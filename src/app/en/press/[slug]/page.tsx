@@ -53,8 +53,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function EnPressArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const allReleases = await getPressReleases();
-  const release = allReleases.find((r) => r.slug === slug && r.lang === "en") || allReleases.find((r) => r.slug === slug);
+  const [allReleases, release] = await Promise.all([
+    getPressReleases(),
+    getPressReleaseBySlug(slug, "en"),
+  ]);
   if (!release) notFound();
 
   const highlightsText =
