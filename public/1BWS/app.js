@@ -21,7 +21,7 @@ const i18nDict = {
     'nav.manifesto': 'Manifesto',
     'nav.mediaHub': 'Broadcast',
     'nav.intelligence': 'Dossiers',
-    'nav.cast': 'Editorial Desk',
+    'nav.cast': 'Panels',
     'nav.press': 'Press',
     'nav.store': 'Store',
     'nav.getInvolved': 'Participate',
@@ -73,8 +73,8 @@ const i18nDict = {
     'dossier.regionSouth': '글로벌 사우스 (Global South)',
     'dossier.downloadPdfBtn': 'PDF 리포트 인쇄 / 저장',
     'dossier.mlaHeader': 'VERIFIED PRIMARY SOURCES — MLA 9TH EDITION BIBLIOGRAPHY',
-    'cast.sectionTitle': 'Editorial Desk & On-Air Analysts',
-    'cast.sectionSubtitle': '원빅월드쇼의 에디토리얼 디렉션을 이끄는 타일러 라쉬(Tyler Rasch) 총괄 프로듀서와 거시경제·지정학·기술·역사 각 분과의 코호스트, 리서치 에디터, 객원 펠로우 라인업입니다.',
+    'cast.sectionTitle': 'Panels',
+    'cast.sectionSubtitle': '원빅월드쇼 메인 호스트 타일러 라쉬(Tyler Rasch)와 거시경제·지정학·기술·역사 각 분과의 코호스트, 스페셜 프리젠터, 객원 패널 라인업입니다.',
     'cast.joinCrewBtn': '객원 호스트 · 리서처 지원하기 →',
     'newsletter.headline': '매주 방송에서 다 다루지 못한 1차 사료 원문과 데스크 노트를 서재로 보내드립니다.',
     'newsletter.subcopy': '알고리즘의 소음 없이 매주 화요일 오전 7시, 원빅월드쇼(1BWS) 편집국이 엄선한 글로벌 거시 지표, 지정학 도시에 요약본, 그리고 원문 PDF 레퍼런스를 이메일로 받아보세요.',
@@ -131,7 +131,7 @@ const i18nDict = {
     'nav.manifesto': 'Manifesto',
     'nav.mediaHub': 'Broadcast',
     'nav.intelligence': 'Dossiers',
-    'nav.cast': 'Editorial Desk',
+    'nav.cast': 'Panels',
     'nav.press': 'Press',
     'nav.store': 'Store',
     'nav.getInvolved': 'Participate',
@@ -183,8 +183,8 @@ const i18nDict = {
     'dossier.regionSouth': 'Global South',
     'dossier.downloadPdfBtn': 'Print / Save PDF Report',
     'dossier.mlaHeader': 'VERIFIED PRIMARY SOURCES — MLA 9TH EDITION BIBLIOGRAPHY',
-    'cast.sectionTitle': 'Editorial Desk & On-Air Analysts',
-    'cast.sectionSubtitle': 'Meet Executive Producer & Main Host Tyler Rasch alongside our roster of co-hosts, research editors, and fellows across macroeconomics, geopolitics, technology, and history.',
+    'cast.sectionTitle': 'Panels',
+    'cast.sectionSubtitle': 'Meet 1BWS Main Host Tyler Rasch alongside our roster of co-hosts, special presenters, and guest panels across macroeconomics, geopolitics, technology, and history.',
     'cast.joinCrewBtn': 'Apply for Editorial Desk & Fellowships →',
     'newsletter.headline': 'Receive the Primary Sources and Desk Notes Behind Every Episode.',
     'newsletter.subcopy': 'Dispatched every Tuesday at 7 AM KST without algorithmic noise: global macro indicators, geopolitical dossier abstracts, and direct primary-document references.',
@@ -727,33 +727,48 @@ const dossiersData = [
   }
 ];
 
-/* --- 5. Section 4: Editorial Desk & Fellows Dataset (host-tyler + cast-member-1 ~ 4) --- */
+/* --- 5. Section 4: Panels Dataset (host-tyler + cast-member-1 ~ 4) --- */
 const hostTylerData = {
   slot: 'host-tyler',
   photo: 'assets/host-tyler.jpg',
-  role: { ko: 'EXECUTIVE PRODUCER & MAIN HOST · 총괄 프로듀서 및 메인 호스트', en: 'EXECUTIVE PRODUCER & MAIN HOST' },
+  role: { ko: '메인 호스트', en: 'MAIN HOST' },
   name: { ko: '타일러 라쉬 (Tyler Rasch)', en: 'Tyler Rasch (타일러 라쉬)' },
-  quote: {
-    ko: '“뉴스의 헤드라인은 결과일 뿐입니다. 원빅월드쇼는 그 결과를 만들어낸 1차 사료와 보이지 않는 구조적 메커니즘을 끝까지 추적합니다.”',
-    en: '“Headlines only report outcomes. ONEBIGWORLDSHOW traces the primary sources and structural mechanisms that engineered those outcomes.”'
-  },
-  coreBio: {
-    ko: '미국 시카고대학교(University of Chicago) 국제학 학사 및 서울대학교 외교학 석사. 타일러 미디어(Tyler Media) 창립자이자 원빅월드쇼(1BWS)의 총괄 프로듀서 및 메인 호스트로서, 다국어 문헌 해독 역량과 국제정치·거시경제 프레임워크를 바탕으로 북미·유럽·아시아의 1차 사료를 직접 교차 검증하며 에디토리얼 디렉션을 이끕니다.',
-    en: 'B.A. in International Studies from the University of Chicago and M.A. in Diplomatic Studies from Seoul National University. Founder of Tyler Media and Executive Producer/Host of ONEBIGWORLDSHOW (1BWS), leading multilingual primary-source investigations across geopolitics and macroeconomics.'
-  },
-  skills: ['Global Realpolitik', 'Diplomatic History', 'Multilingual Primary Sources', 'Editorial Direction'],
-  details: {
+  sections: {
     ko: [
-      '· 학력: 시카고대학교 국제학 학사 (B.A.) / 서울대학교 외교학 석사 (M.A.)',
-      '· 소속: Tyler Media 창립자 겸 대표 프로듀서 / ONEBIGWORLDSHOW (1BWS) 메인 호스트',
-      '· 연구 및 취재 분야: 외교사, 글로벌 지정학 구조 분석, 다국어 1차 문헌 검증',
-      '· 공식 아카이브: www.tylerrasch.com'
+      {
+        heading: 'GLOBAL INSIGHT & PUBLIC TRUST',
+        items: [
+          '원빅월드쇼 메인 호스트',
+          '시카고대학교 국제학 학사 · 서울대학교 정치외교학 석사',
+          '미 상원 법사위원회 · 주미 한국대사관 경력'
+        ]
+      },
+      {
+        heading: 'ESG & SUSTAINABILITY',
+        items: [
+          '도서 『두 번째 지구는 없다』 베스트셀러 저자',
+          'WWF · FSC 공식 앰버서더',
+          'JTBC · tvN 주요 프로그램 출연'
+        ]
+      }
     ],
     en: [
-      '· Education: B.A. International Studies, Univ. of Chicago / M.A. Diplomatic Studies, Seoul National University',
-      '· Affiliation: Founder & Executive Producer, Tyler Media / Main Host, 1BWS',
-      '· Focus: Diplomatic History, Realpolitik Systems, Multilingual Primary Source Verification',
-      '· Official Portal: www.tylerrasch.com'
+      {
+        heading: 'GLOBAL INSIGHT & PUBLIC TRUST',
+        items: [
+          'Main Host, ONEBIGWORLDSHOW (1BWS)',
+          'B.A. in International Studies, University of Chicago · M.A. in Political Science & International Relations, Seoul National University',
+          'Former Staff Experience at the U.S. Senate Committee on the Judiciary & Embassy of the Republic of Korea in the U.S.'
+        ]
+      },
+      {
+        heading: 'ESG & SUSTAINABILITY',
+        items: [
+          'Bestselling Author of "There Is No Second Earth" (『두 번째 지구는 없다』)',
+          'Official Ambassador for WWF & FSC',
+          'Featured Panelist on Major JTBC & tvN Broadcast Programs'
+        ]
+      }
     ]
   },
   featuredEpId: 'ep-1',
@@ -1245,7 +1260,7 @@ function renderCastSection() {
       <div class="slot-visual-holder" style="width:100%;height:100%;">
         ${hostTylerData.photo
           ? `<img src="${hostTylerData.photo}" alt="${hostTylerData.name[currentLang]}" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
-          : generatePortraitCollageSVG(hostTylerData.slot, 'EXECUTIVE PRODUCER & HOST', 'Tyler Rasch (타일러 라쉬)', '#004d26')}
+          : generatePortraitCollageSVG(hostTylerData.slot, 'MAIN HOST', 'Tyler Rasch (타일러 라쉬)', '#004d26')}
       </div>
       <button type="button" class="slot-replace-trigger" data-slot-target="${hostTylerData.slot}">Replace Image</button>
     </div>
@@ -1253,25 +1268,21 @@ function renderCastSection() {
       <div>
         <span class="host-role-kicker">${hostTylerData.role[currentLang]}</span>
         <h3 class="host-name-title">${hostTylerData.name[currentLang]}</h3>
-        <blockquote class="host-quote-banner">${hostTylerData.quote[currentLang]}</blockquote>
-        <p class="host-core-bio">${hostTylerData.coreBio[currentLang]}</p>
-        <div class="cast-tags-row">
-          ${hostTylerData.skills.map(s => `<span class="cast-skill-pill">${s}</span>`).join('')}
+        <div class="host-Structured-bio">
+          ${hostTylerData.sections[currentLang].map(sec => `
+            <div class="host-bio-group">
+              <h4 class="host-bio-group-title">${sec.heading}</h4>
+              <ul class="host-bio-bullet-list">
+                ${sec.items.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
         </div>
       </div>
-      <div>
-        <button type="button" class="btn-expand-bio" data-bio-toggle="host-tyler-bio">
-          <span>${expandLabel}</span>
-          <span>+</span>
-        </button>
-        <div class="expandable-bio-panel" id="host-tyler-bio">
-          <ul class="bio-detail-list">
-            ${hostTylerData.details[currentLang].map(item => `<li>${item}</li>`).join('')}
-          </ul>
-          <a href="#media-hub" class="bio-ep-link" data-jump-ep="${hostTylerData.featuredEpId}">
-            ${hostTylerData.featuredEpTitle[currentLang]}
-          </a>
-        </div>
+      <div class="host-bio-footer">
+        <a href="#media-hub" class="bio-ep-link" data-jump-ep="${hostTylerData.featuredEpId}">
+          ${hostTylerData.featuredEpTitle[currentLang]}
+        </a>
       </div>
     </div>
   `;

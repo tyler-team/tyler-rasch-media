@@ -1413,7 +1413,69 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
   font-size: clamp(1.75rem, 2.6vw, 2.3rem);
   font-weight: 700;
   color: var(--pure-black);
+  margin-bottom: 18px;
+}
+
+.host-Structured-bio {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.host-bio-group {
+  background-color: var(--bg-paper-light);
+  border: var(--rule-hairline);
+  border-left: 3px solid var(--green-forest);
+  padding: 16px 20px;
+}
+
+.host-bio-group:nth-child(2) {
+  border-left-color: var(--terracotta);
+}
+
+.host-bio-group-title {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
   margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.host-bio-group:first-child .host-bio-group-title {
+  color: var(--green-forest);
+}
+
+.host-bio-bullet-list {
+  list-style: none;
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+}
+
+.host-bio-bullet-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--pure-black);
+  font-weight: 500;
+}
+
+.host-bio-bullet-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--brown-warm);
+  font-weight: 700;
+}
+
+.host-bio-footer {
+  padding-top: 12px;
+  border-top: var(--rule-hairline);
 }
 
 .host-quote-banner {
