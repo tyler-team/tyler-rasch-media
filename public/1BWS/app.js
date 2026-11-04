@@ -270,7 +270,7 @@ const episodesData = [
     youtubeId: 'dUWffWSGPwQ',
     startSeconds: 28,
     youtubeUrl: 'https://www.youtube.com/watch?v=dUWffWSGPwQ&t=28s',
-    thumbImg: 'assets/ep-1-thumb.jpg',
+    thumbImg: '/1BWS/assets/ep-1-thumb.jpg',
     title: {
       ko: '미중 패권 전쟁의 반전, 대한민국에 역대급 기회가 터졌다!',
       en: 'Plot Twist in the US-China Hegemony War: Korea’s Historic Strategic Opportunity'
@@ -730,7 +730,7 @@ const dossiersData = [
 /* --- 5. Section 4: Panels Dataset (host-tyler + cast-member-1 ~ 4) --- */
 const hostTylerData = {
   slot: 'host-tyler',
-  photo: 'assets/host-tyler.jpg',
+  photo: '/1BWS/assets/host-tyler.jpg',
   role: { ko: '메인 패널', en: 'MAIN PANEL' },
   name: { ko: '타일러 라쉬 (Tyler Rasch)', en: 'Tyler Rasch (타일러 라쉬)' },
   sections: {
@@ -782,7 +782,7 @@ const castMembersData = [
   {
     id: 'cast-1',
     slot: 'cast-member-1',
-    photo: 'assets/cast-sujan.jpg',
+    photo: '/1BWS/assets/cast-sujan.jpg',
     role: { ko: '패널 · 남아시아 · 글로벌 사우스', en: 'PANEL · SOUTH ASIA & GLOBAL SOUTH' },
     name: { ko: '수잔 샤키야 (Sujan Shakya)', en: 'Sujan Shakya (수잔 샤키야)' },
     shortBio: {
@@ -808,7 +808,7 @@ const castMembersData = [
   {
     id: 'cast-2',
     slot: 'cast-member-2',
-    photo: 'assets/cast-samy.jpg',
+    photo: '/1BWS/assets/cast-samy.jpg',
     role: { ko: '패널 · 중동 · 지중해 지정학', en: 'PANEL · MENA & GEOPOLITICS' },
     name: { ko: '새미 라샤드 (Samy Rashad)', en: 'Samy Rashad (새미 라샤드)' },
     shortBio: {
@@ -1654,16 +1654,16 @@ document.addEventListener('DOMContentLoaded', () => {
             : 'Official ONEBIGWORLDSHOW (1BWS) brand marks and media fact sheet for journalists, academic panels, and external partners.'}
         </p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
-          <a href="Untitled%20design%20(3).png" download="1BWS-Logo-Transparent.png" style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 16px; text-align: center;">
-            <img src="Untitled%20design%20(3).png" alt="Transparent Logo" style="height: 48px; margin: 0 auto 10px;" />
+          <a href="/1BWS/assets/logo-transparent.png" download="1BWS-Logo-Transparent.png" style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 16px; text-align: center;">
+            <img src="/1BWS/assets/logo-transparent.png" alt="Transparent Logo" style="height: 48px; margin: 0 auto 10px;" />
             <div style="font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600;">Transparent Mark (PNG)</div>
           </a>
-          <a href="Untitled%20design%20(1).png" download="1BWS-Logo-Standard-White.png" style="background: var(--pure-white); border: var(--rule-hairline); padding: 16px; text-align: center;">
-            <img src="Untitled%20design%20(1).png" alt="Standard Logo" style="height: 48px; margin: 0 auto 10px;" />
+          <a href="/1BWS/assets/logo-standard.png" download="1BWS-Logo-Standard-White.png" style="background: var(--pure-white); border: var(--rule-hairline); padding: 16px; text-align: center;">
+            <img src="/1BWS/assets/logo-standard.png" alt="Standard Logo" style="height: 48px; margin: 0 auto 10px;" />
             <div style="font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600;">Primary Light (PNG)</div>
           </a>
-          <a href="Untitled%20design%20(2).png" download="1BWS-Official-Seal-Dark.png" style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 16px; text-align: center;">
-            <img src="Untitled%20design%20(2).png" alt="Dark Circle Seal" style="height: 48px; margin: 0 auto 10px;" />
+          <a href="/1BWS/assets/logo-circle-dark.png" download="1BWS-Official-Seal-Dark.png" style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 16px; text-align: center;">
+            <img src="/1BWS/assets/logo-circle-dark.png" alt="Dark Circle Seal" style="height: 48px; margin: 0 auto 10px;" />
             <div style="font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600;">Official Seal (PNG)</div>
           </a>
         </div>
