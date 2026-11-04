@@ -74,8 +74,8 @@ const i18nDict = {
     'dossier.downloadPdfBtn': 'PDF 리포트 인쇄 / 저장',
     'dossier.mlaHeader': 'VERIFIED PRIMARY SOURCES — MLA 9TH EDITION BIBLIOGRAPHY',
     'cast.sectionTitle': 'Panels',
-    'cast.sectionSubtitle': '원빅월드쇼 메인 호스트 타일러 라쉬(Tyler Rasch)와 거시경제·지정학·기술·역사 각 분과의 코호스트, 스페셜 프리젠터, 객원 패널 라인업입니다.',
-    'cast.joinCrewBtn': '객원 호스트 · 리서처 지원하기 →',
+    'cast.sectionSubtitle': '원빅월드쇼 메인 패널 타일러 라쉬(Tyler Rasch)와 거시경제·지정학·기술·역사 각 분과의 패널 및 객원 연구원 라인업입니다.',
+    'cast.joinCrewBtn': '객원 패널 · 리서처 지원하기 →',
     'newsletter.headline': '매주 방송에서 다 다루지 못한 1차 사료 원문과 데스크 노트를 서재로 보내드립니다.',
     'newsletter.subcopy': '알고리즘의 소음 없이 매주 화요일 오전 7시, 원빅월드쇼(1BWS) 편집국이 엄선한 글로벌 거시 지표, 지정학 도시에 요약본, 그리고 원문 PDF 레퍼런스를 이메일로 받아보세요.',
     'newsletter.submitBtn': '뉴스레터 구독하기 →',
@@ -184,8 +184,8 @@ const i18nDict = {
     'dossier.downloadPdfBtn': 'Print / Save PDF Report',
     'dossier.mlaHeader': 'VERIFIED PRIMARY SOURCES — MLA 9TH EDITION BIBLIOGRAPHY',
     'cast.sectionTitle': 'Panels',
-    'cast.sectionSubtitle': 'Meet 1BWS Main Host Tyler Rasch alongside our roster of co-hosts, special presenters, and guest panels across macroeconomics, geopolitics, technology, and history.',
-    'cast.joinCrewBtn': 'Apply for Editorial Desk & Fellowships →',
+    'cast.sectionSubtitle': 'Meet 1BWS Main Panel Tyler Rasch alongside our roster of panels and visiting fellows across macroeconomics, geopolitics, technology, and history.',
+    'cast.joinCrewBtn': 'Apply for Guest Panels & Fellowships →',
     'newsletter.headline': 'Receive the Primary Sources and Desk Notes Behind Every Episode.',
     'newsletter.subcopy': 'Dispatched every Tuesday at 7 AM KST without algorithmic noise: global macro indicators, geopolitical dossier abstracts, and direct primary-document references.',
     'newsletter.submitBtn': 'Subscribe to Dispatch →',
@@ -731,14 +731,14 @@ const dossiersData = [
 const hostTylerData = {
   slot: 'host-tyler',
   photo: 'assets/host-tyler.jpg',
-  role: { ko: '메인 호스트', en: 'MAIN HOST' },
+  role: { ko: '메인 패널', en: 'MAIN PANEL' },
   name: { ko: '타일러 라쉬 (Tyler Rasch)', en: 'Tyler Rasch (타일러 라쉬)' },
   sections: {
     ko: [
       {
         heading: 'GLOBAL INSIGHT & PUBLIC TRUST',
         items: [
-          '원빅월드쇼 메인 호스트',
+          '원빅월드쇼 메인 패널',
           '시카고대학교 국제학 학사 · 서울대학교 정치외교학 석사',
           '미 상원 법사위원회 · 주미 한국대사관 경력'
         ]
@@ -756,7 +756,7 @@ const hostTylerData = {
       {
         heading: 'GLOBAL INSIGHT & PUBLIC TRUST',
         items: [
-          'Main Host, ONEBIGWORLDSHOW (1BWS)',
+          'Main Panel, ONEBIGWORLDSHOW (1BWS)',
           'B.A. in International Studies, University of Chicago · M.A. in Political Science & International Relations, Seoul National University',
           'Former Staff Experience at the U.S. Senate Committee on the Judiciary & Embassy of the Republic of Korea in the U.S.'
         ]
@@ -783,61 +783,61 @@ const castMembersData = [
     id: 'cast-1',
     slot: 'cast-member-1',
     photo: 'assets/cast-sujan.jpg',
-    role: { ko: 'CO-HOST & SPECIAL PRESENTER · 남아시아 · 글로벌 사우스', en: 'CO-HOST & SPECIAL PRESENTER' },
+    role: { ko: '패널 · 남아시아 · 글로벌 사우스', en: 'PANEL · SOUTH ASIA & GLOBAL SOUTH' },
     name: { ko: '수잔 샤키야 (Sujan Shakya)', en: 'Sujan Shakya (수잔 샤키야)' },
     shortBio: {
-      ko: '남아시아·히말라야 지정학, 인구 구조 변화, 그리고 글로벌 사우스의 산업·인프라 전환을 현지의 입체적 시선으로 해독하는 스페셜 프리젠터.',
+      ko: '남아시아·히말라야 지정학, 인구 구조 변화, 그리고 글로벌 사우스의 산업·인프라 전환을 현지의 입체적 시선으로 해독하는 패널.',
       en: 'Decoding South Asian geopolitics, demographic shifts, and Global South infrastructure transitions with on-the-ground context.'
     },
     details: {
       ko: [
-        '· 주요 활동: 원빅월드쇼(1BWS) 스페셜 프리젠터 및 글로벌 시사 패널',
+        '· 주요 활동: 원빅월드쇼(1BWS) 글로벌 시사 패널',
         '· 담당 분야: 남아시아·인도·네팔 지정학, 신흥국 인구통계 및 자원·인프라 지정학 분석',
         '· 대표 출연: 남아시아 지정학 재편 및 글로벌 사우스 핵심광물·인구 지형 브리핑'
       ],
       en: [
-        '· Role: 1BWS Special Presenter & Global Affairs Commentator',
+        '· Role: 1BWS Global Affairs Panel',
         '· Coverage: South Asian Geopolitics, Emerging Market Demographics & Infrastructure',
         '· Featured In: South Asia & Global South Geopolitical Realignment Briefings'
       ]
     },
     epId: 'ep-5',
     accent: '#004d26',
-    badgeCode: 'DESK I · GLOBAL SOUTH'
+    badgeCode: 'PANEL I · GLOBAL SOUTH'
   },
   {
     id: 'cast-2',
     slot: 'cast-member-2',
     photo: 'assets/cast-samy.jpg',
-    role: { ko: 'CO-HOST & SPECIAL PRESENTER · 중동 · 지중해 지정학', en: 'CO-HOST & SPECIAL PRESENTER' },
+    role: { ko: '패널 · 중동 · 지중해 지정학', en: 'PANEL · MENA & GEOPOLITICS' },
     name: { ko: '새미 라샤드 (Samy Rashad)', en: 'Samy Rashad (새미 라샤드)' },
     shortBio: {
-      ko: '서구 중심의 외신 프레임을 넘어 중동·북아프리카(MENA) 현지 사료와 아랍권 자본 이동, 해협 안보의 이면을 짚어내는 스페셜 프리젠터.',
+      ko: '서구 중심의 외신 프레임을 넘어 중동·북아프리카(MENA) 현지 사료와 아랍권 자본 이동, 해협 안보의 이면을 짚어내는 패널.',
       en: 'Analyzing Middle East & North Africa (MENA) geopolitics, sovereign wealth flows, and maritime chokepoints beyond Western frames.'
     },
     details: {
       ko: [
-        '· 주요 활동: 원빅월드쇼(1BWS) 중동·아랍권 스페셜 프리젠터 및 연구자',
+        '· 주요 활동: 원빅월드쇼(1BWS) 중동·아랍권 패널 및 연구자',
         '· 담당 분야: 중동 안보 동맹 구상, 수에즈·홍해 해양 지정학, 걸프 국부펀드 자본 이동 분석',
         '· 대표 출연: POD.88 수에즈·호르무즈 해협 지정학 및 아랍 자본 지각변동 심층 분석'
       ],
       en: [
-        '· Role: 1BWS MENA Special Presenter & Regional Analyst',
+        '· Role: 1BWS MENA Panel & Regional Analyst',
         '· Coverage: Middle East Security Alliances, Suez/Red Sea Chokepoints, Gulf Capital Flows',
         '· Featured In: POD.88 Maritime Geopolitics & MENA Capital Realignment'
       ]
     },
     epId: 'ep-3',
     accent: '#242e3d',
-    badgeCode: 'DESK II · MENA & MACRO'
+    badgeCode: 'PANEL II · MENA & MACRO'
   },
   {
     id: 'cast-3',
     slot: 'cast-member-3',
-    role: { ko: 'TECH & ENERGY SUPPLY CHAIN', en: 'TECH & ENERGY SUPPLY CHAIN' },
+    role: { ko: '패널 · 기술 · 에너지 공급망', en: 'PANEL · TECH & ENERGY SUPPLY CHAIN' },
     name: { ko: '기술 · 에너지 애널리스트', en: 'Tech & Energy Analyst' },
     shortBio: {
-      ko: 'AI 데이터센터 전력망, 차세대 원전(SMR), 반도체 및 핵심광물(리튬·희토류) 공급망 지정학을 추적.',
+      ko: 'AI 데이터센터 전력망, 차세대 원전(SMR), 반도체 및 핵심광물(리튬·희토류) 공급망 지정학을 추적하는 패널.',
       en: 'Tracking AI hyperscaler power grids, SMR nuclear deployment, semiconductors, and critical mineral supply chains.'
     },
     details: {
@@ -854,32 +854,32 @@ const castMembersData = [
     },
     epId: 'ep-2',
     accent: '#864413',
-    badgeCode: 'DESK III · TECH'
+    badgeCode: 'PANEL III · TECH'
   },
   {
     id: 'cast-4',
     slot: 'cast-member-4',
-    role: { ko: 'VISITING FELLOWS & REPORTERS', en: 'VISITING FELLOWS & REPORTERS' },
-    name: { ko: '객원 펠로우 & 리포터진', en: 'Visiting Fellows & Reporters' },
+    role: { ko: '패널 · 객원 연구원 & 리포터진', en: 'PANEL · VISITING FELLOWS & REPORTERS' },
+    name: { ko: '객원 패널 & 리포터진', en: 'Guest Panels & Reporters' },
     shortBio: {
-      ko: '해양안보, 유럽·중동 지역학, 국제통상 등 매주 이슈에 맞춰 합류하는 현업 전문가 및 바이링구얼 리포터 그룹.',
+      ko: '해양안보, 유럽·중동 지역학, 국제통상 등 매주 이슈에 맞춰 합류하는 현업 전문가 패널 및 바이링구얼 리포터 그룹.',
       en: 'Rotating roster of regional scholars, maritime security practitioners, and bilingual on-air reporters.'
     },
     details: {
       ko: [
         '· 구성: 전·현직 외교관, 산업계 임원, 대학 교수 및 1BWS 공개 채용 리포터/앵커',
         '· 담당 분야: 지역별(북미·유럽·중동·아시아·글로벌 사우스) 심층 브리핑 및 팩트체크',
-        '· 상시 지원: 하단 Participate 섹션을 통해 객원 코호스트 및 리포터 상시 지원 가능'
+        '· 상시 지원: 하단 Participate 섹션을 통해 객원 패널 및 리포터 상시 지원 가능'
       ],
       en: [
         '· Composition: Former diplomats, industry executives, scholars, and 1BWS bilingual reporters',
         '· Coverage: Regional deep-dives across Europe, Middle East, East Asia, and the Global South',
-        '· Open Desk: Apply anytime via the Participate section to join as Guest Cohost or Reporter'
+        '· Open Desk: Apply anytime via the Participate section to join as Guest Panel or Reporter'
       ]
     },
     epId: 'ep-3',
     accent: '#4d150b',
-    badgeCode: 'DESK IV · FELLOWS'
+    badgeCode: 'PANEL IV · FELLOWS'
   }
 ];
 
@@ -1260,7 +1260,7 @@ function renderCastSection() {
       <div class="slot-visual-holder" style="width:100%;height:100%;">
         ${hostTylerData.photo
           ? `<img src="${hostTylerData.photo}" alt="${hostTylerData.name[currentLang]}" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
-          : generatePortraitCollageSVG(hostTylerData.slot, 'MAIN HOST', 'Tyler Rasch (타일러 라쉬)', '#004d26')}
+          : generatePortraitCollageSVG(hostTylerData.slot, 'MAIN PANEL', 'Tyler Rasch (타일러 라쉬)', '#004d26')}
       </div>
       <button type="button" class="slot-replace-trigger" data-slot-target="${hostTylerData.slot}">Replace Image</button>
     </div>
