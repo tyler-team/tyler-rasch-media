@@ -107,8 +107,8 @@ const i18nDict = {
     'inbound.careersBtn': '모집 직군 확인 및 포트폴리오 제출 →',
     'b2b.title': 'Institutional & Brand Partnerships',
     'b2b.subtitle': '대한민국과 글로벌 의사결정권자들이 신뢰하는 지식 저널리즘 IP, 원빅월드쇼(1BWS)와 함께 깊이 있는 브랜드 내러티브와 지적 권위를 구축하십시오.',
-    'b2b.metric1Val': '87.9만+',
-    'b2b.metric1Sub': '구독자 · 글로벌 지식 오디언스',
+    'b2b.metric1Val': '88만+',
+    'b2b.metric1Sub': '구독자 · 글로벌 지식 오디언스 (LIVE)',
     'b2b.metric2Val': '3,550만+',
     'b2b.metric2Sub': '최근 90일 멀티플랫폼 누적 조회수',
     'b2b.metric3Val': '69.8%',
@@ -217,8 +217,8 @@ const i18nDict = {
     'inbound.careersBtn': 'View Positions & Submit Portfolio →',
     'b2b.title': 'Institutional & Brand Partnerships',
     'b2b.subtitle': 'Build enduring intellectual authority alongside ONEBIGWORLDSHOW (1BWS), the global knowledge journalism IP trusted by decision-makers.',
-    'b2b.metric1Val': '879K+',
-    'b2b.metric1Sub': 'Subscribers · Global Knowledge Audience',
+    'b2b.metric1Val': '880K+',
+    'b2b.metric1Sub': 'Subscribers · Global Knowledge Audience (LIVE)',
     'b2b.metric2Val': '35.5M+',
     'b2b.metric2Sub': '90-Day Cross-Platform Views',
     'b2b.metric3Val': '69.8%',
@@ -265,7 +265,7 @@ const episodesData = [
     code: 'FEATURED DISPATCH · GEOPOLITICS & MARITIME',
     date: '2026.11.02',
     duration: '14:31',
-    views: { ko: '조회수 14만회+', en: '140K+ Views' },
+    views: { ko: '조회수 15.8만회', en: '157.6K Views' },
     chapter: { ko: 'CH.01: 제1도련선 돌파와 부산항의 전략적 부상', en: 'CH.01: First Island Chain & Busan Port’s Rise' },
     youtubeId: 'dUWffWSGPwQ',
     startSeconds: 28,
@@ -1476,9 +1476,44 @@ function bindSlotReplaceButtons() {
   });
 }
 
+async function fetchLiveChannelStats() {
+  const apiUrl = window.location.protocol === 'file:'
+    ? 'https://www.tylerrasch.com/api/1bws-stats'
+    : '/api/1bws-stats';
+
+  try {
+    const res = await fetch(apiUrl);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!data) return;
+
+    if (data.subscribers) {
+      if (data.subscribers.ko) i18nDict.ko['b2b.metric1Val'] = data.subscribers.ko;
+      if (data.subscribers.en) i18nDict.en['b2b.metric1Val'] = data.subscribers.en;
+      const metric1El = document.querySelector('[data-i18n="b2b.metric1Val"]');
+      if (metric1El) {
+        metric1El.textContent = i18nDict[currentLang]['b2b.metric1Val'];
+      }
+    }
+
+    if (data.featuredVideoViews) {
+      const ep1 = episodesData.find(e => e.id === 'ep-1');
+      if (ep1) {
+        if (data.featuredVideoViews.ko) ep1.views.ko = data.featuredVideoViews.ko;
+        if (data.featuredVideoViews.en) ep1.views.en = data.featuredVideoViews.en;
+      }
+      renderFeaturedEpisode();
+      renderEpisodeGrid();
+    }
+  } catch (_) {
+    // Gracefully keep fallback values if offline
+  }
+}
+
 /* --- 11. DOMContentLoaded Initialization & Event Listeners --- */
 document.addEventListener('DOMContentLoaded', () => {
   applyLanguage('ko');
+  fetchLiveChannelStats();
 
   // Language Switcher (KR / EN)
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1726,8 +1761,8 @@ document.addEventListener('DOMContentLoaded', () => {
         : 'INSTITUTIONAL & BRAND PARTNERSHIP INQUIRY',
       `
         <div style="background: var(--bg-paper-light); color: var(--pure-black); padding: 14px 16px; border-left: 2px solid var(--green-forest); margin-bottom: 18px; font-family: var(--font-mono); font-size: 0.72rem;">
-          <div style="color: var(--green-forest); font-weight: 600; margin-bottom: 2px;">1BWS AUDIENCE BENCHMARK</div>
-          <div>879K+ Subscribers · 35.5M+ 90-Day Views · 69.8% Ages 25–54 Decision Makers · 60.6% Retention</div>
+          <div style="color: var(--green-forest); font-weight: 600; margin-bottom: 2px;">1BWS AUDIENCE BENCHMARK (LIVE)</div>
+          <div>${i18nDict.en['b2b.metric1Val']} Subscribers · 35.5M+ 90-Day Views · 69.8% Ages 25–54 Decision Makers · 60.6% Retention</div>
         </div>
         <form id="b2bModalForm">
           <div class="form-group">
