@@ -47,6 +47,57 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/1BWS',
+        destination: '/1BWS/index.html',
+      },
+      {
+        source: '/1BWS/',
+        destination: '/1BWS/index.html',
+      },
+      {
+        source: '/1bws',
+        destination: '/1BWS/index.html',
+      },
+      {
+        source: '/1bws/',
+        destination: '/1BWS/index.html',
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: '/1BWS/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/1BWS',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/1bws',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
