@@ -80,6 +80,19 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: '/1BWS/assets/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
         source: '/1BWS/:path*',
         headers: [
           {

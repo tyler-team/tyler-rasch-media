@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ONEBIGWORLDSHOW (1BWS / 원빅월드쇼) — Interactive Application Logic
-   Bilingual (KR/EN), Media Hub, Dossier Slide-Over, Editorial Desk, Modals
+   One Big World Show (1BWS / 원빅월드쇼) — Interactive Application Logic
+   Bilingual (KR/EN), Media Hub, Dossier Slide-Over, Panels, Modals
    ========================================================================== */
 
 let currentLang = 'ko';
@@ -10,6 +10,7 @@ let currentRegionFilter = 'all';
 let activeEpisodeId = 'ep-1';
 let isPlayingSim = false;
 let activeReplaceSlotEl = null;
+let activeDossierMlaSources = [];
 
 /* --- 1. Bilingual Dictionary (KR / EN) --- */
 const i18nDict = {
@@ -43,7 +44,7 @@ const i18nDict = {
     'manifesto.headerTitle': 'THE 1BWS MANIFESTO & EDITORIAL CHARTER — 원빅월드쇼 저널리즘 선언문',
     'manifesto.title': '“세상은 단절된 사건들의 나열이 아니라, 치밀하게 맞물린 하나의 시스템(One Big World)입니다.”',
     'manifesto.p1': '오늘날의 미디어 환경은 파편화된 속보 경쟁과 확증 편향 알고리즘에 갇혀 사건의 표피만을 소비합니다. 그러나 한 국가의 입법 보고서 한 줄은 지구 반대편의 환율과 자본시장을 움직이고, 해협의 안보 위기는 글로벌 에너지 공급망과 통화 정책의 궤도를 동시에 수정합니다.',
-    'manifesto.p2': '<strong>원빅월드쇼(ONEBIGWORLDSHOW / 1BWS)</strong>는 타일러 라쉬(Tyler Rasch)와 분야별 애널리스트·에디터들이 구축한 <strong>글로벌 지식 저널리즘 & 리얼폴리틱 미디어</strong>입니다. 우리는 자극적인 논평이나 단순 외신 번역을 지양하고, 각국 중앙은행 문건, 의회 속기록, 조약 원문, 학술 논문 등 검증 가능한 1차 사료(Primary Sources)를 직접 해독하여 입체적인 시각을 제시합니다.',
+    'manifesto.p2': '<strong>원빅월드쇼(One Big World Show / 1BWS)</strong>는 타일러 라쉬(Tyler Rasch)와 분야별 애널리스트·에디터들이 구축한 <strong>글로벌 지식 저널리즘 & 리얼폴리틱 미디어</strong>입니다. 우리는 자극적인 논평이나 단순 외신 번역을 지양하고, 각국 중앙은행 문건, 의회 속기록, 조약 원문, 학술 논문 등 검증 가능한 1차 사료(Primary Sources)를 직접 해독하여 입체적인 시각을 제시합니다.',
     'manifesto.pillar1': '<strong>01. 구조적 매크로 프리즘 (Structural Macro Prism):</strong> 파편화된 현상 이면에서 자본과 통화, 공급망과 국가 안보가 맞물려 돌아가는 구조적 인과관계를 입체적으로 분석합니다.',
     'manifesto.pillar2': '<strong>02. 1차 사료 우선주의 (Primary-Source Mandate):</strong> 모든 심층 에피소드와 인텔리전스 도시에(Dossier)는 MLA 학술 표준에 준하는 원문 서지 정보를 투명하게 공개합니다.',
     'manifesto.pillar3': '<strong>03. 다극화 시대의 교차 검증 (Multi-Polar Perspective):</strong> 단일 진영의 프레임을 넘어 북미, 유럽·중동, 아시아·한국, 글로벌 사우스의 이해관계를 교차 검증합니다.',
@@ -99,9 +100,9 @@ const i18nDict = {
     'inbound.tipsCheck2': '원문 PDF, 통계 데이터셋, 공공 문건 직접 첨부 지원',
     'inbound.tipsCheck3': '채택 시 에피소드 공식 자문 크레딧 및 도시에 공동 기고 연계',
     'inbound.tipsBtn': '제보 및 사료 접수 데스크 열기 →',
-    'inbound.careersTitle': '온에어 코호스트 · 리포터 & 에디터 채용',
-    'inbound.careersDesc': '타일러 라쉬와 함께 세계의 구조적 맥락을 브리핑할 분야별 Guest Cohost, 한·영 바이링구얼 리포터, 리서치 에디터를 상시 모집합니다.',
-    'inbound.careersCheck1': 'Guest Cohost — 거시경제·지정학·기술·역사 분야 현업 전문가 및 연구자',
+    'inbound.careersTitle': '온에어 패널 · 리포터 & 에디터 채용',
+    'inbound.careersDesc': '타일러 라쉬와 함께 세계의 구조적 맥락을 브리핑할 분야별 객원 패널(Guest Panel), 한·영 바이링구얼 리포터, 리서치 에디터를 상시 모집합니다.',
+    'inbound.careersCheck1': '객원 패널 (Guest Panel) — 거시경제·지정학·기술·역사 분야 현업 전문가 및 연구자',
     'inbound.careersCheck2': 'On-Air Reporter / Anchor — 한·영 바이링구얼 브리핑 및 팩트체크 진행',
     'inbound.careersCheck3': 'Research Editor & Strategic Intern — 1차 사료 해독 및 미디어 비즈니스',
     'inbound.careersBtn': '모집 직군 확인 및 포트폴리오 제출 →',
@@ -127,7 +128,7 @@ const i18nDict = {
     'topbar.edition': '1BWS GLOBAL EDITION — VOL. 2026',
     'topbar.dateline': 'SEOUL · WASHINGTON · BRUSSELS · SINGAPORE',
     'topbar.primarySource': 'PRIMARY SOURCE VERIFIED JOURNALISM (MLA 9TH ED.)',
-    'nav.subbrand': 'ONEBIGWORLDSHOW · 1BWS',
+    'nav.subbrand': 'One Big World Show · 1BWS',
     'nav.manifesto': 'Manifesto',
     'nav.mediaHub': 'Broadcast',
     'nav.intelligence': 'Dossiers',
@@ -138,7 +139,7 @@ const i18nDict = {
     'nav.partnerships': 'Partnerships',
     'nav.newsletterBtn': 'Subscribe Brief',
     'hero.issueStamp': '1BWS EDITORIAL FLAGSHIP · TYLER MEDIA',
-    'hero.headlineKr': 'Decoding the Structural Mechanisms of Our Interconnected World — ONEBIGWORLDSHOW (1BWS)',
+    'hero.headlineKr': 'Decoding the Structural Mechanisms of Our Interconnected World — One Big World Show (1BWS)',
     'hero.subcopy': 'Across global macroeconomics, geopolitical fault lines, technology and energy supply chains, and historical context—1BWS bypasses secondary commentary to dissect how our interconnected world operates through verified primary sources.',
     'hero.ctaPrimary': 'Watch Latest Episode →',
     'hero.ctaSecondary': 'Read the 1BWS Editorial Charter',
@@ -153,7 +154,7 @@ const i18nDict = {
     'manifesto.headerTitle': 'THE 1BWS MANIFESTO & EDITORIAL CHARTER',
     'manifesto.title': '“The world is not a sequence of isolated headlines—it is One Big Interconnected System.”',
     'manifesto.p1': 'Modern media ecosystems are trapped in breaking-news velocity and algorithmic echo chambers. Yet a single clause in a legislative filing shifts exchange rates and capital markets across oceans, while a maritime chokepoint crisis reshapes global energy supply chains and monetary policy trajectories simultaneously.',
-    'manifesto.p2': '<strong>ONEBIGWORLDSHOW (1BWS)</strong> is a Global Knowledge & Realpolitik Media network led by Tyler Rasch and domain analysts. We bypass secondary commentary and directly examine central bank filings, parliamentary transcripts, treaties, and academic primary sources.',
+    'manifesto.p2': '<strong>One Big World Show (1BWS)</strong> is a Global Knowledge & Realpolitik Media network led by Tyler Rasch and domain analysts. We bypass secondary commentary and directly examine central bank filings, parliamentary transcripts, treaties, and academic primary sources.',
     'manifesto.pillar1': '<strong>01. Structural Macro Prism:</strong> Tracing the deeper causal mechanisms linking capital flows, monetary architecture, industrial supply chains, and statecraft.',
     'manifesto.pillar2': '<strong>02. Primary-Source Mandate:</strong> Every investigative episode and intelligence dossier publishes a complete academic MLA 9th Edition primary bibliography.',
     'manifesto.pillar3': '<strong>03. Multi-Polar Cross-Verification:</strong> Examining North America, Europe & the Middle East, Asia & Korea, and the Global South beyond single-narrative frames.',
@@ -193,7 +194,7 @@ const i18nDict = {
     'newsletter.igDesc': 'Join our reader community directly without sign-up walls. Receive studio research notes, live primary-source fact-checks, and editorial polls.',
     'newsletter.igBtn': 'Join Instagram Broadcast Channel ↗',
     'press.sectionTitle': 'Press & Media Room',
-    'press.sectionSubtitle': 'Domestic and international media citations of ONEBIGWORLDSHOW (1BWS) investigations and official bilingual press releases from Tyler Media.',
+    'press.sectionSubtitle': 'Domestic and international media citations of One Big World Show (1BWS) investigations and official bilingual press releases from Tyler Media.',
     'press.downloadKitBtn': 'Download Official 1BWS Press Kit →',
     'press.cardTitle': '1BWS Brand Specifications & Press Kit',
     'press.cardDesc': 'Please adhere to our official wordmark and seal guidelines for press citations, academic panels, and institutional partnerships.',
@@ -209,14 +210,14 @@ const i18nDict = {
     'inbound.tipsCheck2': 'Direct upload support for PDFs, statistical datasets, and public filings',
     'inbound.tipsCheck3': 'Advisory credit on broadcast episodes and joint dossier publication opportunities',
     'inbound.tipsBtn': 'Open Source Submission Desk →',
-    'inbound.careersTitle': 'On-Air Co-Hosts, Reporters & Editors',
-    'inbound.careersDesc': 'Rolling recruitment for Guest Cohosts, bilingual On-Air Reporters, and Research Editors to dissect global mechanisms alongside Tyler Rasch.',
-    'inbound.careersCheck1': 'Guest Cohost — Practitioners & scholars in Macro, Geopolitics, Tech, and History',
+    'inbound.careersTitle': 'On-Air Panels, Reporters & Editors',
+    'inbound.careersDesc': 'Rolling recruitment for Guest Panels, bilingual On-Air Reporters, and Research Editors to dissect global mechanisms alongside Tyler Rasch.',
+    'inbound.careersCheck1': 'Guest Panel — Practitioners & scholars in Macro, Geopolitics, Tech, and History',
     'inbound.careersCheck2': 'On-Air Reporter / Anchor — KR/EN bilingual briefing and primary fact-checking',
     'inbound.careersCheck3': 'Research Editor & Strategic Intern — Primary source analysis and media strategy',
     'inbound.careersBtn': 'View Positions & Submit Portfolio →',
     'b2b.title': 'Institutional & Brand Partnerships',
-    'b2b.subtitle': 'Build enduring intellectual authority alongside ONEBIGWORLDSHOW (1BWS), the global knowledge journalism IP trusted by decision-makers.',
+    'b2b.subtitle': 'Build enduring intellectual authority alongside One Big World Show (1BWS), the global knowledge journalism IP trusted by decision-makers.',
     'b2b.metric1Val': '880K+',
     'b2b.metric1Sub': 'Subscribers · Global Knowledge Audience (LIVE)',
     'b2b.metric2Val': '35.5M+',
@@ -230,7 +231,7 @@ const i18nDict = {
     'footer.missionText': 'BEYOND THE HEADLINES, DECODING THE ONE BIG WORLD. Dissecting global mechanisms through verified primary sources and multi-polar perspectives.',
     'footer.archTitle': '1BWS DIGITAL ECOSYSTEM ARCHITECTURE',
     'footer.archDesc': 'Modular domain architecture anchored by www.onebigworldshow.com:',
-    'footer.ethicsSummary': 'ONEBIGWORLDSHOW enforces strict primary-source cross-verification, transparent AI research assistance disclosure, and final human editor sign-off.',
+    'footer.ethicsSummary': 'One Big World Show enforces strict primary-source cross-verification, transparent AI research assistance disclosure, and final human editor sign-off.',
     'footer.ethicsBtn': 'Journalistic Standards, Information Integrity & AI Disclosure Policy'
   }
 };
@@ -756,7 +757,7 @@ const hostTylerData = {
       {
         heading: 'GLOBAL INSIGHT & PUBLIC TRUST',
         items: [
-          'Main Panel, ONEBIGWORLDSHOW (1BWS)',
+          'Main Panel, One Big World Show (1BWS)',
           'B.A. in International Studies, University of Chicago · M.A. in Political Science & International Relations, Seoul National University',
           'Former Staff Experience at the U.S. Senate Committee on the Judiciary & Embassy of the Republic of Korea in the U.S.'
         ]
@@ -901,7 +902,7 @@ const pressItemsData = [
     date: '2026.10.18',
     title: {
       ko: '“유튜브를 넘어선 에디토리얼 싱크탱크”… 원빅월드쇼(1BWS), 미 재무부·유럽 집행위 1차 사료 해독으로 오피니언 리더층 사로잡다',
-      en: '“Beyond YouTube into an Editorial Think Tank”: How ONEBIGWORLDSHOW (1BWS) Captivates Decision-Makers with Primary Sources'
+      en: '“Beyond YouTube into an Editorial Think Tank”: How One Big World Show (1BWS) Captivates Decision-Makers with Primary Sources'
     },
     meta: { ko: '미디어·경제 섹션 심층 기획 인용 보도', en: 'Featured Media & Macroeconomics Industry Coverage' }
   },
@@ -1014,7 +1015,7 @@ function generateEpisodeArtworkSVG(ep) {
       <text x="84" y="168" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="600" font-size="76" fill="#ffffff" fill-opacity="0.92">${ep.artTheme.roman}.</text>
       <line x1="84" y1="194" x2="220" y2="194" stroke="${ep.artTheme.accent}" stroke-width="2" />
       <text x="84" y="224" font-family="JetBrains Mono, monospace" font-weight="500" font-size="12" letter-spacing="1.5" fill="#e4e4e4">${ep.code}</text>
-      <text x="84" y="250" font-family="Space Grotesk, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="#ffffff">ONEBIGWORLDSHOW · PRIMARY SOURCE DISPATCH</text>
+      <text x="84" y="250" font-family="Space Grotesk, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="#ffffff">One Big World Show · PRIMARY SOURCE DISPATCH</text>
       <!-- Bottom Colophon -->
       <text x="84" y="328" font-family="JetBrains Mono, monospace" font-weight="400" font-size="11" letter-spacing="1" fill="#c5c5c5">PUBLISHED ${ep.date} · MLA VERIFIED</text>
     </svg>
@@ -1036,7 +1037,7 @@ function generatePortraitCollageSVG(slotName, badgeText, titleText, accentColor)
       <circle cx="180" cy="166" r="34" fill="${accentColor}" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.2" />
       <path d="M116 286 C116 230, 244 230, 244 286 Z" fill="${accentColor}" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.2" />
       <!-- Footer Caption -->
-      <text x="42" y="384" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10" letter-spacing="1.5" fill="#00c262">1BWS EDITORIAL DESK</text>
+      <text x="42" y="384" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10" letter-spacing="1.5" fill="#00c262">1BWS PANELS</text>
       <text x="42" y="406" font-family="Newsreader, Noto Serif KR, serif" font-weight="600" font-size="15" fill="#ffffff">${titleText}</text>
     </svg>
   `;
@@ -1051,7 +1052,7 @@ function generateStoreItemSVG(item) {
       <rect x="76" y="56" width="248" height="288" fill="none" stroke="#000000" stroke-width="1" />
       <line x1="76" y1="104" x2="324" y2="104" stroke="#c5c5c5" stroke-width="1" />
       <line x1="76" y1="288" x2="324" y2="288" stroke="#c5c5c5" stroke-width="1" />
-      <text x="200" y="85" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="10" letter-spacing="2" fill="#864413">ONEBIGWORLDSHOW · 1BWS</text>
+      <text x="200" y="85" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="10" letter-spacing="2" fill="#864413">One Big World Show · 1BWS</text>
       <text x="200" y="185" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="600" font-size="34" fill="#004d26">${item.editionNo}</text>
       <line x1="160" y1="205" x2="240" y2="205" stroke="#000000" stroke-width="1" />
       <text x="200" y="232" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10" letter-spacing="1.8" fill="#242e3d">${item.subLabel}</text>
@@ -1104,7 +1105,7 @@ function renderFeaturedEpisode() {
   } else {
     if (playOverlayBtn) playOverlayBtn.style.display = 'flex';
     stage.innerHTML = ep.thumbImg
-      ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" style="width:100%;height:100%;object-fit:cover;display:block;" />`
+      ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" width="1280" height="720" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />`
       : generateEpisodeArtworkSVG(ep);
   }
 
@@ -1131,7 +1132,7 @@ function renderEpisodeGrid() {
         <span class="ep-duration-badge">${ep.duration}</span>
         <div class="slot-visual-holder" style="width:100%;height:100%;">
           ${ep.thumbImg
-            ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" style="width:100%;height:100%;object-fit:cover;display:block;" />`
+            ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" width="640" height="360" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />`
             : generateEpisodeArtworkSVG(ep)}
         </div>
         <button type="button" class="slot-replace-trigger" data-slot-target="${ep.slot}">Replace Image</button>
@@ -1236,6 +1237,7 @@ function renderDossierGrid() {
 
 function openDossierSlideover(briefId) {
   const d = dossiersData.find(item => item.id === briefId) || dossiersData[0];
+  activeDossierMlaSources = d.mlaSources || [];
   document.getElementById('drawerDossierCode').textContent = `${d.code} · ${d.topicLabel[currentLang]} · ${d.regionLabel[currentLang]}`;
   document.getElementById('drawerReadTime').textContent = `${d.date} · ${d.readTime}`;
   document.getElementById('drawerArticleBody').innerHTML = `
@@ -1246,6 +1248,10 @@ function openDossierSlideover(briefId) {
     ${d.fullBody[currentLang]}
   `;
   document.getElementById('drawerMlaList').innerHTML = d.mlaSources.map(src => `<li>${src}</li>`).join('');
+  const scrollContainer = document.getElementById('drawerScrollContainer');
+  if (scrollContainer) scrollContainer.scrollTop = 0;
+  const progressBar = document.getElementById('drawerReadingProgress');
+  if (progressBar) progressBar.style.width = '0%';
   const backdrop = document.getElementById('dossierSlideoverBackdrop');
   backdrop.classList.add('open');
   backdrop.setAttribute('aria-hidden', 'false');
@@ -1259,7 +1265,7 @@ function renderCastSection() {
     <div class="host-photo-slot" data-asset-slot="${hostTylerData.slot}">
       <div class="slot-visual-holder" style="width:100%;height:100%;">
         ${hostTylerData.photo
-          ? `<img src="${hostTylerData.photo}" alt="${hostTylerData.name[currentLang]}" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
+          ? `<img src="${hostTylerData.photo}" alt="${hostTylerData.name[currentLang]}" width="480" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
           : generatePortraitCollageSVG(hostTylerData.slot, 'MAIN PANEL', 'Tyler Rasch (타일러 라쉬)', '#004d26')}
       </div>
       <button type="button" class="slot-replace-trigger" data-slot-target="${hostTylerData.slot}">Replace Image</button>
@@ -1283,6 +1289,9 @@ function renderCastSection() {
         <a href="#media-hub" class="bio-ep-link" data-jump-ep="${hostTylerData.featuredEpId}">
           ${hostTylerData.featuredEpTitle[currentLang]}
         </a>
+        <a href="https://www.tylerrasch.com" target="_blank" rel="noopener noreferrer" class="bio-ep-link bio-archive-link">
+          ${currentLang === 'ko' ? '타일러 라쉬 공식 아카이브 (tylerrasch.com) ↗' : 'Official Archive (tylerrasch.com) ↗'}
+        </a>
       </div>
     </div>
   `;
@@ -1293,7 +1302,7 @@ function renderCastSection() {
       <div class="cast-member-slot" data-asset-slot="${m.slot}">
         <div class="slot-visual-holder" style="width:100%;height:100%;">
           ${m.photo
-            ? `<img src="${m.photo}" alt="${m.name[currentLang]}" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
+            ? `<img src="${m.photo}" alt="${m.name[currentLang]}" width="360" height="450" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
             : generatePortraitCollageSVG(m.slot, m.badgeCode, m.name[currentLang], m.accent)}
         </div>
         <button type="button" class="slot-replace-trigger" data-slot-target="${m.slot}">Replace Image</button>
@@ -1364,8 +1373,8 @@ function renderPressSection() {
           <p style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--brown-warm); margin-bottom: 18px;">${item.meta[currentLang]}</p>
           <p style="margin-bottom: 18px; line-height: 1.75; color: var(--bg-deep-slate);">
             ${currentLang === 'ko'
-              ? '원빅월드쇼(ONEBIGWORLDSHOW / 1BWS)와 타일러 미디어(Tyler Media)는 검증된 1차 사료(Primary Sources)를 기반으로 거시경제, 지정학, 기술·에너지, 역사 분야의 심층 다큐멘터리와 도시에(Dossier) 리포트를 발행하고 있습니다. 본 보도자료의 고해상도 스틸컷과 공식 워드마크 에셋은 Press Kit 패키지에서 내려받으실 수 있습니다.'
-              : 'ONEBIGWORLDSHOW (1BWS) and Tyler Media publish primary-source verified journalism across macroeconomics, geopolitics, technology, and history. High-resolution studio stills and official brand marks are available in the 1BWS Press Kit.'}
+              ? '원빅월드쇼(One Big World Show / 1BWS)와 타일러 미디어(Tyler Media)는 검증된 1차 사료(Primary Sources)를 기반으로 거시경제, 지정학, 기술·에너지, 역사 분야의 심층 다큐멘터리와 도시에(Dossier) 리포트를 발행하고 있습니다. 본 보도자료의 고해상도 스틸컷과 공식 워드마크 에셋은 Press Kit 패키지에서 내려받으실 수 있습니다.'
+              : 'One Big World Show (1BWS) and Tyler Media publish primary-source verified journalism across macroeconomics, geopolitics, technology, and history. High-resolution studio stills and official brand marks are available in the 1BWS Press Kit.'}
           </p>
           <div style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 14px; font-family: var(--font-mono); font-size: 0.76rem;">
             Press & Media Desk: <strong>request@tylerrasch.com</strong> · Official Portal: <strong>www.onebigworldshow.com</strong>
@@ -1631,6 +1640,31 @@ document.addEventListener('DOMContentLoaded', () => {
     window.print();
   });
 
+  const drawerScrollContainer = document.getElementById('drawerScrollContainer');
+  const drawerReadingProgress = document.getElementById('drawerReadingProgress');
+  if (drawerScrollContainer && drawerReadingProgress) {
+    drawerScrollContainer.addEventListener('scroll', () => {
+      const maxScroll = drawerScrollContainer.scrollHeight - drawerScrollContainer.clientHeight;
+      const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (drawerScrollContainer.scrollTop / maxScroll) * 100)) : 0;
+      drawerReadingProgress.style.width = `${pct.toFixed(1)}%`;
+    }, { passive: true });
+  }
+
+  const copyMlaBtn = document.getElementById('copyMlaCitationsBtn');
+  if (copyMlaBtn) {
+    copyMlaBtn.addEventListener('click', async () => {
+      const plainText = activeDossierMlaSources
+        .map((src, idx) => `${idx + 1}. ${src.replace(/<[^>]+>/g, '')}`)
+        .join('\n');
+      try {
+        await navigator.clipboard.writeText(plainText);
+        showToast(currentLang === 'ko' ? 'MLA 9판 1차 사료 서지 정보가 클립보드에 복사되었습니다.' : 'MLA 9th Edition Bibliography copied to clipboard.');
+      } catch (_) {
+        showToast(currentLang === 'ko' ? '서지 정보가 선택되었습니다.' : 'Bibliography ready to copy.');
+      }
+    });
+  }
+
   // Section 5 Newsletter Form
   document.getElementById('newsletterForm').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -1650,8 +1684,8 @@ document.addEventListener('DOMContentLoaded', () => {
       `
         <p style="margin-bottom: 18px; color: var(--bg-deep-slate); line-height: 1.7;">
           ${currentLang === 'ko'
-            ? '언론사 및 대외 파트너를 위한 원빅월드쇼(ONEBIGWORLDSHOW / 1BWS) 공식 워드마크·인장 3종 및 미디어 팩트시트입니다. 개별 에셋을 클릭하여 다운로드하실 수 있습니다.'
-            : 'Official ONEBIGWORLDSHOW (1BWS) brand marks and media fact sheet for journalists, academic panels, and external partners.'}
+            ? '언론사 및 대외 파트너를 위한 원빅월드쇼(One Big World Show / 1BWS) 공식 워드마크·인장 3종 및 미디어 팩트시트입니다. 개별 에셋을 클릭하여 다운로드하실 수 있습니다.'
+            : 'Official One Big World Show (1BWS) brand marks and media fact sheet for journalists, academic panels, and external partners.'}
         </p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
           <a href="/1BWS/assets/logo-transparent.png" download="1BWS-Logo-Transparent.png" style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 16px; text-align: center;">
@@ -1715,7 +1749,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Section 8 Modal 2: On-Air Host, Reporter & Crew Recruitment
+  // Section 8 Modal 2: On-Air Panel, Reporter & Crew Recruitment
   document.getElementById('openCareersModalBtn').addEventListener('click', () => {
     openUniversalModal(
       '1BWS EDITORIAL FELLOWSHIP & CAREERS APPLICATION',
@@ -1724,7 +1758,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="form-group">
             <label class="form-label">SELECT POSITION (지원 직군 선택)</label>
             <select class="form-control" required>
-              <option value="cohost">Guest Cohost (분야별 현업 전문가 · 연구자 코호스트)</option>
+              <option value="panel">Guest Panel (분야별 현업 전문가 · 연구자 객원 패널)</option>
               <option value="anchor">On-Air Reporter / Anchor (한·영 바이링구얼 리포터)</option>
               <option value="researcher">Research Editor / Analyst (1차 사료 해독 및 도시에 집필)</option>
               <option value="biz">Strategic & Brand Partnership Intern (미디어 비즈니스 · PR 인턴)</option>
@@ -1809,7 +1843,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h4 style="font-family: var(--font-serif); color: var(--pure-black); margin-bottom: 6px; font-size: 1.05rem;">
               1. 1차 사료 검증 원칙 (Primary-Source Verification Mandate)
             </h4>
-            <p>원빅월드쇼(ONEBIGWORLDSHOW / 1BWS)는 익명의 전언이나 단일 2차 외신 인용에 의존하지 않습니다. 모든 에피소드와 도시에(Dossier)는 각국 정부 관보, 의회 법안 원문, 중앙은행 통계, 국제기구 보고서, 동료 심사를 거친 학술 논문 등 복수의 독립된 1차 사료 교차 검증을 거치며 MLA 9판 서지 양식으로 출처를 투명하게 공개합니다.</p>
+            <p>원빅월드쇼(One Big World Show / 1BWS)는 익명의 전언이나 단일 2차 외신 인용에 의존하지 않습니다. 모든 에피소드와 도시에(Dossier)는 각국 정부 관보, 의회 법안 원문, 중앙은행 통계, 국제기구 보고서, 동료 심사를 거친 학술 논문 등 복수의 독립된 1차 사료 교차 검증을 거치며 MLA 9판 서지 양식으로 출처를 투명하게 공개합니다.</p>
           </div>
           <div style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 18px;">
             <h4 style="font-family: var(--font-serif); color: var(--pure-black); margin-bottom: 6px; font-size: 1.05rem;">

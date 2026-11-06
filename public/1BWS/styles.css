@@ -1,14 +1,14 @@
 /* ==========================================================================
-   ONEBIGWORLDSHOW (1BWS / 원빅월드쇼) — Editorial Design System
+   One Big World Show (1BWS / 원빅월드쇼) — Editorial Design System
    Visual Philosophy: High-Brow Global Knowledge Journal & Think-Tank Archive
-   Palette: Official 14 Brand HEX Codes
+   Palette: Official Warm Archival Paper & Institutional Palette
    ========================================================================== */
 
 :root {
   /* 1. Base & Archival Paper Surfaces */
-  --bg-paper-light: #f3f3f3;
-  --bg-paper-mid: #e4e4e4;
-  --border-muted: #c5c5c5;
+  --bg-paper-light: #f6f4ef;
+  --bg-paper-mid: #eae6dd;
+  --border-muted: #cbc5b8;
   --pure-white: #ffffff;
 
   /* 2. Ink & Dark Contrast Surfaces */
@@ -33,12 +33,13 @@
   --font-display: 'Space Grotesk', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Refined Editorial Rules & Subtle Elevation */
+  /* Refined Editorial Rules, Easing & Subtle Elevation */
   --rule-hairline: 1px solid var(--border-muted);
   --rule-ink: 1px solid var(--pure-black);
   --rule-heavy: 2px solid var(--pure-black);
-  --shadow-editorial: 0 8px 24px rgba(0, 0, 0, 0.05);
-  --shadow-editorial-hover: 0 14px 36px rgba(0, 0, 0, 0.09);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-editorial: 0 10px 30px -10px rgba(20, 24, 31, 0.07);
+  --shadow-editorial-hover: 0 20px 40px -15px rgba(20, 24, 31, 0.13);
 
   /* Layout */
   --container-max: 1320px;
@@ -66,11 +67,39 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-paper-light);
   color: var(--pure-black);
-  line-height: 1.7;
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  font-feature-settings: "kern" 1, "liga" 1;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle Archival Paper Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.024;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html[lang="ko"] .hero-subcopy,
+html[lang="ko"] .dossier-summary-p,
+html[lang="ko"] .drawer-article-body p {
+  line-height: 1.82;
+  letter-spacing: -0.01em;
+}
+
+html[lang="en"] .hero-subcopy,
+html[lang="en"] .dossier-summary-p,
+html[lang="en"] .drawer-article-body p {
+  line-height: 1.7;
+  letter-spacing: -0.005em;
 }
 
 a {
@@ -148,6 +177,14 @@ img {
   display: inline-block;
   margin-right: 4px;
   vertical-align: middle;
+  box-shadow: 0 0 0 0 rgba(0, 194, 98, 0.65);
+  animation: livePulse 2.4s infinite var(--ease-editorial);
+}
+
+@keyframes livePulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 194, 98, 0.65); }
+  70% { box-shadow: 0 0 0 6px rgba(0, 194, 98, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 194, 98, 0); }
 }
 
 .asset-inspector-toggle {
@@ -343,16 +380,23 @@ img {
   justify-content: space-between;
   align-items: flex-end;
   gap: 24px;
-  padding-top: 18px;
+  padding-top: 22px;
   padding-bottom: 24px;
   margin-bottom: 44px;
   border-top: var(--rule-heavy);
+  box-shadow: inset 0 3px 0 0 var(--bg-paper-light), inset 0 4px 0 0 var(--pure-black);
   border-bottom: var(--rule-hairline);
   flex-wrap: wrap;
 }
 
+.dossier-section .section-header-bar,
+.store-section .section-header-bar {
+  box-shadow: inset 0 3px 0 0 var(--pure-white), inset 0 4px 0 0 var(--pure-black);
+}
+
 .section-header-dark {
   border-top-color: var(--pure-white);
+  box-shadow: inset 0 3px 0 0 var(--bg-deep-slate), inset 0 4px 0 0 rgba(255, 255, 255, 0.45);
   border-bottom-color: rgba(197, 197, 197, 0.22);
 }
 
@@ -641,20 +685,29 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
 .collage-artwork-wrapper {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--bg-paper-mid);
+  border: 1px solid var(--border-muted);
   background-color: var(--bg-paper-light);
+  padding: 10px;
+}
+
+.collage-mat-bevel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
   aspect-ratio: 16 / 9;
+  background-color: var(--pure-white);
 }
 
 .collage-banner-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s var(--ease-editorial);
 }
 
 .collage-showcase-frame:hover .collage-banner-img {
-  transform: scale(1.015);
+  transform: scale(1.018);
 }
 
 /* Subtle Editorial Index Bar below Plate */
@@ -1418,15 +1471,19 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
 
 .host-Structured-bio {
   display: grid;
-  gap: 20px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
 }
 
 .host-bio-group {
   background-color: var(--bg-paper-light);
   border: var(--rule-hairline);
   border-left: 3px solid var(--green-forest);
-  padding: 16px 20px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .host-bio-group:nth-child(2) {
@@ -1450,7 +1507,7 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
 .host-bio-bullet-list {
   list-style: none;
   display: grid;
-  gap: 7px;
+  gap: 8px;
   margin: 0;
   padding: 0;
 }
@@ -1458,7 +1515,7 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
 .host-bio-bullet-list li {
   position: relative;
   padding-left: 16px;
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   line-height: 1.55;
   color: var(--pure-black);
   font-weight: 500;
@@ -1474,8 +1531,21 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
 }
 
 .host-bio-footer {
-  padding-top: 12px;
+  padding-top: 14px;
   border-top: var(--rule-hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bio-archive-link {
+  color: var(--bg-deep-slate) !important;
+}
+
+.bio-archive-link:hover {
+  color: var(--green-forest) !important;
 }
 
 .host-quote-banner {
@@ -2467,7 +2537,7 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: slideInRight 0.24s ease;
+  animation: slideInRight 0.32s var(--ease-editorial);
 }
 
 @keyframes slideInRight {
@@ -2483,6 +2553,24 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
   justify-content: space-between;
   align-items: center;
   border-bottom: var(--rule-ink);
+  position: relative;
+}
+
+.drawer-reading-progress-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 3px;
+  background-color: transparent;
+  z-index: 5;
+}
+
+.drawer-reading-progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: var(--green-forest);
+  transition: width 0.1s linear;
 }
 
 .drawer-meta-left {
@@ -2564,13 +2652,40 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
   padding: 24px;
 }
 
+.mla-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
 .mla-bibliography-box h4 {
   font-family: var(--font-mono);
   font-size: 0.74rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--brown-warm);
-  margin-bottom: 14px;
+  margin-bottom: 0;
+}
+
+.btn-copy-mla {
+  background-color: var(--pure-white);
+  color: var(--bg-deep-slate);
+  border: var(--rule-hairline);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition: all 0.18s var(--ease-editorial);
+}
+
+.btn-copy-mla:hover {
+  background-color: var(--pure-black);
+  color: var(--pure-white);
+  border-color: var(--pure-black);
 }
 
 .mla-list {
@@ -2722,6 +2837,10 @@ body.show-asset-slots [data-asset-slot] .slot-replace-trigger {
 
   .host-feature-card {
     grid-template-columns: 260px 1fr;
+  }
+
+  .host-Structured-bio {
+    grid-template-columns: 1fr;
   }
 }
 

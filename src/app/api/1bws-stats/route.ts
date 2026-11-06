@@ -88,6 +88,7 @@ export async function GET() {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+          "X-Robots-Tag": "noindex, nofollow",
         },
       }
     );
