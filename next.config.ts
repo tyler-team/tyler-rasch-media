@@ -91,6 +91,22 @@ const nextConfig: NextConfig = {
         source: '/BuyEuropean/',
         destination: '/buyeuropean/index.html',
       },
+      {
+        source: '/buyeuropean2',
+        destination: '/buyeuropean2/index.html',
+      },
+      {
+        source: '/buyeuropean2/',
+        destination: '/buyeuropean2/index.html',
+      },
+      {
+        source: '/BuyEuropean2',
+        destination: '/buyeuropean2/index.html',
+      },
+      {
+        source: '/BuyEuropean2/',
+        destination: '/buyeuropean2/index.html',
+      },
     ];
   },
   async headers() {
@@ -168,6 +184,46 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/BuyEuropean',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/buyeuropean2/assets/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        source: '/buyeuropean2/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/buyeuropean2',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/BuyEuropean2',
         headers: [
           {
             key: 'X-Robots-Tag',
