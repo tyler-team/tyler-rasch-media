@@ -19,6 +19,7 @@ const i18nDict = {
     'topbar.dateline': 'SEOUL · WASHINGTON · BRUSSELS · SINGAPORE',
     'topbar.primarySource': '1차 사료 교차 검증 저널리즘 (MLA 9TH ED.)',
     'nav.subbrand': '원빅월드쇼 · 1BWS',
+    'nav.mastheadTag': '1차 사료 기반 설명 저널리즘 · PRIMARY SOURCE ARCHIVE',
     'nav.manifesto': 'Manifesto',
     'nav.mediaHub': 'Broadcast',
     'nav.intelligence': 'Dossiers',
@@ -28,8 +29,10 @@ const i18nDict = {
     'nav.getInvolved': 'Participate',
     'nav.partnerships': 'Partnerships',
     'nav.newsletterBtn': '뉴스레터 구독',
+    'hero.rubricSub': '1차 사료 기반 글로벌 설명 저널리즘',
+    'hero.lensBadge': '핵심 프레임 →',
     'hero.issueStamp': '1BWS EDITORIAL FLAGSHIP · TYLER MEDIA',
-    'hero.headlineKr': '단편적인 뉴스를 넘어, 거대한 세계의 판을 읽다 — 원빅월드쇼 (1BWS)',
+    'hero.headlineKr': '단편적인 뉴스를 넘어, <mark class="vox-highlight">거대한 세계의 판을 읽다</mark> — 원빅월드쇼 (1BWS)',
     'hero.subcopy': '거시경제와 자본의 이동, 지정학적 단층선, 기술·에너지 공급망, 그리고 역사와 문화의 맥락까지. 원빅월드쇼(1BWS)는 2차 인용을 배제하고 직접 검증한 1차 사료(Primary Sources)와 다각도의 시선으로 하나의 세계가 작동하는 구조적 메커니즘을 해부합니다.',
     'hero.ctaPrimary': '최신 에피소드 시청하기 →',
     'hero.ctaSecondary': '1BWS 편집 선언문 (Manifesto) 열람',
@@ -51,7 +54,7 @@ const i18nDict = {
     'media.sectionTitle': 'Multi-Platform Media Hub',
     'media.sectionSubtitle': '유튜브 심층 탐사 다큐멘터리부터 무삭제 라운드테이블 팟캐스트, 핵심 브리핑 클립까지 — 에피소드별 3줄 핵심 요약과 연관 1차 사료 브리프를 한곳에서 탐색하세요.',
     'media.playEpisode': '에피소드 스트리밍 재생',
-    'media.summaryHeader': 'EXECUTIVE SUMMARY — 3줄 핵심 요약',
+    'media.summaryHeader': '3줄 핵심 해설 (3-LINE EXPLAINER)',
     'media.tagsHeader': 'KEY REGIONS & SUBJECTS',
     'media.relatedBriefBtn': '연관 리서치 도시에 열람 (MLA 1차 사료 포함) →',
     'media.tabAll': '전체 포맷 (All)',
@@ -72,7 +75,7 @@ const i18nDict = {
     'dossier.regionEUME': '유럽 · 중동 (Europe & ME)',
     'dossier.regionAsia': '아시아 · 한국 (Asia & Korea)',
     'dossier.regionSouth': '글로벌 사우스 (Global South)',
-    'dossier.downloadPdfBtn': 'PDF 리포트 인쇄 / 저장',
+    'dossier.downloadPdfBtn': 'PDF / 인쇄',
     'dossier.mlaHeader': 'VERIFIED PRIMARY SOURCES — MLA 9TH EDITION BIBLIOGRAPHY',
     'cast.sectionTitle': 'Panels',
     'cast.sectionSubtitle': '원빅월드쇼 메인 패널 타일러 라쉬(Tyler Rasch)와 거시경제·지정학·기술·역사 각 분과의 패널 및 객원 연구원 라인업입니다.',
@@ -129,6 +132,7 @@ const i18nDict = {
     'topbar.dateline': 'SEOUL · WASHINGTON · BRUSSELS · SINGAPORE',
     'topbar.primarySource': 'PRIMARY SOURCE VERIFIED JOURNALISM (MLA 9TH ED.)',
     'nav.subbrand': 'One Big World Show · 1BWS',
+    'nav.mastheadTag': 'EXPLANATORY REALPOLITIK & PRIMARY SOURCE ARCHIVE',
     'nav.manifesto': 'Manifesto',
     'nav.mediaHub': 'Broadcast',
     'nav.intelligence': 'Dossiers',
@@ -138,8 +142,10 @@ const i18nDict = {
     'nav.getInvolved': 'Participate',
     'nav.partnerships': 'Partnerships',
     'nav.newsletterBtn': 'Subscribe Brief',
+    'hero.rubricSub': 'PRIMARY-SOURCE EXPLANATORY JOURNALISM',
+    'hero.lensBadge': 'THE LENS →',
     'hero.issueStamp': '1BWS EDITORIAL FLAGSHIP · TYLER MEDIA',
-    'hero.headlineKr': 'Decoding the Structural Mechanisms of Our Interconnected World — One Big World Show (1BWS)',
+    'hero.headlineKr': 'Decoding the <mark class="vox-highlight">Structural Mechanisms</mark> of Our Interconnected World — One Big World Show (1BWS)',
     'hero.subcopy': 'Across global macroeconomics, geopolitical fault lines, technology and energy supply chains, and historical context—1BWS bypasses secondary commentary to dissect how our interconnected world operates through verified primary sources.',
     'hero.ctaPrimary': 'Watch Latest Episode →',
     'hero.ctaSecondary': 'Read the 1BWS Editorial Charter',
@@ -161,7 +167,7 @@ const i18nDict = {
     'media.sectionTitle': 'Multi-Platform Media Hub',
     'media.sectionSubtitle': 'From full-length YouTube investigative documentaries to uncut roundtable podcasts and concise briefing clips — explore executive summaries and linked primary-source dossiers.',
     'media.playEpisode': 'Stream Featured Episode',
-    'media.summaryHeader': 'EXECUTIVE 3-LINE SUMMARY',
+    'media.summaryHeader': '3-LINE EXECUTIVE EXPLAINER',
     'media.tagsHeader': 'KEY REGIONS & SUBJECTS',
     'media.relatedBriefBtn': 'Read Associated Dossier (with MLA Sources) →',
     'media.tabAll': 'All Formats',
@@ -182,7 +188,7 @@ const i18nDict = {
     'dossier.regionEUME': 'Europe & Middle East',
     'dossier.regionAsia': 'Asia & Korea',
     'dossier.regionSouth': 'Global South',
-    'dossier.downloadPdfBtn': 'Print / Save PDF Report',
+    'dossier.downloadPdfBtn': 'PDF / PRINT',
     'dossier.mlaHeader': 'VERIFIED PRIMARY SOURCES — MLA 9TH EDITION BIBLIOGRAPHY',
     'cast.sectionTitle': 'Panels',
     'cast.sectionSubtitle': 'Meet 1BWS Main Panel Tyler Rasch alongside our roster of panels and visiting fellows across macroeconomics, geopolitics, technology, and history.',
@@ -263,7 +269,7 @@ const episodesData = [
     slot: 'episode-thumb-1',
     platform: 'youtube',
     platformLabel: { ko: '1BWS 심층분석 · YouTube', en: '1BWS Deep-Dive · YouTube' },
-    code: 'FEATURED DISPATCH · GEOPOLITICS & MARITIME',
+    code: 'DISPATCH 01 · GEOPOLITICS & MARITIME',
     date: '2026.11.02',
     duration: '14:31',
     views: { ko: '조회수 15.8만회', en: '157.6K Views' },
@@ -992,71 +998,98 @@ const storeItemsData = [
   }
 ];
 
-/* --- 8. Refined Architectural & Monograph SVG Artwork Generators --- */
+/* --- 8. Vox × Broadsheet Halftone & Monograph SVG Artwork Generators --- */
 function generateEpisodeArtworkSVG(ep) {
+  const patId = `halftone-${ep.id}`;
   return `
     <svg viewBox="0 0 640 360" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="${patId}" width="10" height="10" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.15" fill="#ffffff" fill-opacity="0.11" />
+        </pattern>
+      </defs>
       <rect width="640" height="360" fill="${ep.artTheme.bg}" />
-      <!-- Subtle Architectural Grid & Meridian Lines -->
-      <g stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" fill="none">
-        <line x1="0" y1="64" x2="640" y2="64" />
-        <line x1="0" y1="296" x2="640" y2="296" />
-        <line x1="64" y1="0" x2="64" y2="360" />
-        <line x1="576" y1="0" x2="576" y2="360" />
-        <circle cx="480" cy="180" r="110" />
-        <circle cx="480" cy="180" r="70" stroke-dasharray="3 4" />
-        <line x1="340" y1="180" x2="620" y2="180" />
-        <line x1="480" y1="40" x2="480" y2="320" />
+      <rect width="640" height="360" fill="url(#${patId})" />
+      <!-- Broadsheet Registration & Meridian Framing -->
+      <g stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" fill="none">
+        <rect x="28" y="24" width="584" height="312" />
+        <line x1="28" y1="70" x2="612" y2="70" />
+        <line x1="28" y1="300" x2="612" y2="300" />
+        <circle cx="492" cy="185" r="96" />
+        <circle cx="492" cy="185" r="58" stroke-dasharray="4 4" />
+        <line x1="376" y1="185" x2="608" y2="185" />
+        <line x1="492" y1="74" x2="492" y2="296" />
       </g>
-      <!-- Top Masthead Tag -->
-      <text x="84" y="42" font-family="JetBrains Mono, monospace" font-weight="600" font-size="11" letter-spacing="2" fill="${ep.artTheme.accent}">${ep.artTheme.badge}</text>
-      <text x="556" y="42" text-anchor="end" font-family="JetBrains Mono, monospace" font-weight="500" font-size="11" letter-spacing="1.5" fill="#c5c5c5">1BWS ARCHIVE</text>
+      <!-- Vox Marker Stamp Tag -->
+      <rect x="48" y="36" width="186" height="22" fill="#F7E354" />
+      <text x="58" y="51" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10.5" letter-spacing="1.4" fill="#111111">${ep.artTheme.badge}</text>
+      <text x="592" y="51" text-anchor="end" font-family="JetBrains Mono, monospace" font-weight="600" font-size="10.5" letter-spacing="1.6" fill="#E6E0D2">1BWS PRESS</text>
       <!-- Editorial Roman Numeral & Monograph Typography -->
-      <text x="84" y="168" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="600" font-size="76" fill="#ffffff" fill-opacity="0.92">${ep.artTheme.roman}.</text>
-      <line x1="84" y1="194" x2="220" y2="194" stroke="${ep.artTheme.accent}" stroke-width="2" />
-      <text x="84" y="224" font-family="JetBrains Mono, monospace" font-weight="500" font-size="12" letter-spacing="1.5" fill="#e4e4e4">${ep.code}</text>
-      <text x="84" y="250" font-family="Space Grotesk, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="#ffffff">One Big World Show · PRIMARY SOURCE DISPATCH</text>
+      <text x="52" y="176" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="84" fill="#ffffff">${ep.artTheme.roman}.</text>
+      <rect x="52" y="196" width="128" height="4" fill="#F7E354" />
+      <text x="52" y="232" font-family="JetBrains Mono, monospace" font-weight="600" font-size="12" letter-spacing="1.5" fill="#F7E354">${ep.code}</text>
+      <text x="52" y="258" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="15" letter-spacing="0.4" fill="#ffffff">One Big World Show · PRIMARY SOURCE DISPATCH</text>
       <!-- Bottom Colophon -->
-      <text x="84" y="328" font-family="JetBrains Mono, monospace" font-weight="400" font-size="11" letter-spacing="1" fill="#c5c5c5">PUBLISHED ${ep.date} · MLA VERIFIED</text>
+      <text x="52" y="322" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10.5" letter-spacing="1.2" fill="#E6E0D2">PUBLISHED ${ep.date} · MLA 9TH ED. VERIFIED</text>
     </svg>
   `;
 }
 
 function generatePortraitCollageSVG(slotName, badgeText, titleText, accentColor) {
+  const patId = `desk-ht-${slotName}`;
+  const romanNum = slotName.includes('3') ? 'III' : 'IV';
+  const deskLabel = slotName.includes('3') ? 'SPECIALIST ANALYST DESK' : 'VISITING FELLOWS & OPEN DESK';
   return `
     <svg viewBox="0 0 360 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <rect width="360" height="450" fill="#242e3d" />
-      <!-- Fine Editorial Framing Lines -->
-      <rect x="24" y="24" width="312" height="402" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" />
-      <line x1="24" y1="68" x2="336" y2="68" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" />
-      <line x1="24" y1="356" x2="336" y2="356" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" />
-      <!-- Header Meta -->
-      <text x="42" y="51" font-family="JetBrains Mono, monospace" font-weight="600" font-size="10" letter-spacing="1.8" fill="#c5c5c5">${badgeText}</text>
-      <!-- Minimalist Classical Bust / Silhouette -->
-      <circle cx="180" cy="175" r="56" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="3 3" />
-      <circle cx="180" cy="166" r="34" fill="${accentColor}" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.2" />
-      <path d="M116 286 C116 230, 244 230, 244 286 Z" fill="${accentColor}" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.2" />
+      <defs>
+        <pattern id="${patId}" width="9" height="9" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.1" fill="#ffffff" fill-opacity="0.12" />
+        </pattern>
+      </defs>
+      <rect width="360" height="450" fill="#1A212B" />
+      <rect width="360" height="450" fill="url(#${patId})" />
+      <!-- Crisp Print Plate Frame -->
+      <rect x="22" y="22" width="316" height="406" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" />
+      <line x1="22" y1="68" x2="338" y2="68" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1" />
+      <line x1="22" y1="348" x2="338" y2="348" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1" />
+      <!-- Top Vox Stamp -->
+      <rect x="38" y="35" width="168" height="20" fill="#F7E354" />
+      <text x="46" y="49" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9.5" letter-spacing="1.4" fill="#111111">${badgeText}</text>
+      <!-- Center Broadsheet Monograph Emblem (Intentional Typographic Desk Plate) -->
+      <circle cx="180" cy="204" r="78" fill="${accentColor}" fill-opacity="0.88" stroke="#F7E354" stroke-width="1.5" />
+      <circle cx="180" cy="204" r="64" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3 3" />
+      <text x="180" y="222" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="56" fill="#ffffff">${romanNum}</text>
+      <text x="180" y="314" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="9.5" letter-spacing="2" fill="#E6E0D2">${deskLabel}</text>
       <!-- Footer Caption -->
-      <text x="42" y="384" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10" letter-spacing="1.5" fill="#00c262">1BWS PANELS</text>
-      <text x="42" y="406" font-family="Newsreader, Noto Serif KR, serif" font-weight="600" font-size="15" fill="#ffffff">${titleText}</text>
+      <text x="38" y="378" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.6" fill="#F7E354">1BWS PANELS · EDITORIAL ROSTER</text>
+      <text x="38" y="404" font-family="Newsreader, Noto Serif KR, serif" font-weight="700" font-size="15.5" fill="#ffffff">${titleText}</text>
     </svg>
   `;
 }
 
 function generateStoreItemSVG(item) {
+  const patId = `store-ht-${item.id}`;
   return `
     <svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <rect width="400" height="400" fill="#f3f3f3" />
-      <!-- Monograph Book / Edition Frame -->
-      <rect x="64" y="44" width="272" height="312" fill="#ffffff" stroke="#c5c5c5" stroke-width="1" />
-      <rect x="76" y="56" width="248" height="288" fill="none" stroke="#000000" stroke-width="1" />
-      <line x1="76" y1="104" x2="324" y2="104" stroke="#c5c5c5" stroke-width="1" />
-      <line x1="76" y1="288" x2="324" y2="288" stroke="#c5c5c5" stroke-width="1" />
-      <text x="200" y="85" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="10" letter-spacing="2" fill="#864413">One Big World Show · 1BWS</text>
-      <text x="200" y="185" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="600" font-size="34" fill="#004d26">${item.editionNo}</text>
-      <line x1="160" y1="205" x2="240" y2="205" stroke="#000000" stroke-width="1" />
-      <text x="200" y="232" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10" letter-spacing="1.8" fill="#242e3d">${item.subLabel}</text>
-      <text x="200" y="318" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="9" letter-spacing="1.5" fill="#c5c5c5">TYLER MEDIA PUBLICATIONS</text>
+      <defs>
+        <pattern id="${patId}" width="8" height="8" patternUnits="userSpaceOnUse">
+          <circle cx="1.5" cy="1.5" r="1" fill="#111111" fill-opacity="0.09" />
+        </pattern>
+      </defs>
+      <rect width="400" height="400" fill="#E6E0D2" />
+      <rect width="400" height="400" fill="url(#${patId})" />
+      <!-- Hard Offset Ink Book Shadow + Monograph Cover -->
+      <rect x="74" y="50" width="260" height="308" fill="#111111" />
+      <rect x="66" y="42" width="260" height="308" fill="#FAF8F2" stroke="#111111" stroke-width="2" />
+      <rect x="78" y="54" width="236" height="284" fill="none" stroke="#111111" stroke-width="1" />
+      <line x1="78" y1="102" x2="314" y2="102" stroke="#111111" stroke-width="1" />
+      <line x1="78" y1="286" x2="314" y2="286" stroke="#111111" stroke-width="1" />
+      <text x="196" y="83" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.8" fill="#111111">One Big World Show · 1BWS</text>
+      <rect x="142" y="152" width="108" height="42" fill="#F7E354" />
+      <text x="196" y="182" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="32" fill="#111111">${item.editionNo}</text>
+      <line x1="152" y1="210" x2="240" y2="210" stroke="#111111" stroke-width="1.5" />
+      <text x="196" y="236" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.8" fill="#004D26">${item.subLabel}</text>
+      <text x="196" y="315" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="9" letter-spacing="1.5" fill="#222933">TYLER MEDIA PUBLICATIONS</text>
     </svg>
   `;
 }
@@ -1110,7 +1143,15 @@ function renderFeaturedEpisode() {
   }
 
   const summaryList = document.getElementById('featuredSummaryList');
-  summaryList.innerHTML = ep.summary[currentLang].map(line => `<li>${line}</li>`).join('');
+  summaryList.innerHTML = ep.summary[currentLang].map((line, idx) => {
+    const cleanText = line.replace(/^\d+\.\s*/, '');
+    return `
+      <li>
+        <span class="vox-step-num">0${idx + 1}</span>
+        <span class="vox-step-text">${cleanText}</span>
+      </li>
+    `;
+  }).join('');
 
   const tagsContainer = document.getElementById('featuredTagsContainer');
   tagsContainer.innerHTML = ep.tags.map(t => `<span class="ep-tag">${t}</span>`).join('');
@@ -1125,11 +1166,20 @@ function renderEpisodeGrid() {
     ? episodesData
     : episodesData.filter(ep => ep.platform === currentPlatformFilter);
 
-  grid.innerHTML = filtered.map(ep => `
-    <article class="episode-card ${ep.id === activeEpisodeId ? 'active-episode' : ''}" data-ep-id="${ep.id}">
+  grid.innerHTML = filtered.map((ep, idx) => {
+    const isActive = ep.id === activeEpisodeId;
+    const dispatchNum = String(idx + 1).padStart(2, '0');
+    return `
+    <article class="episode-card ${isActive ? 'active-episode' : ''}" data-ep-id="${ep.id}">
+      <div class="ep-card-meta-strip">
+        <span class="ep-strip-left">
+          <span class="ep-dispatch-num">#${dispatchNum}</span>
+          <span>${ep.platformLabel[currentLang]}</span>
+        </span>
+        <span class="ep-strip-duration">${ep.duration}</span>
+      </div>
       <div class="episode-thumb-slot" data-asset-slot="${ep.slot}">
-        <span class="ep-platform-badge">${ep.platformLabel[currentLang]}</span>
-        <span class="ep-duration-badge">${ep.duration}</span>
+        ${isActive ? `<span class="ep-active-marker">${currentLang === 'ko' ? '▶ 재생 대기' : '▶ ON CONSOLE'}</span>` : ''}
         <div class="slot-visual-holder" style="width:100%;height:100%;">
           ${ep.thumbImg
             ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" width="640" height="360" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />`
@@ -1139,7 +1189,7 @@ function renderEpisodeGrid() {
       </div>
       <div class="episode-card-body">
         <div>
-          <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--green-primary); letter-spacing: 0.05em; margin-bottom: 8px;">
+          <div class="ep-card-kicker">
             ${ep.code} · ${ep.date}
           </div>
           <h3 class="episode-card-title">${ep.title[currentLang]}</h3>
@@ -1147,11 +1197,12 @@ function renderEpisodeGrid() {
         </div>
         <div class="episode-card-footer">
           <span>${ep.views[currentLang]}</span>
-          <span style="font-weight: 600; color: var(--pure-white);">SELECT EPISODE →</span>
+          <span class="ep-select-cta">${isActive ? (currentLang === 'ko' ? '현재 선택됨 ✓' : 'LOADED ✓') : (currentLang === 'ko' ? '플레이어 로드 →' : 'LOAD DISPATCH →')}</span>
         </div>
       </div>
     </article>
-  `).join('');
+  `;
+  }).join('');
 
   grid.querySelectorAll('.episode-card').forEach(card => {
     card.addEventListener('click', (e) => {
@@ -1207,26 +1258,45 @@ function renderDossierGrid() {
     return;
   }
 
-  grid.innerHTML = filtered.map(d => `
-    <article class="dossier-card" data-brief-id="${d.id}">
+  const useAsymmetricLead = filtered.length >= 3;
+
+  grid.innerHTML = filtered.map((d, idx) => {
+    const isLead = useAsymmetricLead && idx === 0;
+    return `
+    <article class="dossier-card ${isLead ? 'dossier-lead-card' : ''}" data-brief-id="${d.id}">
       <div>
         <div class="dossier-card-top">
-          <span class="dossier-cat-tag ${d.tagClass}">${d.topicLabel[currentLang]}</span>
+          <div class="dossier-top-badges">
+            ${isLead ? `<span class="lead-dossier-stamp">${currentLang === 'ko' ? '★ 커버스토리 · LEAD DOSSIER' : '★ COVER DOSSIER'}</span>` : ''}
+            <span class="dossier-cat-tag ${d.tagClass}">${d.topicLabel[currentLang]}</span>
+          </div>
           <span class="dossier-region-badge">${d.regionLabel[currentLang]}</span>
         </div>
-        <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--bg-deep-slate); letter-spacing: 0.06em; margin-bottom: 8px;">
-          ${d.code} · MLA VERIFIED
+        <div class="dossier-code-line">
+          <span>${d.code}</span>
+          <span>·</span>
+          <span>MLA 9TH ED. VERIFIED</span>
         </div>
         <h3 class="dossier-title">${d.title[currentLang]}</h3>
-        <p class="dossier-summary-p">${d.p1[currentLang]}</p>
-        <p class="dossier-summary-p">${d.p2[currentLang]}</p>
+        ${isLead
+          ? `<div class="dossier-lead-columns">
+               <div class="dossier-why-callout">
+                 <span class="why-badge">${currentLang === 'ko' ? '핵심 테제 · WHY IT MATTERS' : 'WHY IT MATTERS'}</span>
+                 <p class="dossier-summary-p">${d.p1[currentLang]}</p>
+               </div>
+               <p class="dossier-summary-p">${d.p2[currentLang]}</p>
+             </div>`
+          : `<p class="dossier-summary-p">${d.p1[currentLang]}</p>
+             <p class="dossier-summary-p">${d.p2[currentLang]}</p>`
+        }
       </div>
       <div class="dossier-meta-footer">
         <span>${d.date} · ${d.readTime}</span>
-        <span class="dossier-read-cta">${currentLang === 'ko' ? '전문 및 사료 열람 →' : 'Read Dossier →'}</span>
+        <span class="dossier-read-cta">${currentLang === 'ko' ? '전문 및 1차 사료 열람 →' : 'Read Full Dossier →'}</span>
       </div>
     </article>
-  `).join('');
+  `;
+  }).join('');
 
   grid.querySelectorAll('.dossier-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -1238,13 +1308,14 @@ function renderDossierGrid() {
 function openDossierSlideover(briefId) {
   const d = dossiersData.find(item => item.id === briefId) || dossiersData[0];
   activeDossierMlaSources = d.mlaSources || [];
-  document.getElementById('drawerDossierCode').textContent = `${d.code} · ${d.topicLabel[currentLang]} · ${d.regionLabel[currentLang]}`;
-  document.getElementById('drawerReadTime').textContent = `${d.date} · ${d.readTime}`;
+  document.getElementById('drawerDossierCode').textContent = `${d.code} · ${d.topicLabel[currentLang]}`;
+  document.getElementById('drawerReadTime').textContent = `${d.regionLabel[currentLang]} · ${d.date} · ${d.readTime}`;
   document.getElementById('drawerArticleBody').innerHTML = `
     <h2 id="drawerArticleTitle">${d.title[currentLang]}</h2>
-    <p style="font-weight: 500; background: var(--bg-paper-light); padding: 18px 20px; border-left: 2px solid var(--green-forest); color: var(--pure-black);">
-      ${d.p1[currentLang]} ${d.p2[currentLang]}
-    </p>
+    <div class="drawer-vox-abstract">
+      <div class="vox-abstract-kicker">${currentLang === 'ko' ? 'THE BIG PICTURE · 핵심 요약 브리핑' : 'THE BIG PICTURE · EXECUTIVE BRIEFING'}</div>
+      <p>${d.p1[currentLang]} ${d.p2[currentLang]}</p>
+    </div>
     ${d.fullBody[currentLang]}
   `;
   document.getElementById('drawerMlaList').innerHTML = d.mlaSources.map(src => `<li>${src}</li>`).join('');
@@ -1263,6 +1334,7 @@ function renderCastSection() {
 
   hostContainer.innerHTML = `
     <div class="host-photo-slot" data-asset-slot="${hostTylerData.slot}">
+      <span class="portrait-plate-tag">MAIN PANEL · 1BWS</span>
       <div class="slot-visual-holder" style="width:100%;height:100%;">
         ${hostTylerData.photo
           ? `<img src="${hostTylerData.photo}" alt="${hostTylerData.name[currentLang]}" width="480" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
@@ -1300,6 +1372,7 @@ function renderCastSection() {
   grid.innerHTML = castMembersData.map(m => `
     <article class="cast-card">
       <div class="cast-member-slot" data-asset-slot="${m.slot}">
+        ${m.photo ? `<span class="portrait-plate-tag">${m.badgeCode}</span>` : ''}
         <div class="slot-visual-holder" style="width:100%;height:100%;">
           ${m.photo
             ? `<img src="${m.photo}" alt="${m.name[currentLang]}" width="360" height="450" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
@@ -1529,12 +1602,23 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
   });
 
-  // Asset Slot Overlay Inspector Toggle
+  // Asset Slot Overlay Inspector Toggle (Hidden unless ?slots=1 or Shift+Alt+S)
   const slotToggleBtn = document.getElementById('toggleSlotInspectorBtn');
-  slotToggleBtn.addEventListener('click', () => {
+  if (window.location.search.includes('slots=1')) {
+    slotToggleBtn.classList.remove('is-hidden-devtools');
+  }
+  const toggleAssetSlots = () => {
+    slotToggleBtn.classList.remove('is-hidden-devtools');
     const isShowing = document.body.classList.toggle('show-asset-slots');
     slotToggleBtn.classList.toggle('active', isShowing);
     slotToggleBtn.textContent = isShowing ? 'Asset Slots: On' : 'Asset Slots: Off';
+  };
+  slotToggleBtn.addEventListener('click', toggleAssetSlots);
+  window.addEventListener('keydown', (e) => {
+    if (e.shiftKey && e.altKey && (e.key === 'S' || e.key === 's')) {
+      e.preventDefault();
+      toggleAssetSlots();
+    }
   });
 
   // File Input Handler for Testing Custom Images in Any data-asset-slot
@@ -1555,9 +1639,22 @@ document.addEventListener('DOMContentLoaded', () => {
     reader.readAsDataURL(file);
   });
 
-  // Mobile Menu Toggle
-  document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-    document.getElementById('navMenu').classList.toggle('mobile-open');
+  // Mobile Menu Toggle + Auto-Close on Section Click
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navMenuEl = document.getElementById('navMenu');
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = navMenuEl.classList.toggle('mobile-open');
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileMenuBtn.textContent = isOpen ? 'CLOSE ✕' : 'INDEX ☰';
+  });
+  navMenuEl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenuEl.classList.contains('mobile-open')) {
+        navMenuEl.classList.remove('mobile-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.textContent = 'INDEX ☰';
+      }
+    });
   });
 
   // Hero Plate I Thematic Index Tabs

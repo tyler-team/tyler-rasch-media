@@ -97,7 +97,7 @@
       </div>
       <div class="edition-right">
         <span data-i18n="topbar.primarySource">PRIMARY SOURCE VERIFIED JOURNALISM (MLA 9TH ED.)</span>
-        <button type="button" id="toggleSlotInspectorBtn" class="asset-inspector-toggle" title="Toggle data-asset-slot overlay">
+        <button type="button" id="toggleSlotInspectorBtn" class="asset-inspector-toggle is-hidden-devtools" title="Toggle data-asset-slot overlay (Shift+Alt+S)">
           Asset Slots: Off
         </button>
       </div>
@@ -105,42 +105,56 @@
   </div>
 
   <!-- ========================================================================
-       STICKY EDITORIAL HEADER (상단 고정 네비게이션 바)
+       DOUBLE-DECK BROADSHEET MASTHEAD (상단 고정 에디토리얼 마스트헤드)
        ======================================================================== -->
   <header class="sticky-header" id="stickyHeader">
-    <div class="header-inner">
-      <!-- Left: Transparent Black 1BWS Logo -->
-      <a href="#hero-manifesto" class="brand-logo-link" aria-label="1BWS Home">
-        <div data-asset-slot="logo-transparent">
-          <img src="/1BWS/assets/logo-transparent.png" alt="1BWS Official Logo" class="nav-logo-img" width="96" height="32" decoding="async" />
-        </div>
-        <div class="brand-wordmark">
-          <span class="brand-wordmark-title">One Big World Show</span>
-          <span class="brand-wordmark-sub" data-i18n="nav.subbrand">원빅월드쇼 · 1BWS</span>
-        </div>
-      </a>
+    <!-- Deck 1: Brand Identity, Editorial Stamp & Actions -->
+    <div class="header-deck-top">
+      <div class="header-inner">
+        <!-- Left: Transparent Black 1BWS Logo -->
+        <a href="#hero-manifesto" class="brand-logo-link" aria-label="1BWS Home">
+          <div data-asset-slot="logo-transparent" class="brand-logo-mark-wrap">
+            <img src="/1BWS/assets/logo-transparent.png" alt="1BWS Official Logo" class="nav-logo-img" width="96" height="32" decoding="async" />
+          </div>
+          <div class="brand-wordmark">
+            <span class="brand-wordmark-title">One Big World Show</span>
+            <span class="brand-wordmark-sub" data-i18n="nav.subbrand">원빅월드쇼 · 1BWS</span>
+          </div>
+        </a>
 
-      <!-- Center Anchor Menu (Smooth Scroll) -->
-      <nav class="nav-menu" id="navMenu" aria-label="Primary Editorial Navigation">
-        <a href="#hero-manifesto" class="nav-link active" data-section="hero-manifesto" data-i18n="nav.manifesto">Manifesto</a>
-        <a href="#media-hub" class="nav-link" data-section="media-hub" data-i18n="nav.mediaHub">Broadcast</a>
-        <a href="#intelligence-dossier" class="nav-link" data-section="intelligence-dossier" data-i18n="nav.intelligence">Dossiers</a>
-        <a href="#the-cast" class="nav-link" data-section="the-cast" data-i18n="nav.cast">Panels</a>
-        <a href="#press-room" class="nav-link" data-section="press-room" data-i18n="nav.press">Press</a>
-        <a href="#curated-store" class="nav-link" data-section="curated-store" data-i18n="nav.store">Store</a>
-        <a href="#get-involved" class="nav-link" data-section="get-involved" data-i18n="nav.getInvolved">Participate</a>
-        <a href="#partnerships-b2b" class="nav-link" data-section="partnerships-b2b" data-i18n="nav.partnerships">Partnerships</a>
-      </nav>
-
-      <!-- Right Action Buttons: Newsletter Subscribe + KR|EN Language Switch -->
-      <div class="header-actions">
-        <a href="#newsletter-capture" class="btn-nav-newsletter" data-i18n="nav.newsletterBtn">뉴스레터 구독</a>
-        <div class="lang-toggle" role="group" aria-label="Language Switcher">
-          <button type="button" class="lang-btn active" data-lang="ko">KR</button>
-          <span class="lang-divider">/</span>
-          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <!-- Center Broadsheet Stamp (Desktop) -->
+        <div class="masthead-edition-center" aria-hidden="true">
+          <span class="edition-marker-tag">WEEKLY DISPATCH</span>
+          <span class="edition-center-text" data-i18n="nav.mastheadTag">EXPLANATORY REALPOLITIK &amp; ARCHIVE</span>
         </div>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">MENU</button>
+
+        <!-- Right Action Buttons: KR|EN Switch + Subscribe CTA + Mobile Index Toggle -->
+        <div class="header-actions">
+          <div class="lang-toggle" role="group" aria-label="Language Switcher">
+            <button type="button" class="lang-btn active" data-lang="ko">KR</button>
+            <span class="lang-divider">/</span>
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
+          </div>
+          <a href="#newsletter-capture" class="btn-nav-newsletter" data-i18n="nav.newsletterBtn">뉴스레터 구독</a>
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Section Index" aria-expanded="false">INDEX ☰</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deck 2: Full-Width Broadsheet Section Index Strip -->
+    <div class="header-deck-nav">
+      <div class="container nav-strip-container">
+        <nav class="nav-menu" id="navMenu" aria-label="Primary Editorial Navigation">
+          <a href="#hero-manifesto" class="nav-link active" data-section="hero-manifesto"><span class="nav-num">01</span><span data-i18n="nav.manifesto">Manifesto</span></a>
+          <a href="#media-hub" class="nav-link" data-section="media-hub"><span class="nav-num">02</span><span data-i18n="nav.mediaHub">Broadcast</span></a>
+          <a href="#intelligence-dossier" class="nav-link" data-section="intelligence-dossier"><span class="nav-num">03</span><span data-i18n="nav.intelligence">Dossiers</span></a>
+          <a href="#the-cast" class="nav-link" data-section="the-cast"><span class="nav-num">04</span><span data-i18n="nav.cast">Panels</span></a>
+          <a href="#press-room" class="nav-link" data-section="press-room"><span class="nav-num">05</span><span data-i18n="nav.press">Press</span></a>
+          <a href="#curated-store" class="nav-link" data-section="curated-store"><span class="nav-num">06</span><span data-i18n="nav.store">Store</span></a>
+          <a href="#get-involved" class="nav-link" data-section="get-involved"><span class="nav-num">07</span><span data-i18n="nav.getInvolved">Participate</span></a>
+          <a href="#partnerships-b2b" class="nav-link" data-section="partnerships-b2b"><span class="nav-num">08</span><span data-i18n="nav.partnerships">Partnerships</span></a>
+          <a href="#newsletter-capture" class="mobile-drawer-newsletter-btn" data-i18n="nav.newsletterBtn">뉴스레터 구독 →</a>
+        </nav>
       </div>
     </div>
   </header>
@@ -160,13 +174,18 @@
         <div class="hero-editorial-grid">
           <!-- Left Editorial Typography & CTAs -->
           <div class="hero-copy-col">
+            <div class="vox-rubric-pill">
+              <span class="rubric-marker">THE BIG PICTURE</span>
+              <span class="rubric-sub" data-i18n="hero.rubricSub">1차 사료 기반 글로벌 설명 저널리즘</span>
+            </div>
+
             <h1 class="hero-headline-en">
               Beyond the Headlines,<br />
               <em>Decoding the One Big World.</em>
             </h1>
 
             <h2 class="hero-headline-kr" data-i18n="hero.headlineKr">
-              단편적인 뉴스를 넘어, 거대한 세계의 판을 읽다 — 원빅월드쇼 (1BWS)
+              단편적인 뉴스를 넘어, <mark class="vox-highlight">거대한 세계의 판을 읽다</mark> — 원빅월드쇼 (1BWS)
             </h2>
 
             <p class="hero-subcopy" data-i18n="hero.subcopy">
@@ -184,15 +203,15 @@
 
             <div class="hero-quick-metrics">
               <div class="hero-mini-stat">
-                <div class="hero-mini-stat-label" data-i18n="hero.stat1Label">ANALYTICAL LENS</div>
+                <div class="hero-mini-stat-label"><span class="stat-idx">[01]</span> <span data-i18n="hero.stat1Label">ANALYTICAL LENS</span></div>
                 <div class="hero-mini-stat-val" data-i18n="hero.stat1Val">Global Macro &amp; Realpolitik</div>
               </div>
               <div class="hero-mini-stat">
-                <div class="hero-mini-stat-label" data-i18n="hero.stat2Label">RESEARCH STANDARD</div>
+                <div class="hero-mini-stat-label"><span class="stat-idx">[02]</span> <span data-i18n="hero.stat2Label">RESEARCH STANDARD</span></div>
                 <div class="hero-mini-stat-val" data-i18n="hero.stat2Val">MLA 1차 사료 교차 검증</div>
               </div>
               <div class="hero-mini-stat">
-                <div class="hero-mini-stat-label" data-i18n="hero.stat3Label">EDITORIAL CADENCE</div>
+                <div class="hero-mini-stat-label"><span class="stat-idx">[03]</span> <span data-i18n="hero.stat3Label">EDITORIAL CADENCE</span></div>
                 <div class="hero-mini-stat-val" data-i18n="hero.stat3Val">주간 심층 다큐 &amp; 도시에</div>
               </div>
             </div>
@@ -201,28 +220,34 @@
           <!-- Right Editorial Plate Showcase Frame -->
           <div class="hero-collage-col">
             <figure class="collage-showcase-frame">
+              <span class="reg-mark reg-tl" aria-hidden="true">+</span>
+              <span class="reg-mark reg-tr" aria-hidden="true">+</span>
+              <span class="reg-mark reg-bl" aria-hidden="true">+</span>
+              <span class="reg-mark reg-br" aria-hidden="true">+</span>
+
               <div class="collage-frame-topbar">
-                <span>PLATE I — THE ONE BIG WORLD ARCHIVE</span>
+                <span><strong class="plate-tag">PLATE I</strong> — THE ONE BIG WORLD ARCHIVE</span>
                 <span class="plate-sub-label" data-i18n="hero.hotspotHint">INDEX OF THEMES</span>
               </div>
 
-              <!-- Direct mapping of 1BWS Hero Collage Banner -->
-              <div class="collage-mat-bevel">
+              <!-- Direct mapping of 1BWS Hero Collage Banner on Halftone Zine Mat -->
+              <div class="collage-mat-bevel halftone-surface">
                 <div class="collage-artwork-wrapper" data-asset-slot="hero-collage-banner">
                   <img src="/1BWS/assets/hero-collage-banner.jpg" alt="1BWS Editorial Collage Artwork" class="collage-banner-img" id="heroCollageImg" width="1280" height="720" fetchpriority="high" decoding="async" />
                   <button type="button" class="slot-replace-trigger" data-slot-target="hero-collage-banner">Replace Image</button>
                 </div>
               </div>
 
-              <!-- Subtle Editorial Thematic Index (Replaces floating cartoon pins) -->
+              <!-- Vox-Style Interactive Thematic Index Tabs -->
               <div class="collage-index-bar" role="tablist" aria-label="Editorial Themes">
-                <button type="button" class="collage-hotspot active" data-hotspot="usd">I. Monetary Order</button>
-                <button type="button" class="collage-hotspot" data-hotspot="congress">II. Realpolitik</button>
-                <button type="button" class="collage-hotspot" data-hotspot="space">III. Tech &amp; Grid</button>
-                <button type="button" class="collage-hotspot" data-hotspot="binoculars">IV. Primary Archive</button>
+                <button type="button" class="collage-hotspot active" data-hotspot="usd"><span class="hotspot-num">I</span> Monetary</button>
+                <button type="button" class="collage-hotspot" data-hotspot="congress"><span class="hotspot-num">II</span> Realpolitik</button>
+                <button type="button" class="collage-hotspot" data-hotspot="space"><span class="hotspot-num">III</span> Tech &amp; Grid</button>
+                <button type="button" class="collage-hotspot" data-hotspot="binoculars"><span class="hotspot-num">IV</span> Archive</button>
               </div>
 
               <figcaption class="collage-caption-footer">
+                <span class="lens-explainer-badge" data-i18n="hero.lensBadge">THE LENS →</span>
                 <div class="collage-hotspot-readout" id="collageHotspotReadout" data-i18n="hero.hotspotDefault">
                   I. 통화와 자본의 질서 — 지정학적 전환기마다 재편되는 기축통화 체제, 국채 시장, 그리고 글로벌 유동성의 기저 흐름을 추적합니다.
                 </div>
@@ -285,7 +310,7 @@
             </p>
           </div>
           <div class="section-meta-right">
-            BROADCAST ARCHIVE
+            <span class="console-live-pill"><span class="live-pulse-dot"></span> ON-AIR &amp; ARCHIVE</span>
           </div>
         </div>
 
@@ -293,8 +318,8 @@
         <div class="broadcast-console-wrapper">
           <div class="broadcast-console-topbar">
             <div class="console-topbar-left">
-              <span class="on-air-badge"><span class="live-pulse-dot"></span> FEATURED DISPATCH</span>
-              <span id="featuredEpCode" class="console-ep-code">FEATURED · MARITIME &amp; SUPPLY CHAIN GEOPOLITICS</span>
+              <span class="on-air-badge"><span class="live-pulse-dot"></span> LEAD DISPATCH</span>
+              <span id="featuredEpCode" class="console-ep-code">DISPATCH 01 · GEOPOLITICS &amp; MARITIME</span>
             </div>
             <div id="featuredEpDate" class="console-ep-date">PUBLISHED: 2026.11.02 · RUNTIME: 14:31</div>
           </div>
@@ -334,7 +359,10 @@
                   미중 패권 전쟁의 반전, 대한민국에 역대급 기회가 터졌다!
                 </h3>
 
-                <div class="summary-box-title" data-i18n="media.summaryHeader">EXECUTIVE SUMMARY — 3줄 핵심 요약</div>
+                <div class="summary-box-header-row">
+                  <span class="vox-explainer-flag">WHY IT MATTERS</span>
+                  <span class="summary-box-title" data-i18n="media.summaryHeader">3-LINE EXECUTIVE EXPLAINER</span>
+                </div>
                 <ul class="three-line-summary" id="featuredSummaryList">
                   <!-- Populated by app.js -->
                 </ul>
@@ -452,10 +480,13 @@
          ====================================================================== -->
     <section id="newsletter-capture" class="newsletter-section">
       <div class="container">
-        <div class="newsletter-box">
+        <div class="newsletter-box halftone-dark-surface">
           <!-- Left: Editorial Dispatch & Email Capture Form -->
           <div class="newsletter-copy-col">
-            <span class="megaphone-kicker">04 — WEEKLY INTELLIGENCE DISPATCH</span>
+            <div class="newsletter-kicker-row">
+              <span class="megaphone-kicker">04 — WEEKLY INTELLIGENCE DISPATCH</span>
+              <span class="vox-stamp-badge">TUE 07:00 KST · FREE BRIEF</span>
+            </div>
             <h2 class="newsletter-headline" data-i18n="newsletter.headline">
               매주 방송에서 다 다루지 못한 1차 사료 원문과 데스크 노트를 서재로 보내드립니다.
             </h2>
@@ -777,20 +808,19 @@
        ======================================================================== -->
   <div class="slideover-backdrop" id="dossierSlideoverBackdrop" aria-hidden="true">
     <aside class="slideover-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerArticleTitle">
-      <div class="drawer-reading-progress-track">
-        <div class="drawer-reading-progress-bar" id="drawerReadingProgress"></div>
-      </div>
       <div class="drawer-sticky-top">
         <div class="drawer-meta-left">
           <span id="drawerDossierCode" class="drawer-code">DOSSIER #2026-01</span>
-          <span class="drawer-sep">·</span>
-          <span id="drawerReadTime" class="drawer-readtime">READ TIME: 8 MIN</span>
+          <span id="drawerReadTime" class="drawer-readtime">2026.10.27 · 9 MIN READ</span>
         </div>
         <div class="drawer-actions-right">
           <button type="button" id="downloadDossierPdfBtn" class="btn-drawer-pdf" data-i18n="dossier.downloadPdfBtn">
-            PDF 리포트 인쇄 / 저장
+            PDF / PRINT
           </button>
           <button type="button" id="closeSlideoverBtn" class="modal-close-btn">CLOSE ✕</button>
+        </div>
+        <div class="drawer-reading-progress-track">
+          <div class="drawer-reading-progress-bar" id="drawerReadingProgress"></div>
         </div>
       </div>
 
