@@ -107,6 +107,22 @@ const nextConfig: NextConfig = {
         source: '/BuyEuropean2/',
         destination: '/buyeuropean2/index.html',
       },
+      {
+        source: '/1BWS_EP21',
+        destination: '/1BWS_EP21/index.html',
+      },
+      {
+        source: '/1BWS_EP21/',
+        destination: '/1BWS_EP21/index.html',
+      },
+      {
+        source: '/1bws_ep21',
+        destination: '/1BWS_EP21/index.html',
+      },
+      {
+        source: '/1bws_ep21/',
+        destination: '/1BWS_EP21/index.html',
+      },
     ];
   },
   async headers() {
@@ -224,6 +240,46 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/BuyEuropean2',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP21/assets/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP21/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP21',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep21',
         headers: [
           {
             key: 'X-Robots-Tag',
