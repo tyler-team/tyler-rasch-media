@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin/", "/api/", "/1BWS", "/1BWS/", "/1bws", "/1bws/", "/buyeuropean", "/buyeuropean/", "/BuyEuropean", "/BuyEuropean/", "/buyeuropean2", "/buyeuropean2/", "/BuyEuropean2", "/BuyEuropean2/", "/1BWS_EP21", "/1BWS_EP21/", "/1bws_ep21", "/1bws_ep21/"],
+      disallow: ["/admin/", "/api/", "/1BWS", "/1BWS/", "/1bws", "/1bws/", "/1BWS_EP21", "/1BWS_EP21/", "/1bws_ep21", "/1bws_ep21/"],
     },
     sitemap: "https://www.tylerrasch.com/sitemap.xml",
   };
