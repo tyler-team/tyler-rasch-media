@@ -131,7 +131,7 @@ const i18nDict = {
     'topbar.edition': '1BWS GLOBAL EDITION — VOL. 2026',
     'topbar.dateline': 'SEOUL · WASHINGTON · BRUSSELS · SINGAPORE',
     'topbar.primarySource': 'PRIMARY SOURCE VERIFIED JOURNALISM (MLA 9TH ED.)',
-    'nav.subbrand': 'One Big World Show · 1BWS',
+    'nav.subbrand': '원빅월드쇼 · 1BWS',
     'nav.mastheadTag': 'EXPLANATORY REALPOLITIK & PRIMARY SOURCE ARCHIVE',
     'nav.manifesto': 'Manifesto',
     'nav.mediaHub': 'Broadcast',
