@@ -329,11 +329,28 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/1BWS_EP18/index.html',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
         source: '/1BWS_EP18',
         headers: [
           {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
@@ -344,6 +361,10 @@ const nextConfig: NextConfig = {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
           },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
         ],
       },
       {
@@ -352,6 +373,10 @@ const nextConfig: NextConfig = {
           {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
