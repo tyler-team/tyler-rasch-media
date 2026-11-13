@@ -114,7 +114,7 @@
         <!-- Left: Transparent Black 1BWS Logo -->
         <a href="#hero-manifesto" class="brand-logo-link" aria-label="1BWS Home">
           <div data-asset-slot="logo-transparent" class="brand-logo-mark-wrap">
-            <img src="/1BWS/assets/logo-transparent.png" alt="1BWS Official Logo" class="nav-logo-img" width="96" height="32" decoding="async" />
+            <img src="/1BWS/assets/logo-transparent.png" alt="1BWS Official Logo" class="nav-logo-img" width="60" height="32" decoding="async" />
           </div>
           <div class="brand-wordmark">
             <span class="brand-wordmark-title">One Big World Show</span>
@@ -232,22 +232,26 @@
 
               <!-- Direct mapping of 1BWS Hero Collage Banner on Halftone Zine Mat -->
               <div class="collage-mat-bevel halftone-surface">
-                <div class="collage-artwork-wrapper" data-asset-slot="hero-collage-banner">
+                <div class="collage-artwork-wrapper" data-asset-slot="hero-collage-banner" data-focus="usd">
                   <img src="/1BWS/assets/hero-collage-banner.jpg" alt="1BWS Editorial Collage Artwork" class="collage-banner-img" id="heroCollageImg" width="1280" height="720" fetchpriority="high" decoding="async" />
+                  <span class="collage-focus-reticle" id="collageFocusReticle" aria-hidden="true"></span>
                   <button type="button" class="slot-replace-trigger" data-slot-target="hero-collage-banner">Replace Image</button>
                 </div>
               </div>
 
-              <!-- Vox-Style Interactive Thematic Index Tabs -->
+              <!-- Interactive Thematic Index Tabs -->
               <div class="collage-index-bar" role="tablist" aria-label="Editorial Themes">
-                <button type="button" class="collage-hotspot active" data-hotspot="usd"><span class="hotspot-num">I</span> Monetary</button>
-                <button type="button" class="collage-hotspot" data-hotspot="congress"><span class="hotspot-num">II</span> Realpolitik</button>
-                <button type="button" class="collage-hotspot" data-hotspot="space"><span class="hotspot-num">III</span> Tech &amp; Grid</button>
-                <button type="button" class="collage-hotspot" data-hotspot="binoculars"><span class="hotspot-num">IV</span> Archive</button>
+                <button type="button" class="collage-hotspot active" data-hotspot="usd" data-topic-filter="macro"><span class="hotspot-num">I</span> Monetary</button>
+                <button type="button" class="collage-hotspot" data-hotspot="congress" data-topic-filter="geopolitics"><span class="hotspot-num">II</span> Realpolitik</button>
+                <button type="button" class="collage-hotspot" data-hotspot="space" data-topic-filter="tech"><span class="hotspot-num">III</span> Tech &amp; Grid</button>
+                <button type="button" class="collage-hotspot" data-hotspot="binoculars" data-topic-filter="history"><span class="hotspot-num">IV</span> Archive</button>
               </div>
 
               <figcaption class="collage-caption-footer">
-                <span class="lens-explainer-badge" data-i18n="hero.lensBadge">THE LENS →</span>
+                <div class="collage-caption-header-row">
+                  <span class="lens-explainer-badge" data-i18n="hero.lensBadge">THE LENS →</span>
+                  <a href="#intelligence-dossier" id="collageJumpDossierBtn" class="collage-jump-btn" data-topic-target="macro" data-i18n="hero.jumpDossier">연관 도시에 탐색 →</a>
+                </div>
                 <div class="collage-hotspot-readout" id="collageHotspotReadout" data-i18n="hero.hotspotDefault">
                   I. 통화와 자본의 질서 — 지정학적 전환기마다 재편되는 기축통화 체제, 국채 시장, 그리고 글로벌 유동성의 기저 흐름을 추적합니다.
                 </div>
@@ -741,7 +745,7 @@
         <div class="footer-brand-col">
           <div class="footer-brand-header">
             <div data-asset-slot="logo-circle-dark">
-              <img src="/1BWS/assets/logo-circle-dark.png" alt="1BWS Circle Seal Logo" class="footer-circle-logo" width="52" height="52" loading="lazy" decoding="async" />
+              <img src="/1BWS/assets/logo-circle-dark.png" alt="1BWS Circle Seal Logo" class="footer-circle-logo" width="52" height="52" loading="eager" decoding="async" />
             </div>
             <div>
               <div class="footer-brand-name">One Big World Show (1BWS)</div>
@@ -800,7 +804,7 @@
 
   <!-- Floating Scroll-to-Top Official Seal Button -->
   <button type="button" class="floating-seal-btn" id="scrollToTopSealBtn" title="맨 위로 이동 (Back to Top)" data-asset-slot="logo-circle-dark">
-    <img src="/1BWS/assets/logo-circle-dark.png" alt="1BWS Back to Top" width="48" height="48" loading="lazy" decoding="async" />
+    <img src="/1BWS/assets/logo-circle-dark.png" alt="1BWS Back to Top" width="48" height="48" loading="eager" decoding="async" />
   </button>
 
   <!-- ========================================================================

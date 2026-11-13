@@ -44,6 +44,7 @@ const i18nDict = {
     'hero.stat3Val': '주간 심층 다큐 & 도시에',
     'hero.hotspotHint': 'INDEX OF THEMES',
     'hero.hotspotDefault': 'I. 통화와 자본의 질서 — 지정학적 전환기마다 재편되는 기축통화 체제, 국채 시장, 그리고 글로벌 유동성의 기저 흐름을 추적합니다.',
+    'hero.jumpDossier': '연관 도시에 탐색 →',
     'manifesto.headerTitle': 'THE 1BWS MANIFESTO & EDITORIAL CHARTER — 원빅월드쇼 저널리즘 선언문',
     'manifesto.title': '“세상은 단절된 사건들의 나열이 아니라, 치밀하게 맞물린 하나의 시스템(One Big World)입니다.”',
     'manifesto.p1': '오늘날의 미디어 환경은 파편화된 속보 경쟁과 확증 편향 알고리즘에 갇혀 사건의 표피만을 소비합니다. 그러나 한 국가의 입법 보고서 한 줄은 지구 반대편의 환율과 자본시장을 움직이고, 해협의 안보 위기는 글로벌 에너지 공급망과 통화 정책의 궤도를 동시에 수정합니다.',
@@ -157,6 +158,7 @@ const i18nDict = {
     'hero.stat3Val': 'Weekly Documentaries & Dossiers',
     'hero.hotspotHint': 'INDEX OF THEMES',
     'hero.hotspotDefault': 'I. Monetary & Capital Order — Tracing sovereign debt architectures, reserve currency realignments, and global liquidity cycles.',
+    'hero.jumpDossier': 'Filter Related Dossiers →',
     'manifesto.headerTitle': 'THE 1BWS MANIFESTO & EDITORIAL CHARTER',
     'manifesto.title': '“The world is not a sequence of isolated headlines—it is One Big Interconnected System.”',
     'manifesto.p1': 'Modern media ecosystems are trapped in breaking-news velocity and algorithmic echo chambers. Yet a single clause in a legislative filing shifts exchange rates and capital markets across oceans, while a maritime chokepoint crisis reshapes global energy supply chains and monetary policy trajectories simultaneously.',
@@ -245,20 +247,28 @@ const i18nDict = {
 /* --- 2. Plate I Thematic Index Data (Subtle, Erudite Framing) --- */
 const hotspotData = {
   usd: {
+    topic: 'macro',
     ko: 'I. 통화와 자본의 질서 — 지정학적 전환기마다 재편되는 기축통화 체제, 국채 시장, 그리고 글로벌 유동성의 기저 흐름을 추적합니다.',
-    en: 'I. Monetary & Capital Order — Tracing sovereign debt architectures, reserve currency realignments, and global liquidity cycles.'
+    en: 'I. Monetary & Capital Order — Tracing sovereign debt architectures, reserve currency realignments, and global liquidity cycles.',
+    cta: { ko: '거시경제·통화 도시에 보기 →', en: 'Explore Macro Dossiers →' }
   },
   congress: {
+    topic: 'geopolitics',
     ko: 'II. 입법과 리얼폴리틱 — 각국 의회 법안 원문, 조약 문서, 외교 전문 등 1차 사료를 직접 해독하여 권력과 제도의 작동 원리를 분석합니다.',
-    en: 'II. Legislation & Realpolitik — Reading primary legislative texts, treaties, and diplomatic filings to decode how institutional power operates.'
+    en: 'II. Legislation & Realpolitik — Reading primary legislative texts, treaties, and diplomatic filings to decode how institutional power operates.',
+    cta: { ko: '지정학·외교 도시에 보기 →', en: 'Explore Geopolitics Dossiers →' }
   },
   space: {
+    topic: 'tech',
     ko: 'III. 기술 패권과 공급망 — AI 데이터센터 전력망, 차세대 원전, 반도체 및 핵심광물 공급망이 국가 안보와 직결되는 현장을 해부합니다.',
-    en: 'III. Frontier Tech & Supply Chains — Dissecting how power grids, nuclear energy, semiconductors, and critical minerals reshape security.'
+    en: 'III. Frontier Tech & Supply Chains — Dissecting how power grids, nuclear energy, semiconductors, and critical minerals reshape security.',
+    cta: { ko: '기술·전력망 도시에 보기 →', en: 'Explore Tech & Grid Dossiers →' }
   },
   binoculars: {
+    topic: 'history',
     ko: 'IV. 사료 검증과 거시적 시야 — 단편적인 속보 너머의 역사적 평행이론과 구조적 맥락을 포착하는 1BWS의 아카이브 저널리즘을 상징합니다.',
-    en: 'IV. Primary Archive & Deep Perspective — Connecting declassified historical records with contemporary structural shifts.'
+    en: 'IV. Primary Archive & Deep Perspective — Connecting declassified historical records with contemporary structural shifts.',
+    cta: { ko: '역사·사료 아카이브 보기 →', en: 'Explore Archive Dossiers →' }
   }
 };
 
@@ -1001,44 +1011,182 @@ const storeItemsData = [
 /* --- 8. Vox × Broadsheet Halftone & Monograph SVG Artwork Generators --- */
 function generateEpisodeArtworkSVG(ep) {
   const patId = `halftone-${ep.id}`;
+
+  let visualMotif = `
+    <g stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.2" fill="none">
+      <circle cx="468" cy="196" r="88" />
+      <circle cx="468" cy="196" r="54" stroke-dasharray="4 4" />
+      <line x1="362" y1="196" x2="574" y2="196" />
+      <line x1="468" y1="90" x2="468" y2="302" />
+    </g>
+  `;
+
+  if (ep.id === 'ep-2') {
+    // AI Power Grid & Nuclear SMR Telemetry Plate
+    visualMotif = `
+      <g transform="translate(310, 74)">
+        <rect x="0" y="0" width="286" height="214" fill="rgba(14,19,25,0.45)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" />
+        <!-- Grid lines -->
+        <g stroke="#ffffff" stroke-opacity="0.12" stroke-width="1">
+          <line x1="20" y1="54" x2="266" y2="54" />
+          <line x1="20" y1="104" x2="266" y2="104" />
+          <line x1="20" y1="154" x2="266" y2="154" />
+        </g>
+        <!-- Transmission Tower Silhouette -->
+        <g stroke="#FAF8F2" stroke-width="1.8" fill="none" stroke-opacity="0.88">
+          <path d="M52,184 L68,54 L84,184 M60,126 L76,126 M56,154 L80,154 M44,82 L92,82 M48,106 L88,106" />
+          <line x1="68" y1="44" x2="68" y2="54" />
+        </g>
+        <!-- AI Load Demand Surge Curve vs Grid Queue Cap -->
+        <path d="M108,166 C146,162 178,136 202,94 C218,66 238,44 264,34" fill="none" stroke="#01ff7f" stroke-width="2.6" />
+        <line x1="108" y1="126" x2="264" y2="118" stroke="#ff7f23" stroke-width="2" stroke-dasharray="5 4" />
+        <circle cx="187" cy="122" r="5" fill="#c2601c" stroke="#FAF8F2" stroke-width="1.5" />
+        <!-- SMR Containment Ring -->
+        <circle cx="234" cy="148" r="24" fill="rgba(0,194,98,0.16)" stroke="#00c262" stroke-width="1.5" />
+        <circle cx="234" cy="148" r="11" fill="none" stroke="#FAF8F2" stroke-width="1.2" stroke-dasharray="3 2" />
+        <text x="16" y="24" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#01ff7f">AI LOAD VS. GRID QUEUE</text>
+        <text x="16" y="200" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#E6E0D2">FERC ER24-2172 · LBNL 5-7YR</text>
+      </g>
+    `;
+  } else if (ep.id === 'ep-3') {
+    // Arctic Northern Sea Route Polar Projection & Chokepoint Compare
+    visualMotif = `
+      <g transform="translate(310, 74)">
+        <rect x="0" y="0" width="286" height="214" fill="rgba(14,19,25,0.45)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" />
+        <circle cx="152" cy="108" r="78" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1" />
+        <circle cx="152" cy="108" r="52" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="4 3" />
+        <circle cx="152" cy="108" r="24" fill="rgba(0,194,98,0.16)" stroke="#00c262" stroke-width="1.2" />
+        <line x1="66" y1="108" x2="238" y2="108" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" />
+        <line x1="152" y1="22" x2="152" y2="194" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" />
+        <!-- NSR Arc vs Suez Risk Marker -->
+        <path d="M84,96 Q152,32 224,114" fill="none" stroke="#01ff7f" stroke-width="2.6" stroke-dasharray="6 3" />
+        <circle cx="84" cy="96" r="4" fill="#FAF8F2" />
+        <circle cx="224" cy="114" r="5" fill="#01ff7f" />
+        <polygon points="108,164 114,154 120,164" fill="#ff7f23" />
+        <text x="16" y="24" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#01ff7f">POLAR AZIMUTH · NSR</text>
+        <text x="16" y="200" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#E6E0D2">CHNL AIS · JWC WAR RISK</text>
+      </g>
+    `;
+  } else if (ep.id === 'ep-4') {
+    // Draghi EU Competitiveness: Power Price Asymmetry Bars
+    visualMotif = `
+      <g transform="translate(310, 74)">
+        <rect x="0" y="0" width="286" height="214" fill="rgba(14,19,25,0.45)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" />
+        <text x="16" y="24" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#ff7f23">DRAGHI BENCHMARK (VS. US)</text>
+        <!-- Bar Rows -->
+        <text x="16" y="64" font-family="JetBrains Mono, monospace" font-size="9" fill="#FAF8F2">US BASE</text>
+        <rect x="86" y="54" width="46" height="14" fill="#E6E0D2" />
+        <text x="140" y="65" font-family="JetBrains Mono, monospace" font-size="9" fill="#E6E0D2">1.0x</text>
+
+        <text x="16" y="106" font-family="JetBrains Mono, monospace" font-size="9" fill="#FAF8F2">EU ELEC</text>
+        <rect x="86" y="96" width="114" height="14" fill="#c2601c" />
+        <text x="208" y="107" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#ff7f23">+158%</text>
+
+        <text x="16" y="148" font-family="JetBrains Mono, monospace" font-size="9" fill="#FAF8F2">EU GAS</text>
+        <rect x="86" y="138" width="154" height="14" fill="#00c262" />
+        <text x="246" y="149" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#01ff7f">+345%</text>
+
+        <line x1="86" y1="42" x2="86" y2="172" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1" />
+        <text x="16" y="200" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#E6E0D2">EU CAPEX NEED: 4.5% GDP / €800B</text>
+      </g>
+    `;
+  } else if (ep.id === 'ep-5') {
+    // South America Lithium Triangle Network Diagram
+    visualMotif = `
+      <g transform="translate(310, 74)">
+        <rect x="0" y="0" width="286" height="214" fill="rgba(14,19,25,0.45)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" />
+        <polygon points="148,46 86,158 214,158" fill="rgba(1,255,127,0.12)" stroke="#01ff7f" stroke-width="2" />
+        <polygon points="148,68 108,144 192,144" fill="none" stroke="#FAF8F2" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="4 3" />
+        <circle cx="148" cy="46" r="7" fill="#FAF8F2" stroke="#111111" stroke-width="1.5" />
+        <circle cx="86" cy="158" r="7" fill="#00c262" stroke="#111111" stroke-width="1.5" />
+        <circle cx="214" cy="158" r="7" fill="#c2601c" stroke="#111111" stroke-width="1.5" />
+        <text x="16" y="24" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#01ff7f">LITHIUM TRIANGLE · 56%</text>
+        <text x="162" y="50" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#FAF8F2">BOLIVIA</text>
+        <text x="58" y="176" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#01ff7f">CHILE ENL 50%+1</text>
+        <text x="190" y="176" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#ff7f23">ARGENTINA</text>
+        <text x="16" y="200" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#E6E0D2">USGS 2026 RESERVE SHARE</text>
+      </g>
+    `;
+  } else if (ep.id === 'ep-6') {
+    // 1971 Camp David Reel-to-Reel Tape & NARA Waveform
+    visualMotif = `
+      <g transform="translate(310, 74)">
+        <rect x="0" y="0" width="286" height="214" fill="rgba(14,19,25,0.45)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" />
+        <!-- Twin Tape Reels -->
+        <circle cx="94" cy="86" r="34" fill="none" stroke="#FAF8F2" stroke-width="2" />
+        <circle cx="94" cy="86" r="12" fill="none" stroke="#c2601c" stroke-width="2" />
+        <circle cx="192" cy="86" r="34" fill="none" stroke="#FAF8F2" stroke-width="2" />
+        <circle cx="192" cy="86" r="12" fill="none" stroke="#00c262" stroke-width="2" />
+        <line x1="60" y1="120" x2="226" y2="120" stroke="#FAF8F2" stroke-opacity="0.55" stroke-width="1.5" />
+        <!-- Declassified Audio Waveform -->
+        <path d="M24,158 L44,158 L52,142 L60,174 L68,148 L76,166 L84,158 L108,158 L116,138 L124,178 L132,144 L140,168 L148,158 L178,158 L186,146 L194,170 L202,152 L210,158 L262,158" fill="none" stroke="#01ff7f" stroke-width="1.8" />
+        <text x="16" y="24" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#ff7f23">1971.08.15 · CAMP DAVID TAPE</text>
+        <text x="16" y="200" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#E6E0D2">GOLD WINDOW CLOSED · +10% TARIFF</text>
+      </g>
+    `;
+  }
+
   return `
     <svg viewBox="0 0 640 360" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <defs>
         <pattern id="${patId}" width="10" height="10" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1.15" fill="#ffffff" fill-opacity="0.11" />
+          <circle cx="2" cy="2" r="1.15" fill="#ffffff" fill-opacity="0.1" />
         </pattern>
       </defs>
       <rect width="640" height="360" fill="${ep.artTheme.bg}" />
       <rect width="640" height="360" fill="url(#${patId})" />
-      <!-- Broadsheet Registration & Meridian Framing -->
-      <g stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" fill="none">
-        <rect x="28" y="24" width="584" height="312" />
-        <line x1="28" y1="70" x2="612" y2="70" />
-        <line x1="28" y1="300" x2="612" y2="300" />
-        <circle cx="492" cy="185" r="96" />
-        <circle cx="492" cy="185" r="58" stroke-dasharray="4 4" />
-        <line x1="376" y1="185" x2="608" y2="185" />
-        <line x1="492" y1="74" x2="492" y2="296" />
-      </g>
-      <!-- Vox Marker Stamp Tag -->
-      <rect x="48" y="36" width="186" height="22" fill="#F7E354" />
-      <text x="58" y="51" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10.5" letter-spacing="1.4" fill="#111111">${ep.artTheme.badge}</text>
-      <text x="592" y="51" text-anchor="end" font-family="JetBrains Mono, monospace" font-weight="600" font-size="10.5" letter-spacing="1.6" fill="#E6E0D2">1BWS PRESS</text>
-      <!-- Editorial Roman Numeral & Monograph Typography -->
-      <text x="52" y="176" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="84" fill="#ffffff">${ep.artTheme.roman}.</text>
-      <rect x="52" y="196" width="128" height="4" fill="#F7E354" />
-      <text x="52" y="232" font-family="JetBrains Mono, monospace" font-weight="600" font-size="12" letter-spacing="1.5" fill="#F7E354">${ep.code}</text>
-      <text x="52" y="258" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="15" letter-spacing="0.4" fill="#ffffff">One Big World Show · PRIMARY SOURCE DISPATCH</text>
+      <!-- Broadsheet Perimeter Framing (Unobstructed Top-Left & Top-Right Corners for Live Controls) -->
+      <rect x="24" y="20" width="592" height="320" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1" />
+      <line x1="24" y1="62" x2="616" y2="62" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1" />
+      <line x1="24" y1="304" x2="616" y2="304" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1" />
+      <!-- Motif Visual Diagram -->
+      ${visualMotif}
+      <!-- Editorial Stamp Below Top Margin Rule -->
+      <rect x="44" y="80" width="218" height="22" fill="#FAF8F2" />
+      <text x="54" y="95" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.2" fill="#111111">${ep.artTheme.badge}</text>
+      <!-- Roman Numeral & Monograph Title Column -->
+      <text x="44" y="186" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="74" fill="#ffffff">${ep.artTheme.roman}.</text>
+      <rect x="44" y="204" width="118" height="4" fill="#00c262" />
+      <text x="44" y="236" font-family="JetBrains Mono, monospace" font-weight="700" font-size="11.5" letter-spacing="1.2" fill="#01ff7f">${ep.code}</text>
+      <text x="44" y="262" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13.5" letter-spacing="0.4" fill="#ffffff">One Big World Show Archive</text>
+      <text x="44" y="280" font-family="JetBrains Mono, monospace" font-weight="500" font-size="9.5" letter-spacing="0.8" fill="#E6E0D2">PRIMARY SOURCE VERIFIED</text>
       <!-- Bottom Colophon -->
-      <text x="52" y="322" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10.5" letter-spacing="1.2" fill="#E6E0D2">PUBLISHED ${ep.date} · MLA 9TH ED. VERIFIED</text>
+      <text x="44" y="326" font-family="JetBrains Mono, monospace" font-weight="600" font-size="10" letter-spacing="1.1" fill="#E6E0D2">PUBLISHED ${ep.date} · MLA 9TH ED.</text>
+      <text x="596" y="326" text-anchor="end" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.4" fill="#FAF8F2">1BWS PRESS</text>
     </svg>
   `;
 }
 
 function generatePortraitCollageSVG(slotName, badgeText, titleText, accentColor) {
   const patId = `desk-ht-${slotName}`;
-  const romanNum = slotName.includes('3') ? 'III' : 'IV';
-  const deskLabel = slotName.includes('3') ? 'SPECIALIST ANALYST DESK' : 'VISITING FELLOWS & OPEN DESK';
+  const isTechDesk = slotName.includes('3');
+  const romanNum = isTechDesk ? 'III' : 'IV';
+  const deskLabel = isTechDesk ? 'TECH · ENERGY · GRID DESK' : 'VISITING FELLOWS & OPEN DESK';
+  const deskSub = isTechDesk ? 'FERC · SMR · SEMICONDUCTORS' : 'MULTI-POLAR · BILINGUAL';
+
+  const emblemGeometry = isTechDesk
+    ? `
+      <!-- Tech & Energy Circuit Grid + Sinusoidal Grid Wave -->
+      <g stroke="#01ff7f" stroke-opacity="0.32" stroke-width="1" fill="none">
+        <rect x="76" y="114" width="208" height="172" />
+        <line x1="76" y1="157" x2="284" y2="157" />
+        <line x1="76" y1="243" x2="284" y2="243" />
+        <line x1="128" y1="114" x2="128" y2="286" />
+        <line x1="232" y1="114" x2="232" y2="286" />
+      </g>
+      <path d="M84,202 Q132,148 180,202 T276,202" fill="none" stroke="#01ff7f" stroke-width="2" stroke-opacity="0.7" />
+    `
+    : `
+      <!-- Visiting Fellows Meridian Armillary Globe Rings -->
+      <g stroke="#FAF8F2" stroke-opacity="0.28" stroke-width="1" fill="none">
+        <ellipse cx="180" cy="200" rx="108" ry="44" />
+        <ellipse cx="180" cy="200" rx="44" ry="104" />
+        <line x1="66" y1="200" x2="294" y2="200" />
+        <circle cx="72" cy="200" r="3.5" fill="#01ff7f" />
+        <circle cx="288" cy="200" r="3.5" fill="#ff7f23" />
+      </g>
+    `;
+
   return `
     <svg viewBox="0 0 360 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <defs>
@@ -1048,27 +1196,120 @@ function generatePortraitCollageSVG(slotName, badgeText, titleText, accentColor)
       </defs>
       <rect width="360" height="450" fill="#1A212B" />
       <rect width="360" height="450" fill="url(#${patId})" />
-      <!-- Crisp Print Plate Frame -->
-      <rect x="22" y="22" width="316" height="406" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" />
-      <line x1="22" y1="68" x2="338" y2="68" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1" />
-      <line x1="22" y1="348" x2="338" y2="348" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1" />
-      <!-- Top Vox Stamp -->
-      <rect x="38" y="35" width="168" height="20" fill="#F7E354" />
-      <text x="46" y="49" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9.5" letter-spacing="1.4" fill="#111111">${badgeText}</text>
-      <!-- Center Broadsheet Monograph Emblem (Intentional Typographic Desk Plate) -->
-      <circle cx="180" cy="204" r="78" fill="${accentColor}" fill-opacity="0.88" stroke="#F7E354" stroke-width="1.5" />
-      <circle cx="180" cy="204" r="64" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3 3" />
-      <text x="180" y="222" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="56" fill="#ffffff">${romanNum}</text>
-      <text x="180" y="314" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="9.5" letter-spacing="2" fill="#E6E0D2">${deskLabel}</text>
+      <rect x="22" y="22" width="316" height="406" fill="none" stroke="#ffffff" stroke-opacity="0.24" stroke-width="1.2" />
+      <line x1="22" y1="68" x2="338" y2="68" stroke="#ffffff" stroke-opacity="0.24" stroke-width="1" />
+      <line x1="22" y1="348" x2="338" y2="348" stroke="#ffffff" stroke-opacity="0.24" stroke-width="1" />
+      <!-- Top Editorial Stamp -->
+      <rect x="36" y="34" width="196" height="22" fill="#FAF8F2" />
+      <text x="45" y="49" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9.5" letter-spacing="1.2" fill="#111111">${badgeText}</text>
+      <!-- Analytical Desk Backdrop Geometry -->
+      ${emblemGeometry}
+      <!-- Center Broadsheet Monograph Aperture -->
+      <circle cx="180" cy="200" r="68" fill="${accentColor}" fill-opacity="0.92" stroke="#FAF8F2" stroke-opacity="0.75" stroke-width="1.8" />
+      <circle cx="180" cy="200" r="56" fill="none" stroke="#ffffff" stroke-opacity="0.34" stroke-width="1" stroke-dasharray="3 3" />
+      <text x="180" y="216" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="50" fill="#ffffff">${romanNum}</text>
+      <text x="180" y="308" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" letter-spacing="1.6" fill="#FAF8F2">${deskLabel}</text>
+      <text x="180" y="326" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="8" letter-spacing="1.4" fill="#01ff7f">${deskSub}</text>
       <!-- Footer Caption -->
-      <text x="38" y="378" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.6" fill="#F7E354">1BWS PANELS · EDITORIAL ROSTER</text>
-      <text x="38" y="404" font-family="Newsreader, Noto Serif KR, serif" font-weight="700" font-size="15.5" fill="#ffffff">${titleText}</text>
+      <text x="36" y="378" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9.5" letter-spacing="1.4" fill="#00c262">1BWS PANELS · EDITORIAL ROSTER</text>
+      <text x="36" y="406" font-family="Newsreader, Noto Serif KR, serif" font-weight="700" font-size="15" fill="#ffffff">${titleText}</text>
     </svg>
   `;
 }
 
 function generateStoreItemSVG(item) {
   const patId = `store-ht-${item.id}`;
+  let productArt = '';
+
+  if (item.id === 'store-1') {
+    // Hardcover Clothbound Almanac & Compass Meridian Emblem + Ribbon Bookmark
+    productArt = `
+      <rect x="86" y="54" width="236" height="296" fill="#111111" />
+      <rect x="76" y="44" width="236" height="296" fill="#FAF8F2" stroke="#111111" stroke-width="2" />
+      <rect x="76" y="44" width="28" height="296" fill="#004d26" stroke="#111111" stroke-width="2" />
+      <!-- Green Woven Bookmark Ribbon -->
+      <polygon points="246,340 246,368 258,358 270,368 270,340" fill="#004d26" stroke="#111111" stroke-width="1.5" />
+      <rect x="116" y="58" width="182" height="268" fill="none" stroke="#111111" stroke-width="1" />
+      <text x="207" y="84" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9.5" letter-spacing="1.5" fill="#111111">1BWS ALMANAC · 2026</text>
+      <!-- Meridian Compass Crest -->
+      <circle cx="207" cy="158" r="38" fill="none" stroke="#004d26" stroke-width="1.8" />
+      <circle cx="207" cy="158" r="24" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="3 3" />
+      <ellipse cx="207" cy="158" rx="14" ry="38" fill="none" stroke="#004d26" stroke-width="1.2" />
+      <line x1="163" y1="158" x2="251" y2="158" stroke="#111111" stroke-width="1.2" />
+      <rect x="132" y="218" width="150" height="34" fill="#004d26" />
+      <text x="207" y="241" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="19" fill="#FAF8F2">${item.editionNo}</text>
+      <text x="207" y="282" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" letter-spacing="1.5" fill="#111111">${item.subLabel}</text>
+      <text x="207" y="312" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="8" letter-spacing="1.2" fill="#242e3d">TYLER MEDIA PRESS</text>
+    `;
+  } else if (item.id === 'store-2') {
+    // Editorial Heavyweight Crewneck Apparel Silhouette
+    productArt = `
+      <!-- Offset Apparel Silhouette Shadow -->
+      <path d="M132,76 L160,64 C174,78 226,78 240,64 L268,76 L342,148 L308,186 L278,154 L278,334 L122,334 L122,154 L92,186 L58,148 Z" transform="translate(8,8)" fill="#111111" />
+      <!-- Deep Slate Heavyweight Crewneck Body -->
+      <path d="M132,76 L160,64 C174,78 226,78 240,64 L268,76 L342,148 L308,186 L278,154 L278,334 L122,334 L122,154 L92,186 L58,148 Z" fill="#242e3d" stroke="#111111" stroke-width="2" />
+      <!-- Ribbed Collar & Hem Trim -->
+      <path d="M160,64 C174,82 226,82 240,64 C228,74 172,74 160,64 Z" fill="#FAF8F2" stroke="#111111" stroke-width="1.5" />
+      <rect x="122" y="314" width="156" height="20" fill="#1A212B" stroke="#111111" stroke-width="1.5" />
+      <!-- Woven Tag + Chest Editorial Print -->
+      <rect x="184" y="84" width="32" height="10" fill="#004d26" />
+      <rect x="148" y="138" width="104" height="54" fill="#FAF8F2" stroke="#111111" stroke-width="1.5" />
+      <text x="200" y="164" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" letter-spacing="1" fill="#111111">1BWS</text>
+      <text x="200" y="182" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="8" letter-spacing="1.4" fill="#004d26">${item.editionNo}</text>
+      <text x="200" y="232" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="8.5" letter-spacing="1.4" fill="#E6E0D2">${item.subLabel}</text>
+    `;
+  } else if (item.id === 'store-3') {
+    // Stitched Field Notebook Spread + Archival Tabs & Pen
+    productArt = `
+      <!-- Notebook Floor Shadow -->
+      <rect x="76" y="54" width="224" height="296" fill="#111111" />
+      <!-- Divider Tabs along Right Edge (drawn above floor shadow, tucked beneath top cover) -->
+      <rect x="288" y="96" width="34" height="36" fill="#004d26" stroke="#111111" stroke-width="1.5" />
+      <text x="308" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#FAF8F2">I</text>
+      <rect x="288" y="138" width="34" height="36" fill="#c2601c" stroke="#111111" stroke-width="1.5" />
+      <text x="308" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#FAF8F2">II</text>
+      <rect x="288" y="180" width="34" height="36" fill="#242e3d" stroke="#111111" stroke-width="1.5" />
+      <text x="308" y="202" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#FAF8F2">III</text>
+      <!-- Notebook Main Cover -->
+      <rect x="68" y="46" width="224" height="296" fill="#4d150b" stroke="#111111" stroke-width="2" />
+      <!-- Exposed Inner Dot-Grid Research Card -->
+      <rect x="92" y="64" width="184" height="260" fill="#FAF8F2" stroke="#111111" stroke-width="1.5" />
+      <line x1="92" y1="106" x2="276" y2="106" stroke="#111111" stroke-width="1" />
+      <line x1="92" y1="138" x2="276" y2="138" stroke="#BEB5A2" stroke-width="1" stroke-dasharray="3 3" />
+      <line x1="92" y1="170" x2="276" y2="170" stroke="#BEB5A2" stroke-width="1" stroke-dasharray="3 3" />
+      <line x1="92" y1="258" x2="276" y2="258" stroke="#BEB5A2" stroke-width="1" stroke-dasharray="3 3" />
+      <text x="184" y="90" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9.5" letter-spacing="1.4" fill="#111111">FIELD LOG · INDEX</text>
+      <rect x="114" y="186" width="140" height="36" fill="#004d26" />
+      <text x="184" y="210" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="18" fill="#FAF8F2">${item.editionNo}</text>
+      <text x="184" y="294" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" letter-spacing="1.4" fill="#4d150b">${item.subLabel}</text>
+      <!-- Architect Fineliner Pen Silhouette -->
+      <g transform="translate(338, 82)">
+        <rect x="0" y="18" width="14" height="210" fill="#242e3d" stroke="#111111" stroke-width="1.5" />
+        <polygon points="0,18 7,0 14,18" fill="#FAF8F2" stroke="#111111" stroke-width="1.5" />
+        <rect x="0" y="54" width="14" height="10" fill="#00c262" stroke="#111111" stroke-width="1" />
+      </g>
+    `;
+  } else {
+    // store-4: Curated 3-Volume Collector Slipcase Box
+    productArt = `
+      <rect x="74" y="56" width="262" height="296" fill="#111111" />
+      <rect x="66" y="48" width="262" height="296" fill="#004d26" stroke="#111111" stroke-width="2" />
+      <!-- Three Individual Book Spines Inside Slipcase -->
+      <rect x="86" y="64" width="68" height="264" fill="#FAF8F2" stroke="#111111" stroke-width="1.8" />
+      <rect x="162" y="64" width="68" height="264" fill="#242e3d" stroke="#111111" stroke-width="1.8" />
+      <rect x="238" y="64" width="68" height="264" fill="#c2601c" stroke="#111111" stroke-width="1.8" />
+      <text x="120" y="114" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#111111">MACRO</text>
+      <text x="196" y="114" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#FAF8F2">STATE</text>
+      <text x="272" y="114" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#FAF8F2">GRID</text>
+      <!-- Collector Archive Belly Band -->
+      <rect x="62" y="168" width="270" height="72" fill="#FAF8F2" stroke="#111111" stroke-width="2" />
+      <rect x="94" y="180" width="206" height="28" fill="#111111" />
+      <text x="197" y="200" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="17" fill="#FAF8F2">${item.editionNo} · CURATED</text>
+      <text x="197" y="226" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" letter-spacing="1.4" fill="#004d26">${item.subLabel}</text>
+      <text x="197" y="308" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="8.5" letter-spacing="1.4" fill="#FAF8F2">3-VOL SLIPCASE</text>
+    `;
+  }
+
   return `
     <svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <defs>
@@ -1078,20 +1319,27 @@ function generateStoreItemSVG(item) {
       </defs>
       <rect width="400" height="400" fill="#E6E0D2" />
       <rect width="400" height="400" fill="url(#${patId})" />
-      <!-- Hard Offset Ink Book Shadow + Monograph Cover -->
-      <rect x="74" y="50" width="260" height="308" fill="#111111" />
-      <rect x="66" y="42" width="260" height="308" fill="#FAF8F2" stroke="#111111" stroke-width="2" />
-      <rect x="78" y="54" width="236" height="284" fill="none" stroke="#111111" stroke-width="1" />
-      <line x1="78" y1="102" x2="314" y2="102" stroke="#111111" stroke-width="1" />
-      <line x1="78" y1="286" x2="314" y2="286" stroke="#111111" stroke-width="1" />
-      <text x="196" y="83" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.8" fill="#111111">One Big World Show · 1BWS</text>
-      <rect x="142" y="152" width="108" height="42" fill="#F7E354" />
-      <text x="196" y="182" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="700" font-size="32" fill="#111111">${item.editionNo}</text>
-      <line x1="152" y1="210" x2="240" y2="210" stroke="#111111" stroke-width="1.5" />
-      <text x="196" y="236" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" letter-spacing="1.8" fill="#004D26">${item.subLabel}</text>
-      <text x="196" y="315" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="9" letter-spacing="1.5" fill="#222933">TYLER MEDIA PUBLICATIONS</text>
+      ${productArt}
     </svg>
   `;
+}
+
+function parseDurationToSeconds(durationStr) {
+  const parts = String(durationStr || '00:00').split(':').map(n => parseInt(n, 10) || 0);
+  if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  if (parts.length === 2) return parts[0] * 60 + parts[1];
+  return parts[0] || 0;
+}
+
+function formatSecondsToTimecode(totalSec, includeHours) {
+  const sec = Math.max(0, Math.floor(totalSec));
+  const hrs = Math.floor(sec / 3600);
+  const mins = Math.floor((sec % 3600) / 60);
+  const rem = sec % 60;
+  if (hrs > 0 || includeHours) {
+    return `${hrs}:${String(mins).padStart(2, '0')}:${String(rem).padStart(2, '0')}`;
+  }
+  return `${String(mins).padStart(2, '0')}:${String(rem).padStart(2, '0')}`;
 }
 
 /* --- 9. Render Functions for All Dynamic Sections --- */
@@ -1105,12 +1353,20 @@ function renderFeaturedEpisode() {
   document.getElementById('playerChapterLabel').textContent = ep.chapter[currentLang];
 
   const startSec = ep.startSeconds || 0;
-  const startFormatted = startSec > 0
-    ? `${String(Math.floor(startSec / 60)).padStart(2, '0')}:${String(startSec % 60).padStart(2, '0')}`
-    : '00:00';
+  const totalSec = parseDurationToSeconds(ep.duration);
+  const hasHours = ep.duration.split(':').length === 3;
+  const startFormatted = formatSecondsToTimecode(startSec, hasHours);
   document.getElementById('playerTimecode').textContent = isPlayingSim
     ? `STREAMING / ${ep.duration}`
     : `${startFormatted} / ${ep.duration}`;
+
+  const progressEl = document.getElementById('playerTimelineProgress');
+  if (progressEl && !isPlayingSim) {
+    const initialPct = totalSec > 0 && startSec > 0
+      ? Math.max(6, Math.min(92, (startSec / totalSec) * 100))
+      : 18;
+    progressEl.style.width = `${initialPct.toFixed(1)}%`;
+  }
 
   const directLink = document.getElementById('playerYoutubeDirectLink');
   if (directLink) {
@@ -1138,7 +1394,7 @@ function renderFeaturedEpisode() {
   } else {
     if (playOverlayBtn) playOverlayBtn.style.display = 'flex';
     stage.innerHTML = ep.thumbImg
-      ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" width="1280" height="720" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />`
+      ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" width="1280" height="720" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />`
       : generateEpisodeArtworkSVG(ep);
   }
 
@@ -1182,7 +1438,7 @@ function renderEpisodeGrid() {
         ${isActive ? `<span class="ep-active-marker">${currentLang === 'ko' ? '▶ 재생 대기' : '▶ ON CONSOLE'}</span>` : ''}
         <div class="slot-visual-holder" style="width:100%;height:100%;">
           ${ep.thumbImg
-            ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" width="640" height="360" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />`
+            ? `<img src="${ep.thumbImg}" alt="${ep.title[currentLang]}" width="640" height="360" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />`
             : generateEpisodeArtworkSVG(ep)}
         </div>
         <button type="button" class="slot-replace-trigger" data-slot-target="${ep.slot}">Replace Image</button>
@@ -1212,13 +1468,144 @@ function renderEpisodeGrid() {
       document.getElementById('playBtnIcon').textContent = '▶';
       document.getElementById('playBtnLabel').textContent = i18nDict[currentLang]['media.playEpisode'];
       document.getElementById('playerMiniToggle').textContent = '▶ PLAY';
-      document.getElementById('playerTimelineProgress').style.width = '18%';
       renderFeaturedEpisode();
       renderEpisodeGrid();
       document.getElementById('featuredVideoViewport').scrollIntoView({ behavior: 'smooth', block: 'center' });
       showToast(currentLang === 'ko' ? '선택한 에피소드가 브로드캐스트 플레이어에 로드되었습니다.' : 'Episode loaded into Broadcast Console.');
     });
   });
+}
+
+function renderDossierInlineVizSVG(briefId) {
+  if (briefId === 'brief-1') {
+    const label1 = currentLang === 'ko' ? '글로벌 결제 유동성 수요' : 'GLOBAL SETTLEMENT DEMAND';
+    const label2 = currentLang === 'ko' ? '규제 스테이블코인 (100% T-Bill 준비금)' : 'REGULATED ISSUER (100% T-BILL / RRP)';
+    const label3 = currentLang === 'ko' ? '미 단기 국채(T-Bills) 흡수' : 'SHORT-TERM TREASURY ABSORPTION';
+    return `
+      <div class="dossier-inline-viz-strip">
+        <div class="dossier-viz-caption">
+          <span>TBAC PRIMARY MECHANISM · TREASURY RESERVE FLOW</span>
+          <span>MLA VERIFIED ARCHITECTURE</span>
+        </div>
+        <svg viewBox="0 0 640 84" width="100%" style="display:block;height:auto;" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="10" width="178" height="62" fill="#FAF8F2" stroke="#111111" stroke-width="1.2" />
+          <text x="91" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#864413">STEP 01</text>
+          <text x="91" y="53" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" font-size="11" fill="#111111">${label1}</text>
+          <path d="M184,41 L212,41" stroke="#004d26" stroke-width="2" />
+          <polygon points="210,36 220,41 210,46" fill="#004d26" />
+          <rect x="224" y="10" width="194" height="62" fill="#004d26" stroke="#111111" stroke-width="1.2" />
+          <text x="321" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#01ff7f">STEP 02 · MANDATE</text>
+          <text x="321" y="53" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" font-size="10.5" fill="#FAF8F2">${label2}</text>
+          <path d="M422,41 L450,41" stroke="#004d26" stroke-width="2" />
+          <polygon points="448,36 458,41 448,46" fill="#004d26" />
+          <rect x="462" y="10" width="176" height="62" fill="#242e3d" stroke="#111111" stroke-width="1.2" />
+          <text x="550" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#00c262">STEP 03 · FISCAL IMPACT</text>
+          <text x="550" y="53" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" font-size="10.5" fill="#FAF8F2">${label3}</text>
+        </svg>
+      </div>
+    `;
+  }
+  return '';
+}
+
+function renderDossierChartHTML(d) {
+  if (d.id === 'brief-1') {
+    return `
+      <div class="drawer-data-chart-box">
+        <div class="drawer-data-chart-kicker">PRIMARY SOURCE SCHEMATIC · TBAC &amp; BIS REPORT</div>
+        <div class="drawer-data-chart-title">${currentLang === 'ko' ? '단기 국채(T-Bills) 준비금 흡수 구조 vs 소매 CBDC 비교' : 'Sovereign T-Bill Reserve Absorption vs. Constrained Retail CBDC'}</div>
+        <svg viewBox="0 0 600 132" width="100%" style="display:block;height:auto;" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="10" width="584" height="54" fill="#FAF8F2" stroke="#111111" stroke-width="1.2" />
+          <rect x="8" y="10" width="8" height="54" fill="#004d26" />
+          <text x="28" y="31" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#004d26">REGULATED PRIVATE ISSUERS (TBAC)</text>
+          <text x="28" y="50" font-family="Pretendard, sans-serif" font-weight="600" font-size="12" fill="#111111">${currentLang === 'ko' ? '100% 미 단기 국채(T-Bills) 및 역레포(RRP) 준비금 의무 → 미 재정 수요 직결' : '100% US T-Bill & RRP Reserve Mandate -> Direct Absorption of Sovereign Short-Term Debt'}</text>
+          <rect x="8" y="74" width="584" height="48" fill="#F3EFE6" stroke="#BEB5A2" stroke-width="1" />
+          <rect x="8" y="74" width="8" height="48" fill="#c2601c" />
+          <text x="28" y="93" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#864413">OPEN CAPITAL MARKET MONITORING (BOK)</text>
+          <text x="28" y="110" font-family="Pretendard, sans-serif" font-weight="600" font-size="11.5" fill="#1A212B">${currentLang === 'ko' ? '역외 디지털 결제 수요 확대에 따른 자본 유출입 변동성 및 통화 주권 점검 필요' : 'Cross-border settlement flows require vigilance for open export economies'}</text>
+        </svg>
+      </div>
+    `;
+  }
+  if (d.id === 'brief-2') {
+    return `
+      <div class="drawer-data-chart-box">
+        <div class="drawer-data-chart-kicker">LBNL "QUEUED UP" &amp; FERC DOCKET ER24-2172</div>
+        <div class="drawer-data-chart-title">${currentLang === 'ko' ? '북미 전력망 병목: 신규 계통 연결 대기기간 vs 변압기 조달 리드타임' : 'North American Grid Bottleneck: Cited Lead Times (Months / Years)'}</div>
+        <svg viewBox="0 0 600 130" width="100%" style="display:block;height:auto;" xmlns="http://www.w3.org/2000/svg">
+          <text x="8" y="24" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#111111">${currentLang === 'ko' ? '미국 송전망 평균 연결 대기 (LBNL)' : 'US GRID INTERCONNECTION QUEUE'}</text>
+          <rect x="8" y="32" width="460" height="22" fill="#004d26" />
+          <text x="478" y="47" font-family="JetBrains Mono, monospace" font-weight="700" font-size="11" fill="#004d26">5–7 Yrs (60–84 Mo)</text>
+          <text x="8" y="80" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#111111">${currentLang === 'ko' ? '345kV+ 초고압 변압기 제작 리드타임' : '345kV+ POWER TRANSFORMER LEAD TIME'}</text>
+          <rect x="8" y="88" width="248" height="22" fill="#c2601c" />
+          <text x="266" y="103" font-family="JetBrains Mono, monospace" font-weight="700" font-size="11" fill="#864413">36+ Months</text>
+        </svg>
+      </div>
+    `;
+  }
+  if (d.id === 'brief-4') {
+    return `
+      <div class="drawer-data-chart-box">
+        <div class="drawer-data-chart-kicker">EUROPEAN COMMISSION · DRAGHI REPORT PRIMARY METRICS</div>
+        <div class="drawer-data-chart-title">${currentLang === 'ko' ? 'EU 산업용 에너지 비용 격차 (미국 대비 초과율) &amp; 투자 목표' : 'EU Industrial Energy Price Premium vs. US Baseline &amp; Annual CAPEX Goal'}</div>
+        <svg viewBox="0 0 600 154" width="100%" style="display:block;height:auto;" xmlns="http://www.w3.org/2000/svg">
+          <text x="8" y="22" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#111111">${currentLang === 'ko' ? 'EU 산업용 전기요금 (미국 대비)' : 'EU INDUSTRIAL ELECTRICITY PREMIUM VS US'}</text>
+          <rect x="8" y="30" width="214" height="20" fill="#242e3d" />
+          <text x="232" y="44" font-family="JetBrains Mono, monospace" font-weight="700" font-size="11" fill="#242e3d">+158% Higher</text>
+          <text x="8" y="76" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#111111">${currentLang === 'ko' ? 'EU 천연가스 도매가격 (미국 대비)' : 'EU NATURAL GAS PREMIUM VS US'}</text>
+          <rect x="8" y="84" width="466" height="20" fill="#c2601c" />
+          <text x="484" y="98" font-family="JetBrains Mono, monospace" font-weight="700" font-size="11" fill="#864413">+345% Higher</text>
+          <rect x="8" y="116" width="584" height="30" fill="#FAF8F2" stroke="#111111" stroke-width="1" />
+          <text x="20" y="135" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#004d26">DRAGHI TARGET INVESTMENT: 4.5% OF EU GDP (~€800B / YR, 2X POST-WWII MARSHALL PLAN SHARE)</text>
+        </svg>
+      </div>
+    `;
+  }
+  if (d.id === 'brief-5') {
+    return `
+      <div class="drawer-data-chart-box">
+        <div class="drawer-data-chart-kicker">USGS 2026 &amp; CHILE MINISTRY OF MINING (ENL)</div>
+        <div class="drawer-data-chart-title">${currentLang === 'ko' ? '남미 리튬 삼각지대 매장 비중(56%) &amp; 칠레 국영기업 지분 의무' : 'Global Lithium Reserve Concentration (56%) &amp; Chile State Equity Mandate'}</div>
+        <svg viewBox="0 0 600 124" width="100%" style="display:block;height:auto;" xmlns="http://www.w3.org/2000/svg">
+          <text x="8" y="22" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#111111">${currentLang === 'ko' ? '전 세계 리튬 매장량 비중 (USGS)' : 'GLOBAL LITHIUM RESERVES SPLIT (USGS)'}</text>
+          <rect x="8" y="30" width="324" height="24" fill="#004d26" />
+          <text x="170" y="46" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#FAF8F2">LITHIUM TRIANGLE · 56%</text>
+          <rect x="334" y="30" width="258" height="24" fill="#E6E0D2" stroke="#111111" stroke-width="1" />
+          <text x="463" y="46" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#111111">REST OF WORLD · 44%</text>
+          <text x="8" y="80" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#111111">${currentLang === 'ko' ? '칠레 전략 염호 민관 합작 (ENL 법령)' : 'CHILE ENL JOINT-VENTURE EQUITY RULE'}</text>
+          <rect x="8" y="88" width="302" height="24" fill="#c2601c" />
+          <text x="159" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#FAF8F2">STATE (CODELCO/ENAMI) · 50% + 1</text>
+          <rect x="312" y="88" width="280" height="24" fill="#242e3d" />
+          <text x="452" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="10" fill="#FAF8F2">PRIVATE PARTNER</text>
+        </svg>
+      </div>
+    `;
+  }
+  if (d.id === 'brief-3' || d.id === 'brief-6') {
+    const is1971 = d.id === 'brief-6';
+    return `
+      <div class="drawer-data-chart-box">
+        <div class="drawer-data-chart-kicker">${is1971 ? 'FRUS VOL. III &amp; NARA CAMP DAVID ARCHIVE' : 'CHNL AIS TELEMETRY &amp; LLOYD’S JWC CIRCULAR'}</div>
+        <div class="drawer-data-chart-title">${is1971
+          ? (currentLang === 'ko' ? '1971.08.13–15 캠프 데이비드 결정 구조와 55년 구조적 평행' : '1971 Camp David Policy Sequence &amp; Modern Monetary Parallel')
+          : (currentLang === 'ko' ? '해상 보험 요율 상승과 북극항로·부산항 전략적 재편 구도' : 'Chokepoint War-Risk Pricing vs. NSR &amp; Busan Hub Dynamics')}</div>
+        <svg viewBox="0 0 600 76" width="100%" style="display:block;height:auto;" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="10" width="186" height="54" fill="#FAF8F2" stroke="#111111" stroke-width="1.2" />
+          <text x="97" y="31" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#864413">${is1971 ? 'AUG 13, 1971 · LAUREL LODGE' : 'JWC HIGH-RISK ZONES'}</text>
+          <text x="97" y="49" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" font-size="10.5" fill="#111111">${is1971 ? (currentLang === 'ko' ? '금 창구 정지 결단' : 'Gold Window Closed') : (currentLang === 'ko' ? '홍해·해협 보험료 급등' : 'Elevated War-Risk Premium')}</text>
+          <path d="M194,37 L212,37" stroke="#111111" stroke-width="1.8" />
+          <rect x="216" y="10" width="176" height="54" fill="#242e3d" stroke="#111111" stroke-width="1.2" />
+          <text x="304" y="31" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#00c262">${is1971 ? 'TARIFF LEVERAGE' : 'CHNL ICEBREAKER LOGS'}</text>
+          <text x="304" y="49" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" font-size="10.5" fill="#FAF8F2">${is1971 ? (currentLang === 'ko' ? '10% 일괄 수입부가세' : '10% Import Surcharge') : (currentLang === 'ko' ? 'NSR 북극항로 통항 재평가' : 'NSR Route Revaluation')}</text>
+          <path d="M396,37 L414,37" stroke="#111111" stroke-width="1.8" />
+          <rect x="418" y="10" width="178" height="54" fill="#004d26" stroke="#111111" stroke-width="1.2" />
+          <text x="507" y="31" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="9" fill="#01ff7f">${is1971 ? '55-YEAR ERA' : 'INDO-PACIFIC ANCHOR'}</text>
+          <text x="507" y="49" text-anchor="middle" font-family="Pretendard, sans-serif" font-weight="700" font-size="10.5" fill="#FAF8F2">${is1971 ? (currentLang === 'ko' ? '변동환율 · 준비자산 다변화' : 'Floating FX & Reserves') : (currentLang === 'ko' ? '부산항 · 한국 조선 MRO 허브' : 'Busan Port & MRO Hub')}</text>
+        </svg>
+      </div>
+    `;
+  }
+  return '';
 }
 
 function renderDossierGrid() {
@@ -1258,16 +1645,57 @@ function renderDossierGrid() {
     return;
   }
 
-  const useAsymmetricLead = filtered.length >= 3;
+  const total = filtered.length;
+  const useAsymmetricLead = total >= 2;
 
   grid.innerHTML = filtered.map((d, idx) => {
-    const isLead = useAsymmetricLead && idx === 0;
+    // Eliminate 3-column orphan rows cleanly:
+    // - When total === 1 -> single full-width archive ribbon card
+    // - When total % 3 === 0 (e.g. 3 or 6) -> idx 0 spans 2 cols; trailing card idx === total - 1 spans full row (archive ribbon)
+    const isRibbon = total === 1 || (total % 3 === 0 && idx === total - 1);
+    const isLead = !isRibbon && useAsymmetricLead && idx === 0;
+    const cardClasses = [
+      'dossier-card',
+      isLead ? 'dossier-lead-card' : '',
+      isRibbon ? 'dossier-archive-ribbon' : ''
+    ].filter(Boolean).join(' ');
+
+    const bodyContent = isLead
+      ? `
+        <div class="dossier-lead-columns">
+          <div class="dossier-why-callout">
+            <span class="why-badge">${currentLang === 'ko' ? '핵심 테제 · WHY IT MATTERS' : 'WHY IT MATTERS'}</span>
+            <p class="dossier-summary-p">${d.p1[currentLang]}</p>
+          </div>
+          <p class="dossier-summary-p">${d.p2[currentLang]}</p>
+        </div>
+        ${renderDossierInlineVizSVG(d.id)}
+      `
+      : isRibbon
+      ? `
+        <div class="dossier-ribbon-body">
+          <div>
+            <p class="dossier-summary-p">${d.p1[currentLang]}</p>
+            <p class="dossier-summary-p" style="margin-bottom:0;">${d.p2[currentLang]}</p>
+          </div>
+          <div class="dossier-archive-quote-box">
+            <span class="dossier-archive-quote-kicker">PRIMARY CITATION LEDGER (${(d.mlaSources || []).length} VERIFIED SOURCES)</span>
+            ${(d.mlaSources && d.mlaSources[0]) ? d.mlaSources[0] : ''}
+          </div>
+        </div>
+      `
+      : `
+        <p class="dossier-summary-p">${d.p1[currentLang]}</p>
+        <p class="dossier-summary-p">${d.p2[currentLang]}</p>
+      `;
+
     return `
-    <article class="dossier-card ${isLead ? 'dossier-lead-card' : ''}" data-brief-id="${d.id}">
+    <article class="${cardClasses}" data-brief-id="${d.id}">
       <div>
         <div class="dossier-card-top">
           <div class="dossier-top-badges">
             ${isLead ? `<span class="lead-dossier-stamp">${currentLang === 'ko' ? '★ 커버스토리 · LEAD DOSSIER' : '★ COVER DOSSIER'}</span>` : ''}
+            ${isRibbon ? `<span class="lead-dossier-stamp" style="background-color: var(--espresso-dark);">${currentLang === 'ko' ? '★ 피처드 아카이브 · SPECIAL BRIEF' : '★ ARCHIVAL FEATURE'}</span>` : ''}
             <span class="dossier-cat-tag ${d.tagClass}">${d.topicLabel[currentLang]}</span>
           </div>
           <span class="dossier-region-badge">${d.regionLabel[currentLang]}</span>
@@ -1278,17 +1706,7 @@ function renderDossierGrid() {
           <span>MLA 9TH ED. VERIFIED</span>
         </div>
         <h3 class="dossier-title">${d.title[currentLang]}</h3>
-        ${isLead
-          ? `<div class="dossier-lead-columns">
-               <div class="dossier-why-callout">
-                 <span class="why-badge">${currentLang === 'ko' ? '핵심 테제 · WHY IT MATTERS' : 'WHY IT MATTERS'}</span>
-                 <p class="dossier-summary-p">${d.p1[currentLang]}</p>
-               </div>
-               <p class="dossier-summary-p">${d.p2[currentLang]}</p>
-             </div>`
-          : `<p class="dossier-summary-p">${d.p1[currentLang]}</p>
-             <p class="dossier-summary-p">${d.p2[currentLang]}</p>`
-        }
+        ${bodyContent}
       </div>
       <div class="dossier-meta-footer">
         <span>${d.date} · ${d.readTime}</span>
@@ -1316,6 +1734,7 @@ function openDossierSlideover(briefId) {
       <div class="vox-abstract-kicker">${currentLang === 'ko' ? 'THE BIG PICTURE · 핵심 요약 브리핑' : 'THE BIG PICTURE · EXECUTIVE BRIEFING'}</div>
       <p>${d.p1[currentLang]} ${d.p2[currentLang]}</p>
     </div>
+    ${renderDossierChartHTML(d)}
     ${d.fullBody[currentLang]}
   `;
   document.getElementById('drawerMlaList').innerHTML = d.mlaSources.map(src => `<li>${src}</li>`).join('');
@@ -1337,7 +1756,7 @@ function renderCastSection() {
       <span class="portrait-plate-tag">MAIN PANEL · 1BWS</span>
       <div class="slot-visual-holder" style="width:100%;height:100%;">
         ${hostTylerData.photo
-          ? `<img src="${hostTylerData.photo}" alt="${hostTylerData.name[currentLang]}" width="480" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
+          ? `<img src="${hostTylerData.photo}" alt="${hostTylerData.name[currentLang]}" width="480" height="600" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
           : generatePortraitCollageSVG(hostTylerData.slot, 'MAIN PANEL', 'Tyler Rasch (타일러 라쉬)', '#004d26')}
       </div>
       <button type="button" class="slot-replace-trigger" data-slot-target="${hostTylerData.slot}">Replace Image</button>
@@ -1375,7 +1794,7 @@ function renderCastSection() {
         ${m.photo ? `<span class="portrait-plate-tag">${m.badgeCode}</span>` : ''}
         <div class="slot-visual-holder" style="width:100%;height:100%;">
           ${m.photo
-            ? `<img src="${m.photo}" alt="${m.name[currentLang]}" width="360" height="450" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
+            ? `<img src="${m.photo}" alt="${m.name[currentLang]}" width="360" height="450" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />`
             : generatePortraitCollageSVG(m.slot, m.badgeCode, m.name[currentLang], m.accent)}
         </div>
         <button type="button" class="slot-replace-trigger" data-slot-target="${m.slot}">Replace Image</button>
@@ -1389,7 +1808,7 @@ function renderCastSection() {
         <div>
           <button type="button" class="btn-expand-bio" data-bio-toggle="bio-${m.id}">
             <span>${expandLabel}</span>
-            <span>+</span>
+            <span class="bio-toggle-symbol">+</span>
           </button>
           <div class="expandable-bio-panel" id="bio-${m.id}">
             <ul class="bio-detail-list">
@@ -1408,15 +1827,25 @@ function renderCastSection() {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-bio-toggle');
       const panel = document.getElementById(targetId);
-      if (panel) panel.classList.toggle('open');
+      if (panel) {
+        const isOpen = panel.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+        const sym = btn.querySelector('.bio-toggle-symbol');
+        if (sym) sym.textContent = isOpen ? '−' : '+';
+      }
     });
   });
 
   document.querySelectorAll('[data-jump-ep]').forEach(link => {
     link.addEventListener('click', () => {
       activeEpisodeId = link.getAttribute('data-jump-ep');
+      isPlayingSim = false;
+      document.getElementById('playBtnIcon').textContent = '▶';
+      document.getElementById('playBtnLabel').textContent = i18nDict[currentLang]['media.playEpisode'];
+      document.getElementById('playerMiniToggle').textContent = '▶ PLAY';
       renderFeaturedEpisode();
       renderEpisodeGrid();
+      showToast(currentLang === 'ko' ? '선택한 패널의 대표 에피소드가 로드되었습니다.' : 'Panelist featured episode loaded.');
     });
   });
 }
@@ -1519,6 +1948,23 @@ function triggerSlotFileReplace(slotName) {
   document.getElementById('slotFileInput').click();
 }
 
+function syncHeroHotspotUI(key, lang) {
+  const meta = hotspotData[key] || hotspotData.usd;
+  const readoutEl = document.getElementById('collageHotspotReadout');
+  if (readoutEl) readoutEl.textContent = meta[lang];
+
+  const artWrap = document.querySelector('.collage-artwork-wrapper');
+  if (artWrap) artWrap.setAttribute('data-focus', key);
+
+  const jumpBtn = document.getElementById('collageJumpDossierBtn');
+  if (jumpBtn) {
+    jumpBtn.setAttribute('data-topic-target', meta.topic);
+    if (meta.cta && meta.cta[lang]) {
+      jumpBtn.textContent = meta.cta[lang];
+    }
+  }
+}
+
 function applyLanguage(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
@@ -1536,7 +1982,7 @@ function applyLanguage(lang) {
   const activeHotspot = document.querySelector('.collage-hotspot.active');
   if (activeHotspot) {
     const key = activeHotspot.getAttribute('data-hotspot');
-    document.getElementById('collageHotspotReadout').textContent = hotspotData[key][lang];
+    syncHeroHotspotUI(key, lang);
   }
 
   renderFeaturedEpisode();
@@ -1657,15 +2103,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero Plate I Thematic Index Tabs
+  // Hero Plate I Thematic Index Tabs & Dossier Filter Jump
   document.querySelectorAll('.collage-hotspot').forEach(pin => {
     pin.addEventListener('click', () => {
       document.querySelectorAll('.collage-hotspot').forEach(p => p.classList.remove('active'));
       pin.classList.add('active');
       const key = pin.getAttribute('data-hotspot');
-      document.getElementById('collageHotspotReadout').textContent = hotspotData[key][currentLang];
+      syncHeroHotspotUI(key, currentLang);
     });
   });
+
+  const collageJumpBtn = document.getElementById('collageJumpDossierBtn');
+  if (collageJumpBtn) {
+    collageJumpBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetTopic = collageJumpBtn.getAttribute('data-topic-target') || 'macro';
+      currentTopicFilter = targetTopic;
+      currentRegionFilter = 'all';
+      document.querySelectorAll('#topicFilterGroup .dossier-filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.topic === targetTopic);
+      });
+      document.querySelectorAll('#regionFilterGroup .dossier-filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.region === 'all');
+      });
+      renderDossierGrid();
+      const dossierSec = document.getElementById('intelligence-dossier');
+      if (dossierSec) dossierSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showToast(currentLang === 'ko'
+        ? '선택한 테마 기준으로 1차 사료 도시에가 필터링되었습니다.'
+        : 'Filtered Intelligence Dossiers by selected theme.');
+    });
+  }
 
   // Section 1 Manifesto Inline Accordion Drawer
   const manifestoDrawer = document.getElementById('manifestoDrawer');
@@ -1678,7 +2146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     manifestoDrawer.classList.remove('open');
   });
 
-  // Section 2 Broadcast Player Controls & Tabs
+  // Section 2 Broadcast Player Controls, Interactive Viewport & Timeline Scrub
   const togglePlay = () => {
     isPlayingSim = !isPlayingSim;
     document.getElementById('playBtnIcon').textContent = isPlayingSim ? '⏸' : '▶';
@@ -1686,11 +2154,41 @@ document.addEventListener('DOMContentLoaded', () => {
       ? (currentLang === 'ko' ? '스트리밍 재생 중' : 'Streaming Active')
       : i18nDict[currentLang]['media.playEpisode'];
     document.getElementById('playerMiniToggle').textContent = isPlayingSim ? '⏸ PAUSE' : '▶ PLAY';
-    document.getElementById('playerTimelineProgress').style.width = isPlayingSim ? '68%' : '38%';
+    if (isPlayingSim) {
+      document.getElementById('playerTimelineProgress').style.width = '68%';
+    }
     renderFeaturedEpisode();
   };
-  document.getElementById('featuredPlayBtn').addEventListener('click', togglePlay);
+  document.getElementById('featuredPlayBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    togglePlay();
+  });
   document.getElementById('playerMiniToggle').addEventListener('click', togglePlay);
+
+  const featuredViewport = document.getElementById('featuredVideoViewport');
+  if (featuredViewport) {
+    featuredViewport.addEventListener('click', (e) => {
+      if (e.target.closest('.slot-replace-trigger') || e.target.closest('#featuredPlayBtn')) return;
+      if (!isPlayingSim) togglePlay();
+    });
+  }
+
+  const timelineTrack = document.getElementById('playerTimelineTrack');
+  if (timelineTrack) {
+    timelineTrack.addEventListener('click', (e) => {
+      const rect = timelineTrack.getBoundingClientRect();
+      if (!rect.width) return;
+      const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      const ep = episodesData.find(item => item.id === activeEpisodeId) || episodesData[0];
+      const totalSec = parseDurationToSeconds(ep.duration);
+      const hasHours = ep.duration.split(':').length === 3;
+      const seekSec = Math.round(totalSec * ratio);
+      const progressBar = document.getElementById('playerTimelineProgress');
+      if (progressBar) progressBar.style.width = `${(ratio * 100).toFixed(1)}%`;
+      const tcEl = document.getElementById('playerTimecode');
+      if (tcEl) tcEl.textContent = `${formatSecondsToTimecode(seekSec, hasHours)} / ${ep.duration}`;
+    });
+  }
 
   document.getElementById('openRelatedBriefBtn').addEventListener('click', (e) => {
     openDossierSlideover(e.currentTarget.getAttribute('data-brief-id'));
@@ -1959,29 +2457,56 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   });
 
-  // Universal Modal Close Triggers
+  // Universal Modal & Escape Key Close Triggers
   document.getElementById('closeUniversalModalBtn').addEventListener('click', closeUniversalModal);
   document.getElementById('universalModalBackdrop').addEventListener('click', (e) => {
     if (e.target.id === 'universalModalBackdrop') closeUniversalModal();
   });
 
-  // Floating Seal Scroll-to-Top & Sticky Header Scroll Spy
-  document.getElementById('scrollToTopSealBtn').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const slideover = document.getElementById('dossierSlideoverBackdrop');
+    if (slideover && slideover.classList.contains('open')) {
+      slideover.classList.remove('open');
+      slideover.setAttribute('aria-hidden', 'true');
+    }
+    const modal = document.getElementById('universalModalBackdrop');
+    if (modal && modal.classList.contains('open')) {
+      closeUniversalModal();
+    }
+    if (navMenuEl && navMenuEl.classList.contains('mobile-open')) {
+      navMenuEl.classList.remove('mobile-open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.textContent = 'INDEX ☰';
+    }
   });
+
+  // Floating Seal Scroll-to-Top & Sticky Header Scroll Spy
+  const scrollToTopSealBtn = document.getElementById('scrollToTopSealBtn');
+  if (scrollToTopSealBtn) {
+    scrollToTopSealBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
-  window.addEventListener('scroll', () => {
-    document.getElementById('stickyHeader').classList.toggle('scrolled', window.scrollY > 20);
+  const syncScrollSpy = () => {
+    const sy = window.scrollY;
+    document.getElementById('stickyHeader').classList.toggle('scrolled', sy > 20);
+    if (scrollToTopSealBtn) {
+      scrollToTopSealBtn.classList.toggle('visible', sy > 360);
+    }
     let currentSectionId = 'hero-manifesto';
     sections.forEach(sec => {
-      if (window.scrollY >= sec.offsetTop - 160) {
+      if (sy >= sec.offsetTop - 160) {
         currentSectionId = sec.getAttribute('id');
       }
     });
     navLinks.forEach(link => {
       link.classList.toggle('active', link.getAttribute('data-section') === currentSectionId);
     });
-  });
+  };
+  window.addEventListener('scroll', syncScrollSpy, { passive: true });
+  syncScrollSpy();
 });
