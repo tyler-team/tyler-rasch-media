@@ -92,6 +92,14 @@ const nextConfig: NextConfig = {
         destination: '/1BWS_EP21/index.html',
       },
       {
+        source: '/1bWS_EP21',
+        destination: '/1BWS_EP21/index.html',
+      },
+      {
+        source: '/1bWS_EP21/',
+        destination: '/1BWS_EP21/index.html',
+      },
+      {
         source: '/1bws_ep21',
         destination: '/1BWS_EP21/index.html',
       },
@@ -237,6 +245,19 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/1BWS_EP21/index.html',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
         source: '/1BWS_EP21/:path*',
         headers: [
           {
@@ -252,6 +273,10 @@ const nextConfig: NextConfig = {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
           },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
         ],
       },
       {
@@ -261,6 +286,23 @@ const nextConfig: NextConfig = {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
           },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bWS_EP21',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
         ],
       },
       {
@@ -269,6 +311,10 @@ const nextConfig: NextConfig = {
           {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
@@ -282,6 +328,19 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP19/index.html',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
@@ -301,6 +360,10 @@ const nextConfig: NextConfig = {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
           },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
         ],
       },
       {
@@ -309,6 +372,10 @@ const nextConfig: NextConfig = {
           {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
@@ -319,6 +386,10 @@ const nextConfig: NextConfig = {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
           },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
         ],
       },
       {
@@ -327,6 +398,10 @@ const nextConfig: NextConfig = {
           {
             key: 'X-Robots-Tag',
             value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
