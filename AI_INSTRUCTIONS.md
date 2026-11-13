@@ -51,7 +51,7 @@
 ## 6. How to Handle User Requests
 - **Be surgical:** Always use specific surgical line-editing tools if possible. Do not replace entire files unless necessary.
 - **Maintain tone:** Keep the UI feeling like a premium branding agency.
-- **Always push:** Once work is confirmed working, provide the user with the git commands (`git add .`, `git commit -m "..."`, `git push`) to securely deploy via Vercel.
+- **Always push:** Once work is confirmed working and verified via `npm run build`, automatically stage, commit, and run `git push origin main` at the end of the task to deploy via Vercel (leaving local untracked handoff files unstaged unless requested).
 
 ---
 **End of Knowledge Base.**

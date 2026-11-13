@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence, useReducedMotion } from "framer-motion";
 import SMEStartupProgramView from "../components/SMEStartupProgramView";
 import PressBlogSection from "../components/PressBlogSection";
 import PressView from "../components/PressView";
 import BlogView from "../components/BlogView";
-import CareersInternshipView from "../components/CareersInternshipView";
+import CareersHubView from "../components/CareersHubView";
+import CorporateFooter from "../components/CorporateFooter";
 import { getPressReleases, PressRelease } from "../lib/sanity";
 
 // --- TYPES & CONTENT DICTIONARY ---
@@ -208,8 +209,8 @@ const contentData: Record<'KR' | 'EN', Content> = {
       subtitle: "지적 아이콘 • 브랜드에 지성을 더하는 목소리",
       description: (
         <>
-          타일러 라쉬는 단순한 방송인이 아닙니다. 대한민국에서 가장 신뢰받는 외국인 지식인이자,
-          <br />
+          타일러 라쉬는 단순한 방송인이 아닙니다. 대한민국에서 가장 신뢰받는 외국인 지식인이자,{" "}
+          <br className="hidden md:inline" />
           브랜드의 메시지에 &apos;지적 권위&apos;를 부여하는 독보적인 미디어 솔루션입니다.
         </>
       ),
@@ -303,7 +304,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         items: [
           {
             title: "1BWS Talking Head",
-            subtitle: "지정학 · 거시경제 · 테크 심층 분석",
+            subtitle: "세상을 보는 새로운 관점",
             channel: "1bws",
             channelLabel: "ONE BIG WORLD SHOW",
             desc: "글로벌 경제, 첨단 테크, 지정학적 패권 경쟁과 국제 이슈의 거대한 판을 읽어내는 타일러의 심층 인사이트",
@@ -842,7 +843,7 @@ const contentData: Record<'KR' | 'EN', Content> = {
         items: [
           {
             title: "1BWS Talking Head",
-            subtitle: "Geopolitics · Macroeconomics · Tech Deep Dive",
+            subtitle: "A new perspective on the world",
             channel: "1bws",
             channelLabel: "ONE BIG WORLD SHOW",
             desc: "Deep-dive analytical perspectives by Tyler deciphering the intersection of global affairs, macroeconomics, tech disruption, and shifting geopolitics.",
@@ -1285,7 +1286,19 @@ const contentData: Record<'KR' | 'EN', Content> = {
 
 // --- COMPONENTS ---
 
-const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang: (l: 'KR' | 'EN') => void, view: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog', setView: (v: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog') => void }) => {
+const Sidebar = ({
+  lang,
+  setLang,
+  view,
+  setView,
+  activeSection = 'vision',
+}: {
+  lang: 'KR' | 'EN';
+  setLang: (l: 'KR' | 'EN') => void;
+  view: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog';
+  setView: (v: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog') => void;
+  activeSection?: string;
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = contentData[lang].sidebar;
 
@@ -1293,34 +1306,41 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
 
   return (
     <>
-      {/* MOBILE TOP BAR */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-[#02060C]/90 backdrop-blur-md border-b border-white/10 z-50 flex items-center justify-between px-6">
+      {/* MOBILE & TABLET TOP BAR */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#02060C]/90 backdrop-blur-md border-b border-white/10 z-50 flex items-center justify-between px-6">
         <a href="/" onClick={(e) => { e.preventDefault(); setView('home'); window.scrollTo(0, 0); window.history.pushState(null, '', '/'); }} className="font-black text-xl tracking-tighter leading-none text-white cursor-pointer">
           TYLER <span className="text-accent">MEDIA</span>
         </a>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {/* Mobile Language Toggle */}
-          <div className="flex bg-white/5 border border-white/10 p-0.5 rounded-full relative w-20">
+          <div className="flex bg-white/5 border border-white/10 p-0.5 rounded-full relative w-24">
             <motion.div
               animate={{ x: lang === 'EN' ? '100%' : '0%' }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-accent rounded-full"
+              className="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-accent rounded-full shadow-[0_0_12px_rgba(0,229,255,0.3)]"
             />
             <button
+              type="button"
               onClick={() => setLang('KR')}
-              className={`relative z-10 flex-1 py-1 text-[10px] font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500'}`}
+              className={`relative z-10 flex-1 py-1.5 text-[11px] font-black transition-colors cursor-pointer ${lang === 'KR' ? 'text-black' : 'text-zinc-400 hover:text-white'}`}
             >
               KR
             </button>
             <button
+              type="button"
               onClick={() => setLang('EN')}
-              className={`relative z-10 flex-1 py-1 text-[10px] font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500'}`}
+              className={`relative z-10 flex-1 py-1.5 text-[11px] font-black transition-colors cursor-pointer ${lang === 'EN' ? 'text-black' : 'text-zinc-400 hover:text-white'}`}
             >
               EN
             </button>
           </div>
 
-          <button onClick={toggleMenu} className="text-white p-2 -mr-2">
+          <button
+            type="button"
+            onClick={toggleMenu}
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            className="text-white w-11 h-11 -mr-2 flex items-center justify-center rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+          >
             {mobileMenuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             ) : (
@@ -1338,20 +1358,23 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-0 z-40 bg-[#02060C] md:hidden pt-24 px-8"
+            className="fixed inset-0 z-40 bg-[#02060C] lg:hidden pt-24 px-8 overflow-y-auto pb-12"
           >
             <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-6 text-xl font-bold tracking-widest uppercase">
-                {['vision', 'impact', 'originals', 'brands', 'packages'].map((item) => (
-                  <a
-                    key={item}
-                    href={`/#${item}`}
-                    onClick={(e) => { e.preventDefault(); setView('home'); setMobileMenuOpen(false); window.history.pushState(null, '', `/#${item}`); const el = document.getElementById(item); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
-                    className={`flex items-center gap-4 transition-colors ${view === 'home' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-white'}`}
-                  >
-                    {t[item as keyof typeof t]}
-                  </a>
-                ))}
+              <div className="flex flex-col gap-5 text-xl font-bold tracking-widest uppercase">
+                {['vision', 'impact', 'originals', 'brands', 'packages'].map((item) => {
+                  const isSectionActive = view === 'home' && activeSection === item;
+                  return (
+                    <a
+                      key={item}
+                      href={`/#${item}`}
+                      onClick={(e) => { e.preventDefault(); setView('home'); setMobileMenuOpen(false); window.history.pushState(null, '', `/#${item}`); const el = document.getElementById(item); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+                      className={`flex items-center gap-4 py-1 transition-colors ${isSectionActive ? 'text-accent' : view === 'home' ? 'text-zinc-300 hover:text-white' : 'text-zinc-500 hover:text-white'}`}
+                    >
+                      {t[item as keyof typeof t]}
+                    </a>
+                  );
+                })}
                 {t["sme-startup-program"] && (
                   <a
                     href="/sme-startup-program"
@@ -1404,23 +1427,23 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
         )}
       </AnimatePresence>
 
-      {/* DESKTOP SIDEBAR (Persistent) */}
-      <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-10 px-8 items-start">
+      {/* DESKTOP SIDEBAR (Persistent lg+) */}
+      <nav className="hidden lg:flex fixed left-0 top-0 bottom-0 w-64 z-50 glass border-r border-white/10 flex-col justify-between py-10 px-8 items-start">
         <div className="w-full">
           <a href="/" onClick={(e) => { e.preventDefault(); setView('home'); window.scrollTo(0, 0); window.history.pushState(null, '', '/'); }} className="font-black text-2xl tracking-tighter leading-none mb-1 text-left block hover:opacity-80 transition-opacity cursor-pointer">
             TYLER<br />RASCH<br /><span className="text-accent">MEDIA</span>
           </a>
         </div>
 
-        <div className={`flex flex-col gap-4.5 font-bold tracking-widest uppercase w-full items-start ${lang === 'KR' ? 'text-[13.5px]' : 'text-xs'}`}>
+        <div className={`flex flex-col gap-4 font-bold tracking-widest uppercase w-full items-start ${lang === 'KR' ? 'text-[13.5px]' : 'text-xs'}`}>
           {['vision', 'impact', 'originals', 'brands', 'packages'].map((item) => {
-            const isActive = view === 'home';
+            const isActive = view === 'home' && activeSection === item;
             return (
               <a
                 key={item}
                 href={`/#${item}`}
                 onClick={(e) => { e.preventDefault(); setView('home'); window.history.pushState(null, '', `/#${item}`); const el = document.getElementById(item); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
-                className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+                className={`relative pl-6 py-1.5 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${isActive ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
               >
                 <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
                 <span>{t[item as keyof typeof t]}</span>
@@ -1431,7 +1454,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/sme-startup-program"
               onClick={(e) => { e.preventDefault(); setView('sme-startup-program'); window.scrollTo(0, 0); window.history.pushState(null, '', '/sme-startup-program'); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'sme-startup-program' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1.5 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'sme-startup-program' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
             >
               <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'sme-startup-program' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t["sme-startup-program"]}</span>
@@ -1441,7 +1464,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/blog"
               onClick={(e) => { e.preventDefault(); setView('blog'); window.scrollTo(0, 0); window.history.pushState(null, '', '/blog'); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'blog' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1.5 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'blog' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
             >
               <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'blog' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.blog}</span>
@@ -1451,7 +1474,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/press"
               onClick={(e) => { e.preventDefault(); setView('press'); window.scrollTo(0, 0); window.history.pushState(null, '', '/press'); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'press' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1.5 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'press' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
             >
               <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'press' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.press}</span>
@@ -1461,7 +1484,7 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/careers"
               onClick={(e) => { e.preventDefault(); setView('careers'); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'careers' ? 'text-accent' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1.5 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'careers' ? 'text-accent' : 'text-zinc-400 hover:text-white'}`}
             >
               <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'careers' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.careers}</span>
@@ -1471,9 +1494,9 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
             <a
               href="/#contact"
               onClick={(e) => { e.preventDefault(); setView('home'); window.history.pushState(null, '', '/#contact'); const el = document.getElementById('contact'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
-              className={`relative pl-6 py-1 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'home' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+              className={`relative pl-6 py-1.5 transition-colors group text-left font-bold tracking-widest uppercase block w-full ${view === 'home' && activeSection === 'contact' ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
             >
-              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'home' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full transition-all duration-300 ${view === 'home' && activeSection === 'contact' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'}`} />
               <span>{t.contact}</span>
             </a>
           )}
@@ -1486,23 +1509,25 @@ const Sidebar = ({ lang, setLang, view, setView }: { lang: 'KR' | 'EN', setLang:
               <motion.div
                 animate={{ x: lang === 'EN' ? '100%' : '0%' }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-accent rounded-full shadow-[0_0_15px_rgba(0,209,160,0.3)]"
+                className="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-accent rounded-full shadow-[0_0_15px_rgba(0,229,255,0.3)]"
               />
               <button
+                type="button"
                 onClick={() => setLang('KR')}
-                className={`relative z-10 flex-1 py-1.5 text-xs font-black transition-colors ${lang === 'KR' ? 'text-black' : 'text-zinc-500'}`}
+                className={`relative z-10 flex-1 py-1.5 text-xs font-black transition-colors cursor-pointer ${lang === 'KR' ? 'text-black' : 'text-zinc-400 hover:text-white'}`}
               >
                 KR
               </button>
               <button
+                type="button"
                 onClick={() => setLang('EN')}
-                className={`relative z-10 flex-1 py-1.5 text-xs font-black transition-colors ${lang === 'EN' ? 'text-black' : 'text-zinc-500'}`}
+                className={`relative z-10 flex-1 py-1.5 text-xs font-black transition-colors cursor-pointer ${lang === 'EN' ? 'text-black' : 'text-zinc-400 hover:text-white'}`}
               >
                 EN
               </button>
             </div>
           </div>
-          <div className="text-[10px] text-zinc-700 px-1 text-left">
+          <div className="text-[10px] text-zinc-600 px-1 text-left">
             © 2026 TRM
           </div>
         </div>
@@ -1526,36 +1551,52 @@ const TallyEmbed = ({ lang = 'KR', formId = 'A7qA7W' }: { lang?: 'KR' | 'EN'; fo
     }
   }, [lang, formId]);
 
-  const tallyUrl = `https://tally.so/embed/${formId}?alignLeft=1&hideTitle=1&dynamicHeight=1&lang=${lang.toLowerCase()}&locale=${lang.toLowerCase()}`;
+  const tallyUrl = `https://tally.so/embed/${formId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&lang=${lang.toLowerCase()}&locale=${lang.toLowerCase()}`;
 
   return (
-    <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-3xl overflow-hidden bg-[#070d17] shadow-2xl border border-white/10 transition-all duration-500 relative">
-      {!isLoaded && (
-        <div className="absolute inset-0 z-10 bg-[#070d17] p-8 md:p-12 flex flex-col justify-between animate-pulse">
-          <div className="space-y-6 max-w-xl">
-            <div className="h-6 w-48 bg-white/10 rounded-md" />
-            <div className="h-4 w-72 bg-white/5 rounded-md" />
-            <div className="space-y-4 pt-6">
-              <div className="h-12 w-full bg-white/[0.04] rounded-xl border border-white/5" />
-              <div className="h-12 w-full bg-white/[0.04] rounded-xl border border-white/5" />
-              <div className="h-28 w-full bg-white/[0.04] rounded-xl border border-white/5" />
+    <div className="w-full rounded-3xl bg-[#0a101b] border border-white/10 p-2 sm:p-3 shadow-2xl">
+      <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-[11px] font-mono text-zinc-400 border-b border-white/10 mb-2 sm:mb-3">
+        <span className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="uppercase tracking-wider">
+            {lang === 'EN' ? 'B2B Partnership Brief' : 'B2B 파트너십 제휴 접수'}
+          </span>
+        </span>
+        <a
+          href="mailto:request@tylerrasch.com"
+          className="text-zinc-300 hover:text-accent transition-colors underline underline-offset-4"
+        >
+          request@tylerrasch.com
+        </a>
+      </div>
+      <div className="w-full min-h-[900px] md:min-h-[1100px] rounded-2xl overflow-hidden bg-[#F8FAFC] shadow-inner transition-all duration-500 relative">
+        {!isLoaded && (
+          <div className="absolute inset-0 z-10 bg-[#F8FAFC] p-8 md:p-12 flex flex-col justify-between animate-pulse">
+            <div className="space-y-6 max-w-xl">
+              <div className="h-6 w-48 bg-slate-200 rounded-md" />
+              <div className="h-4 w-72 bg-slate-100 rounded-md" />
+              <div className="space-y-4 pt-6">
+                <div className="h-12 w-full bg-slate-100 rounded-xl border border-slate-200" />
+                <div className="h-12 w-full bg-slate-100 rounded-xl border border-slate-200" />
+                <div className="h-28 w-full bg-slate-100 rounded-xl border border-slate-200" />
+              </div>
             </div>
+            <div className="h-12 w-36 bg-slate-200 rounded-xl" />
           </div>
-          <div className="h-12 w-36 bg-white/10 rounded-xl" />
-        </div>
-      )}
-      <iframe
-        key={`${formId}-${lang}`}
-        data-tally-src={tallyUrl}
-        src={tallyUrl}
-        loading="lazy"
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        title={lang === 'EN' ? "Tyler Rasch Partnership Inquiry" : "타일러 라쉬 비즈니스 제휴 문의"}
-        className={`min-h-[900px] md:min-h-[1100px] transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        onLoad={() => setIsLoaded(true)}
-      />
+        )}
+        <iframe
+          key={`${formId}-${lang}`}
+          data-tally-src={tallyUrl}
+          src={tallyUrl}
+          loading="lazy"
+          width="100%"
+          height="100%"
+          frameBorder="0"
+          title={lang === 'EN' ? "Tyler Rasch Partnership Inquiry" : "타일러 라쉬 비즈니스 제휴 문의"}
+          className={`min-h-[900px] md:min-h-[1100px] transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={() => setIsLoaded(true)}
+        />
+      </div>
     </div>
   );
 };
@@ -1867,8 +1908,10 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                 <div className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider">
                   {lang === 'KR' ? '주요 연령대' : 'Key Age Group'}
                 </div>
-                <div className="text-sm md:text-base font-black text-white mt-0.5">20-44세</div>
-                <div className="text-[9px] text-zinc-500 font-mono">
+                <div className="text-sm md:text-base font-black text-white mt-0.5">
+                  {lang === 'KR' ? '20-44세' : 'Ages 20–44'}
+                </div>
+                <div className="text-[9px] text-zinc-400 font-mono">
                   {lang === 'KR' ? '영프로페셔널' : 'Young Pro'}
                 </div>
               </div>
@@ -1877,10 +1920,10 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                   {lang === 'KR' ? '콘텐츠 포맷' : 'Format'}
                 </div>
                 <div className="text-sm md:text-base font-black text-[#ffc700] mt-0.5">
-                  {lang === 'KR' ? '팟캐스트' : 'Podcast'}
+                  {lang === 'KR' ? '언어 & 브이로그' : 'Language & Vlog'}
                 </div>
-                <div className="text-[9px] text-zinc-500 font-mono">
-                  {lang === 'KR' ? '비디오 토크' : 'Video Talk'}
+                <div className="text-[9px] text-zinc-400 font-mono">
+                  {lang === 'KR' ? '라이프스타일' : 'Lifestyle'}
                 </div>
               </div>
             </div>
@@ -1893,28 +1936,27 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           </div>
         </div>
 
-        {/* High-End Tech Visual: Cross-Platform Demographics Amplifier */}
-        <div className="lg:col-span-12 bg-[#141014] bg-gradient-to-br from-[#833AB4]/10 via-[#161616] to-[#FCAF45]/10 p-7 md:p-8 rounded-3xl border border-white/10 space-y-6 shadow-2xl relative overflow-hidden group">
-          {/* Instagram Signature Top & Bottom Gradient Accent Lines */}
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]" />
-          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]" />
+        {/* Cross-Platform Demographics Amplifier (Obsidian Glass) */}
+        <div className="lg:col-span-12 glass bg-white/[0.02] p-7 md:p-8 rounded-3xl border border-white/10 space-y-6 shadow-2xl relative overflow-hidden group">
+          {/* Subtle Top Spectrum Hairline */}
+          <div className="absolute top-0 left-0 w-full h-[1.5px] opacity-80 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]" />
 
           {/* Header Bar */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-black/80 border border-[#E1306C]/80 shadow-[0_0_15px_rgba(225,48,108,0.25)] w-fit">
-              <span className="w-2 h-2 rounded-full bg-[#E1306C] shadow-[0_0_8px_#E1306C] animate-pulse" />
-              <span className="text-white font-mono font-bold text-xs tracking-wider uppercase">[CROSS-PLATFORM AMPLIFIER]</span>
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/15 w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#E1306C]" />
+              <span className="text-zinc-200 font-mono font-bold text-xs tracking-wider uppercase">[CROSS-PLATFORM AMPLIFIER]</span>
             </div>
-            <div className="text-[11px] font-mono text-[#E1306C] uppercase tracking-widest hidden md:flex items-center gap-2 font-semibold">
+            <div className="text-[11px] font-mono text-zinc-400 uppercase tracking-widest hidden md:flex items-center gap-2 font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#833AB4] to-[#FCAF45]" />
-              Instagram Engine & Multi-Channel Syndication
+              Instagram Engine &amp; Multi-Channel Syndication
             </div>
           </div>
 
           {/* 3 Horizontal Data Chips */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Chip 1: Official Instagram Real Data */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E1306C]/60 hover:bg-white/[0.05] transition-all">
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 hover:bg-white/[0.05] transition-all">
               <div className="flex items-center gap-1.5 text-xs text-zinc-300 font-medium mb-1.5 truncate">
                 <span>{lang === 'KR' ? '타일러 라쉬 공식 인스타그램' : "Tyler's Official Instagram"}</span>
                 <span className="text-[#E1306C] font-semibold">@tyleroninsta</span>
@@ -1928,7 +1970,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
             </div>
 
             {/* Chip 2: Target Power */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E1306C]/60 hover:bg-white/[0.05] transition-all">
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 hover:bg-white/[0.05] transition-all">
               <div className="text-xs font-bold text-white mb-1.5 leading-snug">
                 {lang === 'KR' ? '여성 77% 중심의 트렌드·라이프스타일 소비 주도층' : '77% Female Trend & Lifestyle Consumption Core'}
               </div>
@@ -1938,7 +1980,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
             </div>
 
             {/* Chip 3: Multi-Channel Synergy */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E1306C]/60 hover:bg-white/[0.05] transition-all">
+            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 hover:bg-white/[0.05] transition-all">
               <div className="text-xs font-bold text-white mb-1.5 leading-snug">
                 {lang === 'KR' ? '1BWS & Really Tyler 숏폼 크로스 바이럴' : '1BWS & Really Tyler Short-Form Cross-Viral'}
               </div>
@@ -1966,7 +2008,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
           <div className="h-[1px] w-20 bg-accent mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto w-full items-stretch">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 max-w-6xl mx-auto w-full items-stretch">
           {/* Column 1: Tyler Rasch */}
           <div className="glass p-5 sm:p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between relative overflow-hidden group h-full">
             <div className="absolute top-0 left-0 w-full h-1 bg-accent" />
@@ -1975,7 +2017,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                 <span className="text-[10px] font-black uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
                   Personal Official
                 </span>
-                <span className="text-xs text-zinc-500 font-mono">5 Channels</span>
+                <span className="text-xs text-zinc-400 font-mono">5 Channels</span>
               </div>
               <h4 className={`text-2xl font-black text-white tracking-tight mb-6 h-10 flex items-center ${lang === 'EN' ? 'italic' : ''}`}>
                 {t.ecosystem.personal_title}
@@ -1988,7 +2030,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 4 }}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-accent/30 transition-all group/item"
+                    className="flex items-center justify-between px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-accent/30 transition-all group/item"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <span className="text-zinc-400 group-hover/item:text-accent transition-colors scale-110 flex-shrink-0">
@@ -2041,7 +2083,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ x: 4 }}
-                      className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#00be61]/40 transition-all group/item"
+                      className="flex items-center justify-between px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#00be61]/40 transition-all group/item"
                     >
                       <div className="flex items-center gap-3 min-w-0">
                         <span className="text-zinc-400 group-hover/item:text-[#00be61] transition-colors scale-110 flex-shrink-0">
@@ -2051,7 +2093,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                           <div className="text-xs font-bold text-white group-hover/item:text-[#00be61] transition-colors truncate">
                             {p.name}
                           </div>
-                          <div className="text-[10px] text-zinc-500 font-mono truncate">
+                          <div className="text-[10px] text-zinc-400 font-mono truncate">
                             {p.handle}
                           </div>
                         </div>
@@ -2059,7 +2101,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                       <div className="flex items-center gap-2.5 flex-shrink-0 ml-2">
                         {p.count ? (
                           <span className="text-[10px] font-mono font-bold text-emerald-400 group-hover/item:text-white px-2 py-0.5 rounded-full bg-[#00be61]/10 border border-[#00be61]/30 transition-colors">
-                            {p.icon === 'youtube' ? live1bwsSubs.en : p.count}
+                            {p.icon === 'youtube' ? (lang === 'KR' ? live1bwsSubs.ko : live1bwsSubs.en) : p.count}
                           </span>
                         ) : null}
                         <span className="text-zinc-600 group-hover/item:text-[#00be61] transition-colors text-xs">
@@ -2110,7 +2152,7 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ x: 4 }}
-                      className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#ffc700]/40 transition-all group/item"
+                      className="flex items-center justify-between px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-[#ffc700]/40 transition-all group/item"
                     >
                       <div className="flex items-center gap-3 min-w-0">
                         <span className="text-zinc-400 group-hover/item:text-[#ffc700] transition-colors scale-110 flex-shrink-0">
@@ -2162,25 +2204,47 @@ const ImpactDashboard = ({ t, title, lang = 'KR' }: { t: Content['dashboard'], t
   );
 };
 
+const BG_POSITION_MAP: Record<string, string> = {
+  "object-[center_5%]": "object-[center_5%] md:object-[center_8%]",
+  "object-[center_10%]": "object-[center_10%] md:object-[center_10%]",
+  "object-[center_15%]": "object-[center_15%] md:object-[center_10%]",
+};
+
 // --- FINAL CALIBRATED SECTION BACKGROUND ---
-const SectionBackground = ({ src, y, pos = "object-[center_10%]", mobilePos = "object-[center_15%]", priority = false }: { src: string, y: any, pos?: string, mobilePos?: string, priority?: boolean }) => (
-  <motion.div
-    style={{ y }}
-    className="absolute right-0 top-0 bottom-0 w-full md:w-[65%] lg:w-[55%] opacity-[0.8] md:opacity-[0.6] grayscale pointer-events-none z-0 transition-opacity duration-700"
-  >
-    <Image
-      src={src}
-      alt="Background Tyler"
-      fill
-      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, 55vw"
-      className={`object-cover ${mobilePos} md:${pos}`}
-      priority={priority}
-    />
-    {/* Responsive gradients to protect face visibility on mobile */}
-    <div className="absolute inset-0 bg-gradient-to-r from-[#02060C] via-[#02060C]/30 md:via-[#02060C]/20 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-b from-[#02060C] via-transparent to-[#02060C]" />
-  </motion.div>
-);
+const SectionBackground = ({
+  src,
+  y,
+  mobilePos = "object-[center_15%]",
+  priority = false,
+}: {
+  src: string;
+  y: any;
+  mobilePos?: string;
+  priority?: boolean;
+}) => {
+  const shouldReduceMotion = useReducedMotion();
+  const objectPosClass = BG_POSITION_MAP[mobilePos] || "object-[center_15%] md:object-[center_10%]";
+
+  return (
+    <motion.div
+      aria-hidden="true"
+      style={shouldReduceMotion ? undefined : { y }}
+      className="absolute right-0 top-0 bottom-0 w-full md:w-[65%] lg:w-[55%] opacity-[0.55] md:opacity-[0.45] grayscale pointer-events-none z-0 transition-opacity duration-700"
+    >
+      <Image
+        src={src}
+        alt=""
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, 55vw"
+        className={`object-cover ${objectPosClass}`}
+        priority={priority}
+      />
+      {/* Protective gradients preserving text legibility across mobile, tablet, and desktop */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#02060C] via-[#02060C]/70 md:via-[#02060C]/45 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#02060C] via-transparent to-[#02060C]" />
+    </motion.div>
+  );
+};
 
 const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog') => void }) => {
   const [visible, setVisible] = useState(false);
@@ -2208,77 +2272,6 @@ const StickyCTA = ({ text, setView }: { text: string, setView: (v: 'home' | 'car
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </div>
       </a>
-    </div>
-  );
-};
-
-const MediaKitModal = ({ isOpen, onClose, title }: { isOpen: boolean, onClose: () => void, title: string }) => {
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={title || "Media Kit"}
-      className="fixed inset-0 z-[100] flex items-center justify-center px-4"
-    >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        className="relative bg-[#0a0f18] border border-white/10 rounded-2xl w-full max-w-4xl h-[85vh] shadow-2xl overflow-hidden z-10 flex flex-col"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Direct 2026 Partnership Guide PDF Download Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-3.5 bg-[#02060C]/90 border-b border-white/10 z-20">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 mr-1">
-              2026 Media Partnership Guide:
-            </span>
-            <a
-              href="/assets/docs/TylerRasch_MediaKit_2026_KR.pdf"
-              download
-              className="px-3 py-1.5 rounded-lg bg-accent/15 border border-accent/40 text-accent hover:bg-accent hover:text-black text-xs font-bold transition-all"
-            >
-              국문 PDF 다운로드 &darr;
-            </a>
-            <a
-              href="/assets/docs/TylerRasch_MediaKit_2026_EN.pdf"
-              download
-              className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/15 text-zinc-200 hover:bg-white hover:text-black text-xs font-bold transition-all"
-            >
-              EN PDF Download &darr;
-            </a>
-          </div>
-          <button
-            onClick={onClose}
-            aria-label="Close modal"
-            className="bg-white/5 hover:bg-white/15 p-1.5 rounded-full text-zinc-400 hover:text-white transition-colors border border-white/10"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-        </div>
-
-        <iframe
-          src="https://form.typeform.com/to/IUSk2NW1"
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          allow="camera; microphone; autoplay; encrypted-media;"
-          className="flex-1 w-full"
-          title={title}
-        ></iframe>
-      </motion.div>
     </div>
   );
 };
@@ -2368,18 +2361,20 @@ const OriginalsSection = ({
       {/* Channel Filter Tabs */}
       <div className="flex flex-wrap items-center gap-3">
         <button
+          type="button"
           onClick={() => setFilter('all')}
-          className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
+          className={`px-5 py-2.5 min-h-[44px] rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 cursor-pointer ${
             filter === 'all'
-              ? 'bg-accent text-black shadow-[0_0_20px_rgba(0,209,160,0.3)]'
+              ? 'bg-accent text-black shadow-[0_0_20px_rgba(0,229,255,0.3)]'
               : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
           }`}
         >
           <span>{t.filter_all || 'ALL (4)'}</span>
         </button>
         <button
+          type="button"
           onClick={() => setFilter('1bws')}
-          className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
+          className={`px-5 py-2.5 min-h-[44px] rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 cursor-pointer ${
             filter === '1bws'
               ? 'bg-[#00be61] text-white shadow-[0_0_20px_rgba(0,190,97,0.3)]'
               : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
@@ -2389,8 +2384,9 @@ const OriginalsSection = ({
           <span>{t.filter_1bws || '1BWS (2)'}</span>
         </button>
         <button
+          type="button"
           onClick={() => setFilter('really_tyler')}
-          className={`px-5 py-2.5 rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 ${
+          className={`px-5 py-2.5 min-h-[44px] rounded-full text-xs font-black tracking-wider uppercase transition-all flex items-center gap-2 cursor-pointer ${
             filter === 'really_tyler'
               ? 'bg-[#ffc700] text-black font-black shadow-[0_0_20px_rgba(255,199,0,0.3)]'
               : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10'
@@ -2435,6 +2431,14 @@ const OriginalsSection = ({
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     unoptimized={item.thumbnail.startsWith('http')}
                   />
+                  {/* Centered Play Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-black/70 border border-white/25 text-white group-hover:bg-accent group-hover:text-black group-hover:border-accent group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
+                      <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
                   <div className="absolute top-4 left-4 z-10">
                     <span
                       className={`px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase backdrop-blur-md shadow-md ${
@@ -2467,7 +2471,7 @@ const OriginalsSection = ({
               <div>
                 {/* Tags */}
                 {item.tags && item.tags.length > 0 && (
-                  <div className="pt-3.5 border-t border-white/5 mb-4 h-9 flex items-center overflow-hidden">
+                  <div className="pt-3.5 border-t border-white/5 mb-4 min-h-[2.5rem] flex items-center">
                     <div className="flex flex-wrap gap-1.5 items-center">
                       {item.tags.map((tag, tagIdx) => (
                         <span
@@ -2482,15 +2486,16 @@ const OriginalsSection = ({
                 )}
 
                 {/* Card Footer Button */}
-                <div
+                <button
+                  type="button"
                   onClick={() => item.videoUrl && onSelectVideo(item.videoUrl)}
-                  className="pt-3 border-t border-white/5 flex items-center justify-between text-xs font-bold text-zinc-400 group-hover:text-accent cursor-pointer transition-colors"
+                  className="w-full pt-3 min-h-[44px] border-t border-white/5 flex items-center justify-between text-xs font-bold text-zinc-400 group-hover:text-accent cursor-pointer transition-colors"
                 >
                   <span className="tracking-widest uppercase flex items-center gap-2">
-                    <span>Watch Episode</span>
+                    <span>{lang === 'KR' ? '에피소드 보기' : 'Watch Episode'}</span>
                     <span>&rarr;</span>
                   </span>
-                </div>
+                </button>
               </div>
             </div>
           </motion.div>
@@ -2523,14 +2528,14 @@ const BrandLogoWall = () => {
 
   return (
     <div className="mt-32 pt-20 border-t border-white/5">
-      <p className="text-[12px] font-bold text-accent/40 tracking-[0.4em] uppercase mb-16 text-center">Trusted Partners</p>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-16 items-center justify-items-center">
+      <p className="text-[12px] font-bold text-accent/50 tracking-[0.4em] uppercase mb-16 text-center">Trusted Partners</p>
+      <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-12 md:gap-x-12 md:gap-y-14 max-w-5xl mx-auto">
         {partners.map((brand, i) => (
           <motion.div
             key={i}
             whileHover={{ scale: (brand.scale || 1) * 1.08 }}
             initial={{ scale: brand.scale || 1 }}
-            className="relative w-32 h-12 opacity-40 hover:opacity-95 transition-all duration-500 cursor-default"
+            className="relative w-28 sm:w-32 h-12 opacity-45 hover:opacity-95 transition-all duration-500 cursor-default flex-shrink-0"
             style={{
               filter: 'brightness(0) invert(1)'
             }}
@@ -2562,10 +2567,29 @@ export default function Home({
 }) {
   const [lang, setLang] = useState<'KR' | 'EN'>(initialLang);
   const [view, setView] = useState<'home' | 'careers' | 'sme-startup-program' | 'press' | 'blog'>(initialView);
+  const [activeSection, setActiveSection] = useState<string>('vision');
   const [releases, setReleases] = useState<PressRelease[]>(initialReleases);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const t = contentData[lang];
+
+  useEffect(() => {
+    if (view !== 'home') return;
+    const sectionIds = ['vision', 'impact', 'originals', 'brands', 'packages', 'contact'];
+    const handleScrollSpy = () => {
+      const scrollPos = window.scrollY + window.innerHeight * 0.35;
+      let current = 'vision';
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
+    };
+    handleScrollSpy();
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, [view]);
 
   useEffect(() => {
     if (initialReleases && initialReleases.length > 0) {
@@ -2620,13 +2644,12 @@ export default function Home({
   const yContact = useTransform(scrollYProgress, [0.8, 1], [50, 0]);
 
   return (
-    <div className="min-h-screen bg-[#02060C] text-foreground selection:bg-accent selection:text-black font-sans scroll-smooth uppercase-headings">
-      <Sidebar lang={lang} setLang={setLang} view={view} setView={setView} />
-      <StickyCTA text={t.sidebar.sticky_cta} setView={setView} />
-      <MediaKitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t.hero.media_kit_cta} />
+    <div className="min-h-screen bg-[#02060C] text-foreground selection:bg-accent selection:text-black font-sans scroll-smooth uppercase-headings overflow-x-hidden">
+      <Sidebar lang={lang} setLang={setLang} view={view} setView={setView} activeSection={activeSection} />
+      {view === 'home' && <StickyCTA text={t.sidebar.sticky_cta} setView={setView} />}
       <VideoModal isOpen={!!selectedVideo} onClose={() => setSelectedVideo(null)} videoUrl={selectedVideo} />
 
-      <main className="pt-16 md:pt-0 pl-0 md:pl-64">
+      <main className="pt-16 lg:pt-0 pl-0 lg:pl-64">
         {view === 'home' ? (
           <>
 
@@ -2729,21 +2752,32 @@ export default function Home({
                       <div className="flex flex-col h-full justify-between gap-12">
                         <div>
                           <div className="flex justify-between items-start mb-6">
-                            <span className="text-[10px] font-bold text-zinc-500 tracking-widest uppercase py-1 px-3 border border-zinc-800 rounded-full">{item.category}</span>
+                            <span className="text-[10px] font-bold text-zinc-400 tracking-widest uppercase py-1 px-3 border border-zinc-700 rounded-full">{item.category}</span>
                             <span className="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
                           </div>
                           <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors leading-snug mb-2">{item.title}</h3>
-                          <p className="text-zinc-500 text-sm font-medium">{item.client}</p>
+                          <p className="text-zinc-400 text-sm font-medium">{item.client}</p>
                         </div>
                         <div className="aspect-video w-full bg-black/40 rounded-lg flex items-center justify-center border border-white/5 overflow-hidden relative">
                           {item.thumbnail ? (
-                            <Image
-                              src={item.thumbnail}
-                              alt={item.title}
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
+                            <>
+                              <Image
+                                src={item.thumbnail}
+                                alt={item.title}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                              {item.url && (
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-colors">
+                                  <div className="w-11 h-11 rounded-full bg-black/70 border border-white/25 text-white group-hover:bg-accent group-hover:text-black group-hover:border-accent group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
+                                    <svg className="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
+                                      <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                  </div>
+                                </div>
+                              )}
+                            </>
                           ) : (
                             <div className="text-zinc-800 font-black text-4xl tracking-tighter select-none opacity-20 uppercase group-hover:opacity-40 transition-opacity">
                               {item.client.split(' ')[0]}
@@ -2856,7 +2890,7 @@ export default function Home({
             <PressBlogSection lang={lang} releases={releases} />
 
             {/* 7. CONTACT */}
-            <section id="contact" className="relative py-36 md:py-40 px-8 md:px-20 bg-[#050A10] overflow-hidden">
+            <section id="contact" className="relative py-36 md:py-40 px-8 md:px-20 bg-[#02060C] overflow-hidden">
               {/* AUDIT: Using high-impact '20251206_TylerRasch0253_BW.jpg' as requested */}
               <SectionBackground src="/headshots/20251206_TylerRasch0253_BW.jpg" y={yContact} mobilePos="object-[center_10%]" />
               <div className="max-w-6xl mx-auto relative z-10">
@@ -2870,37 +2904,33 @@ export default function Home({
 
                 <TallyEmbed lang={lang} formId={t.contact.tallyFormId} />
 
-                <div className="mt-24 pt-12 border-t border-white/5 text-[10px] text-zinc-600 uppercase tracking-widest break-keep">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-                        <span className="font-bold">주식회사 큰미르(Knmir Inc.)</span>
-                        <span className="hidden md:inline text-zinc-800">|</span>
-                        <span>대표자: RASCH TYLER JOSEF</span>
-                        <span className="hidden md:inline text-zinc-800">|</span>
-                        <span>사업자등록번호: 116-81-96227</span>
-                      </div>
-                      <div>주소: 서울특별시 영등포구 영중로29길 2, B1</div>
-                      <div className="flex flex-wrap items-center gap-4 mt-2">
-                        <span>© 2026 Tyler Rasch Media</span>
-                        <span className="text-zinc-800">•</span>
-                        <a href="/careers" onClick={(e) => { e.preventDefault(); setView('careers'); window.scrollTo(0, 0); window.history.pushState(null, '', '/careers'); }} className="hover:text-white transition-colors">{lang === 'KR' ? '채용' : 'Careers'}</a>
-                        <span className="text-zinc-800">•</span>
-                        <a href="/policy" className="hover:text-white transition-colors">Privacy & AI Policy</a>
-                      </div>
-                    </div>
-                    <a href="mailto:request@tylerrasch.com" className="hover:text-white transition-colors lowercase">request@tylerrasch.com</a>
-                  </div>
-                </div>
+                <CorporateFooter
+                  lang={lang}
+                  className="mt-24"
+                  onCareersClick={(e) => {
+                    e.preventDefault();
+                    setView('careers');
+                    window.scrollTo(0, 0);
+                    window.history.pushState(null, '', '/careers');
+                  }}
+                />
               </div>
             </section>
           </>
         ) : view === 'careers' ? (
-          /* CAREERS VIEW (INTERNSHIP RECRUITMENT) */
-          <CareersInternshipView lang={lang} onNavigateHome={() => { setView('home'); window.scrollTo(0, 0); window.history.pushState(null, '', '/'); }} />
+          /* CAREERS HUB VIEW (OPEN ROLES + 1BWS RESEARCH INTERNSHIP) */
+          <CareersHubView
+            lang={lang}
+            careersData={t.careers!}
+            onNavigateHome={() => {
+              setView('home');
+              window.scrollTo(0, 0);
+              window.history.pushState(null, '', '/');
+            }}
+          />
         ) : view === 'sme-startup-program' ? (
           /* SME/STARTUP PROGRAM VIEW */
-          <SMEStartupProgramView setSelectedVideo={setSelectedVideo} />
+          <SMEStartupProgramView setSelectedVideo={setSelectedVideo} lang={lang} />
         ) : view === 'press' ? (
           /* EMBEDDED PRESS & MEDIA VIEW */
           <PressView lang={lang} />

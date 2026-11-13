@@ -17,7 +17,7 @@ export function renderFormattedText(rawText: string) {
   return parts.map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={i} className="font-semibold text-neutral-900 dark:text-white">
+        <strong key={i} className="font-semibold text-white">
           {part.slice(2, -2)}
         </strong>
       );
@@ -30,7 +30,7 @@ export function renderFormattedText(rawText: string) {
           href={linkMatch[2]}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline underline-offset-4 decoration-neutral-400 hover:decoration-neutral-900 dark:hover:decoration-white transition-colors"
+          className="text-zinc-100 underline underline-offset-4 decoration-accent/60 hover:text-accent hover:decoration-accent transition-colors"
         >
           {linkMatch[1]}
         </a>

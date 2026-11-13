@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import CorporateFooter from './CorporateFooter';
 
 interface CareersInternshipViewProps {
   lang?: 'KR' | 'EN';
   onNavigateHome?: () => void;
+  embedded?: boolean;
 }
 
 const content = {
@@ -410,7 +411,7 @@ const content = {
   },
 };
 
-export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: CareersInternshipViewProps) {
+export default function CareersInternshipView({ lang = 'KR', embedded = false }: CareersInternshipViewProps) {
   useEffect(() => {
     // Dynamically load Tally widget script if not already present
     const scriptUrl = 'https://tally.so/widgets/embed.js';
@@ -430,7 +431,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
       };
       document.body.appendChild(script);
     }
-  }, []);
+  }, [lang]);
 
   const scrollToApply = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -441,19 +442,29 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
   };
 
   const t = content[lang === 'EN' ? 'EN' : 'KR'];
+  const tallyEmbedUrl = `https://tally.so/embed/ArPK4B?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&lang=${lang.toLowerCase()}&locale=${lang.toLowerCase()}`;
 
   return (
-    <article className="relative min-h-screen py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-[#0a0c10] text-zinc-100 overflow-hidden font-sans">
-      {/* Background Decorative Gradients */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/3 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[160px] pointer-events-none" />
+    <article
+      className={
+        embedded
+          ? 'relative text-zinc-100 font-sans'
+          : 'relative min-h-screen py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-[#02060C] text-zinc-100 overflow-hidden font-sans'
+      }
+    >
+      {!embedded && (
+        <>
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-1/4 left-1/3 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[160px] pointer-events-none" />
+        </>
+      )}
 
-      <div className="relative z-10 max-w-5xl mx-auto space-y-24 md:space-y-32">
+      <div className={`relative z-10 max-w-5xl mx-auto ${embedded ? 'space-y-16 md:space-y-24' : 'space-y-24 md:space-y-32'}`}>
         {/* ========================================================
             1. HERO SECTION
            ======================================================== */}
-        <header className="space-y-8 pt-4 md:pt-8">
+        <header className={`space-y-8 ${embedded ? 'pt-2' : 'pt-4 md:pt-8'}`}>
           {/* Top Label Badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent/10 border border-accent shadow-[0_0_20px_rgba(0,229,255,0.25)]">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -463,13 +474,13 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
           </div>
 
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tight leading-[1.1] break-keep">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12] break-keep">
             {t.hero.titleLine1} <br className="hidden sm:inline" />
             {t.hero.titleLine2}
-          </h1>
+          </h2>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-zinc-300 max-w-3xl leading-relaxed break-keep font-light">
+          <p className="text-base sm:text-lg md:text-xl text-zinc-300 max-w-3xl leading-relaxed break-keep font-light">
             {t.hero.subtitle}
           </p>
 
@@ -478,7 +489,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             {t.hero.chips.map((chip, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-[#161616] border border-white/10 hover:border-accent/50 transition-colors"
+                className="p-5 rounded-2xl bg-white/[0.025] border border-white/10 hover:border-accent/50 transition-colors"
               >
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -499,7 +510,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             <a
               href="#apply"
               onClick={scrollToApply}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-bold text-sm tracking-wider uppercase rounded-xl hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-accent/20"
+              className="min-h-[44px] inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-bold text-sm tracking-wider uppercase rounded-xl hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-accent/20"
             >
               <span>{t.hero.applyBtn}</span>
               <span>&darr;</span>
@@ -524,7 +535,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {t.sec1.cards.map((card, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-[#161616] border border-white/10 space-y-2">
+              <div key={idx} className="p-6 rounded-2xl bg-white/[0.025] border border-white/10 space-y-2">
                 <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
                   {card.label}
                 </div>
@@ -565,7 +576,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             {t.sec2.tasks.map((task) => (
               <div
                 key={task.no}
-                className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-all duration-300 space-y-4"
+                className="p-8 rounded-3xl bg-white/[0.025] border border-white/10 hover:border-accent/40 transition-all duration-300 space-y-4"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-3xl font-black text-white/20 font-mono">{task.no}</span>
@@ -606,7 +617,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Must Have */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-colors flex flex-col justify-between">
+            <div className="p-8 rounded-3xl bg-white/[0.025] border border-white/10 hover:border-accent/40 transition-colors flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-4">
                   <span className="w-2 h-2 rounded-full bg-accent" />
@@ -625,7 +636,7 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             </div>
 
             {/* Preferred */}
-            <div className="p-8 rounded-3xl bg-[#161616] border border-white/10 hover:border-accent/40 transition-colors flex flex-col justify-between">
+            <div className="p-8 rounded-3xl bg-white/[0.025] border border-white/10 hover:border-accent/40 transition-colors flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-4">
                   <span className="w-2 h-2 rounded-full bg-accent" />
@@ -665,17 +676,17 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
             <p className="text-sm text-zinc-400 mt-1">{t.sec4.sub}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4">
             {t.sec4.steps.map((st, idx) => (
               <div
                 key={idx}
-                className={`p-6 rounded-2xl bg-[#161616] border-t-2 ${st.borderClass} border-x border-b border-white/10 space-y-2 relative`}
+                className={`p-6 rounded-2xl bg-white/[0.025] border-t-2 ${st.borderClass} border-x border-b border-white/10 space-y-2 relative`}
               >
                 <div className={`text-xs font-mono font-bold ${st.textClass} tracking-wider uppercase`}>
                   {st.step}
                 </div>
-                <div className="text-base font-bold text-white">{st.title}</div>
-                <div className="text-sm font-semibold text-zinc-200">
+                <div className="text-base font-bold text-white break-keep">{st.title}</div>
+                <div className="text-sm font-semibold text-zinc-200 break-keep">
                   {st.date.map((line, lIdx) => (
                     <React.Fragment key={lIdx}>
                       {line}
@@ -704,59 +715,44 @@ export default function CareersInternshipView({ lang = 'KR', onNavigateHome }: C
               {t.sec5.title}{' '}
               <span className="text-zinc-500 text-xl md:text-3xl font-normal">{t.sec5.titleEn}</span>
             </h2>
-            <p className="text-base text-zinc-300 mt-2 font-light">
+            <p className="text-base text-zinc-300 mt-2 font-light break-keep">
               {t.sec5.subtitle}
             </p>
           </div>
 
-          {/* Tally Embed Container */}
-          <div className="w-full rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/20 transition-all duration-300">
-            <iframe
-              data-tally-src="https://tally.so/r/ArPK4B?transparentBackground=1"
-              src="https://tally.so/r/ArPK4B?transparentBackground=1"
-              loading="lazy"
-              width="100%"
-              height="750"
-              frameBorder="0"
-              marginHeight={0}
-              marginWidth={0}
-              title={t.sec5.iframeTitle}
-              className="w-full min-h-[700px] md:min-h-[780px]"
-            />
+          {/* Tally Embed Container (High-Contrast Dark-Bezel + Crisp Paper Surface) */}
+          <div className="w-full rounded-3xl bg-[#0B111E] border border-white/10 p-2 sm:p-3 md:p-4 shadow-[0_24px_80px_rgba(0,0,0,0.65)]">
+            <div className="px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-white/5 mb-2">
+              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-zinc-300">
+                <span className="w-2 h-2 rounded-full bg-accent" />
+                {lang === 'KR' ? '1BWS 인턴십 공식 접수 포털' : '1BWS INTERNSHIP APPLICATION PORTAL'}
+              </div>
+              <a
+                href="mailto:request@tylerrasch.com"
+                className="text-xs font-mono text-zinc-400 hover:text-accent transition-colors"
+              >
+                request@tylerrasch.com
+              </a>
+            </div>
+            <div className="w-full rounded-2xl overflow-hidden bg-[#F8FAFC] text-slate-900 px-2 sm:px-6 py-4">
+              <iframe
+                key={lang}
+                data-tally-src={tallyEmbedUrl}
+                src={tallyEmbedUrl}
+                loading="lazy"
+                width="100%"
+                height="780"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title={t.sec5.iframeTitle}
+                className="w-full min-h-[720px] md:min-h-[800px]"
+              />
+            </div>
           </div>
         </section>
 
-        {/* ========================================================
-            7. FOOTER
-           ======================================================== */}
-        <footer className="pt-12 border-t border-white/10 text-[10px] text-zinc-500 uppercase tracking-widest break-keep">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-                <span className="font-bold text-zinc-300">{t.footer.company}</span>
-                <span className="hidden md:inline text-zinc-700">|</span>
-                <span>{t.footer.rep}</span>
-                <span className="hidden md:inline text-zinc-700">|</span>
-                <span>{t.footer.bizNo}</span>
-              </div>
-              <div>{t.footer.address}</div>
-              <div className="flex flex-wrap items-center gap-4 mt-2">
-                <span>© 2026 Tyler Rasch Media</span>
-                <span className="text-zinc-700">•</span>
-                <a href="/careers" className="text-white hover:text-accent transition-colors">
-                  {t.footer.careers}
-                </a>
-                <span className="text-zinc-700">•</span>
-                <a href="/policy" className="hover:text-white transition-colors">
-                  Privacy &amp; AI Policy
-                </a>
-              </div>
-            </div>
-            <a href="mailto:request@tylerrasch.com" className="hover:text-white transition-colors lowercase">
-              request@tylerrasch.com
-            </a>
-          </div>
-        </footer>
+        {!embedded && <CorporateFooter lang={lang} className="pt-12" />}
       </div>
     </article>
   );

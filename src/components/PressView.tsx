@@ -6,6 +6,7 @@ import { getPressReleases, isEnglishPressRelease, isKoreanPressRelease } from ".
 import BioMatrix from "./BioMatrix";
 import DataCheatSheet from "./DataCheatSheet";
 import AssetVault from "./AssetVault";
+import CorporateFooter from "./CorporateFooter";
 
 interface PressViewProps {
   lang: "KR" | "EN";
@@ -47,21 +48,31 @@ export default function PressView({ lang }: PressViewProps) {
 
   if (lang === "KR") {
     return (
-      <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
+      <section className="relative min-h-screen py-24 md:py-32 px-6 md:px-16 lg:px-20 bg-[#02060C] overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto space-y-12">
-          <div className="border-b border-white/10 pb-8">
-            <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Press & Media</span>
-            <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-              보도자료 (Press Releases)
-            </h1>
-            <p className="text-zinc-500 text-sm mt-3">타일러 미디어의 국내 공식 발표 자료 및 보도 인덱스 피드입니다.</p>
+          <div className="border-b border-white/10 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Press &amp; Media</span>
+              <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                보도자료 (Press Releases)
+              </h1>
+              <p className="text-zinc-400 text-sm mt-3">타일러 미디어의 국내 공식 발표 자료 및 보도 인덱스 피드입니다.</p>
+            </div>
+            <a
+              href="/assets/docs/TylerRasch_MediaKit_2026_KR.pdf"
+              download
+              className="min-h-[44px] px-5 py-3 bg-white/5 border border-white/10 text-white hover:border-accent/40 hover:bg-white/10 rounded-full font-bold text-xs tracking-wider transition-all whitespace-nowrap self-start md:self-end inline-flex items-center gap-2"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              2026 미디어 파트너십 소개서 (PDF) &darr;
+            </a>
           </div>
 
           {/* Chronological List */}
           <div className="space-y-8">
             {koReleases.map((release) => (
-              <article key={release.slug} className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-300">
-                <time className="text-zinc-600 font-mono text-xs block mb-3" dateTime={release.date}>
+              <article key={release.slug} className="p-6 sm:p-8 bg-white/[0.025] border border-white/10 rounded-3xl hover:border-accent/30 hover:bg-white/[0.04] transition-all duration-300">
+                <time className="text-zinc-400 font-mono text-xs block mb-3" dateTime={release.date}>
                   {release.date}
                 </time>
                 
@@ -70,24 +81,26 @@ export default function PressView({ lang }: PressViewProps) {
                 </h2>
 
                 {release.subtitle && (
-                  <p className="text-zinc-400 text-sm mb-4 font-medium leading-relaxed">
+                  <p className="text-zinc-300 text-sm mb-4 font-medium leading-relaxed">
                     {release.subtitle}
                   </p>
                 )}
 
-                <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
+                <p className="text-zinc-400 text-sm leading-relaxed line-clamp-3 mb-6">
                   {getSnippet(release)}
                 </p>
 
                 <Link
                   href={`/ko/press/${release.slug}`}
-                  className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
+                  className="min-h-[36px] text-xs font-bold text-accent hover:underline inline-flex items-center gap-1.5"
                 >
                   보도자료 전문 읽기 &rarr;
                 </Link>
               </article>
             ))}
           </div>
+
+          <CorporateFooter lang="KR" className="mt-24" />
         </div>
       </section>
     );
@@ -95,23 +108,24 @@ export default function PressView({ lang }: PressViewProps) {
 
   // English Version
   return (
-    <section className="relative min-h-screen py-32 px-8 md:px-20 bg-[#02060C] overflow-hidden">
+    <section className="relative min-h-screen py-24 md:py-32 px-6 md:px-16 lg:px-20 bg-[#02060C] overflow-hidden">
       <div className="relative z-10 max-w-4xl mx-auto space-y-12">
         {/* Title Banner */}
         <div className="border-b border-white/10 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Press & Media</span>
+            <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-2">Press &amp; Media</span>
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
               Press Room
             </h1>
-            <p className="text-zinc-500 text-sm mt-3">
+            <p className="text-zinc-400 text-sm mt-3">
               Official announcements, business news, and media assets for partners.
             </p>
           </div>
           
           <button
+            type="button"
             onClick={() => setShowEPK(!showEPK)}
-            className="px-6 py-3 bg-white/5 border border-white/10 text-white hover:border-accent/30 hover:bg-white/10 rounded-full font-bold text-xs tracking-wider transition-all whitespace-nowrap self-start md:self-end shadow-lg flex items-center gap-2 group cursor-pointer"
+            className="min-h-[44px] px-6 py-3 bg-white/5 border border-white/10 text-white hover:border-accent/30 hover:bg-white/10 rounded-full font-bold text-xs tracking-wider transition-all whitespace-nowrap self-start md:self-end shadow-lg flex items-center gap-2 group cursor-pointer"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:animate-ping" />
             {showEPK ? "Hide Media Kit / EPK" : "Open Media Kit / EPK"}
@@ -130,17 +144,17 @@ export default function PressView({ lang }: PressViewProps) {
             >
               <div className="border-l-2 border-accent pl-4">
                 <h2 className="text-white font-black text-xl md:text-2xl tracking-wider uppercase">
-                  Media Kit & Electronic Press Kit (EPK)
+                  Media Kit &amp; Electronic Press Kit (EPK)
                 </h2>
-                <p className="text-zinc-500 text-xs mt-1">Self-serve copyable bios, digital assets, and key operations data.</p>
+                <p className="text-zinc-400 text-xs mt-1">Self-serve copyable bios, digital assets, and key operations data.</p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                <BioMatrix />
-                <AssetVault />
+                <div className="min-w-0 w-full"><BioMatrix /></div>
+                <div className="min-w-0 w-full"><AssetVault /></div>
               </div>
 
-              <div className="max-w-4xl">
+              <div className="max-w-4xl min-w-0 w-full">
                 <DataCheatSheet />
               </div>
             </motion.section>
@@ -151,8 +165,8 @@ export default function PressView({ lang }: PressViewProps) {
         <div className="space-y-8">
           {enReleases.length > 0 ? (
             enReleases.map((release) => (
-              <article key={release.slug} className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-300">
-                <time className="text-zinc-600 font-mono text-xs block mb-3" dateTime={release.date}>
+              <article key={release.slug} className="p-6 sm:p-8 bg-white/[0.025] border border-white/10 rounded-3xl hover:border-accent/30 hover:bg-white/[0.04] transition-all duration-300">
+                <time className="text-zinc-400 font-mono text-xs block mb-3" dateTime={release.date}>
                   {release.date}
                 </time>
                 
@@ -161,29 +175,31 @@ export default function PressView({ lang }: PressViewProps) {
                 </h2>
 
                 {release.subtitle && (
-                  <p className="text-zinc-400 text-sm mb-4 font-medium leading-relaxed">
+                  <p className="text-zinc-300 text-sm mb-4 font-medium leading-relaxed">
                     {release.subtitle}
                   </p>
                 )}
 
-                <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
+                <p className="text-zinc-400 text-sm leading-relaxed line-clamp-3 mb-6">
                   {getSnippet(release)}
                 </p>
 
                 <Link
                   href={`/en/press/${release.slug}`}
-                  className="text-xs font-bold text-accent hover:underline flex items-center gap-1.5"
+                  className="min-h-[36px] text-xs font-bold text-accent hover:underline inline-flex items-center gap-1.5"
                 >
                   View Announcement &rarr;
                 </Link>
               </article>
             ))
           ) : (
-            <div className="text-zinc-600 text-sm font-mono py-12 text-center border border-dashed border-white/5 rounded-3xl bg-white/[0.005]">
+            <div className="text-zinc-400 text-sm font-mono py-12 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">
               No active announcements found in English locale.
             </div>
           )}
         </div>
+
+        <CorporateFooter lang="EN" className="mt-24" />
       </div>
     </section>
   );
