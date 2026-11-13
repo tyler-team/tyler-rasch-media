@@ -180,60 +180,20 @@ const nextConfig: NextConfig = {
         destination: '/1BWS_EP20/index.html',
       },
       {
+        source: '/1bWS_EP20',
+        destination: '/1BWS_EP20/index.html',
+      },
+      {
+        source: '/1bWS_EP20/',
+        destination: '/1BWS_EP20/index.html',
+      },
+      {
         source: '/1bws_ep20',
         destination: '/1BWS_EP20/index.html',
       },
       {
         source: '/1bws_ep20/',
         destination: '/1BWS_EP20/index.html',
-      },
-      {
-        source: '/1BWS_EP20_2',
-        destination: '/1BWS_EP20_2/index.html',
-      },
-      {
-        source: '/1BWS_EP20_2/',
-        destination: '/1BWS_EP20_2/index.html',
-      },
-      {
-        source: '/1bws_EP20_2',
-        destination: '/1BWS_EP20_2/index.html',
-      },
-      {
-        source: '/1bws_EP20_2/',
-        destination: '/1BWS_EP20_2/index.html',
-      },
-      {
-        source: '/1bws_ep20_2',
-        destination: '/1BWS_EP20_2/index.html',
-      },
-      {
-        source: '/1bws_ep20_2/',
-        destination: '/1BWS_EP20_2/index.html',
-      },
-      {
-        source: '/1BWS_EP20_3',
-        destination: '/1BWS_EP20_3/index.html',
-      },
-      {
-        source: '/1BWS_EP20_3/',
-        destination: '/1BWS_EP20_3/index.html',
-      },
-      {
-        source: '/1bws_EP20_3',
-        destination: '/1BWS_EP20_3/index.html',
-      },
-      {
-        source: '/1bws_EP20_3/',
-        destination: '/1BWS_EP20_3/index.html',
-      },
-      {
-        source: '/1bws_ep20_3',
-        destination: '/1BWS_EP20_3/index.html',
-      },
-      {
-        source: '/1bws_ep20_3/',
-        destination: '/1BWS_EP20_3/index.html',
       },
     ];
   },
@@ -528,7 +488,20 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP20/:path*',
+        source: '/1BWS_EP20/assets/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP20/index.html',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -537,6 +510,15 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP20/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
           },
         ],
       },
@@ -567,124 +549,20 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/1bWS_EP20',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
         source: '/1bws_ep20',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1BWS_EP20_2/:path*',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1BWS_EP20_2',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1bws_EP20_2',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1bws_ep20_2',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1BWS_EP20_3/:path*',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1BWS_EP20_3/assets/:path*',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, stale-while-revalidate=604800',
-          },
-        ],
-      },
-      {
-        source: '/1BWS_EP20_3',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1bws_EP20_3',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1bws_ep20_3',
         headers: [
           {
             key: 'X-Robots-Tag',
