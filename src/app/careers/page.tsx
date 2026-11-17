@@ -4,14 +4,14 @@ import Home from '../page';
 export const metadata: Metadata = {
   title: '채용 | 타일러 미디어 (Careers | Tyler Media)',
   description:
-    '타일러 미디어(Knmir Inc.) 상시 채용 포지션(Content, Community, Data & Trends, Production) 및 원빅월드쇼(1BWS) 국제시사 리서치 인턴십 안내.',
+    '타일러 미디어(Knmir Inc.) 채용 안내 페이지입니다. 현재 진행 중인 채용 여부 및 향후 모집 일정을 확인하실 수 있습니다.',
   alternates: {
     canonical: 'https://www.tylerrasch.com/careers',
   },
   openGraph: {
     title: '채용 | 타일러 미디어 (Careers | Tyler Media)',
     description:
-      '타일러 미디어(Knmir Inc.) 상시 채용 포지션 및 원빅월드쇼(1BWS) 국제시사 리서치 인턴십 안내.',
+      '타일러 미디어(Knmir Inc.) 채용 안내 페이지입니다. 현재 진행 중인 채용 여부 및 향후 모집 일정을 확인하실 수 있습니다.',
     type: 'website',
     url: 'https://www.tylerrasch.com/careers',
   },

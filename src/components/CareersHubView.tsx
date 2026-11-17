@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import CareersInternshipView from "./CareersInternshipView";
 import CorporateFooter from "./CorporateFooter";
@@ -29,12 +30,14 @@ interface CareersHubViewProps {
   lang?: "KR" | "EN";
   careersData: CareerContent;
   onNavigateHome?: () => void;
+  isRecruitmentOpen?: boolean;
 }
 
 export default function CareersHubView({
   lang = "KR",
   careersData,
   onNavigateHome,
+  isRecruitmentOpen = false,
 }: CareersHubViewProps) {
   const [activeTab, setActiveTab] = useState<"roles" | "internship">("roles");
   const [expandedRole, setExpandedRole] = useState<number | null>(0);
@@ -70,48 +73,110 @@ export default function CareersHubView({
             </p>
           </div>
 
-          {/* Dual-Tab Switcher */}
-          <div
-            role="tablist"
-            aria-label={lang === "KR" ? "채용 트랙 선택" : "Recruitment Tracks"}
-            className="inline-flex flex-col sm:flex-row p-1.5 rounded-2xl bg-white/[0.03] border border-white/10 gap-1.5 w-full sm:w-auto"
-          >
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeTab === "roles"}
-              onClick={() => setActiveTab("roles")}
-              className={`min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${
-                activeTab === "roles"
-                  ? "bg-accent text-black shadow-[0_0_20px_rgba(0,229,255,0.28)] font-black"
-                  : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-              }`}
+          {/* Dual-Tab Switcher (Shown only when recruitment is open) */}
+          {isRecruitmentOpen && (
+            <div
+              role="tablist"
+              aria-label={lang === "KR" ? "채용 트랙 선택" : "Recruitment Tracks"}
+              className="inline-flex flex-col sm:flex-row p-1.5 rounded-2xl bg-white/[0.03] border border-white/10 gap-1.5 w-full sm:w-auto"
             >
-              <span>{lang === "KR" ? "상시 및 정규 포지션" : "Open Positions"}</span>
-              <span
-                className={`text-[11px] font-mono px-2 py-0.5 rounded-full ${
-                  activeTab === "roles" ? "bg-black/15 text-black" : "bg-white/10 text-zinc-300"
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "roles"}
+                onClick={() => setActiveTab("roles")}
+                className={`min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                  activeTab === "roles"
+                    ? "bg-accent text-black shadow-[0_0_20px_rgba(0,229,255,0.28)] font-black"
+                    : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
-                {careersData.positions.length}
-              </span>
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeTab === "internship"}
-              onClick={() => setActiveTab("internship")}
-              className={`min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${
-                activeTab === "internship"
-                  ? "bg-accent text-black shadow-[0_0_20px_rgba(0,229,255,0.28)] font-black"
-                  : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-              }`}
-            >
-              <span>{lang === "KR" ? "1BWS 국제시사 리서치 인턴십" : "1BWS Research Internship"}</span>
-            </button>
-          </div>
+                <span>{lang === "KR" ? "상시 및 정규 포지션" : "Open Positions"}</span>
+                <span
+                  className={`text-[11px] font-mono px-2 py-0.5 rounded-full ${
+                    activeTab === "roles" ? "bg-black/15 text-black" : "bg-white/10 text-zinc-300"
+                  }`}
+                >
+                  {careersData.positions.length}
+                </span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "internship"}
+                onClick={() => setActiveTab("internship")}
+                className={`min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                  activeTab === "internship"
+                    ? "bg-accent text-black shadow-[0_0_20px_rgba(0,229,255,0.28)] font-black"
+                    : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
+                }`}
+              >
+                <span>{lang === "KR" ? "1BWS 국제시사 리서치 인턴십" : "1BWS Research Internship"}</span>
+              </button>
+            </div>
+          )}
         </header>
 
+        {!isRecruitmentOpen ? (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="glass rounded-3xl border border-white/10 p-8 sm:p-12 md:p-14 space-y-8 relative overflow-hidden"
+          >
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10">
+              <span className="w-2 h-2 rounded-full bg-zinc-400" />
+              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-zinc-300">
+                {lang === "KR" ? "채용 휴식기 · RECRUITMENT PAUSED" : "RECRUITMENT PAUSED"}
+              </span>
+            </div>
+
+            <div className="space-y-4 max-w-2xl">
+              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+                {lang === "KR"
+                  ? "현재 진행 중인 채용이 없습니다."
+                  : "No Open Positions at This Time."}
+              </h2>
+              <p className="text-zinc-300 text-base md:text-lg leading-relaxed">
+                {lang === "KR"
+                  ? "현재 타일러 미디어의 정규·상시 채용 및 1BWS 리서치 인턴십 모집이 모두 마감되어 별도의 채용을 진행하지 않고 있습니다."
+                  : "Tyler Media has currently closed all team role intakes and 1BWS Research Internship recruitment tracks."}
+              </p>
+              <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                {lang === "KR"
+                  ? "향후 새로운 포지션이나 프로젝트 합류 기회가 열리면 본 페이지를 통해 가장 먼저 안내해 드리겠습니다. 타일러 미디어에 보내주신 관심과 성원에 감사드립니다."
+                  : "When new opportunities open up, updated specifications and application timelines will be announced right here first. Thank you for your continued interest in our work."}
+              </p>
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              {onNavigateHome ? (
+                <button
+                  type="button"
+                  onClick={onNavigateHome}
+                  className="min-h-[48px] px-7 py-3.5 rounded-full bg-accent text-black font-black text-xs tracking-widest uppercase hover:bg-white transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>{lang === "KR" ? "홈으로 돌아가기" : "Back to Overview"}</span>
+                  <span>&rarr;</span>
+                </button>
+              ) : (
+                <Link
+                  href={lang === "EN" ? "/en" : "/"}
+                  className="min-h-[48px] px-7 py-3.5 rounded-full bg-accent text-black font-black text-xs tracking-widest uppercase hover:bg-white transition-colors inline-flex items-center justify-center gap-2"
+                >
+                  <span>{lang === "KR" ? "홈으로 돌아가기" : "Back to Overview"}</span>
+                  <span>&rarr;</span>
+                </Link>
+              )}
+              <Link
+                href={lang === "EN" ? "/en/press" : "/ko/press"}
+                className="min-h-[48px] px-7 py-3.5 rounded-full bg-white/[0.04] border border-white/15 text-zinc-200 hover:text-white hover:border-white/30 font-bold text-xs tracking-widest uppercase transition-colors inline-flex items-center justify-center"
+              >
+                {lang === "KR" ? "보도자료 & 소식 보기" : "Explore Newsroom"}
+              </Link>
+            </div>
+          </motion.div>
+        ) : (
         <AnimatePresence mode="wait">
           {activeTab === "roles" ? (
             <motion.div
@@ -320,6 +385,7 @@ export default function CareersHubView({
             </motion.div>
           )}
         </AnimatePresence>
+        )}
 
         <CorporateFooter lang={lang} className="mt-24" />
       </div>
