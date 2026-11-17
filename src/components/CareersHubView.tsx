@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import CareersInternshipView from "./CareersInternshipView";
 import CorporateFooter from "./CorporateFooter";
@@ -117,68 +116,8 @@ export default function CareersHubView({
           )}
         </header>
 
-        {!isRecruitmentOpen ? (
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="glass rounded-3xl border border-white/10 p-8 sm:p-12 md:p-14 space-y-8 relative overflow-hidden"
-          >
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-zinc-400" />
-              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-zinc-300">
-                {lang === "KR" ? "채용 휴식기 · RECRUITMENT PAUSED" : "RECRUITMENT PAUSED"}
-              </span>
-            </div>
-
-            <div className="space-y-4 max-w-2xl">
-              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-                {lang === "KR"
-                  ? "현재 진행 중인 채용이 없습니다."
-                  : "No Open Positions at This Time."}
-              </h2>
-              <p className="text-zinc-300 text-base md:text-lg leading-relaxed">
-                {lang === "KR"
-                  ? "현재 타일러 미디어의 정규·상시 채용 및 1BWS 리서치 인턴십 모집이 모두 마감되어 별도의 채용을 진행하지 않고 있습니다."
-                  : "Tyler Media has currently closed all team role intakes and 1BWS Research Internship recruitment tracks."}
-              </p>
-              <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
-                {lang === "KR"
-                  ? "향후 새로운 포지션이나 프로젝트 합류 기회가 열리면 본 페이지를 통해 가장 먼저 안내해 드리겠습니다. 타일러 미디어에 보내주신 관심과 성원에 감사드립니다."
-                  : "When new opportunities open up, updated specifications and application timelines will be announced right here first. Thank you for your continued interest in our work."}
-              </p>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              {onNavigateHome ? (
-                <button
-                  type="button"
-                  onClick={onNavigateHome}
-                  className="min-h-[48px] px-7 py-3.5 rounded-full bg-accent text-black font-black text-xs tracking-widest uppercase hover:bg-white transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <span>{lang === "KR" ? "홈으로 돌아가기" : "Back to Overview"}</span>
-                  <span>&rarr;</span>
-                </button>
-              ) : (
-                <Link
-                  href={lang === "EN" ? "/en" : "/"}
-                  className="min-h-[48px] px-7 py-3.5 rounded-full bg-accent text-black font-black text-xs tracking-widest uppercase hover:bg-white transition-colors inline-flex items-center justify-center gap-2"
-                >
-                  <span>{lang === "KR" ? "홈으로 돌아가기" : "Back to Overview"}</span>
-                  <span>&rarr;</span>
-                </Link>
-              )}
-              <Link
-                href={lang === "EN" ? "/en/press" : "/ko/press"}
-                className="min-h-[48px] px-7 py-3.5 rounded-full bg-white/[0.04] border border-white/15 text-zinc-200 hover:text-white hover:border-white/30 font-bold text-xs tracking-widest uppercase transition-colors inline-flex items-center justify-center"
-              >
-                {lang === "KR" ? "보도자료 & 소식 보기" : "Explore Newsroom"}
-              </Link>
-            </div>
-          </motion.div>
-        ) : (
         <AnimatePresence mode="wait">
-          {activeTab === "roles" ? (
+          {!isRecruitmentOpen || activeTab === "roles" ? (
             <motion.div
               key="roles-tab"
               initial={{ opacity: 0, y: 12 }}
@@ -190,7 +129,21 @@ export default function CareersHubView({
               {/* Manifesto & Core Values */}
               <div className="space-y-10">
                 <div className="p-6 sm:p-10 rounded-3xl bg-white/[0.025] border border-white/10 text-zinc-300 text-base md:text-lg leading-relaxed">
-                  {careersData.desc}
+                  {isRecruitmentOpen ? (
+                    careersData.desc
+                  ) : lang === "KR" ? (
+                    <>
+                      타일러 라쉬(Tyler Rasch)는 단순한 유튜버나 인플루언서 브랜드가 아닙니다. 우리는 타일러의 독보적인 시선(언어, 문화, 시스템)을 바탕으로 세상을 해석하고, 이를 글로벌 미디어 비즈니스로 확장해 나가는 팀입니다.
+                      <br /><br />
+                      우리는 안정을 쫓는 사람보다 변화와 성장을 갈망하는 ‘빌더(Builder)’의 가치를 믿습니다. 두려움 없이 실험하고, 활발하게 협업하며, 높은 기준(High Standard)으로 시장에 임팩트를 남길 준비가 되신 분들과 향후 새로운 기회에서 다시 만나 뵙기를 기대합니다.
+                    </>
+                  ) : (
+                    <>
+                      Tyler Rasch is not just a YouTuber or an influencer brand. On the Tyler Team, we interpret the world through Tyler&apos;s unique perspective (language, culture, systems) and expand upon those insights to develop them into a global media business.
+                      <br /><br />
+                      We believe in &ldquo;Builders&rdquo;—those who crave change and growth rather than stability, experiment without fear, and hold themselves to the highest standards. While active hiring is paused, we look forward to reconnecting when future opportunities open.
+                    </>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -211,24 +164,60 @@ export default function CareersHubView({
                 </div>
               </div>
 
-              {/* Open Positions Accordion */}
+              {/* Open Positions Section */}
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-5">
                   <div>
                     <span className="text-accent font-mono text-xs uppercase tracking-widest block mb-1.5">
-                      {lang === "KR" ? "상시 채용 포지션" : "OPEN ROLES"}
+                      {isRecruitmentOpen
+                        ? lang === "KR"
+                          ? "상시 채용 포지션"
+                          : "OPEN ROLES"
+                        : lang === "KR"
+                        ? "채용 안내"
+                        : "RECRUITMENT STATUS"}
                     </span>
                     <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
-                      {lang === "KR" ? "포지션 안내 및 지원" : "Role Specifications & Apply"}
+                      {isRecruitmentOpen
+                        ? lang === "KR"
+                          ? "포지션 안내 및 지원"
+                          : "Role Specifications & Apply"
+                        : lang === "KR"
+                        ? "채용 포지션 안내"
+                        : "Open Positions"}
                     </h2>
                   </div>
                   <p className="text-xs font-mono text-zinc-400">
-                    {lang === "KR"
-                      ? "접수처: request@tylerrasch.com (자유 양식 이력서·포트폴리오)"
-                      : "Apply to: request@tylerrasch.com (Resume & Portfolio)"}
+                    {isRecruitmentOpen
+                      ? lang === "KR"
+                        ? "접수처: request@tylerrasch.com (자유 양식 이력서·포트폴리오)"
+                        : "Apply to: request@tylerrasch.com (Resume & Portfolio)"
+                      : lang === "KR"
+                      ? "현재 채용 마감 · 추후 오픈 예정"
+                      : "Status: Currently Closed"}
                   </p>
                 </div>
 
+                {!isRecruitmentOpen ? (
+                  <div className="rounded-3xl bg-white/[0.025] border border-white/10 p-6 sm:p-10 space-y-4">
+                    <div className="inline-flex items-center gap-2.5">
+                      <span className="w-2 h-2 rounded-full bg-zinc-400" />
+                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-400">
+                        {lang === "KR" ? "채용 마감 · RECRUITMENT PAUSED" : "RECRUITMENT PAUSED"}
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">
+                      {lang === "KR"
+                        ? "현재 진행 중인 채용 공고가 없습니다."
+                        : "No Open Positions at This Time."}
+                    </h3>
+                    <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-3xl">
+                      {lang === "KR"
+                        ? "현재 타일러 미디어의 모든 정규·상시 채용 및 인턴십 모집이 종료되어 신규 지원을 받고 있지 않습니다. 향후 새로운 포지션이 열릴 경우 본 페이지를 통해 가장 먼저 안내해 드리겠습니다."
+                        : "All open roles and fellowship cohorts at Tyler Media are currently closed and we are not accepting applications at this time. When new positions open, updated details will be posted right here first."}
+                    </p>
+                  </div>
+                ) : (
                 <div className="space-y-5">
                   {careersData.positions.map((pos, idx) => {
                     const isOpen = expandedRole === idx;
@@ -367,6 +356,7 @@ export default function CareersHubView({
                     );
                   })}
                 </div>
+                )}
               </div>
             </motion.div>
           ) : (
@@ -385,7 +375,6 @@ export default function CareersHubView({
             </motion.div>
           )}
         </AnimatePresence>
-        )}
 
         <CorporateFooter lang={lang} className="mt-24" />
       </div>
