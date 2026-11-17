@@ -58,17 +58,24 @@ export default function CareersHubView({
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Shared Careers Header */}
-        <header className="border-b border-white/10 pb-10 mb-12 space-y-6">
+        <header className="mb-14 space-y-10">
           <div>
-            <span className="text-accent font-mono text-xs font-bold uppercase tracking-[0.3em] block mb-3">
-              {lang === "KR" ? "TYLER MEDIA TALENT & FELLOWSHIP" : "TYLER MEDIA TALENT & FELLOWSHIP"}
+            <span className="text-accent font-mono text-xs font-bold uppercase tracking-[0.3em] block mb-4">
+              TYLER MEDIA TALENT &amp; STANDARDS
             </span>
-            <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase leading-none">
+            <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter uppercase italic leading-none">
               {careersData.heading}
             </h1>
-            {/* Invariant: keep this subheading intentionally scaled down (~15%) per AI_INSTRUCTIONS.md */}
-            <p className="text-base sm:text-lg font-medium text-zinc-300 tracking-tight leading-snug mt-4">
+            <div className="w-20 h-1 bg-accent/30 mt-8" />
+          </div>
+
+          <div className="space-y-4 max-w-4xl">
+            {/* Invariant: keep scaled down 15% (25px / 41px bold) per AI_INSTRUCTIONS.md */}
+            <h2 className="text-[25px] md:text-[41px] font-bold text-white tracking-tight leading-[1.15]">
               {careersData.subheading}
+            </h2>
+            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-accent tracking-tight leading-snug">
+              We strive for consistency and excellence.
             </p>
           </div>
 
