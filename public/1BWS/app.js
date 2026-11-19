@@ -747,7 +747,7 @@ const dossiersData = [
 /* --- 5. Section 4: Panels Dataset (host-tyler + cast-member-1 ~ 4) --- */
 const hostTylerData = {
   slot: 'host-tyler',
-  photo: '/1BWS/assets/host-tyler.jpg',
+  photo: '/1BWS/assets/host-tyler.jpg?v=20261119',
   role: { ko: '메인 패널', en: 'MAIN PANEL' },
   name: { ko: '타일러 라쉬 (Tyler Rasch)', en: 'Tyler Rasch (타일러 라쉬)' },
   sections: {
@@ -799,7 +799,7 @@ const castMembersData = [
   {
     id: 'cast-1',
     slot: 'cast-member-1',
-    photo: '/1BWS/assets/cast-sujan.jpg',
+    photo: '/1BWS/assets/cast-sujan.jpg?v=20261119',
     role: { ko: '패널 · 남아시아 · 글로벌 사우스', en: 'PANEL · SOUTH ASIA & GLOBAL SOUTH' },
     name: { ko: '수잔 샤키야 (Sujan Shakya)', en: 'Sujan Shakya (수잔 샤키야)' },
     shortBio: {
@@ -825,7 +825,7 @@ const castMembersData = [
   {
     id: 'cast-2',
     slot: 'cast-member-2',
-    photo: '/1BWS/assets/cast-samy.jpg',
+    photo: '/1BWS/assets/cast-samy.jpg?v=20261119',
     role: { ko: '패널 · 중동 · 지중해 지정학', en: 'PANEL · MENA & GEOPOLITICS' },
     name: { ko: '새미 라샤드 (Samy Rashad)', en: 'Samy Rashad (새미 라샤드)' },
     shortBio: {
@@ -851,52 +851,54 @@ const castMembersData = [
   {
     id: 'cast-3',
     slot: 'cast-member-3',
-    role: { ko: '패널 · 기술 · 에너지 공급망', en: 'PANEL · TECH & ENERGY SUPPLY CHAIN' },
-    name: { ko: '기술 · 에너지 애널리스트', en: 'Tech & Energy Analyst' },
+    photo: '/1BWS/assets/cast-irina.jpg?v=20261119',
+    role: { ko: '패널 · 유라시아 · 국제경제·리스크', en: 'PANEL · EURASIA & INTERNATIONAL STRATEGY' },
+    name: { ko: '이리나 코르군 (Irina Korgun)', en: 'Irina Korgun (이리나 코르군)' },
     shortBio: {
-      ko: 'AI 데이터센터 전력망, 차세대 원전(SMR), 반도체 및 핵심광물(리튬·희토류) 공급망 지정학을 추적하는 패널.',
-      en: 'Tracking AI hyperscaler power grids, SMR nuclear deployment, semiconductors, and critical mineral supply chains.'
+      ko: '상트페테르부르크대 세계경제학 박사·러시아 과학아카데미 아시아센터장 대행 출신으로, 유라시아 자본·정책·리스크를 해독하는 패널.',
+      en: 'Ph.D. in World Economy & MBA; former RAS Asia Center Acting Director & World Bank trade advisor decoding Eurasian strategy and risk.'
     },
     details: {
       ko: [
-        '· 주요 이력: 에너지·반도체 산업 엔지니어 및 기술 안보 자문위원',
-        '· 담당 분야: FERC 전력망 규제 문건, 북미 변압기 공급망, 글로벌 사우스 핵심광물 협정 분석',
-        '· 대표 출연: EP.141 빅테크 원자력 직계약과 전력망 병목 해부'
+        '· 주요 경력: Caspian Korea 매니징 디렉터 · 전 세계은행(World Bank) 디지털 무역 정책 규제 벤치마킹 리드',
+        '· 학위·연구: 상트페테르부르크 국립대 세계경제학 박사 · EDC 파리 비즈니스 스쿨 MBA · 전 러시아 과학아카데미 아시아센터장 대행 · 한국외대 초빙연구원 / 중부대 조교수',
+        '· 담당 분야: 유라시아·중앙아시아·동아시아 지정학, 핵심광물·기후·인프라 투자 리스크 자문 (한·영·러 3개국어)'
       ],
       en: [
-        '· Background: Energy & Semiconductor Supply Chain Engineer / Tech Policy Advisor',
-        '· Coverage: FERC grid dockets, SMR nuclear standardization, Global South critical minerals',
-        '· Featured In: EP.141 AI Power Grid Bottlenecks & Nuclear PPAs'
+        '· Executive & Policy: Managing Director at Caspian Korea · Former World Bank digital trade regulatory benchmarking lead',
+        '· Academic Credentials: Ph.D. in World Economy (Saint Petersburg State Univ.) · MBA (EDC Paris) · Former Acting Director, Asia Center (RAS) · Visiting Researcher (HUFS) / Asst. Prof. (Joongbu Univ.)',
+        '· Coverage: Eurasia & Central Asia geopolitics, critical minerals, climate & infrastructure risk advisory (EN/KR/RU)'
       ]
     },
-    epId: 'ep-2',
+    epId: 'ep-1',
     accent: '#864413',
-    badgeCode: 'PANEL III · TECH'
+    badgeCode: 'PANEL III · EURASIA'
   },
   {
     id: 'cast-4',
     slot: 'cast-member-4',
-    role: { ko: '패널 · 객원 연구원 & 리포터진', en: 'PANEL · VISITING FELLOWS & REPORTERS' },
-    name: { ko: '객원 패널 & 리포터진', en: 'Guest Panels & Reporters' },
+    photo: '/1BWS/assets/cast-young.jpg?v=20261119',
+    role: { ko: '패널 · 총괄 PD · 타일러 미디어 본부장', en: 'PANEL · EXECUTIVE PRODUCER & HEAD OF TYLER MEDIA' },
+    name: { ko: '서영욱 (Young Suh)', en: 'Young Suh (서영욱)' },
     shortBio: {
-      ko: '해양안보, 유럽·중동 지역학, 국제통상 등 매주 이슈에 맞춰 합류하는 현업 전문가 패널 및 바이링구얼 리포터 그룹.',
-      en: 'Rotating roster of regional scholars, maritime security practitioners, and bilingual on-air reporters.'
+      ko: '원빅월드쇼(1BWS) 총괄 PD이자 타일러 미디어 본부장. 채널 아키텍처, 1차 사료·AI 제작 파이프라인, OSMU 및 파트너십을 총괄.',
+      en: 'Executive Producer of 1BWS & Head of Tyler Media—leading show architecture, primary-source AI workflows, OSMU, and brand partnerships.'
     },
     details: {
       ko: [
-        '· 구성: 전·현직 외교관, 산업계 임원, 대학 교수 및 1BWS 공개 채용 리포터/앵커',
-        '· 담당 분야: 지역별(북미·유럽·중동·아시아·글로벌 사우스) 심층 브리핑 및 팩트체크',
-        '· 상시 지원: 하단 Participate 섹션을 통해 객원 패널 및 리포터 상시 지원 가능'
+        '· 주요 직책: 타일러 미디어(Tyler Media) 총괄 본부장 · 원빅월드쇼(1BWS) 총괄 PD(Showrunner)',
+        '· 담당 영역: 롱폼·팟캐스트·쇼츠 전 포맷 기획 및 제작 파이프라인, 데이터 기반 그로스 전략 총괄',
+        '· 핵심 역량: 1차 사료·AI 리서치 아키텍처, 에디토리얼 모션그래픽 디렉팅 및 글로벌 B2B 파트너십 총괄'
       ],
       en: [
-        '· Composition: Former diplomats, industry executives, scholars, and 1BWS bilingual reporters',
-        '· Coverage: Regional deep-dives across Europe, Middle East, East Asia, and the Global South',
-        '· Open Desk: Apply anytime via the Participate section to join as Guest Panel or Reporter'
+        '· Role: Head of Tyler Media · Executive Producer & Showrunner, One Big World Show (1BWS)',
+        '· Production Scope: End-to-end editorial planning and production pipelines across flagship episodes, podcasts, and Shorts',
+        '· Capabilities: Primary-source AI workflow architecture, editorial motion graphics direction, and strategic B2B partnerships'
       ]
     },
-    epId: 'ep-3',
+    epId: 'ep-1',
     accent: '#4d150b',
-    badgeCode: 'PANEL IV · FELLOWS'
+    badgeCode: 'PANEL IV · EXEC. PD'
   }
 ];
 
