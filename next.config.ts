@@ -227,6 +227,22 @@ const nextConfig: NextConfig = {
         source: '/1bws_ep24/',
         destination: '/1BWS_EP24/index.html',
       },
+      {
+        source: '/1bws2',
+        destination: '/1bws2/index.html',
+      },
+      {
+        source: '/1bws2/',
+        destination: '/1bws2/index.html',
+      },
+      {
+        source: '/1BWS2',
+        destination: '/1bws2/index.html',
+      },
+      {
+        source: '/1BWS2/',
+        destination: '/1bws2/index.html',
+      },
     ];
   },
   async headers() {
@@ -786,6 +802,45 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/1bws_ep24/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws2/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws2',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS2',
         headers: [
           {
             key: 'X-Robots-Tag',
