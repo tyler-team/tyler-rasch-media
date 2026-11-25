@@ -14,10 +14,7 @@
     selectedReportId: "rep-1",
     savedIds: ["rep-1"],
     userTopics: ["글로벌 매크로", "AI · 테크 소유권", "공급망 · 방산"],
-    submittedQuestions: [
-      { id: 1, text: "유럽 Buy-European 규제가 국내 방산 부품사 납품에 언제부터 실질 영향을 미치나요?", votes: 18, liked: false },
-      { id: 2, text: "빅테크 AI 데이터센터 전력 계약에서 한국 변압기·가스터빈 기업들의 실제 마진 유지력이 궁금합니다.", votes: 12, liked: false }
-    ],
+    myQuestions: [],
     claimedPerks: [],
     surveyVoted: null,
     cartCount: 0,
@@ -90,7 +87,7 @@
                 <span class="brand-name">ONE BIG WORLD SHOW</span>
                 ${isBlack ? '<span class="black-pill">BLACK</span>' : ''}
               </div>
-              <span class="brand-sub">onebigworldshow.com · OWNED MEDIA HUB</span>
+              <span class="brand-sub">GLOBAL MACRO · GEOPOLITICS · TECH</span>
             </div>
           </button>
 
@@ -157,7 +154,7 @@
           </div>
           <div class="hmt-chips">
             ${b.bullets.map(item => `<span class="hmt-chip"><strong>${item.cat}</strong></span>`).join("")}
-            <span class="hmt-meta">오디오 요약 ${b.audioDuration} · AI 1차 요약 + 에디터 검증</span>
+            <span class="hmt-meta">오디오 요약 ${b.audioDuration} · 1BWS 에디터 데스크 발행</span>
           </div>
         </div>
         <div class="hmt-actions">
@@ -170,21 +167,50 @@
       ${!isBlack ? `
         <div class="free-only-ad">
           <div class="ad-left">
-            <span class="ad-tag" style="display:inline-block;padding:3px 8px;border-radius:4px;background:rgba(255,127,35,0.14);border:1px solid rgba(255,127,35,0.45);color:var(--orange);font-family:var(--font-mono);font-size:10.5px;font-weight:700;margin-bottom:4px;">SPONSORED · FREE TIER ONLY</span>
+            <span class="ad-tag" style="display:inline-block;padding:3px 8px;border-radius:4px;background:rgba(255,127,35,0.14);border:1px solid rgba(255,127,35,0.45);color:var(--orange);font-family:var(--font-mono);font-size:10.5px;font-weight:700;margin-bottom:4px;">PARTNER SPOTLIGHT</span>
             <div class="ad-copy">
-              <strong>무료 회원에게만 노출되는 파트너 스폰서 영역</strong>
-              <p>글로벌 테크·금융·B2B 파트너 브랜드 배너 (1BWS BLACK 구독 시 모든 광고가 즉시 사라집니다)</p>
+              <strong>1BWS 파트너 브랜드 소식</strong>
+              <p>글로벌 테크·금융·라이프스타일 파트너 소식 (1BWS BLACK 멤버십 이용 시 광고가 표시되지 않습니다)</p>
             </div>
           </div>
           <button class="btn-primary-orange" data-action="open-modal" data-modal="pricing">광고 없이 보기 →</button>
         </div>
       ` : ""}
 
+      <!-- 12/3 STEVEN LEVY INTERVIEW — PRIVATE MEMBER QUESTION BOX -->
+      <section class="steven-levy-box">
+        <div class="sl-head">
+          <div>
+            <div class="live-tag" style="color:var(--orange);">UPCOMING EXCLUSIVE INTERVIEW · 12/3(목)</div>
+            <h2 style="font-size:19px;font-weight:800;margin:4px 0 4px;">스티븐 레비(Steven Levy) 단독 인터뷰 — BLACK 멤버 사전 질문 접수</h2>
+            <p style="font-size:13px;color:var(--ink-secondary);">실리콘밸리 최장수 테크 저널리스트(WIRED 수석 에디터)에게 직접 묻고 싶은 질문을 남겨주세요. 제출된 질문은 제작진에게만 비공개로 전달됩니다.</p>
+          </div>
+          <span class="black-pill" style="font-size:11px;padding:4px 10px;flex-shrink:0;">BLACK ONLY · 비공개 접수</span>
+        </div>
+        ${isBlack ? `
+          <form class="sl-form" data-action="submit-question">
+            <textarea class="q-input" name="question" rows="2" placeholder="12/3 스티븐 레비 인터뷰에서 다뤄줬으면 하는 질문을 입력해 주세요 (다른 회원에게는 공개되지 않습니다)..." required></textarea>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+              <span style="font-size:11.5px;color:var(--ink-muted);">🔒 비공개 접수 · 내 질문만 본인 계정에 기록됩니다 (${state.myQuestions.length}건 제출됨)</span>
+              <button type="submit" class="btn-primary-emerald">제작진에게 질문 보내기</button>
+            </div>
+          </form>
+        ` : `
+          <div class="sl-locked">
+            <span>🔒 <strong>1BWS BLACK 유료 멤버</strong>만 12/3 스티븐 레비 인터뷰 사전 질문을 비공개로 제출할 수 있습니다.</span>
+            <div style="display:flex;gap:8px;flex-shrink:0;">
+              <button class="btn-primary-orange" data-action="open-modal" data-modal="pricing">BLACK 구독하기</button>
+              <button class="btn-ghost" data-action="open-modal" data-modal="qr">코드 입력</button>
+            </div>
+          </div>
+        `}
+      </section>
+
       <!-- 1BWS VIDEOS STRIP -->
       <div class="section-header">
         <div class="sh-title-group">
-          <h2>1BWS 비디오 · <code>YT + α</code> &amp; <code>BLACK</code></h2>
-          <p>공개 유튜브 본편과 보충 사료(YT+α), 플랫폼 독점 심층 인터뷰를 한 곳에서 시청하세요.</p>
+          <h2>1BWS 비디오 · 확장 에디션 &amp; <code>BLACK</code></h2>
+          <p>공개 본편과 핵심 원문 자료, 플랫폼 독점 심층 인터뷰를 한 곳에서 시청하세요.</p>
         </div>
         <button class="sh-link" data-action="switch-tab" data-tab="videos">전체 6편 보기 →</button>
       </div>
@@ -197,7 +223,7 @@
               <div class="thumb-wrap ${locked ? "is-locked" : ""}">
                 <img src="${v.thumb}" alt="${esc(v.title)}" />
                 <span class="thumb-badge-tl ${v.type === "black" ? "badge-orange" : "badge-emerald"}">
-                  ${v.type === "black" ? "BLACK EXCLUSIVE" : "YT + α"}
+                  ${v.type === "black" ? "BLACK EXCLUSIVE" : "1BWS 에디션"}
                 </span>
                 <span class="thumb-dur">${v.duration}</span>
                 ${locked ? '<div class="lock-center"><span class="lock-chip">🔒 BLACK 전용</span></div>' : ""}
@@ -255,7 +281,7 @@
       <div class="grid-2">
         <section class="card promo-card">
           <div>
-            <span class="live-tag" style="color:var(--orange);">자체홍보 · BOOK &amp; SALON</span>
+            <span class="live-tag" style="color:var(--orange);">1BWS BOOKS &amp; LIVE SALON</span>
             <h3 style="font-size:18px; font-weight:800; margin:6px 0 10px;">단행본 출간 &amp; 2027 서울 비공개 살롱</h3>
             <div class="promo-list">
               <div class="promo-item">
@@ -263,7 +289,7 @@
                   <strong style="font-size:13.5px;">📖 2026 단행본 (위즈덤하우스)</strong>
                   <p style="font-size:12px; color:var(--ink-secondary);">내지 QR 코드 입력 시 BLACK 멤버십 1개월 무료 전환</p>
                 </div>
-                <button class="btn-ghost" data-action="open-modal" data-modal="qr">QR 테스트</button>
+                <button class="btn-ghost" data-action="open-modal" data-modal="qr">QR 등록</button>
               </div>
               <div class="promo-item">
                 <div>
@@ -348,7 +374,7 @@
               <span class="audio-time">${b.audioDuration}</span>
             </div>
             <div style="font-size:12px; color:var(--ink-secondary); display:flex; justify-content:space-between; border-top:1px solid var(--border); padding-top:10px;">
-              <span>AI 1차 요약 + 에디터 교차 검증 완료</span>
+              <span>1BWS 에디터 데스크 검증 완료</span>
               <button class="sh-link" data-action="switch-tab" data-tab="reports">관련 심층 리포트 →</button>
             </div>
           </div>
@@ -409,7 +435,7 @@
 
       <div class="filter-row">
         <button class="filter-pill ${state.videoFilter === "all" ? "active" : ""}" data-action="filter-videos" data-filter="all">전체 (${D.videos.length})</button>
-        <button class="filter-pill ${state.videoFilter === "yt_alpha" ? "active" : ""}" data-action="filter-videos" data-filter="yt_alpha">YT + α (공개+보충자료)</button>
+        <button class="filter-pill ${state.videoFilter === "yt_alpha" ? "active" : ""}" data-action="filter-videos" data-filter="yt_alpha">공개 본편 + 확장 자료</button>
         <button class="filter-pill ${state.videoFilter === "black" ? "active" : ""}" data-action="filter-videos" data-filter="black">BLACK 독점 영상 (유료)</button>
       </div>
 
@@ -422,7 +448,7 @@
                 <img src="./assets/logos/1bws_logo_globe.svg" style="width:52px;height:52px;" alt="1BWS Globe" />
                 <span class="black-pill" style="font-size:11px;padding:3px 10px;">1BWS BLACK EXCLUSIVE</span>
                 <h3 style="font-size:20px;font-weight:800;max-width:460px;">
-                  ${cur.type === "yt_alpha" ? "1BWS 플랫폼 전용 확장 컷(+α) 구간입니다" : "BLACK 멤버 전용 1차 현업자 오리지널 영상입니다"}
+                  ${cur.type === "yt_alpha" ? "1BWS 플랫폼 전용 확장 컷 구간입니다" : "BLACK 멤버 전용 1차 현업자 오리지널 영상입니다"}
                 </h3>
                 <p style="font-size:13.5px;color:var(--ink-secondary);max-width:440px;">
                   유튜브 외부의 고밀도 비공개 대담·무편집 Q&amp;A와 1차 사료 브리프를 광고 없이 시청하세요.
@@ -436,7 +462,7 @@
               <div class="play-hud">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                   <span class="thumb-badge-tl ${cur.type === "black" ? "badge-orange" : "badge-emerald"}" style="position:static;">
-                    ${cur.type === "black" ? "CLOUDFLARE STREAM · SIGNED HD" : (state.videoCut === "alpha" ? "YT + α 확장 컷 재생 중" : "YOUTUBE PUBLIC SYNC")}
+                    ${cur.type === "black" ? "1BWS BLACK · 1080p HD" : (state.videoCut === "alpha" ? "1BWS 확장 컷 · 1080p HD" : "1BWS 에디션 · 1080p HD")}
                   </span>
                   <span class="thumb-dur" style="position:static;">${cur.duration}</span>
                 </div>
@@ -457,20 +483,20 @@
             <p class="card-desc">${cur.desc}</p>
             ${cur.type === "yt_alpha" ? `
               <div class="cut-switcher">
-                <button class="cut-btn ${state.videoCut === "main" ? "active" : ""}" data-action="toggle-video-cut" data-cut="main">유튜브 공개 본편 (무료)</button>
+                <button class="cut-btn ${state.videoCut === "main" ? "active" : ""}" data-action="toggle-video-cut" data-cut="main">공개 본편 (무료)</button>
                 <button class="cut-btn ${state.videoCut === "alpha" ? "active" : ""}" data-action="toggle-video-cut" data-cut="alpha">
-                  ${isBlack ? "✓ 1BWS +α 확장 컷 (잠금해제)" : "🔒 1BWS +α 확장 컷 (BLACK)"}
+                  ${isBlack ? "✓ 1BWS 확장 컷 (잠금해제)" : "🔒 1BWS 확장 컷 (BLACK)"}
                 </button>
               </div>
             ` : ""}
           </div>
         </div>
 
-        <!-- SIDEBAR: +α SOURCES & QUESTION BOX -->
+        <!-- SIDEBAR: CORE SOURCES & 12/3 STEVEN LEVY PRIVATE QUESTION BOX -->
         <aside class="sidebar-panel">
           <div class="sp-tabs">
-            <button class="sp-tab ${state.sidebarTab === "sources" ? "active" : ""}" data-action="switch-sidebar-tab" data-tab="sources">+α 자료실 (${cur.alphaNotes.length})</button>
-            <button class="sp-tab ${state.sidebarTab === "questions" ? "active" : ""}" data-action="switch-sidebar-tab" data-tab="questions">질문 제출 (${state.submittedQuestions.length})</button>
+            <button class="sp-tab ${state.sidebarTab === "sources" ? "active" : ""}" data-action="switch-sidebar-tab" data-tab="sources">핵심 자료실 (${cur.alphaNotes.length})</button>
+            <button class="sp-tab ${state.sidebarTab === "questions" ? "active" : ""}" data-action="switch-sidebar-tab" data-tab="questions">12/3 인터뷰 질문</button>
           </div>
           <div class="sp-body">
             ${state.sidebarTab === "sources" ? `
@@ -489,18 +515,31 @@
                 </div>
               </div>
             ` : `
-              <form class="q-form" data-action="submit-question">
-                <textarea class="q-input" name="question" rows="2" placeholder="다음 현업자 인터뷰·패널에게 직접 묻고 싶은 질문을 남겨주세요..." required></textarea>
-                <button type="submit" class="btn-primary-emerald" style="width:100%;">질문 등록하기</button>
-              </form>
-              ${state.submittedQuestions.map(q => `
-                <div class="q-item">
-                  <span>${esc(q.text)}</span>
-                  <button class="btn-ghost" style="padding:4px 8px;font-size:11px;height:fit-content;" data-action="upvote-question" data-id="${q.id}">
-                    ▲ ${q.votes}
-                  </button>
+              <div class="source-item" style="border-color:rgba(255,127,35,0.35);background:rgba(255,127,35,0.06);">
+                <strong style="color:var(--orange);">12/3(목) 스티븐 레비(Steven Levy) 인터뷰</strong>
+                <p style="color:var(--ink-secondary);">BLACK 멤버 사전 질문을 비공개로 접수합니다. 다른 회원의 질문은 공개되지 않습니다.</p>
+              </div>
+              ${isBlack ? `
+                <form class="q-form" data-action="submit-question">
+                  <textarea class="q-input" name="question" rows="3" placeholder="스티븐 레비에게 직접 묻고 싶은 질문을 남겨주세요..." required></textarea>
+                  <button type="submit" class="btn-primary-emerald" style="width:100%;">제작진에게 비공개 질문 보내기</button>
+                </form>
+                ${state.myQuestions.length > 0 ? `
+                  <div style="font-size:11.5px;color:var(--ink-muted);margin-top:6px;">내가 제출한 질문 (본인에게만 표시)</div>
+                  ${state.myQuestions.map(q => `
+                    <div class="q-item">
+                      <span>${esc(q.text)}</span>
+                      <span style="font-family:var(--font-mono);font-size:10.5px;color:var(--emerald);flex-shrink:0;">접수됨</span>
+                    </div>
+                  `).join("")}
+                ` : `<p style="font-size:12px;color:var(--ink-muted);text-align:center;padding:8px 0;">아직 제출한 질문이 없습니다.</p>`}
+              ` : `
+                <div class="source-item" style="text-align:center;padding:18px 14px;">
+                  <strong style="display:block;margin-bottom:6px;">🔒 BLACK 멤버 전용 질문 접수</strong>
+                  <p style="color:var(--ink-secondary);margin-bottom:12px;">유료 멤버십 활성화 후 12/3 스티븐 레비 인터뷰 질문을 비공개로 제출하실 수 있습니다.</p>
+                  <button class="btn-primary-orange" style="width:100%;" data-action="open-modal" data-modal="pricing">BLACK 구독 시작 →</button>
                 </div>
-              `).join("")}
+              `}
             `}
           </div>
         </aside>
@@ -514,7 +553,7 @@
             <article class="card card-clickable" data-action="open-video" data-id="${v.id}" style="${v.id === cur.id ? "border-color:var(--emerald);" : ""}">
               <div class="thumb-wrap ${locked ? "is-locked" : ""}">
                 <img src="${v.thumb}" alt="${esc(v.title)}" />
-                <span class="thumb-badge-tl ${v.type === "black" ? "badge-orange" : "badge-emerald"}">${v.type === "black" ? "BLACK EXCLUSIVE" : "YT + α"}</span>
+                <span class="thumb-badge-tl ${v.type === "black" ? "badge-orange" : "badge-emerald"}">${v.type === "black" ? "BLACK EXCLUSIVE" : "1BWS 에디션"}</span>
                 <span class="thumb-dur">${v.duration}</span>
                 ${locked ? '<div class="lock-center"><span class="lock-chip">🔒 BLACK</span></div>' : ""}
               </div>
@@ -610,10 +649,10 @@
 
       <div class="beta-banner">
         <div>
-          <strong style="color:var(--emerald);font-family:var(--font-mono);">PHASE 2 BETA PREVIEW · CURATED RSS 비교</strong>
+          <strong style="color:var(--emerald);font-family:var(--font-mono);">BETA · 글로벌 언론 보도 비교</strong>
           <div style="color:var(--ink-primary);margin-top:2px;">글로벌 주요 이슈에 대한 미국·유럽·아시아/한국 매체의 보도 프레임을 한눈에 비교합니다.</div>
         </div>
-        <span class="nav-beta">GROUND NEWS STYLE</span>
+        <span class="nav-beta">3개 권역 프레임 비교</span>
       </div>
 
       ${D.newsClusters.map(c => `
@@ -654,7 +693,7 @@
 
       <div class="section-header" style="margin-top:6px;">
         <div class="sh-title-group">
-          <h2>BLACK PERKS · 카드사형 멤버 전용 제휴 혜택</h2>
+          <h2>BLACK PERKS · 멤버 전용 파트너 제휴 혜택</h2>
           <p>외부 파트너사 % 우대, 전용 쿠폰 코드 및 오프라인 살롱 우선 예매 혜택 (BLACK 멤버 전용)</p>
         </div>
         <span class="black-pill" style="font-size:11px;padding:5px 10px;">연간 예상 혜택 가치 ₩380,000+</span>
@@ -779,13 +818,13 @@
           </div>
 
           <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--ink-secondary);">
-            <span>전자상거래법·Apple 가이드라인 5.1.1(v) 준수 원클릭 해지 지원</span>
+            <span>약정 없이 언제든 원클릭으로 간편 해지 가능</span>
             <button class="btn-ghost" data-action="cancel-confirm" style="color:#FCA5A5;border-color:rgba(248,113,113,0.35);">구독 해지 / 계정 관리</button>
           </div>
         </section>
 
         <section class="card" style="padding:22px;">
-          <div class="card-meta">SAVED &amp; QUESTIONS</div>
+          <div class="card-meta">SAVED &amp; MY QUESTIONS</div>
           <h3 style="font-size:18px;font-weight:800;margin-bottom:12px;">저장한 리포트 (${savedReports.length})</h3>
           ${savedReports.length === 0 ? `<p class="card-desc">저장된 리포트가 없습니다.</p>` : savedReports.map(r => `
             <div class="promo-item" style="margin-bottom:8px;">
@@ -794,11 +833,11 @@
             </div>
           `).join("")}
 
-          <h3 style="font-size:16px;font-weight:800;margin:16px 0 8px;">내가 제출한 질문 (${state.submittedQuestions.length})</h3>
-          ${state.submittedQuestions.slice(0, 3).map(q => `
+          <h3 style="font-size:16px;font-weight:800;margin:16px 0 8px;">12/3 스티븐 레비 인터뷰 — 내가 제출한 질문 (${state.myQuestions.length})</h3>
+          ${state.myQuestions.length === 0 ? `<p class="card-desc">아직 제출한 질문이 없습니다. (다른 회원의 질문은 비공개입니다)</p>` : state.myQuestions.map(q => `
             <div class="q-item" style="margin-bottom:6px;">
               <span>${esc(q.text)}</span>
-              <span style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);">▲ ${q.votes}</span>
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--emerald);">비공개 접수됨</span>
             </div>
           `).join("")}
         </section>
@@ -840,14 +879,14 @@
               <div class="pricing-grid">
                 <div class="plan-card">
                   <div>
-                    <span class="nav-beta">STAGE A · FREE TIER</span>
+                    <span class="nav-beta">FREE</span>
                     <h3 style="font-size:18px;font-weight:800;margin-top:6px;">Free Basic</h3>
                     <div class="plan-price">₩0</div>
                     <ul class="plan-list">
                       <li>✓ 모닝리포트 (24h · 1주간 · 특별이슈 요약)</li>
-                      <li>✓ 유튜브 공개 본편 + 기본 사료 링크</li>
+                      <li>✓ 공개 본편 영상 + 기본 사료 링크</li>
                       <li>✓ Our Reports 핵심 요약 (Preview)</li>
-                      <li>• 무료 회원 전용 배너 광고 포함</li>
+                      <li>• 파트너 브랜드 배너 포함</li>
                     </ul>
                   </div>
                   <button class="btn-ghost" data-action="switch-tier-close" data-tier="free">무료 모드로 계속 보기</button>
@@ -855,14 +894,14 @@
 
                 <div class="plan-card featured">
                   <div>
-                    <span class="black-pill">STAGE B · BLACK MEMBERSHIP</span>
+                    <span class="black-pill">BLACK MEMBERSHIP</span>
                     <h3 style="font-size:18px;font-weight:800;margin-top:6px;">1BWS BLACK</h3>
                     <div class="plan-price" style="color:var(--orange);">${annual ? "₩12,000" : "₩15,000"} <span style="font-size:13px;color:var(--ink-secondary);font-weight:500;">/ 월 ${annual ? "(연 ₩144,000)" : ""}</span></div>
                     <ul class="plan-list">
                       <li>✓ <strong style="color:#fff;">모든 광고 완전 제거 (Ad-Free)</strong></li>
-                      <li>✓ BLACK 독점 영상 &amp; YT+α 확장 컷 무제한</li>
+                      <li>✓ BLACK 독점 영상 &amp; 1BWS 확장 컷 무제한</li>
                       <li>✓ Our Reports 전문(Full Text) + 인포그래픽 전체</li>
-                      <li>✓ 패널 질문 제출 · 카드사형 제휴 PERKS · 살롱 선예매</li>
+                      <li>✓ 12/3 스티븐 레비 등 인터뷰 사전 질문 · 파트너 제휴 혜택 · 살롱 선예매</li>
                     </ul>
                   </div>
                   <button class="btn-primary-orange" style="padding:11px;" data-action="activate-black">BLACK 체험 즉시 활성화 →</button>
@@ -896,7 +935,7 @@
             `}
 
             <p style="font-size:11.5px;color:var(--ink-muted);margin-top:14px;text-align:center;">
-              자체 웹 정기결제(토스페이먼츠 · 카카오페이 · 해외카드 지원) · 향후 모바일 앱에서도 동일 계정으로 30% 수수료 없이 그대로 이용 가능
+              웹 정기결제 (국내외 카드 · 간편결제 지원) · 모바일 앱 출시 시 동일 계정 자동 연동
             </p>
           </div>
         </div>
@@ -955,7 +994,7 @@
         <div class="footer-inner">
           <div style="display:flex;align-items:center;gap:10px;">
             <img src="./assets/logos/1bws_logo_text_white.svg" style="height:16px;opacity:0.85;" alt="1BWS" />
-            <span>© 2026 타일러 미디어 (Tyler Media) · onebigworldshow.com Interactive Platform Prototype</span>
+            <span>© 2026 타일러 미디어 (Tyler Media) · onebigworldshow.com</span>
           </div>
           <span>Contact: <a href="mailto:request@tylerrasch.com" style="color:#CBD5E1;text-decoration:underline;">request@tylerrasch.com</a></span>
         </div>
@@ -1105,8 +1144,8 @@
     if (action === "submit-question") {
       const val = new FormData(form).get("question")?.toString().trim();
       if (val) {
-        state.submittedQuestions.unshift({ id: Date.now(), text: val, votes: 1, liked: true });
-        showToast("질문이 등록되었습니다!");
+        state.myQuestions.unshift({ id: Date.now(), text: val });
+        showToast("✓ 12/3 스티븐 레비 인터뷰 질문이 제작진에게 비공개로 접수되었습니다!");
         render();
       }
     } else if (action === "redeem-qr") {

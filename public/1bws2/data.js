@@ -269,7 +269,7 @@ window.BWS_DATA = {
             <rect width="680" height="140" rx="8" fill="#0D1119"/>
             <text x="24" y="42" font-size="12" font-weight="800" fill="#01FF7F">북미 (US Navy / ITAR): 도크 부족 보완형 MRO &amp; 동맹 예외 조항 활용</text>
             <text x="24" y="78" font-size="12" font-weight="800" fill="#FF7F23">유럽 (Buy-European): 역내 합작법인(JV) 통한 EU 조달 카탈로그 진입 필수</text>
-            <text x="24" y="114" font-size="11" fill="#94A3B8">Source: 1BWS 5-Region Geopolitics &amp; Trade Desk</text>
+            <text x="24" y="114" font-size="11" fill="#94A3B8">Source: 1BWS Research Desk</text>
           </svg>
         </div>
       `
