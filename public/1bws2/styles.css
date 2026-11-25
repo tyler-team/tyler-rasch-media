@@ -1199,3 +1199,71 @@ input, textarea { font-family: inherit; }
   .paper-reader { padding: 22px 18px; }
   .paper-title { font-size: 22px; }
 }
+
+/* ==================== HOME TEASER & MORNING REPORT DESK ==================== */
+.home-morning-teaser {
+  background: radial-gradient(circle at 12% 18%, rgba(1, 255, 127, 0.11), transparent 46%),
+              linear-gradient(135deg, rgba(13, 17, 25, 0.96), rgba(8, 12, 20, 0.98));
+  border: 1px solid rgba(1, 255, 127, 0.24);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hmt-left { flex: 1; min-width: 280px; }
+.hmt-chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.hmt-chip {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: rgba(1, 255, 127, 0.08);
+  border: 1px solid rgba(1, 255, 127, 0.28);
+  color: var(--emerald);
+}
+.hmt-meta {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  margin-left: 4px;
+}
+.hmt-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.morning-pulse-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+@media (max-width: 980px) {
+  .morning-pulse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .morning-pulse-grid { grid-template-columns: 1fr; }
+}
+
+/* Audit Pass 2 Fix: Ensure all 7 nav tabs fit cleanly without horizontal clipping */
+.topbar-inner {
+  max-width: 1340px;
+  gap: 12px;
+}
+.nav-tabs {
+  gap: 2px;
+}
+.nav-tab {
+  padding: 6px 9px;
+  font-size: 12.5px;
+  white-space: nowrap;
+}

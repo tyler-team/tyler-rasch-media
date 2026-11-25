@@ -71,7 +71,8 @@
   function renderHeader() {
     const isBlack = state.tier === "black";
     const tabs = [
-      { id: "home", label: "홈 · 아침보고" },
+      { id: "home", label: "홈" },
+      { id: "morning", label: "모닝리포트" },
       { id: "videos", label: "1BWS 비디오" },
       { id: "reports", label: "리포트" },
       { id: "news", label: "뉴스 비교", badge: '<span class="nav-beta">BETA</span>' },
@@ -136,7 +137,7 @@
 
   /* ==================== VIEW 1: HOME ==================== */
   function renderHome() {
-    const b = D.briefings[state.briefingCadence];
+    const b = D.briefings["24h"];
     const isBlack = state.tier === "black";
     const featuredVideos = D.videos.slice(0, 3);
     const totalVotes = D.survey.options.reduce((s, o) => s + o.votes + (state.surveyVoted === o.id ? 1 : 0), 0);
@@ -144,50 +145,24 @@
     return `
       ${renderDemoContextBar()}
 
-      <!-- HERO: WHAT HAPPENED? 아침보고 -->
-      <section class="hero-briefing">
-        <div class="hb-top">
+      <!-- HOME HERO: COMPACT MORNING REPORT TEASER -->
+      <section class="home-morning-teaser">
+        <div class="hmt-left">
           <div class="hb-brand">
             ${logoLockupHtml("emblem")}
             <div>
-              <div class="live-tag"><span class="pulse-dot"></span> WHAT HAPPENED? · 아침보고 (${b.tag})</div>
+              <div class="live-tag"><span class="pulse-dot"></span> TODAY'S 모닝리포트 · ${b.tag}</div>
               <h1 class="hb-headline">${b.title}</h1>
             </div>
           </div>
-
-          <div class="cadence-tabs">
-            <button class="cadence-btn ${state.briefingCadence === "24h" ? "active" : ""}" data-action="switch-cadence" data-cadence="24h">24h 업데이트</button>
-            <button class="cadence-btn ${state.briefingCadence === "weekly" ? "active" : ""}" data-action="switch-cadence" data-cadence="weekly">1주간</button>
-            <button class="cadence-btn is-special ${state.briefingCadence === "special" ? "active" : ""}" data-action="switch-cadence" data-cadence="special">특별이슈</button>
+          <div class="hmt-chips">
+            ${b.bullets.map(item => `<span class="hmt-chip"><strong>${item.cat}</strong></span>`).join("")}
+            <span class="hmt-meta">오디오 요약 ${b.audioDuration} · AI 1차 요약 + 에디터 검증</span>
           </div>
         </div>
-
-        <div class="hb-body">
-          <ul class="hb-bullets">
-            ${b.bullets.map(item => `
-              <li class="hb-bullet">
-                <span class="hb-cat ${state.briefingCadence === "special" ? "special" : ""}">${item.cat}</span>
-                <span class="hb-txt">${item.text}</span>
-              </li>
-            `).join("")}
-          </ul>
-
-          <div class="audio-box">
-            <div class="audio-meta">
-              <span>AUDIO BRIEFING · 출근길 10분 맥락 요약</span>
-              <span style="color:var(--emerald);">${state.audioPlaying ? "PLAYING" : "READY"}</span>
-            </div>
-            <div class="audio-title">${b.audioTitle}</div>
-            <div class="audio-controls">
-              <button class="play-btn" data-action="toggle-audio" aria-label="Play Audio Briefing">${state.audioPlaying ? "❚❚" : "▶"}</button>
-              <div class="progress-track"><div class="progress-fill" style="width:${state.audioProgress}%"></div></div>
-              <span class="audio-time">${b.audioDuration}</span>
-            </div>
-            <div style="font-size:12px; color:var(--ink-secondary); display:flex; justify-content:space-between; border-top:1px solid var(--border); padding-top:10px;">
-              <span>AI 1차 요약 + 에디터 교차 검증 완료</span>
-              <button class="sh-link" data-action="switch-tab" data-tab="reports">관련 심층 리포트 →</button>
-            </div>
-          </div>
+        <div class="hmt-actions">
+          <button class="btn-primary-emerald" data-action="switch-tab" data-tab="morning">모닝리포트 전체 보기 →</button>
+          <button class="btn-ghost" data-action="switch-tab" data-tab="reports">오늘의 심층 리포트</button>
         </div>
       </section>
 
@@ -195,7 +170,7 @@
       ${!isBlack ? `
         <div class="free-only-ad">
           <div class="ad-left">
-            <span class="ad-tag">SPONSORED · FREE TIER ONLY</span>
+            <span class="ad-tag" style="display:inline-block;padding:3px 8px;border-radius:4px;background:rgba(255,127,35,0.14);border:1px solid rgba(255,127,35,0.45);color:var(--orange);font-family:var(--font-mono);font-size:10.5px;font-weight:700;margin-bottom:4px;">SPONSORED · FREE TIER ONLY</span>
             <div class="ad-copy">
               <strong>무료 회원에게만 노출되는 파트너 스폰서 영역</strong>
               <p>글로벌 테크·금융·B2B 파트너 브랜드 배너 (1BWS BLACK 구독 시 모든 광고가 즉시 사라집니다)</p>
@@ -326,6 +301,102 @@
     `;
   }
 
+  /* ==================== VIEW 1B: MORNING REPORT (DEDICATED) ==================== */
+  function renderMorningReport() {
+    const b = D.briefings[state.briefingCadence];
+    const isBlack = state.tier === "black";
+
+    return `
+      ${renderDemoContextBar()}
+
+      <section class="hero-briefing">
+        <div class="hb-top">
+          <div class="hb-brand">
+            ${logoLockupHtml("emblem")}
+            <div>
+              <div class="live-tag"><span class="pulse-dot"></span> WHAT HAPPENED? · 모닝리포트 (${b.tag})</div>
+              <h1 class="hb-headline">${b.title}</h1>
+            </div>
+          </div>
+
+          <div class="cadence-tabs">
+            <button class="cadence-btn ${state.briefingCadence === "24h" ? "active" : ""}" data-action="switch-cadence" data-cadence="24h">24h 업데이트</button>
+            <button class="cadence-btn ${state.briefingCadence === "weekly" ? "active" : ""}" data-action="switch-cadence" data-cadence="weekly">1주간</button>
+            <button class="cadence-btn is-special ${state.briefingCadence === "special" ? "active" : ""}" data-action="switch-cadence" data-cadence="special">특별이슈</button>
+          </div>
+        </div>
+
+        <div class="hb-body">
+          <ul class="hb-bullets">
+            ${b.bullets.map(item => `
+              <li class="hb-bullet">
+                <span class="hb-cat ${state.briefingCadence === "special" ? "special" : ""}">${item.cat}</span>
+                <span class="hb-txt">${item.text}</span>
+              </li>
+            `).join("")}
+          </ul>
+
+          <div class="audio-box">
+            <div class="audio-meta">
+              <span>AUDIO BRIEFING · 출근길 10분 맥락 요약</span>
+              <span style="color:var(--emerald);">${state.audioPlaying ? "PLAYING" : "READY"}</span>
+            </div>
+            <div class="audio-title">${b.audioTitle}</div>
+            <div class="audio-controls">
+              <button class="play-btn" data-action="toggle-audio" aria-label="Play Audio Briefing">${state.audioPlaying ? "❚❚" : "▶"}</button>
+              <div class="progress-track"><div class="progress-fill" style="width:${state.audioProgress}%"></div></div>
+              <span class="audio-time">${b.audioDuration}</span>
+            </div>
+            <div style="font-size:12px; color:var(--ink-secondary); display:flex; justify-content:space-between; border-top:1px solid var(--border); padding-top:10px;">
+              <span>AI 1차 요약 + 에디터 교차 검증 완료</span>
+              <button class="sh-link" data-action="switch-tab" data-tab="reports">관련 심층 리포트 →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-header">
+        <div class="sh-title-group">
+          <h2>권역별 핵심 시그널 · Morning Pulse</h2>
+          <p>오늘 출근길에 반드시 체크해야 할 4대 매크로·산업 변곡점</p>
+        </div>
+        <button class="sh-link" data-action="switch-tab" data-tab="news">뉴스 비교(Beta) 보기 →</button>
+      </div>
+
+      <div class="morning-pulse-grid">
+        ${D.morningPulse.map(p => `
+          <div class="card" style="padding:16px;">
+            <div class="card-meta" style="margin-bottom:6px;"><span style="color:var(--emerald);">${p.region}</span></div>
+            <div style="font-size:15px;font-weight:800;margin-bottom:6px;">${p.signal}</div>
+            <p class="card-desc">${p.note}</p>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="section-header">
+        <div class="sh-title-group">
+          <h2>지난 모닝리포트 아카이브</h2>
+          <p>${isBlack ? "1BWS BLACK 권한으로 모든 과거 브리핑과 오디오 요약을 제한 없이 열람합니다." : "최근 7일 아카이브 무료 제공 · 전체 아카이브 검색은 BLACK 전용"}</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        ${D.morningArchive.map(a => `
+          <article class="card card-clickable" style="padding:18px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;" data-action="switch-tab" data-tab="reports">
+            <div>
+              <div class="card-meta"><span>${a.date}</span><span style="color:var(--orange);">${a.tag}</span></div>
+              <h3 class="card-title" style="margin-top:6px;">${a.title}</h3>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink-secondary);border-top:1px solid var(--border);padding-top:10px;">
+              <span>${a.readTime}</span>
+              <span style="color:var(--emerald);font-weight:700;">읽기 →</span>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
+
   /* ==================== VIEW 2: VIDEOS ==================== */
   function renderVideos() {
     const isBlack = state.tier === "black";
@@ -409,6 +480,14 @@
                   <p style="color:var(--ink-secondary);">${idx === 0 || isBlack ? n.detail : "BLACK 멤버십 구독 시 1차 원문 자료 및 PDF 브리프를 바로 열람할 수 있습니다."}</p>
                 </div>
               `).join("")}
+              <div class="source-item" style="margin-top:auto;border-color:rgba(1,255,127,0.28);background:rgba(1,255,127,0.04);">
+                <strong style="color:var(--emerald);">연계 모닝리포트 &amp; 심층 리포트</strong>
+                <p style="color:var(--ink-secondary);margin-bottom:8px;">이 영상의 핵심 데이터와 인포그래픽을 텍스트 리포트로 이어서 확인하세요.</p>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn-ghost" style="font-size:11.5px;padding:5px 10px;" data-action="switch-tab" data-tab="morning">모닝리포트</button>
+                  <button class="btn-ghost" style="font-size:11.5px;padding:5px 10px;border-color:var(--emerald);color:var(--emerald);" data-action="switch-tab" data-tab="reports">심층 리포트 →</button>
+                </div>
+              </div>
             ` : `
               <form class="q-form" data-action="submit-question">
                 <textarea class="q-input" name="question" rows="2" placeholder="다음 현업자 인터뷰·패널에게 직접 묻고 싶은 질문을 남겨주세요..." required></textarea>
@@ -505,7 +584,7 @@
               <span class="black-pill" style="font-size:10.5px;">1BWS BLACK FULL TEXT</span>
               <h3 style="font-size:21px;font-weight:800;margin:8px 0 6px;">여기서부터 1BWS BLACK 전문(Full Text)입니다</h3>
               <p style="font-size:13.5px;color:#CBD5E1;max-width:560px;line-height:1.55;">
-                월 ₩15,000(연간 구독 시 월 ₩12,000)으로 심층 리포트 전문, 시나리오 인포그래픽, 독점 인터뷰 영상, 광고 없는 아침보고 및 파트너 PERKS를 모두 이용하세요.
+                월 ₩15,000(연간 구독 시 월 ₩12,000)으로 심층 리포트 전문, 시나리오 인포그래픽, 독점 인터뷰 영상, 광고 없는 모닝리포트 및 파트너 PERKS를 모두 이용하세요.
               </p>
               <div class="pw-actions">
                 <button class="btn-primary-orange" data-action="open-modal" data-modal="pricing">BLACK 구독 시작 →</button>
@@ -541,6 +620,11 @@
         <article class="card news-cluster">
           <div class="card-meta"><span>${c.topic}</span><span>3개 권역 비교 분석</span></div>
           <h3 style="font-size:18px;font-weight:800;">${c.title}</h3>
+          <div style="display:flex;gap:14px;font-family:var(--font-mono);font-size:11px;color:var(--ink-secondary);margin-bottom:4px;">
+            <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3B82F6;margin-right:5px;"></span>US ${c.ratios.us}%</span>
+            <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--emerald);margin-right:5px;"></span>EU ${c.ratios.eu}%</span>
+            <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange);margin-right:5px;"></span>KOREA / ASIA ${c.ratios.asia}%</span>
+          </div>
           <div class="coverage-bar">
             <div style="width:${c.ratios.us}%;background:#3B82F6;" title="US"></div>
             <div style="width:${c.ratios.eu}%;background:var(--emerald);" title="EU"></div>
@@ -573,6 +657,7 @@
           <h2>BLACK PERKS · 카드사형 멤버 전용 제휴 혜택</h2>
           <p>외부 파트너사 % 우대, 전용 쿠폰 코드 및 오프라인 살롱 우선 예매 혜택 (BLACK 멤버 전용)</p>
         </div>
+        <span class="black-pill" style="font-size:11px;padding:5px 10px;">연간 예상 혜택 가치 ₩380,000+</span>
       </div>
 
       <div class="grid-2">
@@ -684,7 +769,7 @@
             </span>
           </div>
 
-          <p class="card-desc" style="margin-bottom:12px;">선택한 주제에 맞춰 <strong>아침보고</strong> 및 추천 리포트 피드가 우선 정렬됩니다.</p>
+          <p class="card-desc" style="margin-bottom:12px;">선택한 주제에 맞춰 <strong>모닝리포트</strong> 및 추천 리포트 피드가 우선 정렬됩니다.</p>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;">
             ${topics.map(t => `
               <button class="topic-chip ${state.userTopics.includes(t) ? "selected" : ""}" data-action="toggle-topic" data-topic="${t}">
@@ -759,7 +844,7 @@
                     <h3 style="font-size:18px;font-weight:800;margin-top:6px;">Free Basic</h3>
                     <div class="plan-price">₩0</div>
                     <ul class="plan-list">
-                      <li>✓ 아침보고 (24h · 1주간 · 특별이슈 요약)</li>
+                      <li>✓ 모닝리포트 (24h · 1주간 · 특별이슈 요약)</li>
                       <li>✓ 유튜브 공개 본편 + 기본 사료 링크</li>
                       <li>✓ Our Reports 핵심 요약 (Preview)</li>
                       <li>• 무료 회원 전용 배너 광고 포함</li>
@@ -854,6 +939,7 @@
   function render() {
     const views = {
       home: renderHome,
+      morning: renderMorningReport,
       videos: renderVideos,
       reports: renderReports,
       news: renderNews,

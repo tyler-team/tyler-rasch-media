@@ -40,6 +40,19 @@ window.BWS_DATA = {
     }
   },
 
+  morningPulse: [
+    { region: "US · MACRO", signal: "DXY 106선 테스트", note: "서비스 물가 경직성으로 금리 인하 속도 조절론 부각" },
+    { region: "AI · INFRA", signal: "변압기 리드타임 36개월+", note: "하이퍼스케일러 CAPEX 병목이 칩에서 전력망으로 이동" },
+    { region: "EU · DEFENSE", signal: "EDIP 역내 조달 강화", note: "유럽 재무장 카탈로그 표준화 및 현지 JV 요구 확대" },
+    { region: "KOREA LINK", signal: "미 해군 MRO 슬롯 확대", note: "태평양 함대 정비 수요와 맞물린 국내 조선소 수혜 시그널" }
+  ],
+
+  morningArchive: [
+    { date: "2026.11.24", tag: "24h 업데이트", title: "미 국채 만기 스케줄과 스테이블코인 결제망의 숨은 연결고리", readTime: "6분 요약" },
+    { date: "2026.11.23", tag: "1주간", title: "유럽 Buy-European 규제 초안이 한국 방산 부품사에 던진 과제", readTime: "12분 요약" },
+    { date: "2026.11.21", tag: "특별이슈", title: "인도 제조업 공급망 허브: 조립 물량 급증 뒤에 숨은 중간재 의존도", readTime: "9분 요약" }
+  ],
+
   videos: [
     {
       id: "sWJuXdeJB4Q",
