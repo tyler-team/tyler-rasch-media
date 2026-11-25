@@ -357,27 +357,63 @@ window.BWS_DATA = {
     }
   ],
 
+  marketImports: [
+    {
+      id: "imp-1",
+      origin: "COLOMBIA · SPECIALTY COFFEE",
+      badge: "DIRECT IMPORT",
+      title: "후안 발데즈(Juan Valdez) 싱글 오리진 원두 (250g)",
+      desc: "안데스 고산지대 100% 아라비카 핸드픽 원두. 묵직한 다크 카카오 바디감과 깔끔한 산미로 모닝리포트와 가장 잘 어울리는 시그니처 로스트.",
+      price: "₩26,000",
+      blackPrice: "BLACK ₩23,400",
+      img: "./assets/market/market_juan_valdez.jpg"
+    },
+    {
+      id: "imp-2",
+      origin: "SWITZERLAND · ARTISAN CACAO",
+      badge: "DIRECT IMPORT",
+      title: "스텔라 베르냉(Stella Bernrain) 다크 72% 초콜릿 세트",
+      desc: "스위스 전통 쇼콜라티에의 공정무역 싱글 오리진 카카오 72% 다크 바 컬렉션. 깊은 풍미와 정제된 단맛의 3종 에디션.",
+      price: "₩19,800",
+      blackPrice: "BLACK ₩17,800",
+      img: "./assets/market/market_stella_bernain.jpg"
+    },
+    {
+      id: "imp-3",
+      origin: "INDIA · HIMALAYAN ESTATE",
+      badge: "DIRECT IMPORT",
+      title: "다즐링 퍼스트 플러시(Darjeeling First Flush) 잎차 (100g)",
+      desc: "히말라야 고지대 첫물 수확 싱글 에스테이트 홍차. 머스캣 향과 맑은 황금빛 수색을 담은 1BWS 셀렉션 프리미엄 틴 케이스.",
+      price: "₩32,000",
+      blackPrice: "BLACK ₩28,800",
+      img: "./assets/market/market_darjeeling_tea.jpg"
+    }
+  ],
+
   storeItems: [
     {
       id: "st-1",
       badge: "2026 BOOK · QR 수록",
       title: "[단행본] 판을 읽는 눈: 원빅월드쇼 인사이트 북",
       desc: "위즈덤하우스 출간 예정. 책 내지에 1BWS BLACK 1개월 무료 전환 동적 QR 코드 및 심화 자료 링크 수록.",
-      price: "₩22,000"
+      price: "₩22,000",
+      img: "./assets/market/merch_book.jpg"
     },
     {
       id: "st-2",
       badge: "1₿₩$ MERCH",
       title: "1BWS Obsidian 헤비웨이트 후디 (Limited)",
-      desc: "전면 미니멀 1₿₩$ 화이트 자수, 후면 에메랄드·오렌지 궤도 그래픽. 480g 코튼 헤비 테리.",
-      price: "₩89,000"
+      desc: "전면 미니멀 1₿₩$ 화이트 자수, 에메랄드·오렌지 포인트 탭. 480g 코튼 헤비 테리.",
+      price: "₩89,000",
+      img: "./assets/market/merch_hoodie.jpg"
     },
     {
       id: "st-3",
       badge: "DESK GEAR",
       title: "1BWS 매크로 브리핑 하드커버 노트 + 메탈 펜",
       desc: "회의·시장 복기용 도트 그리드 하드커버 노트와 매트 블랙 각인 메탈 펜 세트.",
-      price: "₩34,000"
+      price: "₩34,000",
+      img: "./assets/market/merch_notebook.jpg"
     }
   ],
 

@@ -74,7 +74,7 @@
       { id: "reports", label: "리포트" },
       { id: "news", label: "뉴스 비교", badge: '<span class="nav-beta">BETA</span>' },
       { id: "perks", label: "BLACK 혜택", badge: '<span class="orange-dot"></span>' },
-      { id: "store", label: "스토어 · 포럼", badge: state.cartCount > 0 ? `<span class="cart-badge">${state.cartCount}</span>` : "" }
+      { id: "store", label: "원빅월드마켓", badge: state.cartCount > 0 ? `<span class="cart-badge">${state.cartCount}</span>` : "" }
     ];
 
     return `
@@ -729,12 +729,70 @@
     `;
   }
 
-  /* ==================== VIEW 6: STORE & EVENTS ==================== */
+  /* ==================== VIEW 6: ONE BIG WORLD MARKET & EVENTS ==================== */
   function renderStore() {
+    const isBlack = state.tier === "black";
     return `
       ${renderDemoContextBar()}
 
       <div class="section-header" style="margin-top:6px;">
+        <div class="sh-title-group">
+          <h2>원빅월드마켓 · 글로벌 직수입 셀렉션</h2>
+          <p>원빅월드쇼가 세계 각지에서 직접 선별·수입한 커피, 초콜릿, 티 컬렉션 ${isBlack ? "(BLACK 회원 10% 상시 우대 적용)" : "(BLACK 멤버 10% 상시 할인)"}</p>
+        </div>
+        <span class="black-pill" style="font-size:11px;padding:5px 10px;">ONE BIG WORLD MARKET</span>
+      </div>
+
+      <div class="grid-3">
+        ${D.marketImports.map(item => `
+          <article class="card">
+            <div class="market-photo-wrap">
+              <img src="${item.img}" alt="${esc(item.title)}" />
+              <span class="thumb-badge-tl badge-orange">${item.badge}</span>
+            </div>
+            <div class="card-pad">
+              <div class="card-meta"><span style="color:var(--emerald);">${item.origin}</span></div>
+              <h3 class="card-title">${item.title}</h3>
+              <p class="card-desc" style="min-height:54px;">${item.desc}</p>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+                <div>
+                  <strong style="font-family:var(--font-display);font-size:17px;">${item.price}</strong>
+                  <div style="font-family:var(--font-mono);font-size:10.5px;color:var(--emerald);">${item.blackPrice}</div>
+                </div>
+                <button class="btn-primary-emerald" data-action="add-cart" data-title="${esc(item.title)}">장바구니 담기</button>
+              </div>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+
+      <div class="section-header">
+        <div class="sh-title-group">
+          <h2>1BWS 오리지널 굿즈 &amp; 단행본 · <code>1₿₩$</code> EDITION</h2>
+          <p>플랫폼 QR이 수록된 단행본과 1BWS 시그니처 브랜드 굿즈</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        ${D.storeItems.map(item => `
+          <article class="card">
+            <div class="market-photo-wrap">
+              <img src="${item.img}" alt="${esc(item.title)}" />
+              <span class="thumb-badge-tl badge-dark">${item.badge}</span>
+            </div>
+            <div class="card-pad">
+              <h3 class="card-title">${item.title}</h3>
+              <p class="card-desc" style="min-height:48px;">${item.desc}</p>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+                <strong style="font-family:var(--font-display);font-size:17px;">${item.price}</strong>
+                <button class="btn-primary-emerald" data-action="add-cart" data-title="${esc(item.title)}">장바구니 담기</button>
+              </div>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+
+      <div class="section-header">
         <div class="sh-title-group">
           <h2>오프라인 포럼 &amp; 북콘서트 티켓팅</h2>
           <p>1BWS 출연 패널과 직접 호흡하는 비공개 살롱 및 단행본 강연 일정</p>
@@ -753,33 +811,6 @@
             <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);">
               <strong style="font-size:13px;color:var(--orange);">${ev.price}</strong>
               <button class="btn-ghost" data-action="add-cart" data-title="${esc(ev.title)}">사전 알림 / 예매 신청</button>
-            </div>
-          </article>
-        `).join("")}
-      </div>
-
-      <div class="section-header">
-        <div class="sh-title-group">
-          <h2>1BWS 큐레이션 스토어 &amp; <code>1₿₩$</code> 굿즈</h2>
-          <p>단행본(플랫폼 QR 수록) 및 브랜드 에디션 굿즈</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        ${D.storeItems.map(item => `
-          <article class="card">
-            <div class="merch-thumb">
-              <img src="./assets/logos/1bws_logo_globe.svg" style="width:70px;height:70px;position:absolute;opacity:0.25;" alt="1BWS Globe" />
-              <img src="./assets/logos/1bws_logo_text_white.svg" style="width:86px;position:relative;z-index:2;" alt="1BWS Mark" />
-              <span class="thumb-badge-tl badge-dark">${item.badge}</span>
-            </div>
-            <div class="card-pad">
-              <h3 class="card-title">${item.title}</h3>
-              <p class="card-desc" style="min-height:42px;">${item.desc}</p>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
-                <strong style="font-family:var(--font-display);font-size:17px;">${item.price}</strong>
-                <button class="btn-primary-emerald" data-action="add-cart" data-title="${esc(item.title)}">장바구니 담기</button>
-              </div>
             </div>
           </article>
         `).join("")}

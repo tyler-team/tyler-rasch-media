@@ -1345,3 +1345,23 @@ input, textarea { font-family: inherit; }
   font-size: 13px;
   color: var(--ink-secondary);
 }
+
+/* ==================== ONE BIG WORLD MARKET PHOTOS ==================== */
+.market-photo-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #06080D;
+  border-bottom: 1px solid var(--border);
+}
+.market-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.card:hover .market-photo-wrap img {
+  transform: scale(1.04);
+}
