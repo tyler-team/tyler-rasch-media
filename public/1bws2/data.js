@@ -305,35 +305,51 @@ window.BWS_DATA = {
 
   perks: [
     {
-      id: "perk-hotel",
-      partner: "5-STAR HOSPITALITY PARTNER",
-      title: "프리미엄 도심 호텔 · 비즈니스 라운지 우대",
-      discount: "15% OFF",
-      desc: "1BWS 오프라인 살롱 파트너 호텔 객실·다이닝 및 미팅 라운지 전용 우대 혜택",
-      code: "1BWS-STAY-15"
+      id: "perk-banyan",
+      partner: "BANYAN TREE CLUB & SPA SEOUL",
+      title: "반얀트리 클럽 앤 스파 서울 우대",
+      discount: "10% OFF",
+      desc: "반얀트리 서울 객실, 페스타 다이닝, 스파 및 비즈니스 미팅 라운지 이용 시 BLACK 멤버 상시 10% 할인 혜택",
+      code: "1BWS-BANYAN-10"
+    },
+    {
+      id: "perk-michelin",
+      partner: "MICHELIN GUIDE SEOUL · FINE DINING",
+      title: "서울 미쉐린 2·3스타 파인다이닝 (밍글스 · 정식당 · 라연)",
+      discount: "10% OFF",
+      desc: "미쉐린 3스타 밍글스, 2스타 정식당·라연 등 엄선된 파인다이닝 파트너 코스 10% 우대 및 전용 예약 컨시어지",
+      code: "1BWS-MICHELIN-10"
+    },
+    {
+      id: "perk-market",
+      partner: "ONE BIG WORLD MARKET",
+      title: "원빅월드마켓 전 품목 상시 적립",
+      discount: "5% 적립",
+      desc: "후안 발데즈 원두·스텔라 베르냉 초콜릿·다즐링 티 등 글로벌 직수입 셀렉션 및 1BWS 굿즈 결제 금액의 5% 상시 적립",
+      code: "1BWS-MARKET-5P"
     },
     {
       id: "perk-ai",
       partner: "FRONTIER AI WORKSPACE",
-      title: "글로벌 AI 리서치·생산성 툴 연간 플랜 우대",
+      title: "글로벌 AI 리서치·생산성 툴 연간 플랜",
       discount: "20% OFF",
-      desc: "1BWS 블랙 멤버 전용 B2C/팀 연간 구독 할인 코드 및 전용 매크로 분석 템플릿 제공",
+      desc: "1BWS 블랙 멤버 전용 개인/팀 연간 구독 20% 할인 코드 및 1BWS 전용 매크로 분석 템플릿 제공",
       code: "1BWS-AI-PRO20"
     },
     {
-      id: "perk-media",
-      partner: "GLOBAL RESEARCH BRIEF",
-      title: "글로벌 영문 경제·지정학 뉴스레터 번들",
-      discount: "3개월 무료",
-      desc: "해외 1차 원문 리서치 파트너의 주간 매크로 브리핑 번들 구독권",
-      code: "1BWS-GLOBAL-3M"
+      id: "perk-lounge",
+      partner: "EXECUTIVE TRAVEL · LOUNGE",
+      title: "글로벌 공항 프라이빗 라운지 & 비즈니스 트래블",
+      discount: "연 2회 무료",
+      desc: "해외 출장 및 글로벌 이동 시 인천·주요 허브 공항 제휴 라운지 무료 이용권 및 트래블 컨시어지 우대",
+      code: "1BWS-LOUNGE-VIP"
     },
     {
       id: "perk-forum",
       partner: "1BWS LIVE SALON",
       title: "반얀트리 서울 비공개 포럼 & 강연 선예매",
       discount: "20% 우선예매",
-      desc: "연간 오프라인 살롱 유료 패스 20% 할인 및 패널 Q&A 사전 좌석 배정",
+      desc: "연간 오프라인 살롱 유료 패스 20% 할인 및 출연 패널 Q&A 사전 좌석 배정",
       code: "1BWS-SALON-VIP"
     }
   ],
