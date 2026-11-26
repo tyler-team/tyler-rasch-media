@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin/", "/api/", "/1BWS", "/1BWS/", "/1bws", "/1bws/", "/1BWS_EP21", "/1BWS_EP21/", "/1bws_EP21", "/1bws_EP21/", "/1bws_ep21", "/1bws_ep21/", "/1BWS_EP19", "/1BWS_EP19/", "/1bws_EP19", "/1bws_EP19/", "/1bWS_EP19", "/1bWS_EP19/", "/1bws_ep19", "/1bws_ep19/", "/1BWS_EP18", "/1BWS_EP18/", "/1bws_EP18", "/1bws_EP18/", "/1bws_ep18", "/1bws_ep18/", "/1BWS_EP20", "/1BWS_EP20/", "/1bws_EP20", "/1bws_EP20/", "/1bWS_EP20", "/1bWS_EP20/", "/1bws_ep20", "/1bws_ep20/", "/1BWS_EP24", "/1BWS_EP24/", "/1bws_EP24", "/1bws_EP24/", "/1bWS_EP24", "/1bWS_EP24/", "/1bws_ep24", "/1bws_ep24/"],
+      disallow: ["/admin/", "/api/", "/1BWS", "/1BWS/", "/1bws", "/1bws/", "/1BWS_EP18", "/1BWS_EP18/", "/1bws_EP18", "/1bws_EP18/", "/1bWS_EP18", "/1bWS_EP18/", "/1bws_ep18", "/1bws_ep18/", "/1BWS_EP19", "/1BWS_EP19/", "/1bws_EP19", "/1bws_EP19/", "/1bWS_EP19", "/1bWS_EP19/", "/1bws_ep19", "/1bws_ep19/", "/1BWS_EP22", "/1BWS_EP22/", "/1bws_EP22", "/1bws_EP22/", "/1bWS_EP22", "/1bWS_EP22/", "/1bws_ep22", "/1bws_ep22/", "/1BWS_EP23", "/1BWS_EP23/", "/1bws_EP23", "/1bws_EP23/", "/1bWS_EP23", "/1bWS_EP23/", "/1bws_ep23", "/1bws_ep23/", "/1BWS_EP25", "/1BWS_EP25/", "/1bws_EP25", "/1bws_EP25/", "/1bWS_EP25", "/1bWS_EP25/", "/1bws_ep25", "/1bws_ep25/"],
     },
     sitemap: "https://www.tylerrasch.com/sitemap.xml",
   };

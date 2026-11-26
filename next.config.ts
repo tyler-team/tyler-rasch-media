@@ -76,36 +76,36 @@ const nextConfig: NextConfig = {
         destination: '/1BWS/index.html',
       },
       {
-        source: '/1BWS_EP21',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1BWS_EP18',
+        destination: '/1BWS_EP18/index.html',
       },
       {
-        source: '/1BWS_EP21/',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1BWS_EP18/',
+        destination: '/1BWS_EP18/index.html',
       },
       {
-        source: '/1bws_EP21',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1bws_EP18',
+        destination: '/1BWS_EP18/index.html',
       },
       {
-        source: '/1bws_EP21/',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1bws_EP18/',
+        destination: '/1BWS_EP18/index.html',
       },
       {
-        source: '/1bWS_EP21',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1bWS_EP18',
+        destination: '/1BWS_EP18/index.html',
       },
       {
-        source: '/1bWS_EP21/',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1bWS_EP18/',
+        destination: '/1BWS_EP18/index.html',
       },
       {
-        source: '/1bws_ep21',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1bws_ep18',
+        destination: '/1BWS_EP18/index.html',
       },
       {
-        source: '/1bws_ep21/',
-        destination: '/1BWS_EP21/index.html',
+        source: '/1bws_ep18/',
+        destination: '/1BWS_EP18/index.html',
       },
       {
         source: '/1BWS_EP19',
@@ -140,92 +140,100 @@ const nextConfig: NextConfig = {
         destination: '/1BWS_EP19/index.html',
       },
       {
-        source: '/1BWS_EP18',
-        destination: '/1BWS_EP18/index.html',
+        source: '/1BWS_EP22',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1BWS_EP18/',
-        destination: '/1BWS_EP18/index.html',
+        source: '/1BWS_EP22/',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1bws_EP18',
-        destination: '/1BWS_EP18/index.html',
+        source: '/1bws_EP22',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1bws_EP18/',
-        destination: '/1BWS_EP18/index.html',
+        source: '/1bws_EP22/',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1bws_ep18',
-        destination: '/1BWS_EP18/index.html',
+        source: '/1bWS_EP22',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1bws_ep18/',
-        destination: '/1BWS_EP18/index.html',
+        source: '/1bWS_EP22/',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1BWS_EP20',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1bws_ep22',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1BWS_EP20/',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1bws_ep22/',
+        destination: '/1BWS_EP22/index.html',
       },
       {
-        source: '/1bws_EP20',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1BWS_EP23',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1bws_EP20/',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1BWS_EP23/',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1bWS_EP20',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1bws_EP23',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1bWS_EP20/',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1bws_EP23/',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1bws_ep20',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1bWS_EP23',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1bws_ep20/',
-        destination: '/1BWS_EP20/index.html',
+        source: '/1bWS_EP23/',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1BWS_EP24',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1bws_ep23',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1BWS_EP24/',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1bws_ep23/',
+        destination: '/1BWS_EP23/index.html',
       },
       {
-        source: '/1bws_EP24',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1BWS_EP25',
+        destination: '/1BWS_EP25/index.html',
       },
       {
-        source: '/1bws_EP24/',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1BWS_EP25/',
+        destination: '/1BWS_EP25/index.html',
       },
       {
-        source: '/1bWS_EP24',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1bws_EP25',
+        destination: '/1BWS_EP25/index.html',
       },
       {
-        source: '/1bWS_EP24/',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1bws_EP25/',
+        destination: '/1BWS_EP25/index.html',
       },
       {
-        source: '/1bws_ep24',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1bWS_EP25',
+        destination: '/1BWS_EP25/index.html',
       },
       {
-        source: '/1bws_ep24/',
-        destination: '/1BWS_EP24/index.html',
+        source: '/1bWS_EP25/',
+        destination: '/1BWS_EP25/index.html',
+      },
+      {
+        source: '/1bws_ep25',
+        destination: '/1BWS_EP25/index.html',
+      },
+      {
+        source: '/1bws_ep25/',
+        destination: '/1BWS_EP25/index.html',
       },
       {
         source: '/1bws2',
@@ -288,7 +296,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP21/assets/:path*',
+        source: '/1BWS_EP18/assets/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -301,7 +309,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP21/index.html',
+        source: '/1BWS_EP18/index.html',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -314,7 +322,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP21/:path*',
+        source: '/1BWS_EP18/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -323,20 +331,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP21',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1bws_EP21',
+        source: '/1BWS_EP18',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -349,7 +344,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bWS_EP21',
+        source: '/1BWS_EP18/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -362,7 +357,72 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_ep21',
+        source: '/1bws_EP18',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_EP18/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bWS_EP18',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bWS_EP18/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep18',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep18/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -423,7 +483,33 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/1BWS_EP19/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
         source: '/1bws_EP19',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_EP19/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -449,6 +535,19 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/1bWS_EP19/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
         source: '/1bws_ep19',
         headers: [
           {
@@ -462,7 +561,20 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP18/assets/:path*',
+        source: '/1bws_ep19/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP22/assets/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -475,7 +587,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP18/index.html',
+        source: '/1BWS_EP22/index.html',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -488,7 +600,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP18/:path*',
+        source: '/1BWS_EP22/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -497,20 +609,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP18',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1bws_EP18',
+        source: '/1BWS_EP22',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -523,7 +622,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_ep18',
+        source: '/1BWS_EP22/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -536,7 +635,85 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP20/assets/:path*',
+        source: '/1bws_EP22',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_EP22/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bWS_EP22',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bWS_EP22/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep22',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep22/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP23/assets/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -549,7 +726,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP20/index.html',
+        source: '/1BWS_EP23/index.html',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -562,7 +739,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP20/:path*',
+        source: '/1BWS_EP23/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -571,20 +748,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP20',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1BWS_EP20/',
+        source: '/1BWS_EP23',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -597,7 +761,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_EP20',
+        source: '/1BWS_EP23/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -610,7 +774,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_EP20/',
+        source: '/1bws_EP23',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -623,7 +787,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bWS_EP20',
+        source: '/1bws_EP23/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -636,7 +800,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bWS_EP20/',
+        source: '/1bWS_EP23',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -649,7 +813,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_ep20',
+        source: '/1bWS_EP23/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -662,7 +826,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_ep20/',
+        source: '/1bws_ep23',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -675,7 +839,20 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP24/assets/:path*',
+        source: '/1bws_ep23/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP25/assets/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -688,7 +865,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP24/index.html',
+        source: '/1BWS_EP25/index.html',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -701,7 +878,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP24/:path*',
+        source: '/1BWS_EP25/:path*',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -710,20 +887,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1BWS_EP24',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow, noarchive, nosnippet',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/1BWS_EP24/',
+        source: '/1BWS_EP25',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -736,7 +900,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_EP24',
+        source: '/1BWS_EP25/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -749,7 +913,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_EP24/',
+        source: '/1bws_EP25',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -762,7 +926,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bWS_EP24',
+        source: '/1bws_EP25/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -775,7 +939,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bWS_EP24/',
+        source: '/1bWS_EP25',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -788,7 +952,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_ep24',
+        source: '/1bWS_EP25/',
         headers: [
           {
             key: 'X-Robots-Tag',
@@ -801,7 +965,20 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/1bws_ep24/',
+        source: '/1bws_ep25',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep25/',
         headers: [
           {
             key: 'X-Robots-Tag',
