@@ -799,7 +799,7 @@ const castMembersData = [
   {
     id: 'cast-1',
     slot: 'cast-member-1',
-    photo: '/1BWS/assets/cast-sujan.jpg?v=20261119',
+    photo: '/1BWS/assets/cast-sujan.jpg?v=20261127',
     role: { ko: '패널 · 남아시아 · 글로벌 사우스', en: 'PANEL · SOUTH ASIA & GLOBAL SOUTH' },
     name: { ko: '수잔 샤키야 (Sujan Shakya)', en: 'Sujan Shakya (수잔 샤키야)' },
     shortBio: {
@@ -851,7 +851,7 @@ const castMembersData = [
   {
     id: 'cast-3',
     slot: 'cast-member-3',
-    photo: '/1BWS/assets/cast-irina.jpg?v=20261119',
+    photo: '/1BWS/assets/cast-irina.jpg?v=20261127',
     role: { ko: '패널 · 유라시아 · 국제경제·리스크', en: 'PANEL · EURASIA & INTERNATIONAL STRATEGY' },
     name: { ko: '이리나 코르군 (Irina Korgun)', en: 'Irina Korgun (이리나 코르군)' },
     shortBio: {
@@ -877,7 +877,7 @@ const castMembersData = [
   {
     id: 'cast-4',
     slot: 'cast-member-4',
-    photo: '/1BWS/assets/cast-young.jpg?v=20261119',
+    photo: '/1BWS/assets/cast-young.jpg?v=20261127',
     role: { ko: '패널 · 총괄 PD · 타일러 미디어 본부장', en: 'PANEL · EXECUTIVE PRODUCER & HEAD OF TYLER MEDIA' },
     name: { ko: '서영욱 (Young Suh)', en: 'Young Suh (서영욱)' },
     shortBio: {
