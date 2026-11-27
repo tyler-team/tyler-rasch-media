@@ -1852,9 +1852,62 @@ function renderCastSection() {
   });
 }
 
+let liveSanityPressItems = [];
+let livePressFetchStarted = false;
+
+function escapePressHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function loadLiveSanityPress() {
+  if (livePressFetchStarted) return;
+  livePressFetchStarted = true;
+  fetch('/api/1bws-press')
+    .then(res => (res.ok ? res.json() : null))
+    .then(data => {
+      if (data && Array.isArray(data.items) && data.items.length > 0) {
+        liveSanityPressItems = data.items;
+        renderPressSection();
+      }
+    })
+    .catch(() => {});
+}
+
 function renderPressSection() {
+  loadLiveSanityPress();
   const container = document.getElementById('pressListContainer');
-  container.innerHTML = pressItemsData.map((item, idx) => `
+  if (!container) return;
+
+  const liveForLang = liveSanityPressItems
+    .filter(it => (currentLang === 'en' ? it.lang === 'en' : it.lang !== 'en'))
+    .slice(0, 12);
+
+  const liveHtml = liveForLang.map(it => {
+    const badgeLabel = it.category === 'episode'
+      ? '1BWS PRESS'
+      : it.category === 'interview'
+        ? 'INTERVIEW'
+        : 'TYLER MEDIA PR';
+    const metaText = it.subtitle || (it.highlights && it.highlights[0]) || (currentLang === 'ko' ? '타일러 미디어 공식 보도자료' : 'Tyler Media Official Press Release');
+    return `
+      <article class="press-item-row">
+        <span class="press-outlet-badge pr-official">${escapePressHtml(badgeLabel)}</span>
+        <div>
+          <h3 class="press-item-title">${escapePressHtml(it.title)}</h3>
+          <div class="press-item-meta">${escapePressHtml(it.date)} · ${escapePressHtml(metaText)}</div>
+        </div>
+        <a href="${escapePressHtml(it.url)}" target="_blank" rel="noopener noreferrer" class="btn-secondary-editorial" style="padding: 8px 14px; font-size: 0.76rem; text-decoration: none; display: inline-flex; align-items: center;">
+          ${currentLang === 'ko' ? '전문 열람 ↗' : 'Read Release ↗'}
+        </a>
+      </article>
+    `;
+  }).join('');
+
+  const staticHtml = pressItemsData.map((item, idx) => `
     <article class="press-item-row">
       <span class="press-outlet-badge ${item.isOfficial ? 'pr-official' : ''}">${item.outlet}</span>
       <div>
@@ -1866,6 +1919,8 @@ function renderPressSection() {
       </button>
     </article>
   `).join('');
+
+  container.innerHTML = liveHtml + staticHtml;
 
   container.querySelectorAll('[data-press-idx]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1881,7 +1936,7 @@ function renderPressSection() {
               : 'One Big World Show (1BWS) and Tyler Media publish primary-source verified journalism across macroeconomics, geopolitics, technology, and history. High-resolution studio stills and official brand marks are available in the 1BWS Press Kit.'}
           </p>
           <div style="background: var(--bg-paper-light); border: var(--rule-hairline); padding: 14px; font-family: var(--font-mono); font-size: 0.76rem;">
-            Press & Media Desk: <strong>request@tylerrasch.com</strong> · Official Portal: <strong>www.onebigworldshow.com</strong>
+            Press & Media Desk: <strong>press@tylerrasch.com</strong> · Official Portal: <strong>www.tylerrasch.com/ko/press</strong>
           </div>
         `
       );
