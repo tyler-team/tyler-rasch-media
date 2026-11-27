@@ -108,6 +108,38 @@ const nextConfig: NextConfig = {
         destination: '/1BWS_EP18/index.html',
       },
       {
+        source: '/1BWS_EP19',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
+        source: '/1BWS_EP19/',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
+        source: '/1bws_EP19',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
+        source: '/1bws_EP19/',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
+        source: '/1bWS_EP19',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
+        source: '/1bWS_EP19/',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
+        source: '/1bws_ep19',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
+        source: '/1bws_ep19/',
+        destination: '/1BWS_EP19/index.html',
+      },
+      {
         source: '/1BWS_EP21',
         destination: '/1BWS_EP21/index.html',
       },
@@ -423,6 +455,145 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/1bws_ep18/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP19/assets/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP19/index.html',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP19/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP19',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1BWS_EP19/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_EP19',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_EP19/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bWS_EP19',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bWS_EP19/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep19',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/1bws_ep19/',
         headers: [
           {
             key: 'X-Robots-Tag',
