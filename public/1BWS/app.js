@@ -879,7 +879,7 @@ const castMembersData = [
     slot: 'cast-member-4',
     photo: '/1BWS/assets/cast-young.jpg?v=20261127',
     role: { ko: '패널 · 총괄 PD · 타일러 미디어 본부장', en: 'PANEL · EXECUTIVE PRODUCER & HEAD OF TYLER MEDIA' },
-    name: { ko: '서영욱 (Young Suh)', en: 'Young Suh (서영욱)' },
+    name: { ko: '영PD (Young PD)', en: 'Young PD (영PD)' },
     shortBio: {
       ko: '원빅월드쇼(1BWS) 총괄 PD이자 타일러 미디어 본부장. 채널 아키텍처, 1차 사료·AI 제작 파이프라인, OSMU 및 파트너십을 총괄.',
       en: 'Executive Producer of 1BWS & Head of Tyler Media—leading show architecture, primary-source AI workflows, OSMU, and brand partnerships.'
