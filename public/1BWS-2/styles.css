@@ -4563,3 +4563,214 @@ body::after {
 .collage-frame-topbar .plate-sub-label {
   color: #FF7F23 !important;
 }
+
+
+/* ==========================================================================
+   OPTION 1 — FULL DARK OBSIDIAN EDITORIAL SYSTEM (#0A0B0E / #111318 / #171A21)
+   Zero stark white jumps; cohesive obsidian hierarchy top-to-bottom.
+   ========================================================================== */
+
+html,
+body {
+  background-color: #0A0B0E !important;
+  color: #E2E5EC !important;
+}
+
+/* 1. Alternating Neutral Obsidian Section Rhythm */
+.dossier-section,
+.press-section,
+.inbound-section {
+  background-color: #0E1015 !important;
+  color: #E2E5EC !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.cast-section,
+.newsletter-section,
+.store-section {
+  background-color: #0A0B0E !important;
+  color: #E2E5EC !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.section-header-bar {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.section-title,
+.dossier-title,
+.cast-member-name,
+.host-name-title,
+.press-item-title,
+.store-item-title,
+.inbound-card-title {
+  color: #F2F4F8 !important;
+}
+
+.section-subtitle,
+.dossier-summary,
+.cast-short-bio,
+.host-bio-bullet-list li,
+.press-item-meta,
+.store-item-desc,
+.inbound-card-desc,
+.bio-detail-list li {
+  color: #B4BCC8 !important;
+}
+
+/* 2. Elevated Obsidian Cards (#14171E) & Hairline Borders */
+.dossier-controls-panel,
+.dossier-card,
+.host-feature-card,
+.cast-card,
+.press-item-row,
+.press-kit-card,
+.store-card,
+.inbound-card {
+  background-color: #14171E !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+  color: #E2E5EC !important;
+}
+
+.dossier-card:hover,
+.cast-card:hover,
+.press-item-row:hover,
+.store-card:hover,
+.inbound-card:hover {
+  border-color: rgba(1, 255, 127, 0.45) !important;
+  box-shadow: 4px 4px 0px rgba(255, 127, 35, 0.35) !important;
+}
+
+.dossier-card.dossier-lead-card {
+  border-top: 3px solid #00C965 !important;
+}
+
+.dossier-why-box,
+.host-bio-group {
+  background-color: #1A1E27 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.dossier-why-box p {
+  color: #D4D9E2 !important;
+}
+
+.dossier-filter-label,
+.dossier-meta-line,
+.cast-role-tag,
+.press-item-date {
+  color: #FF7F23 !important;
+}
+
+.dossier-filter-btn,
+.dossier-count-badge,
+.dossier-region-pill,
+.btn-expand-bio,
+.btn-secondary-editorial,
+.btn-press-read,
+.btn-dossier-read {
+  background-color: #1B1F29 !important;
+  color: #E2E5EC !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: none !important;
+}
+
+.dossier-filter-btn:hover,
+.btn-expand-bio:hover,
+.btn-secondary-editorial:hover,
+.btn-press-read:hover,
+.btn-dossier-read:hover {
+  background-color: #00C965 !important;
+  color: #0A0B0E !important;
+  border-color: #00C965 !important;
+}
+
+.dossier-filter-btn.active {
+  background-color: #00C965 !important;
+  color: #0A0B0E !important;
+  border-color: #00C965 !important;
+  font-weight: 700 !important;
+}
+
+/* 3. Panels & Host Card Specifics on Obsidian */
+.host-feature-card {
+  border-top: 3px solid #00C965 !important;
+}
+
+.host-photo-slot,
+.cast-member-slot {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  background-color: #0A0B0E !important;
+}
+
+.host-bio-group-title {
+  color: #01FF7F !important;
+}
+
+.host-bio-group:nth-child(2) .host-bio-group-title {
+  color: #FF7F23 !important;
+}
+
+.host-bio-footer,
+.expandable-bio-panel,
+.dossier-card-footer {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.bio-ep-link {
+  color: #01FF7F !important;
+}
+
+.bio-archive-link {
+  color: #C9CFD8 !important;
+}
+
+/* 4. Press & Brand Assets Card on Obsidian */
+.press-outlet-badge {
+  background-color: #1E232E !important;
+  color: #E2E5EC !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+.press-outlet-badge.pr-official {
+  background-color: #00C965 !important;
+  color: #0A0B0E !important;
+  border-color: #00C965 !important;
+}
+
+.press-logo-preview-box {
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.press-logo-preview-box:first-child {
+  background-color: #E8EAE6 !important;
+  color: #14171A !important;
+}
+
+.press-logo-preview-box:first-child .press-logo-caption {
+  color: #14171A !important;
+}
+
+.press-logo-preview-box:last-child {
+  background-color: #0A0B0E !important;
+  color: #E2E5EC !important;
+}
+
+.press-logo-preview-box:last-child .press-logo-caption {
+  color: #C9CFD8 !important;
+}
+
+.press-specs-list dt {
+  color: #9CA3AF !important;
+}
+
+.press-specs-list dd {
+  color: #E2E5EC !important;
+}
+
+/* 5. Keep Slide-Over Dossier Reader comfortable soft-stone paper for long-form reading */
+.dossier-slideover-drawer {
+  background-color: #EAECE8 !important;
+  color: #14171A !important;
+}
