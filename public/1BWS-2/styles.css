@@ -4774,3 +4774,35 @@ body {
   background-color: #EAECE8 !important;
   color: #14171A !important;
 }
+
+/* Obsidian Card Body Text & Callout Box Contrast Fix */
+.dossier-card p,
+.dossier-card .dossier-excerpt,
+.press-kit-card p,
+.press-kit-card li,
+.press-kit-card span,
+.press-kit-card div {
+  color: #C2C9D6 !important;
+}
+
+.dossier-card .dossier-why-callout,
+.dossier-card .why-it-matters-box,
+.dossier-card [class*="why"],
+.dossier-card [class*="thesis"] {
+  background-color: #1B1F29 !important;
+  border-color: rgba(255, 127, 35, 0.45) !important;
+  color: #E2E5EC !important;
+}
+
+.dossier-card .dossier-why-callout p,
+.dossier-card .why-it-matters-box p,
+.dossier-card [class*="why"] p {
+  color: #E2E5EC !important;
+}
+
+.dossier-card .dossier-region-tag,
+.dossier-card [class*="region"] {
+  background-color: #1E232E !important;
+  color: #E2E5EC !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
