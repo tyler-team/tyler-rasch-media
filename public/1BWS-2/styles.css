@@ -6,19 +6,19 @@
    ========================================================================== */
 
 :root {
-  /* 1. Architectural Editorial Paper & Crisp White Surfaces */
-  --bg-paper-light: #F4F4F4;
-  --bg-paper-bright: #FFFFFF;
-  --bg-paper-mid: #EAEAEA;
-  --border-muted: #D4D4D4;
-  --pure-white: #FFFFFF;
-  --crisp-white: #FFFFFF;
+  /* 1. Eye-Comfortable Architectural Studio Stone Surfaces (No Blinding #FFFFFF) */
+  --bg-paper-light: #E8EAE6;
+  --bg-paper-bright: #F0F1EE;
+  --bg-paper-mid: #DFE2DC;
+  --border-muted: #C2C6BF;
+  --pure-white: #F0F1EE;
+  --crisp-white: #F0F1EE;
 
-  /* 2. Pure Broadcast Black & Obsidian Surfaces */
-  --pure-black: #000000;
-  --ink-black: #000000;
-  --bg-deep-slate: #0A0B0D;
-  --slate-navy: #14161A;
+  /* 2. Softened Obsidian Broadcast Ground & Deep Charcoal Ink */
+  --pure-black: #111317;
+  --ink-black: #14171A;
+  --bg-deep-slate: #0B0C0F;
+  --slate-navy: #14161B;
 
   /* 3. Official Orbital Signal Green */
   --green-neon: #01FF7F;
@@ -4333,4 +4333,233 @@ body::after {
 
 .collage-focus-reticle {
   display: none !important;
+}
+
+
+/* ==========================================================================
+   PASS 1 AUDIT FIXES — EYE-COMFORTABLE TONAL CALIBRATION & CONTRAST REPAIR
+   ========================================================================== */
+
+/* 1. Eliminate blinding white nav strip & white hero plate against dark ground */
+.header-deck-nav {
+  background-color: #111318 !important;
+  border-top: 1px solid rgba(1, 255, 127, 0.45) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.nav-link {
+  color: #D4D8DF !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-link:hover {
+  background-color: #1A1D24 !important;
+  color: #F0F1EE !important;
+}
+
+.nav-link.active {
+  background-color: #1C2129 !important;
+  color: #F0F1EE !important;
+  border-bottom: 2px solid #01FF7F !important;
+}
+
+/* 2. Fix invisible dark text on dark masthead & hero */
+.header-deck-top *,
+.header-deck-top .edition-subtext,
+.header-deck-top .header-edition-meta {
+  color: #C9CFD8;
+}
+
+.edition-marker-tag {
+  background-color: #00C965 !important;
+  color: #0A0B0D !important;
+}
+
+.lang-switcher {
+  background-color: #14161B !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.lang-switcher .lang-btn {
+  background-color: transparent !important;
+  color: #C9CFD8 !important;
+}
+
+.lang-switcher .lang-btn.active {
+  background-color: #00C965 !important;
+  color: #0A0B0D !important;
+}
+
+.hero-section {
+  background-color: #0A0B0E !important;
+  color: #E4E7EC !important;
+}
+
+.hero-section .hero-eyebrow-bar,
+.hero-section .hero-eyebrow-bar span,
+.hero-section .hero-kicker-bar,
+.hero-section .hero-kicker-bar span,
+.hero-section .hero-subheadline-ko,
+.hero-section .hero-ko-tagline,
+.hero-section p {
+  color: #D6DBE3 !important;
+}
+
+.hero-section .hero-kicker-pill,
+.hero-section .big-picture-pill {
+  background-color: #14181F !important;
+  color: #01FF7F !important;
+  border: 1px solid rgba(1, 255, 127, 0.4) !important;
+}
+
+.hero-section .hero-kicker-text,
+.hero-section .big-picture-sub {
+  background-color: #181C23 !important;
+  color: #E4E7EC !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+.hero-section .btn-primary-editorial {
+  background-color: #00D26A !important;
+  border-color: #00D26A !important;
+  color: #0A0B0D !important;
+  box-shadow: 3px 3px 0px #FF7F23 !important;
+}
+
+/* 3. Convert blinding white PLATE I box into sleek dark obsidian studio plate */
+.hero-plate-frame {
+  background-color: #111318 !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 5px 5px 0px rgba(1, 255, 127, 0.35) !important;
+}
+
+.plate-frame-header {
+  background-color: #161920 !important;
+  color: #D4D8DF !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.plate-frame-header .plate-id-badge {
+  background-color: #00C965 !important;
+  color: #0A0B0D !important;
+}
+
+.collage-hotspot.active {
+  background-color: #00C965 !important;
+  color: #0A0B0D !important;
+}
+
+/* 4. Soften light editorial sections so transitions from dark sections never hurt eyes */
+.dossier-section,
+.newsletter-section,
+.store-section {
+  background-color: #E8EAE6 !important;
+  color: #14171A !important;
+}
+
+.cast-section,
+.press-section,
+.inbound-section {
+  background-color: #DFE2DC !important;
+  color: #14171A !important;
+}
+
+.dossier-card,
+.cast-card,
+.host-feature-card,
+.press-item-row,
+.store-card,
+.inbound-card {
+  background-color: #F0F1EE !important;
+}
+
+.host-bio-group {
+  background-color: #E8EAE6 !important;
+}
+
+@media (max-width: 900px) {
+  .nav-menu {
+    background-color: #111318 !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+  }
+}
+
+
+/* ==========================================================================
+   PASS 2 AUDIT FIXES — EXACT SELECTOR REPAIRS (LANG TOGGLE, HERO KR, PLATE I)
+   ========================================================================== */
+
+/* 1. Fix KR / EN Language Toggle (.lang-toggle) */
+.lang-toggle {
+  background-color: #14161B !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.lang-toggle .lang-btn {
+  background-color: transparent !important;
+  color: #C9CFD8 !important;
+}
+
+.lang-toggle .lang-btn.active {
+  background-color: #00C965 !important;
+  color: #0A0B0D !important;
+  font-weight: 800 !important;
+}
+
+.lang-toggle .lang-divider {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* 2. Fix Hero Top Masthead Strip, Rubric Pill & Korean Subheadline */
+.editorial-masthead-strip {
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+.editorial-masthead-strip .masthead-kicker {
+  color: rgba(228, 231, 236, 0.72) !important;
+}
+
+.vox-rubric-pill {
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  background-color: #14171D !important;
+}
+
+.vox-rubric-pill .rubric-marker {
+  background-color: #00C965 !important;
+  color: #0A0B0D !important;
+}
+
+.vox-rubric-pill .rubric-sub {
+  background-color: #14171D !important;
+  color: #E4E7EC !important;
+}
+
+.hero-headline-kr {
+  color: #E4E7EC !important;
+}
+
+/* 3. Transform blinding white PLATE I (.collage-showcase-frame) into dark obsidian studio plate */
+.collage-showcase-frame {
+  background-color: #111318 !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 5px 5px 0px rgba(0, 201, 101, 0.35) !important;
+}
+
+.collage-showcase-frame .reg-mark {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.collage-frame-topbar {
+  background-color: #161920 !important;
+  color: #D4D8DF !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.collage-frame-topbar .plate-tag {
+  background-color: #00C965 !important;
+  color: #0A0B0D !important;
+}
+
+.collage-frame-topbar .plate-sub-label {
+  color: #FF7F23 !important;
 }
