@@ -1,6 +1,17 @@
 import { NextResponse } from "next/server";
+import { sanityClient } from "@/lib/sanity";
 
 export const revalidate = 300; // Revalidate every 5 minutes
+
+const SITE_METRICS_GROQ = `*[_type == "siteMetrics" && !(_id in path("drafts.**"))] | order(_updatedAt desc)[0] {
+  subscribersKo,
+  subscribersEn,
+  views90dKo,
+  views90dEn,
+  decisionMakersPct,
+  retentionPct,
+  updatedAt
+}`;
 
 const FEATURED_VIDEO_ID = "dUWffWSGPwQ";
 const CHANNEL_ID = "UCHKDlM4UOmtEBhwDTg8lqJQ";
@@ -66,14 +77,21 @@ export async function GET() {
 
     const rawViews = viewCountMatch ? Number(viewCountMatch[1]) : 157597;
 
+    let cmsMetrics: any = null;
+    try {
+      cmsMetrics = await sanityClient.fetch(SITE_METRICS_GROQ, {}, { next: { revalidate: 300 } });
+    } catch (_) {
+      cmsMetrics = null;
+    }
+
     return NextResponse.json(
       {
         ok: true,
         channelId: CHANNEL_ID,
         featuredVideoId: FEATURED_VIDEO_ID,
         subscribers: {
-          ko: subDisplayKo,
-          en: subDisplayEn,
+          ko: cmsMetrics?.subscribersKo || subDisplayKo,
+          en: cmsMetrics?.subscribersEn || subDisplayEn,
           rawKo: rawSubKo,
           rawEn: rawSubEn,
         },
@@ -82,7 +100,15 @@ export async function GET() {
           ko: formatKoViews(rawViews),
           en: formatEnViews(rawViews),
         },
-        updatedAt: new Date().toISOString(),
+        kpis: {
+          views90d: {
+            ko: cmsMetrics?.views90dKo || "3,550만+",
+            en: cmsMetrics?.views90dEn || "35.5M+",
+          },
+          decisionMakersPct: cmsMetrics?.decisionMakersPct || "69.8%",
+          retentionPct: cmsMetrics?.retentionPct || "60.6%",
+        },
+        updatedAt: cmsMetrics?.updatedAt || new Date().toISOString(),
       },
       {
         headers: {

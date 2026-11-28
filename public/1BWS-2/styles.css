@@ -4806,3 +4806,107 @@ body {
   color: #E2E5EC !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
+
+
+/* ==========================================================================
+   PRIORITY 0 AUDIT FIXES — WCAG AA CONTRAST + DEV UI CLEANUP + FLOW ARCHIVE
+   ========================================================================== */
+
+/* 1. 03 Dossiers Footer Date & Read Time Contrast (WCAG AA >= 6.5:1) */
+.dossier-meta-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #A5AEBE !important;
+}
+
+.dossier-meta-footer span {
+  color: #A5AEBE !important;
+}
+
+.dossier-meta-footer .dossier-read-cta {
+  background-color: #1B1F29 !important;
+  color: #01FF7F !important;
+  border: 1px solid rgba(1, 255, 127, 0.45) !important;
+}
+
+.dossier-card:hover .dossier-meta-footer .dossier-read-cta {
+  background-color: #00C965 !important;
+  color: #0A0B0E !important;
+}
+
+.dossier-code-line,
+.dossier-code-line span {
+  color: #9AA3B5 !important;
+}
+
+.dossier-archive-quote-box {
+  background-color: #1B1F29 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-left: 3px solid #FF7F23 !important;
+  color: #D0D7E2 !important;
+}
+
+.dossier-archive-quote-kicker {
+  color: #FF7F23 !important;
+}
+
+/* 2. 07 Participate Checklist Bullets & Kicker Contrast (WCAG AA >= 10:1) */
+.inbound-kicker {
+  color: #FF7F23 !important;
+}
+
+.inbound-checklist li {
+  color: #D5DBE5 !important;
+}
+
+.inbound-checklist li::before {
+  color: #01FF7F !important;
+}
+
+/* 3. 06 Store & 04 Newsletter Archive Link Contrast */
+.store-card-price,
+.store-card-meta,
+.store-item-tag {
+  color: #01FF7F !important;
+}
+
+.newsletter-archive-row {
+  margin-top: 14px;
+}
+
+.newsletter-archive-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #01FF7F !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(1, 255, 127, 0.45);
+  padding-bottom: 2px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.newsletter-archive-link:hover {
+  color: #FF7F23 !important;
+  border-color: #FF7F23;
+}
+
+/* 4. Unlisted B2B Preview Banner inside Dossier Slide-Over Reader */
+.drawer-preview-banner {
+  background-color: #111318;
+  color: #01FF7F;
+  border: 1px solid #01FF7F;
+  border-left: 4px solid #FF7F23;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+}
+
+/* 5. Hide Dev-Only Asset Inspector Controls unless body.dev-edit-mode is active */
+body:not(.dev-edit-mode) #toggleSlotInspectorBtn,
+body:not(.dev-edit-mode) .slot-replace-trigger {
+  display: none !important;
+}

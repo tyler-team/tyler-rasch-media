@@ -81,11 +81,12 @@ const i18nDict = {
     'cast.sectionTitle': 'Panels',
     'cast.sectionSubtitle': '원빅월드쇼 메인 패널 타일러 라쉬(Tyler Rasch)와 거시경제·지정학·기술·역사 각 분과의 패널 및 객원 연구원 라인업입니다.',
     'cast.joinCrewBtn': '객원 패널 · 리서처 지원하기 →',
-    'newsletter.headline': '매주 방송에서 다 다루지 못한 1차 사료 원문과 데스크 노트를 서재로 보내드립니다.',
-    'newsletter.subcopy': '알고리즘의 소음 없이 매주 화요일 오전 7시, 원빅월드쇼(1BWS) 편집국이 엄선한 글로벌 거시 지표, 지정학 도시에 요약본, 그리고 원문 PDF 레퍼런스를 이메일로 받아보세요.',
+    'newsletter.headline': '매주 화요일 아침 7시, 이번 주 꼭 읽어야 할 글로벌 판의 핵심을 3분 만에 보내드립니다.',
+    'newsletter.subcopy': '이번 주 본편 핵심 숫자 3개 + 비하인드 데스크 노트 + 방금 공개된 1차 사료 도시에(MLA) 직행 링크까지 — 알고리즘 소음 없이 이메일로 받아보세요.',
     'newsletter.submitBtn': '뉴스레터 구독하기 →',
+    'newsletter.archiveLink': '지난 위클리 디스패치 아카이브 보기 (/blog) →',
     'newsletter.igTitle': '1BWS 공식 인스타그램 공지채널 (Broadcast)',
-    'newsletter.igDesc': '별도의 가입 절차 없이 원빅월드쇼 독자 커뮤니티에 합류하세요. 차기 에피소드 취재 노트, 실시간 사료 팩트체크, 독자 리서치 설문이 업데이트됩니다.',
+    'newsletter.igDesc': '매주 화·목 에피소드 발행 직후 3줄 브리핑, 차기 취재 데스크 노트, 실시간 사료 팩트체크 및 독자 리서치 설문이 가장 먼저 업데이트됩니다.',
     'newsletter.igBtn': '인스타그램 공지채널 입장하기 ↗',
     'press.sectionTitle': 'Press & Media Room',
     'press.sectionSubtitle': '국내외 주요 언론에 인용된 원빅월드쇼(1BWS)의 분석 리포트와 타일러 미디어(Tyler Media) 공식 국·영문 보도자료 아카이브입니다.',
@@ -195,11 +196,12 @@ const i18nDict = {
     'cast.sectionTitle': 'Panels',
     'cast.sectionSubtitle': 'Meet 1BWS Main Panel Tyler Rasch alongside our roster of panels and visiting fellows across macroeconomics, geopolitics, technology, and history.',
     'cast.joinCrewBtn': 'Apply for Guest Panels & Fellowships →',
-    'newsletter.headline': 'Receive the Primary Sources and Desk Notes Behind Every Episode.',
-    'newsletter.subcopy': 'Dispatched every Tuesday at 7 AM KST without algorithmic noise: global macro indicators, geopolitical dossier abstracts, and direct primary-document references.',
+    'newsletter.headline': 'Every Tuesday at 7 AM KST — The Global Macro Brief You Can Read in 3 Minutes.',
+    'newsletter.subcopy': 'Three key numbers from this week’s episode, studio desk notes, and direct links to newly published MLA primary-source dossiers — delivered without algorithmic noise.',
     'newsletter.submitBtn': 'Subscribe to Dispatch →',
+    'newsletter.archiveLink': 'Browse Weekly Dispatch Archive (/en/blog) →',
     'newsletter.igTitle': '1BWS Official Instagram Broadcast Channel',
-    'newsletter.igDesc': 'Join our reader community directly without sign-up walls. Receive studio research notes, live primary-source fact-checks, and editorial polls.',
+    'newsletter.igDesc': 'Instant 3-line briefings right after every Tue/Thu episode premiere, studio desk notes, live fact-checks, and reader research polls.',
     'newsletter.igBtn': 'Join Instagram Broadcast Channel ↗',
     'press.sectionTitle': 'Press & Media Room',
     'press.sectionSubtitle': 'Domestic and international media citations of One Big World Show (1BWS) investigations and official bilingual press releases from Tyler Media.',
@@ -1610,9 +1612,88 @@ function renderDossierChartHTML(d) {
   return '';
 }
 
+let liveSanityDossiers = [];
+let liveDossiersFetchStarted = false;
+let unlistedPreviewDossier = null;
+
+function getCombinedDossiers() {
+  const cmsMapped = liveSanityDossiers
+    .filter(it => (currentLang === 'en' ? it.lang === 'en' : it.lang !== 'en'))
+    .map(it => ({
+      id: it.id,
+      dossierNo: it.dossierNo,
+      code: it.code,
+      topic: it.topic,
+      topicLabel: it.topicLabel,
+      tagClass: it.tagClass,
+      region: it.region,
+      regionLabel: it.regionLabel,
+      date: it.date,
+      readTime: it.readTime,
+      title: { ko: it.title, en: it.title },
+      p1: { ko: it.thesis, en: it.thesis },
+      p2: { ko: it.summary || '', en: it.summary || '' },
+      fullBody: { ko: it.bodyHtml || `<p>${it.thesis}</p>`, en: it.bodyHtml || `<p>${it.thesis}</p>` },
+      mlaSources: it.mlaSources || [],
+      mechanismSteps: it.mechanismSteps || [],
+      linkedYoutubeId: it.linkedYoutubeId || '',
+      isUnlistedPreview: Boolean(it.isUnlistedPreview)
+    }));
+  return [...cmsMapped, ...dossiersData];
+}
+
+function loadLiveSanityDossiers() {
+  if (liveDossiersFetchStarted) return;
+  liveDossiersFetchStarted = true;
+  const params = new URLSearchParams(window.location.search);
+  const previewNo = params.get('dossier') || '';
+  const previewToken = params.get('preview') || '';
+  const qs = previewNo && previewToken
+    ? `?dossier=${encodeURIComponent(previewNo)}&preview=${encodeURIComponent(previewToken)}`
+    : '';
+  const apiUrl = (window.location.protocol === 'file:' ? 'https://www.tylerrasch.com' : '') + '/api/1bws-dossiers' + qs;
+
+  fetch(apiUrl)
+    .then(res => (res.ok ? res.json() : null))
+    .then(data => {
+      if (!data) return;
+      if (Array.isArray(data.items) && data.items.length > 0) {
+        liveSanityDossiers = data.items;
+        renderDossierGrid();
+        renderFeaturedEpisode();
+      }
+      if (data.previewItem) {
+        unlistedPreviewDossier = {
+          id: data.previewItem.id,
+          dossierNo: data.previewItem.dossierNo,
+          code: data.previewItem.code,
+          topic: data.previewItem.topic,
+          topicLabel: data.previewItem.topicLabel,
+          tagClass: data.previewItem.tagClass,
+          region: data.previewItem.region,
+          regionLabel: data.previewItem.regionLabel,
+          date: data.previewItem.date,
+          readTime: data.previewItem.readTime,
+          title: { ko: data.previewItem.title, en: data.previewItem.title },
+          p1: { ko: data.previewItem.thesis, en: data.previewItem.thesis },
+          p2: { ko: data.previewItem.summary || '', en: data.previewItem.summary || '' },
+          fullBody: { ko: data.previewItem.bodyHtml || `<p>${data.previewItem.thesis}</p>`, en: data.previewItem.bodyHtml || `<p>${data.previewItem.thesis}</p>` },
+          mlaSources: data.previewItem.mlaSources || [],
+          mechanismSteps: data.previewItem.mechanismSteps || [],
+          linkedYoutubeId: data.previewItem.linkedYoutubeId || '',
+          isUnlistedPreview: true
+        };
+        openDossierSlideover(unlistedPreviewDossier.id, unlistedPreviewDossier);
+      }
+    })
+    .catch(() => {});
+}
+
 function renderDossierGrid() {
+  loadLiveSanityDossiers();
   const grid = document.getElementById('dossierCardsGrid');
-  const filtered = dossiersData.filter(d => {
+  const allDossiers = getCombinedDossiers();
+  const filtered = allDossiers.filter(d => {
     const matchTopic = currentTopicFilter === 'all' || d.topic === currentTopicFilter;
     const matchRegion = currentRegionFilter === 'all' || d.region === currentRegionFilter;
     return matchTopic && matchRegion;
@@ -1620,8 +1701,8 @@ function renderDossierGrid() {
 
   document.getElementById('dossierCountReadout').textContent =
     currentLang === 'ko'
-      ? `총 ${dossiersData.length}건 중 ${filtered.length}건의 도시에 표시`
-      : `SHOWING ${filtered.length} OF ${dossiersData.length} DOSSIERS`;
+      ? `총 ${allDossiers.length}건 중 ${filtered.length}건의 도시에 표시`
+      : `SHOWING ${filtered.length} OF ${allDossiers.length} DOSSIERS`;
 
   if (filtered.length === 0) {
     grid.innerHTML = `
@@ -1725,21 +1806,33 @@ function renderDossierGrid() {
   });
 }
 
-function openDossierSlideover(briefId) {
-  const d = dossiersData.find(item => item.id === briefId) || dossiersData[0];
+function openDossierSlideover(briefId, explicitDossier = null) {
+  const allDossiers = getCombinedDossiers();
+  const ep = episodesData.find(e => e.id === activeEpisodeId);
+  const ytMatch = (!explicitDossier && ep && ep.youtubeId)
+    ? allDossiers.find(item => item.linkedYoutubeId && item.linkedYoutubeId === ep.youtubeId && briefId === ep.relatedBriefId)
+    : null;
+  const d = explicitDossier || ytMatch || allDossiers.find(item => item.id === briefId) || allDossiers[0];
   activeDossierMlaSources = d.mlaSources || [];
   document.getElementById('drawerDossierCode').textContent = `${d.code} · ${d.topicLabel[currentLang]}`;
   document.getElementById('drawerReadTime').textContent = `${d.regionLabel[currentLang]} · ${d.date} · ${d.readTime}`;
+  const previewBannerHtml = d.isUnlistedPreview
+    ? `<div class="drawer-preview-banner">🔒 UNLISTED PARTNER PREVIEW · CONFIDENTIAL PRE-RELEASE DOSSIER (${d.dossierNo || d.code})</div>`
+    : '';
+  const dynamicMechanismHtml = (!renderDossierChartHTML(d) && Array.isArray(d.mechanismSteps) && d.mechanismSteps.length > 0)
+    ? `<div class="drawer-data-chart-box"><div class="drawer-data-chart-kicker">PRIMARY MECHANISM SCHEMATIC</div><div style="display:grid;grid-template-columns:repeat(${d.mechanismSteps.length},1fr);gap:10px;margin-top:8px;">${d.mechanismSteps.map((s, i) => `<div style="border:1px solid #14171A;padding:10px;background:${i === 1 ? '#14171E;color:#F0F1EE' : '#F4F4F4;color:#14171A'};"><div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:700;color:${i === 1 ? '#01FF7F' : '#C84B00'};margin-bottom:4px;">${escapePressHtml(s.kicker || `STEP 0${i + 1}`)}</div><div style="font-size:0.82rem;font-weight:700;">${escapePressHtml(s.headline || '')}</div></div>`).join('')}</div></div>`
+    : '';
   document.getElementById('drawerArticleBody').innerHTML = `
+    ${previewBannerHtml}
     <h2 id="drawerArticleTitle">${d.title[currentLang]}</h2>
     <div class="drawer-vox-abstract">
       <div class="vox-abstract-kicker">${currentLang === 'ko' ? 'THE BIG PICTURE · 핵심 요약 브리핑' : 'THE BIG PICTURE · EXECUTIVE BRIEFING'}</div>
       <p>${d.p1[currentLang]} ${d.p2[currentLang]}</p>
     </div>
-    ${renderDossierChartHTML(d)}
+    ${renderDossierChartHTML(d) || dynamicMechanismHtml}
     ${d.fullBody[currentLang]}
   `;
-  document.getElementById('drawerMlaList').innerHTML = d.mlaSources.map(src => `<li>${src}</li>`).join('');
+  document.getElementById('drawerMlaList').innerHTML = activeDossierMlaSources.map(src => `<li>${src}</li>`).join('');
   const scrollContainer = document.getElementById('drawerScrollContainer');
   if (scrollContainer) scrollContainer.scrollTop = 0;
   const progressBar = document.getElementById('drawerReadingProgress');
@@ -1852,9 +1945,63 @@ function renderCastSection() {
   });
 }
 
+let liveSanityPressItems = [];
+let livePressFetchStarted = false;
+
+function escapePressHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function loadLiveSanityPress() {
+  if (livePressFetchStarted) return;
+  livePressFetchStarted = true;
+  const apiUrl = (window.location.protocol === 'file:' ? 'https://www.tylerrasch.com' : '') + '/api/1bws-press';
+  fetch(apiUrl)
+    .then(res => (res.ok ? res.json() : null))
+    .then(data => {
+      if (data && Array.isArray(data.items) && data.items.length > 0) {
+        liveSanityPressItems = data.items;
+        renderPressSection();
+      }
+    })
+    .catch(() => {});
+}
+
 function renderPressSection() {
+  loadLiveSanityPress();
   const container = document.getElementById('pressListContainer');
-  container.innerHTML = pressItemsData.map((item, idx) => `
+  if (!container) return;
+
+  const liveForLang = liveSanityPressItems
+    .filter(it => (currentLang === 'en' ? it.lang === 'en' : it.lang !== 'en'))
+    .slice(0, 12);
+
+  const liveHtml = liveForLang.map(it => {
+    const badgeLabel = it.category === 'episode'
+      ? '1BWS PRESS'
+      : it.category === 'interview'
+        ? 'INTERVIEW'
+        : 'TYLER MEDIA PR';
+    const metaText = it.subtitle || (it.highlights && it.highlights[0]) || (currentLang === 'ko' ? '타일러 미디어 공식 보도자료' : 'Tyler Media Official Press Release');
+    return `
+      <article class="press-item-row">
+        <span class="press-outlet-badge pr-official">${escapePressHtml(badgeLabel)}</span>
+        <div>
+          <h3 class="press-item-title">${escapePressHtml(it.title)}</h3>
+          <div class="press-item-meta">${escapePressHtml(it.date)} · ${escapePressHtml(metaText)}</div>
+        </div>
+        <a href="${escapePressHtml(it.url)}" target="_blank" rel="noopener noreferrer" class="btn-secondary-editorial" style="padding: 8px 14px; font-size: 0.76rem; text-decoration: none; display: inline-flex; align-items: center;">
+          ${currentLang === 'ko' ? '전문 열람 ↗' : 'Read Release ↗'}
+        </a>
+      </article>
+    `;
+  }).join('');
+
+  const staticHtml = pressItemsData.map((item, idx) => `
     <article class="press-item-row">
       <span class="press-outlet-badge ${item.isOfficial ? 'pr-official' : ''}">${item.outlet}</span>
       <div>
@@ -1866,6 +2013,8 @@ function renderPressSection() {
       </button>
     </article>
   `).join('');
+
+  container.innerHTML = liveHtml + staticHtml;
 
   container.querySelectorAll('[data-press-idx]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1987,6 +2136,11 @@ function applyLanguage(lang) {
     syncHeroHotspotUI(key, lang);
   }
 
+  const archiveLink = document.getElementById('newsletterArchiveLink');
+  if (archiveLink) {
+    archiveLink.setAttribute('href', lang === 'en' ? '/en/blog' : '/blog');
+  }
+
   renderFeaturedEpisode();
   renderEpisodeGrid();
   renderDossierGrid();
@@ -1994,6 +2148,33 @@ function applyLanguage(lang) {
   renderPressSection();
   renderStoreSection();
   bindSlotReplaceButtons();
+  cleanupProdDevControls();
+}
+
+function isDevEditMode() {
+  const qs = window.location.search || '';
+  return qs.includes('edit=1') || qs.includes('slots=1');
+}
+
+function cleanupProdDevControls() {
+  if (isDevEditMode()) {
+    document.body.classList.add('dev-edit-mode');
+    return;
+  }
+  document.querySelectorAll('.slot-replace-trigger').forEach(el => el.remove());
+  const toggleBtn = document.getElementById('toggleSlotInspectorBtn');
+  if (toggleBtn) toggleBtn.remove();
+}
+
+async function submitInboundDesk(desk, data) {
+  const apiUrl = (window.location.protocol === 'file:' ? 'https://www.tylerrasch.com' : '') + '/api/1bws-inbound';
+  try {
+    await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ desk, data })
+    });
+  } catch (_) {}
 }
 
 function bindSlotReplaceButtons() {
@@ -2026,6 +2207,25 @@ async function fetchLiveChannelStats() {
       }
     }
 
+    if (data.kpis) {
+      if (data.kpis.views90d) {
+        if (data.kpis.views90d.ko) i18nDict.ko['b2b.metric2Val'] = data.kpis.views90d.ko;
+        if (data.kpis.views90d.en) i18nDict.en['b2b.metric2Val'] = data.kpis.views90d.en;
+      }
+      if (data.kpis.decisionMakersPct) {
+        i18nDict.ko['b2b.metric3Val'] = data.kpis.decisionMakersPct;
+        i18nDict.en['b2b.metric3Val'] = data.kpis.decisionMakersPct;
+      }
+      if (data.kpis.retentionPct) {
+        i18nDict.ko['b2b.metric4Val'] = data.kpis.retentionPct;
+        i18nDict.en['b2b.metric4Val'] = data.kpis.retentionPct;
+      }
+      ['b2b.metric2Val', 'b2b.metric3Val', 'b2b.metric4Val'].forEach(k => {
+        const el = document.querySelector(`[data-i18n="${k}"]`);
+        if (el) el.textContent = i18nDict[currentLang][k];
+      });
+    }
+
     if (data.featuredVideoViews) {
       const ep1 = episodesData.find(e => e.id === 'ep-1');
       if (ep1) {
@@ -2050,24 +2250,24 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
   });
 
-  // Asset Slot Overlay Inspector Toggle (Hidden unless ?slots=1 or Shift+Alt+S)
+  // Asset Slot Overlay Inspector Toggle (Removed in production unless ?edit=1 or ?slots=1)
   const slotToggleBtn = document.getElementById('toggleSlotInspectorBtn');
-  if (window.location.search.includes('slots=1')) {
+  if (slotToggleBtn && isDevEditMode()) {
+    document.body.classList.add('dev-edit-mode');
     slotToggleBtn.classList.remove('is-hidden-devtools');
+    const toggleAssetSlots = () => {
+      const isShowing = document.body.classList.toggle('show-asset-slots');
+      slotToggleBtn.classList.toggle('active', isShowing);
+      slotToggleBtn.textContent = isShowing ? 'Asset Slots: On' : 'Asset Slots: Off';
+    };
+    slotToggleBtn.addEventListener('click', toggleAssetSlots);
+    window.addEventListener('keydown', (e) => {
+      if (e.shiftKey && e.altKey && (e.key === 'S' || e.key === 's')) {
+        e.preventDefault();
+        toggleAssetSlots();
+      }
+    });
   }
-  const toggleAssetSlots = () => {
-    slotToggleBtn.classList.remove('is-hidden-devtools');
-    const isShowing = document.body.classList.toggle('show-asset-slots');
-    slotToggleBtn.classList.toggle('active', isShowing);
-    slotToggleBtn.textContent = isShowing ? 'Asset Slots: On' : 'Asset Slots: Off';
-  };
-  slotToggleBtn.addEventListener('click', toggleAssetSlots);
-  window.addEventListener('keydown', (e) => {
-    if (e.shiftKey && e.altKey && (e.key === 'S' || e.key === 's')) {
-      e.preventDefault();
-      toggleAssetSlots();
-    }
-  });
 
   // File Input Handler for Testing Custom Images in Any data-asset-slot
   document.getElementById('slotFileInput').addEventListener('change', (e) => {
@@ -2266,6 +2466,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('newsletterForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('newsletterEmailInput').value;
+    submitInboundDesk('newsletter', { email, lang: currentLang });
     document.getElementById('newsletterFeedback').textContent =
       currentLang === 'ko'
         ? `[${email}] 구독이 등록되었습니다. 매주 화요일 오전 7시 1BWS 주간 브리프가 발송됩니다.`
@@ -2341,6 +2542,12 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     document.getElementById('tipsModalForm').addEventListener('submit', (e) => {
       e.preventDefault();
+      const form = e.currentTarget;
+      submitInboundDesk('tips', {
+        discipline: form.querySelector('select')?.value || '',
+        summary: form.querySelector('textarea')?.value || '',
+        contact: form.querySelector('input[type="text"]')?.value || ''
+      });
       closeUniversalModal();
       showToast('제보 및 첨부 사료가 1BWS 리서치 데스크에 접수되었습니다.');
     });
@@ -2379,6 +2586,12 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     document.getElementById('careersModalForm').addEventListener('submit', (e) => {
       e.preventDefault();
+      const form = e.currentTarget;
+      submitInboundDesk('careers', {
+        position: form.querySelector('select')?.value || '',
+        applicant: form.querySelector('input[type="text"]')?.value || '',
+        pitch: form.querySelector('textarea')?.value || ''
+      });
       closeUniversalModal();
       showToast('지원서 및 포트폴리오가 타일러 미디어 에디토리얼 데스크로 접수되었습니다.');
     });
@@ -2423,6 +2636,14 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     document.getElementById('b2bModalForm').addEventListener('submit', (e) => {
       e.preventDefault();
+      const form = e.currentTarget;
+      submitInboundDesk('b2b', {
+        mode,
+        organization: form.querySelector('input[type="text"]')?.value || '',
+        email: form.querySelector('input[type="email"]')?.value || '',
+        scope: form.querySelector('select')?.value || '',
+        brief: form.querySelector('textarea')?.value || ''
+      });
       closeUniversalModal();
       showToast('파트너십 및 미디어킷 요청이 타일러 미디어 비즈니스 데스크에 접수되었습니다.');
     });
